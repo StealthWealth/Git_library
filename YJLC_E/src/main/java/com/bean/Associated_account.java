@@ -9,6 +9,7 @@ public class Associated_account {
 	private int member; 	  //会员ID
 	private String type;	  //账号类型
 	private String name;	  //账号名称
+	private String identifying; //账号标识
 	private int status;       //状况
 	private Date create_date; //创建时间
 	private Date update_date; //修改时间
@@ -38,6 +39,12 @@ public class Associated_account {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public String getIdentifying() {
+		return identifying;
+	}
+	public void setIdentifying(String identifying) {
+		this.identifying = identifying;
 	}
 	public int getStatus() {
 		return status;
