@@ -3,11 +3,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Typography</title>
+<title>Home</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script type="application/x-javascript">
+		addEventListener("load", function() {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
 <!-- bootstrap-css -->
 <link rel="stylesheet" href="/YJLC_E/css/bootstrap.min.css">
 <!-- //bootstrap-css -->
@@ -19,10 +27,18 @@
 	href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic'
 	rel='stylesheet' type='text/css'>
 <!-- font-awesome icons -->
+<link rel="stylesheet" href="/YJLC_E/css/font.css" type="text/css" />
 <link href="/YJLC_E/css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" href="/YJLC_E/css/morris.css" type="text/css" />
+<!-- calendar -->
+<link rel="stylesheet" href="/YJLC_E/css/monthly.css">
+<!-- //calendar -->
 <!-- //font-awesome icons -->
 <script src="/YJLC_E/js/jquery2.0.3.min.js"></script>
+<script src="/YJLC_E/js/raphael-min.js"></script>
+<script src="/YJLC_E/js/morris.js"></script>
 </head>
+
 <body>
 	<section id="container"> <!--header start--> <header
 		class="header fixed-top clearfix"> <!--logo start-->
@@ -33,7 +49,6 @@
 		</div>
 	</div>
 	<!--logo end-->
-
 	<div class="nav notify-row" id="top_menu">
 		<!--  notification start -->
 		<ul class="nav top-menu">
@@ -104,25 +119,25 @@
 						<p class="red">You have 4 Mails</p>
 					</li>
 					<li><a href="#"> <span class="photo"><img
-								alt="avatar" src="images/3.png"></span> <span class="subject">
+								alt="avatar" src="/YJLC_E/images/3.png"></span> <span class="subject">
 								<span class="from">Jonathan Smith</span> <span class="time">Just
 									now</span>
 						</span> <span class="message"> Hello, this is an example msg. </span>
 					</a></li>
 					<li><a href="#"> <span class="photo"><img
-								alt="avatar" src="images/1.png"></span> <span class="subject">
+								alt="avatar" src="/YJLC_E/images/1.png"></span> <span class="subject">
 								<span class="from">Jane Doe</span> <span class="time">2
 									min ago</span>
 						</span> <span class="message"> Nice admin template </span>
 					</a></li>
 					<li><a href="#"> <span class="photo"><img
-								alt="avatar" src="images/3.png"></span> <span class="subject">
+								alt="avatar" src="/YJLC_E/images/3.png"></span> <span class="subject">
 								<span class="from">Tasi sam</span> <span class="time">2
 									days ago</span>
 						</span> <span class="message"> This is an example msg. </span>
 					</a></li>
 					<li><a href="#"> <span class="photo"><img
-								alt="avatar" src="images/2.png"></span> <span class="subject">
+								alt="avatar" src="/YJLC_E/images/2.png"></span> <span class="subject">
 								<span class="from">Mr. Perfect</span> <span class="time">2
 									hour ago</span>
 						</span> <span class="message"> Hi there, its a test </span>
@@ -182,7 +197,8 @@
 				<ul class="dropdown-menu extended logout">
 					<li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
 					<li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
-					<li><a href="login.html"><i class="fa fa-key"></i> Log Out</a></li>
+					<li><a href="login.html"><i class="fa fa-key"></i> Log Out</a>
+					</li>
 				</ul></li>
 			<!-- user login dropdown end -->
 
@@ -194,7 +210,8 @@
 		<!-- sidebar menu start-->
 		<div class="leftside-navigation">
 			<ul class="sidebar-menu" id="nav-accordion">
-				<li><a href="index.html"> <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+				<li><a class="active" href="index.html"> <i
+						class="fa fa-dashboard"></i> <span>Dashboard</span>
 				</a></li>
 
 				<li class="sub-menu"><a href="javascript:;"> <i
@@ -211,12 +228,12 @@
 						</li>
 						<li><a href="college_Consultation_Type.jsp">资讯分类</a></li>
 					</ul></li>
-				<li class="sub-menu"><a class="active" href="javascript:;">
-						<i class="fa fa-th"></i> <span>会员管理</span>
+				<li class="sub-menu"><a href="javascript:;"> <i
+						class="fa fa-th"></i> <span>会员管理</span>
 				</a>
 					<ul class="sub">
 						<li><a href="/YJLC_E/listAuditingAll">账号管理</a></li>
-						<li><a class="active" href="vip_Bangker.jsp">绑卡管理</a></li>
+						<li><a href="vip_Bangker.jsp">绑卡管理</a></li>
 						<li><a href="vip_Invitation.jsp">邀请管理</a></li>
 						<li><a href="vip_plan.jsp">付息计划</a></li>
 						<li><a href="vip_Recharge.jsp">充值管理</a></li>
@@ -243,12 +260,16 @@
 		</div>
 		<!-- sidebar menu end-->
 	</div>
-	</aside> <section id="main-content"> <section class="wrapper">
-
-	12131 </section> <!-- footer --> <!-- / footer --> </section> <script src="/YJLC_E/js/bootstrap.js"></script>
-	<script src="/YJLC_E/js/jquery.dcjqaccordion.2.7.js"></script> <script
-		src="/YJLC_E/js/scripts.js"></script> <script src="/YJLC_E/js/jquery.slimscroll.js"></script>
-	<script src="/YJLC_E/js/jquery.nicescroll.js"></script> <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
+	</aside> <!--sidebar end--> <!--main content start--> <section
+		id="main-content"> </section> <!--main content end--> </section>
+	<script src="/YJLC_E/js/bootstrap.js"></script>
+	<script src="/YJLC_E/js/jquery.dcjqaccordion.2.7.js"></script>
+	<script src="/YJLC_E/js/scripts.js"></script>
+	<script src="/YJLC_E/js/jquery.slimscroll.js"></script>
+	<script src="/YJLC_E/js/jquery.nicescroll.js"></script>
+	<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
 	<script src="/YJLC_E/js/jquery.scrollTo.js"></script>
+	<!-- morris JavaScript -->
+
 </body>
 </html>
