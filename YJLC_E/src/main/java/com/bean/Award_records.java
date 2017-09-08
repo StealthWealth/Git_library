@@ -7,7 +7,8 @@ public class Award_records {
 	private int id;			//id
 	private int invitingid; //ÑûÇëÈËid
 	private int byinvitingid; //±»ÑûÇëÈËid
-	private int type; 		//½±Àø×´Ì¬(0:Î´½±Àø    1:ÒÑ½±Àø)
+	private int type; 		//½±ÀøÀàĞÍ(0:×¢²á½±Àø,1:Í¶×Ê½±Àø)
+	private int isAward;    //½±Àø×´Ì¬(0:Î´½±Àø 1:ÒÑ½±Àø)
 	private Date addTime;	//Ìí¼ÓÊ±¼ä
 	
 	
@@ -34,6 +35,12 @@ public class Award_records {
 	}
 	public void setType(int type) {
 		this.type = type;
+	}
+	public int getIsAward() {
+		return isAward;
+	}
+	public void setIsAward(int isAward) {
+		this.isAward = isAward;
 	}
 	public Date getAddTime() {
 		return addTime;
