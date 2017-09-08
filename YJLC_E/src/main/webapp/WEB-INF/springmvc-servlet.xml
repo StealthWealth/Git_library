@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
+
+	<mvc:annotation-driven></mvc:annotation-driven>
+	<context:component-scan base-package="com.*" use-default-filters="false">
+	 <context:include-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+		<context:include-filter type="annotation"
+			expression="org.springframework.web.bind.annotation.ControllerAdvice" />
+	</context:component-scan>
+	<mvc:default-servlet-handler />
+	<mvc:resources location="/static/h-ui/css/" mapping="/static/h-ui/css/**"/>
+	<mvc:resources location="/static/h-ui.admin/css/" mapping="/static/h-ui.admin/css/**"/>
+	<mvc:resources location="/lib/Hui-iconfont/1.0.8/" mapping="/lib/Hui-iconfont/1.0.8/**"/>
+	<mvc:resources location="/static/h-ui.admin/skin/default/" mapping="/static/h-ui.admin/skin/default/**"/>
+	<mvc:resources location="/static/h-ui.admin/css/" mapping="/static/h-ui.admin/css/**"/>
+	<mvc:resources location="/lib/jquery/1.9.1/" mapping="/lib/jquery/1.9.1/**"/>
+	<mvc:resources location="/lib/layer/2.4/" mapping="/lib/layer/2.4/**"/>
+	<mvc:resources location="/static/h-ui/" mapping="/static/h-ui/**"/>
+	<mvc:resources location="/static/h-ui.admin/js/" mapping="/static/h-ui.admin/js/**"/>
+	<mvc:resources location="/lib/My97DatePicker/4.8/" mapping="/lib/My97DatePicker/4.8/**"/>
+	<mvc:resources location="/lib/datatables/1.10.0/" mapping="/lib/datatables/1.10.0/**"/>
+	<mvc:resources location="/lib/laypage/1.2/" mapping="/lib/laypage/1.2/**"/>
+	<bean  class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+
+	
+</beans>
