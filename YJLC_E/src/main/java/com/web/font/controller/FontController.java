@@ -13,7 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.web.font.bean.Finance_product_funds;
+import com.web.finance_product_bean.Finance_product_funds;
 import com.web.font.bean.Push_notice;
 import com.web.font.bean.Users;
 import com.web.font.service.FontService;
