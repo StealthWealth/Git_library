@@ -379,6 +379,8 @@
 				</a>
 					<ul class="sub">
 						<li><a href="products_Solid _Collection.jsp">固收类/P2P</a></li>
+						<li><a href="/YJLC_E/funds/listfunds">私募/股权类</a></li>
+						<li><a href="products_Solid _Collection.jsp">海外配置</a></li>
 					</ul></li>
 				<li class="sub-menu"><a class="active" href="javascript:;">
 						<i class="fa fa-th"></i> <span>学院管理</span>

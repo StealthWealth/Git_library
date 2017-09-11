@@ -1,7 +1,15 @@
-package com.bean;
+package com.web.finance_product_bean;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table
 public class Finance_product_subscribe {
 //  Finance_product_subscribe   理财类基金产品预约记录表
 	private int id;           //id
@@ -15,11 +23,14 @@ public class Finance_product_subscribe {
 	private String risk_reveal;  //风险揭示书
 	private Date create_date;   //创建时间
 	private Date update_date;    //修改时间
-	private double amount;    //私募购买金额
-	private double interest;  //私募结算收益
+	private Integer amount;    //私募购买金额
+	private Integer interest;  //私募结算收益
 	private Date start_date;    //开始时间
 	private Date end_date;      //结束时间
 	private String signed_photos;  //签署拍照
+	
+	@Id
+	@GeneratedValue
 	public int getId() {
 		return id;
 	}
@@ -86,16 +97,16 @@ public class Finance_product_subscribe {
 	public void setUpdate_date(Date update_date) {
 		this.update_date = update_date;
 	}
-	public double getAmount() {
+	public Integer getAmount() {
 		return amount;
 	}
-	public void setAmount(double amount) {
+	public void setAmount(Integer amount) {
 		this.amount = amount;
 	}
-	public double getInterest() {
+	public Integer getInterest() {
 		return interest;
 	}
-	public void setInterest(double interest) {
+	public void setInterest(Integer interest) {
 		this.interest = interest;
 	}
 	public Date getStart_date() {

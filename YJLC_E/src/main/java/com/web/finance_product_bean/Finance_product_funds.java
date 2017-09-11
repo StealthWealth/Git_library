@@ -1,7 +1,14 @@
-package com.bean;
+package com.web.finance_product_bean;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table
 public class Finance_product_funds {
 //  Finance_product_funds  理财类基金产品表
 	private int id;   //id
@@ -31,6 +38,9 @@ public class Finance_product_funds {
 	private String ratio;              //返佣比例
 	private String contract;           //私募合同
 	private String bank_account;       //银行账户（支行名称|银行账号|户名）
+	
+	@Id
+	@GeneratedValue
 	public int getId() {
 		return id;
 	}

@@ -378,6 +378,8 @@
 				</a>
 					<ul class="sub">
 						<li><a class="active" href="products_Solid _Collection.jsp">固收类/P2P</a>
+						<li><a href="/YJLC_E/funds/listfunds">私募/股权类</a></li>
+						<li><a href="products_Solid _Collection.jsp">海外配置</a></li>
 						</li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
