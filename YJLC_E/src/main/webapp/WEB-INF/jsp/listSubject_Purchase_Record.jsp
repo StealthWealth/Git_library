@@ -280,7 +280,7 @@
 					</td>
 					<td>
 							<c:if test="${subject_Purchase.ispayment==0 }">
-								<a href="/YJLC_E/updateSubject_Purchase/${subject_Purchase.id}/${subject_Purchase.subject.id }">还款</a>
+								<a href="/YJLC_E/updateSubject_Purchase/${subject_Purchase.id}/${subject_Purchase.subject.id}">还款</a>
 						</c:if>
 						<c:if test="${subject_Purchase.ispayment==1 }">
 							<font color="green">已还款</font>
