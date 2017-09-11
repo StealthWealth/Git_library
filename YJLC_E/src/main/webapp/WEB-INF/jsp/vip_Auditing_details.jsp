@@ -26,6 +26,7 @@
 <script src="/YJLC_E/js/jquery2.0.3.min.js"></script>
 </head>
 
+<!-- 表格剧中  
 <style type="text/css">
 table{
   position: absolute;
@@ -33,7 +34,13 @@ table{
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 </style>
+-->
+
+
+</style>
+
 <body>
 	<section id="container"> <!--header start--> <header
 		class="header fixed-top clearfix"> <!--logo start-->
@@ -227,10 +234,10 @@ table{
 				</a>
 					<ul class="sub">
 						<li><a class="active" href="/YJLC_E/listAuditingAll">账号管理</a></li>
-						<li><a href="vip_Bangker.jsp">绑卡管理</a></li>
+						<li><a href="/YJLC_E/listMember_Bankcards">绑卡管理</a></li>
 						<li><a href="vip_Invitation.jsp">邀请管理</a></li>
-						<li><a href="vip_plan.jsp">付息计划</a></li>
-						<li><a href="vip_Recharge.jsp">充值管理</a></li>
+						<li><a href="/YJLC_E/listSubject">付息计划</a></li>
+						<li><a href="/YJLC_E/listMember_deposit_record">充值管理</a></li>
 						<li><a href="vip_Withdrawals.jsp">体现管理</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
@@ -258,40 +265,97 @@ table{
 	
 	
 	
-	<table border="0" width="500px">
+	<table border="0" width="100%">
 		<tr>
 			<td>
 	<table  class="table"  style="text-align: center;font-size: 6">
 	<thead>
 		<tr>
-			<td><img>${member.headid }</img></td>
+			<td colspan="8" align="center"><font color="black" size="7">账号详情</font></td>
 		</tr>
 		<tr>
-			<td><font color="black"><strong>姓名:${member.member_name }</strong></font></td>
+			<td align="right"><font color="black">姓名:</font></td>
+			<td align="left"><font color="black">${member.member_name }</font></td>
+			<td align="right"><font color="black">用户名:</font></td>
+			<td align="left"><font color="black">${member.name }</font></td>
+			<td align="right"><font color="black">电话:</font></td>
+			<td align="left"><font color="black">${member.mobile_Phone }</font></td>
+			<td align="right"><font color="black">身份证:</font></td>
+			<td align="left"><font color="black">${member.identity }</font></td>
 		</tr>
 		<tr>
-			<td>用户名:${member.name }</td>
-		</tr>
-		<tr>
-			<td>电话:${member.mobile_Phone }</td>
-		</tr>
-		<tr>
-			<td>身份证:${member.identity }</td>
-		</tr>
-		<tr>
-			<td>创建时间:${member.create_date }</td>
-		</tr>
-		<tr>
-			<td>邀请码:${member.invitationCode }</td>
-		</tr>
-		<tr>
-			<td>被邀请码:${member.invitedCode }</td>
+			<td align="right"><font color="black">创建时间:</font></td>
+			<td align="left"><font color="black">${member.create_date }</font></td>
+			<td align="right"><font color="black">邀请码:</font></td>
+			<td align="left"><font color="black">${member.invitationCode }</font></td>
+			<td align="right"><font color="black">被邀请码:</font></td>
+			<td align="left"><font color="black">${member.invitedCode }</font></td>
+			<td></td>
+			<td></td>
 		</tr>
 	</thead>	
 	</table>
 			</td>
 		</tr>
 	</table>
+	
+	<table width="100%" border="0">
+		<tr>
+			<td>
+				<table class="table"  style="text-align: center;font-size: 6">
+					<tr>
+						<td colspan="8" align="center"><font color="black" size="7">账户详情</font></td>
+					</tr>
+					<tr>
+						<td align="right"><font color="black">姓名:</font></td>
+						<td align="left"> <font color="black">${member_account.member.member_name }</font></td>
+						<td align="right"><font color="black">可用余额:</font></td>
+						<td align="left"> <font color="black">${member_account.useable_balance }</font></td>
+						<td align="right"><font color="black">冻结金额:</font></td>
+						<td align="left"> <font color="black">${member_account.imuseale_balance }</font></td>
+						<td align="right"><font color="black">累计收益:</font></td>
+						<td align="left"> <font color="black">${member_account.total_profit }</font></td>
+					</tr>
+					<tr>
+						<td align="right"><font color="black">创建时间:</font></td>
+						<td align="left"> <font color="black">${member_account.create_date }</font></td>
+						<td align="right"><font color="black">红包金额:</font></td>
+						<td align="left"> <font color="black">${member_account.bonus_amount }</font></td>
+						<td align="right"><font color="black">投资总额:</font></td>
+						<td align="left"> <font color="black">${member_account.invest_amount }</font></td>
+						<td align="right"><font color="black">体验金:</font></td>
+						<td align="left"> <font color="black">${member_account.bbin_amount }</font></td>
+					</tr>
+				</table>
+			</td>
+			
+		</tr>
+	</table>
+	<table width="100%">
+		<tr>
+			<td>
+				<table  class="table"  style="text-align: center;font-size: 6">
+					<tr>
+						<td colspan="8" align="center"><font color="black" size="7">理财师详情</font></td>
+					</tr>
+					<tr>
+						<td align="right"><font color="black">真实姓名:</font></td>
+						<td align="left"><font color="black">${finan.member.member_name }</font></td>
+						<td align="right"><font color="black">机构名称:</font></td>
+						<td align="left"><font color="black">${finan.orgname }</font></td>
+						
+						<!-- <td align="right"><font color="black">我的名片:</font></td>
+						<td align="left"><font color="black">${finan.mycard }</font></td> -->
+						<td align="right"><font color="black">邮寄地址:</font></td>
+						<td align="left"><font color="black">${finan.address }</font></td>
+						<td align="right"><font color="black">添加时间:</font></td>
+						<td align="left"><font color="black">${finan.create_date }</font></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	
 
 	</section> <!-- footer --> <!-- / footer --> </section> <script
 		src="/YJLC_E/js/bootstrap.js"></script> <script

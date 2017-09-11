@@ -9,6 +9,8 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.web.financial_planner_Bean.Financial_planner;
+import com.web.member_account_Bean.Member_account;
 import com.web.vip_auditing_Bean.Member;
 
 @Component
@@ -65,11 +67,32 @@ public class MemberDao {
 		return hql;
 	}
 	
-	
+
 	//查询账号详情
 	public Member getMember(int id){
 		Session session = getSession();
 		Member member =(Member)session.get(Member.class, id);
 		return member;
 	}
+	
+	//查询账号账户详情
+	public Member_account getMember_account(int id){
+		Session session = getSession();
+		String hql = "from Member_account as memberAcc  where memberAcc.member.id="+id;
+		List<Member_account> List_Member_account = session.createQuery(hql).list();
+		return List_Member_account.get(0);
+		
+	}
+	
+	//查询理财师详情
+	public Financial_planner getFinancial_planner(int id){
+		Session session = getSession();
+		String hql = "from Financial_planner as finan where finan.member.id="+id;
+		List<Financial_planner> listFinancial_planner = session.createQuery(hql).list();
+		return listFinancial_planner.get(0);
+	}
+	
+	//查询投资详情
+	
+
 }

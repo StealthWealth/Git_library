@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -216,10 +217,10 @@
 				</a>
 					<ul class="sub">
 						<li><a href="/YJLC_E/listAuditingAll">账号管理</a></li>
-						<li><a href="vip_Bangker.jsp">绑卡管理</a></li>
+						<li><a href="/YJLC_E/listMember_Bankcards">绑卡管理</a></li>
 						<li><a href="vip_Invitation.jsp">邀请管理</a></li>
-						<li><a class="active" href="vip_plan.jsp">付息计划</a></li>
-						<li><a href="vip_Recharge.jsp">充值管理</a></li>
+						<li><a class="active" href="/YJLC_E/listSubject">付息计划</a></li>
+						<li><a href="/YJLC_E/listMember_deposit_record">充值管理</a></li>
 						<li><a href="vip_Withdrawals.jsp">体现管理</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
@@ -244,8 +245,55 @@
 		<!-- sidebar menu end-->
 	</div>
 	</aside> <section id="main-content"> <section class="wrapper">
-
-	12131 </section> </section> <script src="/YJLC_E/js/bootstrap.js"></script> <script
+		
+			<table width="100%" border="1">
+				<tr>
+					<th>序号</th>
+					<th>合同编号</th>
+					<th>标的类别</th>
+					<th>标的名称</th>
+					<th>标的总金额</th>
+					<th>已投金额</th>
+					<th>已投人数</th>
+					<th>标的期限</th>
+					<th>年化收益</th>
+					<th>标的状态</th>
+					<th>可体验金购买</th>
+					<th>操  作</th>
+				</tr>
+				<c:forEach items="${listSubject }" var="subject" varStatus="status">
+					<tr>
+						<td>${status.index+1 }</td>
+						<td>${subject.serial_no }</td>
+						<td>${subject.type }</td>
+						<td>${subject.name }</td>
+						<td>${subject.amount }</td>
+						<td>${subject.floor_amount }</td>
+						<td>${subject.bought }</td>
+						<td>${subject.raise_end }</td>
+						<td>${subject.year_rate }</td>
+						<td>${subject.status }</td>
+						<td>
+							<c:if test="${subject.exper_status==1 }">
+								<font color="green">可以体验金购买</font>
+							</c:if>
+							<c:if test="${subject.exper_status==0 }">
+								<font color="red">不能使用体验金</font>
+							</c:if>
+						</td>
+						<td>
+							<c:if test="${subject.exper_status==1 }">
+								<a>体验金付息</a>&nbsp;<a href="/YJLC_E/listSubject_Purchase_Record/${subject.id }">付息列表</a>
+							</c:if>
+							<c:if test="${subject.exper_status==0 }">
+								<a href="/YJLC_E/listSubject_Purchase_Record/${subject.id }">付息列表</a>
+							</c:if>
+						</td>
+					</tr>
+				</c:forEach>
+			</table>
+		
+	</section> </section> <script src="/YJLC_E/js/bootstrap.js"></script> <script
 		src="/YJLC_E/js/jquery.dcjqaccordion.2.7.js"></script> <script
 		src="/YJLC_E/js/scripts.js"></script> <script src="/YJLC_E/js/jquery.slimscroll.js"></script>
 	<script src="/YJLC_E/js/jquery.nicescroll.js"></script> <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->

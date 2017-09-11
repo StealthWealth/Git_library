@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -22,6 +23,12 @@
 <link href="/YJLC_E/css/font-awesome.css" rel="stylesheet">
 <!-- //font-awesome icons -->
 <script src="/YJLC_E/js/jquery2.0.3.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+			$("#MH_status").val("${MH_status}");	
+	});
+
+</script>
 </head>
 <body>
 	<section id="container"> <!--header start--> <header
@@ -216,10 +223,10 @@
 				</a>
 					<ul class="sub">
 						<li><a href="/YJLC_E/listAuditingAll">账号管理</a></li>
-						<li><a href="vip_Bangker.jsp">绑卡管理</a></li>
+						<li><a href="/YJLC_E/listMember_Bankcards">绑卡管理</a></li>
 						<li><a href="vip_Invitation.jsp">邀请管理</a></li>
-						<li><a href="vip_plan.jsp">付息计划</a></li>
-						<li><a class="active" href="vip_Recharge.jsp">充值管理</a></li>
+						<li><a href="/YJLC_E/listSubject">付息计划</a></li>
+						<li><a class="active" href="/YJLC_E/listMember_deposit_record">充值管理</a></li>
 						<li><a href="vip_Withdrawals.jsp">体现管理</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
@@ -244,8 +251,73 @@
 		<!-- sidebar menu end-->
 	</div>
 	</aside> <section id="main-content"> <section class="wrapper">
+		<form action="/YJLC_E/listMember_deposit_record" method="post">
+		<table width="80%" align="center">
+			<tr>
+				<th align="right">订单编号:</th>
+				<th align="left"><input type="text" name="MH_serial_number" value="${MH_serial_number }"></th>
+				<th align="right">手机号:</th>
+				<th align="left"><input type="text" name="MH_mobile_Phone" value="${MH_mobile_Phone }"></th>
+				<th align="right">订单状态:</th>
+				<th align="left">
+					<select name="MH_status" id="MH_status">
+						<option value="2" selected="selected">请选择</option>
+						<option value="0">充值失败</option>
+						<option value="1">充值成功</option>
+					</select>
+				</th>
+				<th align="right">充值渠道订单号:</th>
+				<th align="left"><input type="text" name="MH_pay_channel_order_no" value="${MH_pay_channel_order_no }"></th>
+			</tr>
+			<tr>
+				<th align="right">订单时间:</th>
+				<th align="left"><input type="date" name="MH_QDate" value="${MH_QDate }"></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th><input type="date" name="MH_HDate" value="${MH_HDate }"></th>
+				<th><input type="submit" value="查 询"></th>
+			</tr>
+		</table>
+			
+		</form>
+		<br>
+		<hr><br>
+		<div align="right" style="width: 100%;"><a href="/YJLC_E/listMember_deposit_record">更新列表</a></div>
+		<table width="100%" align="center" border="1">
+			<tr>
+				<th>序号</th>
+				<th>订单编号</th>
+				<th>手机号</th>
+				<th>订单金额</th>
+				<th>订单状态</th>
+				<th>充值渠道</th>
+				<th>充值渠道订单号</th>
+				<th>订单时间</th>
+			</tr>
+			<c:forEach items="${member_deposit_record }" var="member" varStatus="status">
+				<tr>
+					<td>${status.index+1 }</td>
+					<td>${member.serial_number }</td>
+					<td>${member.member.mobile_Phone }</td>
+					<td>${member.amount }</td>
+					<td>
+						<c:if test="${member.status==0 }">
+							<font color="red">充值失败</font>
+						</c:if>
+						<c:if test="${member.status==1 }">
+							<font color="green">充值成功</font>
+						</c:if>
+						</td>
+					<td>${member.pay_channel_name }</td>
+					<td>${member.pay_channel_order_no }</td>
+					<td>${member.create_date }</td>
+				</tr>
+			</c:forEach>
+		</table>
 
-	12131 </section> </section> <script src="/YJLC_E/js/bootstrap.js"></script> <script
+	</section> </section> <script src="/YJLC_E/js/bootstrap.js"></script> <script
 		src="/YJLC_E/js/jquery.dcjqaccordion.2.7.js"></script> <script
 		src="/YJLC_E/js/scripts.js"></script> <script src="/YJLC_E/js/jquery.slimscroll.js"></script>
 	<script src="/YJLC_E/js/jquery.nicescroll.js"></script> <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->

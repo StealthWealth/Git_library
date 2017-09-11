@@ -217,10 +217,10 @@
 				</a>
 					<ul class="sub">
 						<li><a class="active" href="/YJLC_E/listAuditingAll">账号管理</a></li>
-						<li><a href="vip_Bangker.jsp">绑卡管理</a></li>
+						<li><a href="/YJLC_E/listMember_Bankcards">绑卡管理</a></li>
 						<li><a href="vip_Invitation.jsp">邀请管理</a></li>
-						<li><a href="vip_plan.jsp">付息计划</a></li>
-						<li><a href="vip_Recharge.jsp">充值管理</a></li>
+						<li><a href="/YJLC_E/listSubject">付息计划</a></li>
+						<li><a href="/YJLC_E/listMember_deposit_record">充值管理</a></li>
 						<li><a href="vip_Withdrawals.jsp">体现管理</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
@@ -286,9 +286,9 @@
 					<td>注册时间</td>
 					<td>详  情</td>
 				</tr>
-				<c:forEach items="${listAuditing }" var="auditing">
+				<c:forEach items="${listAuditing }" var="auditing" varStatus="status">
 					<tr>
-						<td>${auditing.id }</td>
+						<td>${status.index+1 }</td>
 						<td>${auditing.mobile_Phone }</td>
 						<td>${auditing.name }</td>
 						<td>${auditing.member_name }</td>

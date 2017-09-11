@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -216,10 +217,10 @@
 				</a>
 					<ul class="sub">
 						<li><a href="/YJLC_E/listAuditingAll">账号管理</a></li>
-						<li><a class="active" href="vip_Bangker.jsp">绑卡管理</a></li>
+						<li><a class="active" href="/YJLC_E/listMember_Bankcards">绑卡管理</a></li>
 						<li><a href="vip_Invitation.jsp">邀请管理</a></li>
-						<li><a href="vip_plan.jsp">付息计划</a></li>
-						<li><a href="vip_Recharge.jsp">充值管理</a></li>
+						<li><a href="/YJLC_E/listSubject">付息计划</a></li>
+						<li><a href="/YJLC_E/listMember_deposit_record">充值管理</a></li>
 						<li><a href="vip_Withdrawals.jsp">体现管理</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
@@ -244,8 +245,76 @@
 		<!-- sidebar menu end-->
 	</div>
 	</aside> <section id="main-content"> <section class="wrapper">
-
-	12131 </section> <!-- footer --> <!-- / footer --> </section> <script src="/YJLC_E/js/bootstrap.js"></script>
+		
+		<form action="/YJLC_E/listMember_Bankcards" method="post">
+		<table width="70%" align="center">
+			<tr>
+				<td align="right">手机号:</td>
+				<td align="left"><input type="text" name="MH_mobile_Phone" value="${MH_mobile_Phone }"></td>
+				<td align="right">绑卡人姓名:</td>
+				<td align="left"><input type="text" name="MH_member_name" value="${MH_member_name }"></td>
+				<td align="right">卡号:</td>
+				<td align="left"><input type="text" name="MH_card_no" value="${MH_card_no }"></td>
+			<tr>
+			<tr>
+						<td>注册时间:</td>
+						<td><input type="date" name="MH_QDate" value="${MH_QDate }"></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td><input type="date" name="MH_HDate" align="left" value="${MH_HDate }"></td>
+						<td></td>
+						<td><input type="submit" value="查 询"></td>
+					</tr>
+		</table>
+		</form>
+		<br>
+		<hr>
+		<br>
+		<table width="100%" align="center" border="1">
+			<tr>
+				<th>序号</th>
+				<th>手机号</th>
+				<th>绑卡人姓名</th>
+				<th>绑卡人身分证</th>
+				<th>绑卡类型</th>
+				<th>绑卡卡号</th>
+				<th>绑卡地址</th>
+				<th>状态</th>
+				<th>添加时间</th>
+				<th>操 作</th>
+			</tr>
+			<c:forEach items="${member_bankcards }" var="memberBan" varStatus="status">
+				<tr>
+					<td>${status.index+1}</td>
+					<td>${memberBan.member.mobile_Phone }</td>
+					<td>${memberBan.member.member_name }</td>
+					<td>${memberBan.member.identity }</td>
+					<td>${memberBan.type }</td>
+					<td>${memberBan.card_no }</td>
+					<td>${memberBan.cardaddress }</td>
+					<td>
+						<c:if test="${memberBan.delflag==0 }">
+							<font color="green">正常</font>
+						</c:if>
+						<c:if test="${memberBan.delflag==2 }">
+							<font color="red">以解绑</font>
+						</c:if>
+					</td>
+					<td>${memberBan.create_date }</td>
+					<td>
+						<c:if test="${memberBan.delflag==0 }">
+							<a href="/YJLC_E/updateDelflag/${memberBan.id }">解  绑</a></td>
+						</c:if>
+						<c:if test="${memberBan.delflag==2 }">
+							<font color="red">以解绑</font>
+						</c:if>
+						
+				</tr>
+			</c:forEach>
+		</table>
+	
+	 </section> <!-- footer --> <!-- / footer --> </section> <script src="/YJLC_E/js/bootstrap.js"></script>
 	<script src="/YJLC_E/js/jquery.dcjqaccordion.2.7.js"></script> <script
 		src="/YJLC_E/js/scripts.js"></script> <script src="/YJLC_E/js/jquery.slimscroll.js"></script>
 	<script src="/YJLC_E/js/jquery.nicescroll.js"></script> <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->

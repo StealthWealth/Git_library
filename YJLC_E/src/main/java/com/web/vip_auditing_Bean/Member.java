@@ -5,9 +5,13 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import org.springframework.format.annotation.DateTimeFormat;
+import com.web.award_records_Bean.Award_records;
+import com.web.financial_planner_Bean.Financial_planner;
+import com.web.member_account_Bean.Member_account;
 
 @Entity
 @Table
@@ -33,6 +37,7 @@ public class Member {
 	private String invitedCode; //±»ÑûÇëÂë
 	private String qqNumber; //QQºÅÂë
 	
+
 	@Id
 	@GeneratedValue
 	public int getId() {
