@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -14,6 +15,7 @@
 <!-- Custom CSS -->
 <link href="/YJLC_E/css/style.css" rel='stylesheet' type='text/css' />
 <link href="/YJLC_E/css/style-responsive.css" rel="stylesheet" />
+<link rel="stylesheet" href="/YJLC_E/css/layui.css"  media="all">
 <!-- font CSS -->
 <link
 	href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic'
@@ -22,12 +24,20 @@
 <link href="/YJLC_E/css/font-awesome.css" rel="stylesheet">
 <!-- //font-awesome icons -->
 <script src="/YJLC_E/js/jquery2.0.3.min.js"></script>
+<script src="/YJLC_E/js/layui.js" charset="utf-8"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#btn1").click(function(){
+			document.forms[0].action="/YJLC_E/funds/listfunds";
+			document.forms[0].submit();
+		});
+	});
+</script>
 </head>
 <body>
 	<section id="container"> <!--header start--> <header
 		class="header fixed-top clearfix"> <!--logo start-->
 	<div class="brand">
-
 		<a href="index.html" class="logo"> VISITORS </a>
 		<div class="sidebar-toggle-box">
 			<div class="fa fa-bars"></div>
@@ -105,25 +115,25 @@
 						<p class="red">You have 4 Mails</p>
 					</li>
 					<li><a href="#"> <span class="photo"><img
-								alt="avatar" src="/YJLC_E/images/3.png"></span> <span class="subject">
+								alt="avatar" src="images/3.png"></span> <span class="subject">
 								<span class="from">Jonathan Smith</span> <span class="time">Just
 									now</span>
 						</span> <span class="message"> Hello, this is an example msg. </span>
 					</a></li>
 					<li><a href="#"> <span class="photo"><img
-								alt="avatar" src="/YJLC_E/images/1.png"></span> <span class="subject">
+								alt="avatar" src="images/1.png"></span> <span class="subject">
 								<span class="from">Jane Doe</span> <span class="time">2
 									min ago</span>
 						</span> <span class="message"> Nice admin template </span>
 					</a></li>
 					<li><a href="#"> <span class="photo"><img
-								alt="avatar" src="/YJLC_E/images/3.png"></span> <span class="subject">
+								alt="avatar" src="images/3.png"></span> <span class="subject">
 								<span class="from">Tasi sam</span> <span class="time">2
 									days ago</span>
 						</span> <span class="message"> This is an example msg. </span>
 					</a></li>
 					<li><a href="#"> <span class="photo"><img
-								alt="avatar" src="/YJLC_E/images/2.png"></span> <span class="subject">
+								alt="avatar" src="images/2.png"></span> <span class="subject">
 								<span class="from">Mr. Perfect</span> <span class="time">2
 									hour ago</span>
 						</span> <span class="message"> Hi there, its a test </span>
@@ -206,20 +216,19 @@
 						<li><a href="/YJLC_E/funds/listfunds">私募/股权类</a></li>
 						<li><a href="products_Solid _Collection.jsp">海外配置</a></li>
 					</ul></li>
-				<li class="sub-menu"><a class="active" href="javascript:;">
-						<i class="fa fa-th"></i> <span>学院管理</span>
+				<li class="sub-menu"><a href="javascript:;"> <i
+						class="fa fa-th"></i> <span>学院管理</span>
 				</a>
 					<ul class="sub">
 						<li><a href="college_Consultation_Administration.jsp">资讯管理</a>
 						</li>
-						<li><a class="active" href="college_Consultation_Type.jsp">资讯分类</a>
-						</li>
+						<li><a href="college_Consultation_Type.jsp">资讯分类</a></li>
 					</ul></li>
-				<li class="sub-menu"><a href="javascript:;"> <i
-						class="fa fa-th"></i> <span>会员管理</span>
+				<li class="sub-menu"><a class="active" href="javascript:;">
+						<i class="fa fa-th"></i> <span>会员管理</span>
 				</a>
 					<ul class="sub">
-						<li><a href="/YJLC_E/listAuditingAll">账号管理</a></li>
+						<li><a class="active" href="/YJLC_E/listAuditingAll">账号管理</a></li>
 						<li><a href="vip_Bangker.jsp">绑卡管理</a></li>
 						<li><a href="vip_Invitation.jsp">邀请管理</a></li>
 						<li><a href="vip_plan.jsp">付息计划</a></li>
@@ -248,13 +257,77 @@
 		<!-- sidebar menu end-->
 	</div>
 	</aside> <section id="main-content"> <section class="wrapper">
-
-	12131 </section> <!-- footer --> <!-- / footer --> </section> <script
-		src="/YJLC_E/js/bootstrap.js"></script> <script
-		src="/YJLC_E/js/jquery.dcjqaccordion.2.7.js"></script> <script
-		src="/YJLC_E/js/scripts.js"></script> <script
-		src="/YJLC_E/js/jquery.slimscroll.js"></script> <script
-		src="/YJLC_E/js/jquery.nicescroll.js"></script> <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
+		
+		<div  align="center">
+		<form method="post">
+		名称：<input type="text" name="qname" value="${qname }" />&nbsp;
+		状态：<select name="wname">
+				<option value="">全部</option>
+				<option value="0">未发布</option>
+				<option value="1">募集中</option>
+				<option value="2">已结束</option>
+			</select>&nbsp;
+		类别：<select name="ename">
+				<option value="">全部</option>
+				<option value="SIMU">私募类</option>
+				<option value="GUQUAN">股权类</option>
+			</select>
+		<input class="layui-btn layui-btn-small layui-btn-normal" type="button" id="btn1" value="查询" />
+		<a class="layui-btn layui-btn-small layui-btn-normal">新增</a>
+			<table width="100%" border="1">
+				<tr>
+					<td>序号</td>
+					<td>ID</td>
+					<td>名称</td>
+					<td>类型</td>
+					<td>状态</td>
+					<td>年化收益</td>
+					<td>返佣比例</td>
+					<td>开始日期</td>
+					<td>结束日期</td>
+					<td>投资期限</td>
+					<td>起投金额</td>
+					<td>添加时间</td>
+					<td>操作</td>
+				</tr>
+				<c:forEach items="${listfunds }" var="funds" varStatus="num">
+					<tr>
+						<td>${num.index+1 }</td>
+						<td>${funds.id }</td>
+						<td>${funds.name }</td>
+						<c:if test="${funds.type=='SIMU' }">
+						<td>私募类</td>
+						</c:if>
+						<c:if test="${funds.type=='GUQUAN' }">
+						<td>股权类</td>
+						</c:if>
+						<c:if test="${funds.status==0 }">
+						<td>未发布</td>
+						</c:if>
+						<c:if test="${funds.status==1 }">
+						<td>募集中</td>
+						</c:if>
+						<c:if test="${funds.status==2 }">
+						<td>已结束</td>
+						</c:if>
+						<td>${funds.year_rate }%</td>
+						<td>${funds.ratio }</td>
+						<td>${funds.start_date }</td>
+						<td>${funds.end_date }</td>
+						<td>${funds.period }天</td>
+						<td>${funds.floor_amount }元</td>
+						<td>${funds.create_date }</td>
+						<td><a class="layui-btn layui-btn-small layui-btn-normal" href="/YJLC_E/funds/listsubscribe/${funds.id }">签署状态</a>  <a class="layui-btn layui-btn-small layui-btn-normal">编辑/查看</a></td>
+					</tr>
+				</c:forEach>
+			</table>
+		</form>
+		</div>
+		
+	 </section> <!-- footer --> <!-- / footer --> </section> <script src="/YJLC_E/js/bootstrap.js"></script>
+	<script src="/YJLC_E/js/jquery.dcjqaccordion.2.7.js"></script> <script
+		src="js/scripts.js"></script> <script src="/YJLC_E/js/jquery.slimscroll.js"></script>
+	<script src="/YJLC_E/js/jquery.nicescroll.js"></script> <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
 	<script src="/YJLC_E/js/jquery.scrollTo.js"></script>
 </body>
 </html>

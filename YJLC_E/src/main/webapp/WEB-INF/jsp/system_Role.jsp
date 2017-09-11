@@ -199,6 +199,8 @@
 
 				<li class="sub-menu"><a href="javascript:;"> <i
 						class="fa fa-book"></i> <span>理财产品</span>
+						<li><a href="/YJLC_E/funds/listfunds">私募/股权类</a></li>
+						<li><a href="products_Solid _Collection.jsp">海外配置</a></li>
 				</a>
 					<ul class="sub">
 						<li><a href="products_Solid _Collection.jsp">固收类/P2P</a></li>
