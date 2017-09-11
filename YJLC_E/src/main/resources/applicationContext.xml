@@ -25,6 +25,8 @@
 			<property name="packagesToScan">
 				<list>
 					<value>com.web.vip_auditing_Bean</value>
+					<value>com.web.font.bean</value>
+					
 				</list>
 			</property>
 			<property name="hibernateProperties">

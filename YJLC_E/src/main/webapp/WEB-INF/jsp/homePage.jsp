@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -253,27 +254,29 @@
 			
 			
 			<div class="w3layouts_services_grids">
+			
+			<c:forEach items="${showStock}" var="ssk" >
 				<!--选股方框开始 -->
 				<div class="col-md-4 w3layouts_services_grid">
 					<div class="w3layouts_services_grid_main" >
 						<div class="w3layouts_services_grid1">
 							<div class="w3layouts_services_grid1_pos">
-								<h4>股权</h4>
+								<h4>${ssk.type}</h4>
 							</div>
 						</div>
-						<h5 align="center">凯丰对冲10号</h5>
+						<h5 align="center">${ssk.name}</h5>
 						<div >
 							<div align="center">
-								<font size="7" color="red">45.0</font><font size="4" color="red">%</font> &nbsp; &nbsp;  &nbsp; &nbsp;<font size="7" color="#007DDB">31</font ><font size="4" color="#007DDB">人</font><br>
+								<font size="7" color="red">${ssk.year_rate}</font><font size="4" color="red">%</font> &nbsp; &nbsp;  &nbsp; &nbsp;<font size="7" color="#007DDB">${ssk.buyer_count}</font ><font size="4" color="#007DDB">人</font><br>
 								年化收益&nbsp; &nbsp; &nbsp;/&nbsp; &nbsp; &nbsp; 已购买人数
 								<hr class="layui-bg-blue">
 									
 									<div>
-									<font color="#00BAFF">起购金额:￥999999999元</font>
+									<font color="#00BAFF">起购金额:￥${ssk.floor_amount}</font>
 									</div>
 								<hr class="layui-bg-blue">
 									<div>
-									<font color="#808080">管理人:深圳市凯丰投资管理有限公司</font>
+									<font color="#808080">管理人:${product_manager_desc}</font>
 									</div>
 								<hr class="layui-bg-blue">
 									<div>
@@ -284,193 +287,7 @@
 					</div>
 				</div>
 				<!--选股方框结束 -->
-					<!--选股方框开始 -->
-				<div class="col-md-4 w3layouts_services_grid">
-					<div class="w3layouts_services_grid_main" >
-						<div class="w3layouts_services_grid1">
-							<div class="w3layouts_services_grid1_pos">
-								<h4>股权</h4>
-							</div>
-						</div>
-						<h5 align="center">凯丰对冲10号</h5>
-						<div >
-							<div align="center">
-								<font size="7" color="red">45.0</font><font size="4" color="red">%</font> &nbsp; &nbsp;  &nbsp; &nbsp;<font size="7" color="#007DDB">31</font ><font size="4" color="#007DDB">人</font><br>
-								年化收益&nbsp; &nbsp; &nbsp;/&nbsp; &nbsp; &nbsp; 已购买人数
-								<hr class="layui-bg-blue">
-									
-									<div>
-									<font color="#00BAFF">起购金额:￥999999999元</font>
-									</div>
-								<hr class="layui-bg-blue">
-									<div>
-									<font color="#808080">管理人:深圳市凯丰投资管理有限公司</font>
-									</div>
-								<hr class="layui-bg-blue">
-									<div>
-										<button class="layui-btn layui-btn-danger">立即购买</button>
-									</div>
-							</div>			
-						</div>
-					</div>
-				</div>
-				<!--选股方框结束 -->
-					<!--选股方框开始 -->
-				<div class="col-md-4 w3layouts_services_grid">
-					<div class="w3layouts_services_grid_main" >
-						<div class="w3layouts_services_grid1">
-							<div class="w3layouts_services_grid1_pos">
-								<h4>股权</h4>
-							</div>
-						</div>
-						<h5 align="center">凯丰对冲10号</h5>
-						<div >
-							<div align="center">
-								<font size="7" color="red">45.0</font><font size="4" color="red">%</font> &nbsp; &nbsp;  &nbsp; &nbsp;<font size="7" color="#007DDB">31</font ><font size="4" color="#007DDB">人</font><br>
-								年化收益&nbsp; &nbsp; &nbsp;/&nbsp; &nbsp; &nbsp; 已购买人数
-								<hr class="layui-bg-blue">
-									
-									<div>
-									<font color="#00BAFF">起购金额:￥999999999元</font>
-									</div>
-								<hr class="layui-bg-blue">
-									<div>
-									<font color="#808080">管理人:深圳市凯丰投资管理有限公司</font>
-									</div>
-								<hr class="layui-bg-blue">
-									<div>
-										<button class="layui-btn layui-btn-danger">立即购买</button>
-									</div>
-							</div>			
-						</div>
-					</div>
-				</div>
-				<!--选股方框结束 -->
-					<!--选股方框开始 -->
-				<div class="col-md-4 w3layouts_services_grid">
-					<div class="w3layouts_services_grid_main" >
-						<div class="w3layouts_services_grid1">
-							<div class="w3layouts_services_grid1_pos">
-								<h4>股权</h4>
-							</div>
-						</div>
-						<h5 align="center">凯丰对冲10号</h5>
-						<div >
-							<div align="center">
-								<font size="7" color="red">45.0</font><font size="4" color="red">%</font> &nbsp; &nbsp;  &nbsp; &nbsp;<font size="7" color="#007DDB">31</font ><font size="4" color="#007DDB">人</font><br>
-								年化收益&nbsp; &nbsp; &nbsp;/&nbsp; &nbsp; &nbsp; 已购买人数
-								<hr class="layui-bg-blue">
-									
-									<div>
-									<font color="#00BAFF">起购金额:￥999999999元</font>
-									</div>
-								<hr class="layui-bg-blue">
-									<div>
-									<font color="#808080">管理人:深圳市凯丰投资管理有限公司</font>
-									</div>
-								<hr class="layui-bg-blue">
-									<div>
-										<button class="layui-btn layui-btn-danger">立即购买</button>
-									</div>
-							</div>			
-						</div>
-					</div>
-				</div>
-				<!--选股方框结束 -->
-					<!--选股方框开始 -->
-				<div class="col-md-4 w3layouts_services_grid">
-					<div class="w3layouts_services_grid_main" >
-						<div class="w3layouts_services_grid1">
-							<div class="w3layouts_services_grid1_pos">
-								<h4>股权</h4>
-							</div>
-						</div>
-						<h5 align="center">凯丰对冲10号</h5>
-						<div >
-							<div align="center">
-								<font size="7" color="red">45.0</font><font size="4" color="red">%</font> &nbsp; &nbsp;  &nbsp; &nbsp;<font size="7" color="#007DDB">31</font ><font size="4" color="#007DDB">人</font><br>
-								年化收益&nbsp; &nbsp; &nbsp;/&nbsp; &nbsp; &nbsp; 已购买人数
-								<hr class="layui-bg-blue">
-									
-									<div>
-									<font color="#00BAFF">起购金额:￥999999999元</font>
-									</div>
-								<hr class="layui-bg-blue">
-									<div>
-									<font color="#808080">管理人:深圳市凯丰投资管理有限公司</font>
-									</div>
-								<hr class="layui-bg-blue">
-									<div>
-										<button class="layui-btn layui-btn-danger">立即购买</button>
-									</div>
-							</div>			
-						</div>
-					</div>
-				</div>
-				<!--选股方框结束 -->
-					<!--选股方框开始 -->
-				<div class="col-md-4 w3layouts_services_grid">
-					<div class="w3layouts_services_grid_main" >
-						<div class="w3layouts_services_grid1">
-							<div class="w3layouts_services_grid1_pos">
-								<h4>股权</h4>
-							</div>
-						</div>
-						<h5 align="center">凯丰对冲10号</h5>
-						<div >
-							<div align="center">
-								<font size="7" color="red">45.0</font><font size="4" color="red">%</font> &nbsp; &nbsp;  &nbsp; &nbsp;<font size="7" color="#007DDB">31</font ><font size="4" color="#007DDB">人</font><br>
-								年化收益&nbsp; &nbsp; &nbsp;/&nbsp; &nbsp; &nbsp; 已购买人数
-								<hr class="layui-bg-blue">
-									
-									<div>
-									<font color="#00BAFF">起购金额:￥999999999元</font>
-									</div>
-								<hr class="layui-bg-blue">
-									<div>
-									<font color="#808080">管理人:深圳市凯丰投资管理有限公司</font>
-									</div>
-								<hr class="layui-bg-blue">
-									<div>
-										<button class="layui-btn layui-btn-danger">立即购买</button>
-									</div>
-							</div>			
-						</div>
-					</div>
-				</div>
-				<!--选股方框结束 -->
-					<!--选股方框开始 -->
-				<div class="col-md-4 w3layouts_services_grid">
-					<div class="w3layouts_services_grid_main" >
-						<div class="w3layouts_services_grid1">
-							<div class="w3layouts_services_grid1_pos">
-								<h4>股权</h4>
-							</div>
-						</div>
-						<h5 align="center">凯丰对冲10号</h5>
-						<div >
-							<div align="center">
-								<font size="7" color="red">45.0</font><font size="4" color="red">%</font> &nbsp; &nbsp;  &nbsp; &nbsp;<font size="7" color="#007DDB">31</font ><font size="4" color="#007DDB">人</font><br>
-								年化收益&nbsp; &nbsp; &nbsp;/&nbsp; &nbsp; &nbsp; 已购买人数
-								<hr class="layui-bg-blue">
-									
-									<div>
-									<font color="#00BAFF">起购金额:￥999999999元</font>
-									</div>
-								<hr class="layui-bg-blue">
-									<div>
-									<font color="#808080">管理人:深圳市凯丰投资管理有限公司</font>
-									</div>
-								<hr class="layui-bg-blue">
-									<div>
-										<button class="layui-btn layui-btn-danger">立即购买</button>
-									</div>
-							</div>			
-						</div>
-					</div>
-				</div>
-				<!--选股方框结束 -->
-				
+			</c:forEach>
 				
 			</div>
 		</div>
@@ -598,7 +415,7 @@
 	<div id="small-dialog" class="mfp-hide w3ls_small_dialog wthree_pop">
 		<h3>登录</h3>		
 		<div class="agileits_modal_body">
-			<form action="#" method="post">
+			<form action="/YJLC_E/users/signUp" method="post">
 				<div class="agileits_w3layouts_user">
 					<i class="fa fa-user" aria-hidden="true"></i>
 					<input type="text" name="user_name" placeholder="用户名" required="">
@@ -623,10 +440,13 @@
 			<h5>没有一个账户吗? <a href="#small-dialog1" class="play-icon popup-with-zoom-anim">快速注册</a></h5>
 		</div>
 	</div>
+
+
+
 	<div id="small-dialog1" class="mfp-hide w3ls_small_dialog wthree_pop">
 		<h3>注册</h3>		
 		<div class="agileits_modal_body">
-			<form action="#" method="post">
+			<form action="/YJLC_E/users/signIn" method="post">
 				<h4>15秒快速注册 :</h4>
 				<div class="agileits_w3layouts_user">
 					<i class="fa fa-user" aria-hidden="true"></i>
@@ -681,11 +501,13 @@
 						<label class="checkbox"><input type="checkbox" name="checkbox" required=""><i> </i>我已阅读并同意<a href="">《本网站服务协议》</a></label>
 					</div>
 				</div>
-				<input type="submit" value="Register">
+				<input type="submit" value="注  册">
 			</form>
 			<h5>我已注册现在就 <a href="#small-dialog" class="play-icon popup-with-zoom-anim">登录</a></h5>
 		</div>
 	</div>
+
+	
 <script src="/YJLC_E/font/js/jquery.magnific-popup.js" type="text/javascript"></script>
 <script>
 	$(document).ready(function() {
