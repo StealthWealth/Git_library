@@ -9,7 +9,6 @@ public class controller_test {
 
 	@RequestMapping("/sy")
 	public String sy() {
-		System.out.println("aaa");
 		return "homePage";		
 	}
 }

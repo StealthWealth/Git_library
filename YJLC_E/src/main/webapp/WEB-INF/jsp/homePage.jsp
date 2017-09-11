@@ -7,22 +7,19 @@
 <title>首页</title>
 
 		<link rel="stylesheet" href="/YJLC_E/font/layui/css/layui.css" />
-		<script src="/YJLC_E/font/layui/layui.js" ></script>
-		<script type="text/javascript" src="/YJLC_E/font/js/sy.js" ></script>
 		<link href="/YJLC_E/font/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 		<link href="/YJLC_E/font/css/style.css" rel="stylesheet" type="text/css" media="all" />
-		<!-- js -->
-		<script type="text/javascript" src="/YJLC_E/font/js/jquery-2.1.4.min.js"></script>
-		<!-- //js -->
 		<link href="/YJLC_E/font/css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
-		<!-- font-awesome icons -->
-		<link rel="stylesheet" href="/YJLC_E/font/css/font-awesome.min.css" />
-		
+		<link rel="stylesheet" href="/YJLC_E/font/css/font-awesome.min.css" />	
 		<link rel="stylesheet" href="YJLC_E/font/css/style.css" />
 		<link rel="stylesheet" type="text/css" href="/YJLC_E/font/jQuer_GunDong/normalize.css">
 		<link rel="stylesheet" type="text/css" href="/YJLC_E/font/jQuer_GunDong/default.css">
 		<link rel="stylesheet" href="/YJLC_E/font/jQuer_GunDong/liMarquee.css">
-
+		
+		
+		<script src="/YJLC_E/font/layui/layui.js" ></script>
+		<script type="text/javascript" src="/YJLC_E/font/js/sy.js" ></script>
+		<script type="text/javascript" src="/YJLC_E/font/js/jquery-2.1.4.min.js"></script>
 <style type="text/css">
 	.str_wrap{
 		padding-left: 3em;
@@ -116,9 +113,7 @@
     </dl>
   </li>
   <li class="layui-nav-item">
-  	<div class="w3_agile_login">
-  	<a href="#small-dialog" class="play-icon popup-with-zoom-anim"><i class="fa fa-user" aria-hidden="true"></i></a>
-  </div>
+  	<a href="#small-dialog" class="play-icon popup-with-zoom-anim">登录</a>
   </li>
 </div>
 </ul>
@@ -175,7 +170,7 @@
 	.huadong {width: 60rem;height:4rem;padding: 0.5rem 0 0.3rem 0; border-bottom: 1px solid #F0F0F0; position:relative;font: 12px/1.5 "Hiragino Sans GB","Microsoft YaHei",simsun;margin:0 auto;}
 	.huadong .huabox {  margin:0 auto; width: 80%; line-height: 4rem;}
 	.huadong .hdimg {float:left;line-height:3.5rem;}
-	.huadong .hdimg img { width: 100%; vertical-align:middle;}
+	.huadong .hdimg img {vertical-align:middle; width: 100%; }
 	.huadong h5 {font-size:1rem;float:left; line-height: 2.2rem; margin: 0.8rem 0 0 0; }
 	.huadong .gg_more { float: left;}
 	.huadong .gg_more a { font-size: 0.8rem; text-decoration:none;}
@@ -213,7 +208,8 @@
 </style>
 	<div class="huadong">
 	<div class="huabox">
-	<div class="hdimg"><img src="/YJLC_E/font/jQuery_GongGao/lingdang.png"></div>
+	<!-- <img src="/YJLC_E/font/jQuery_GongGao/lingdang.png"> -->
+	<div class="hdimg"><img src="/YJLC_E/font/jQuery_GongGao/lingdang.png" align="top"></div>
 	<h5>【最新公告】</h5>
 		<div class="notice_active">
 			<ul style="margin-top: 0.7rem;">
@@ -238,6 +234,7 @@
 			 <a class="news_ck" href="">查看详情</a>
 			 <a title="news_more" href="">更多+</a>
 		</div>
+		
 	</div>
 </div>
 	
@@ -604,11 +601,11 @@
 			<form action="#" method="post">
 				<div class="agileits_w3layouts_user">
 					<i class="fa fa-user" aria-hidden="true"></i>
-					<input type="text" name="Name" placeholder="用户名" required="">
+					<input type="text" name="user_name" placeholder="用户名" required="">
 				</div>
 				<div class="agileits_w3layouts_user">
 					<i class="fa fa-key" aria-hidden="true"></i>
-					<input type="password" name="Password" placeholder="密码" required="">
+					<input type="password" name="password" placeholder="密码" required="">
 				</div>
 				<div class="agile_remember">
 					<div class="agile_remember_left">
@@ -633,11 +630,11 @@
 				<h4>15秒快速注册 :</h4>
 				<div class="agileits_w3layouts_user">
 					<i class="fa fa-user" aria-hidden="true"></i>
-					<input type="text" name="Name" placeholder="用户名(需实名注册)" required="">
+					<input type="text" name="user_name" placeholder="用户名(需实名注册)" required="">
 				</div>
 				<div class="agileits_w3layouts_user">
 					<i class="fa fa-volume-control-phone" aria-hidden="true"></i>
-					<input type="text" name="Name" placeholder="手机号" required="">
+					<input type="text" name="mobile_Phone" placeholder="手机号" >
 				</div>
 		<!--	<div class="agileinfo_subscribe">
 					<div class="check">
@@ -651,14 +648,14 @@
 				
 				<div class="agileits_w3layouts_user">
 					<i class="fa fa-picture-o"></i>
-					<input type="text" name="验证码" placeholder="请输入图片验证码" required="" style="width: 200px;">
+					<input type="text" name="验证码" placeholder="请输入图片验证码"  style="width: 200px;">
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						<img src="/YJLC_E/font/img/authImage.jpg" />
 				</div><br>
 					
 				<div class="agileits_w3layouts_user">
 					<i class="fa fa-mobile-phone"></i>
-					<input type="text" name="手机验证码" placeholder="获取手机验证码" required="" style="width: 250px;">&nbsp;
+					<input type="text" name="手机验证码" placeholder="获取手机验证码"  style="width: 250px;">&nbsp;
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<input type="button" class="layui-btn layui-btn-danger" value="获取验证码"/>
 				</div>	
@@ -672,12 +669,12 @@
 				</div><br>
 				<div class="agileits_w3layouts_user">
 					<i class="fa fa-asl-interpreting" aria-hidden="true"></i> 
-					<input type="text" name="Password" placeholder="理财师邀请码" required="">
+					<input type="text" name="Password" placeholder="理财师邀请码" >
 				</div>
 				<br>
 				<div class="agileits_w3layouts_user">
 					<i class="fa fa-comment-o"></i>
-					<input type="text" name="qq" placeholder="qq号码" required="">
+					<input type="text" name="qq" placeholder="qq号码" >
 				</div>
 				<div class="agileinfo_subscribe">
 					<div class="check">
