@@ -39,7 +39,7 @@ public class SubjectController {
 	
 	//付息列表还款
 	@RequestMapping("/updateSubject_Purchase/{id}/{subject_id}")
-	public String updateSubject_Purchase(int id,int subject_id){
+	public String updateSubject_Purchase(@PathVariable("id")int id,@PathVariable("subject_id")int subject_id){
 		subjectService.updateSubject_purchase(id);
 		return "redirect:/listSubject_Purchase_Record/"+subject_id;
 	}
