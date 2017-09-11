@@ -1,6 +1,6 @@
 package com.web.subject_Dao;
 
-import java.text.SimpleDateFormat;
+
 import java.util.Date;
 import java.util.List;
 
@@ -46,9 +46,8 @@ public class SubjectDao {
 	public void updateSubject_Purchase(int id){
 		Session session = getSession();
 		Subject_purchase_record purchase = (Subject_purchase_record) session.get(Subject_purchase_record.class, id);
-		purchase.setIspayment(0);
+		purchase.setIspayment(1);
 		Date date = new Date();
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		purchase.setUpdate_date(date);
 		session.update(purchase);
 	}

@@ -200,12 +200,12 @@
 				<li><a href="index.html"> <i class="fa fa-dashboard"></i> <span>Dashboard</span>
 				</a></li>
 
-				<li class="sub-menu"><a href="javascript:;"> <i
+				<li class="sub-menu"><a class="active" href="javascript:;"> <i
 						class="fa fa-book"></i> <span>理财产品</span>
 				</a>
 					<ul class="sub">
 						<li><a href="products_Solid _Collection.jsp">固收类/P2P</a></li>
-						<li><a href="/YJLC_E/funds/listfunds">私募/股权类</a></li>
+						<li><a  class="active" href="/YJLC_E/funds/listfunds">私募/股权类</a></li>
 						<li><a href="products_Solid _Collection.jsp">海外配置</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
@@ -216,11 +216,11 @@
 						</li>
 						<li><a href="college_Consultation_Type.jsp">资讯分类</a></li>
 					</ul></li>
-				<li class="sub-menu"><a class="active" href="javascript:;">
+				<li class="sub-menu"><a href="javascript:;">
 						<i class="fa fa-th"></i> <span>会员管理</span>
 				</a>
 					<ul class="sub">
-						<li><a class="active" href="/YJLC_E/listAuditingAll">账号管理</a></li>
+						<li><a href="/YJLC_E/listAuditingAll">账号管理</a></li>
 						<li><a href="vip_Bangker.jsp">绑卡管理</a></li>
 						<li><a href="vip_Invitation.jsp">邀请管理</a></li>
 						<li><a href="vip_plan.jsp">付息计划</a></li>
@@ -300,7 +300,7 @@
 		
 	 </section> <!-- footer --> <!-- / footer --> </section> <script src="/YJLC_E/js/bootstrap.js"></script>
 	<script src="/YJLC_E/js/jquery.dcjqaccordion.2.7.js"></script> <script
-		src="js/scripts.js"></script> <script src="/YJLC_E/js/jquery.slimscroll.js"></script>
+		src="/YJLC_E/js/scripts.js"></script> <script src="/YJLC_E/js/jquery.slimscroll.js"></script>
 	<script src="/YJLC_E/js/jquery.nicescroll.js"></script> <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
 	<script src="/YJLC_E/js/jquery.scrollTo.js"></script>
 </body>

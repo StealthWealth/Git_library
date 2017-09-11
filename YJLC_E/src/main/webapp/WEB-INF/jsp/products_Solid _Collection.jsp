@@ -198,14 +198,13 @@
 				<li><a href="index.html"> <i class="fa fa-dashboard"></i> <span>Dashboard</span>
 				</a></li>
 
-				<li class="sub-menu"><a class="active" href="javascript:;">
-						<i class="fa fa-book"></i> <span>理财产品</span>
+				<li class="sub-menu"><a class="active" href="javascript:;"> <i
+						class="fa fa-book"></i> <span>理财产品</span>
 				</a>
 					<ul class="sub">
-						<li><a class="active" href="products_Solid _Collection.jsp">固收类/P2P</a>
+						<li><a class="active" href="products_Solid _Collection.jsp">固收类/P2P</a></li>
 						<li><a href="/YJLC_E/funds/listfunds">私募/股权类</a></li>
 						<li><a href="products_Solid _Collection.jsp">海外配置</a></li>
-						</li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
 						class="fa fa-th"></i> <span>学院管理</span>
@@ -215,11 +214,11 @@
 						</li>
 						<li><a href="college_Consultation_Type.jsp">资讯分类</a></li>
 					</ul></li>
-				<li class="sub-menu"><a href="javascript:;"> <i
-						class="fa fa-th"></i> <span>会员管理</span>
+				<li class="sub-menu"><a  href="javascript:;">
+						<i class="fa fa-th"></i> <span>会员管理</span>
 				</a>
 					<ul class="sub">
-						<li><a href="/YJLC_E/listAuditingAll">账号管理</a></li>
+						<li><a  href="/YJLC_E/listAuditingAll">账号管理</a></li>
 						<li><a href="/YJLC_E/listMember_Bankcards">绑卡管理</a></li>
 						<li><a href="vip_Invitation.jsp">邀请管理</a></li>
 						<li><a href="/YJLC_E/listSubject">付息计划</a></li>
