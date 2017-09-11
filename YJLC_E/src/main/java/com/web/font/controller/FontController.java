@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.web.font.bean.Finance_product_funds;
+import com.web.font.bean.Push_notice;
 import com.web.font.bean.Users;
 import com.web.font.service.FontService;
 
@@ -66,15 +67,17 @@ public class FontController {
 		return "homePage";
 	}
 	
-	//查询股票信息
+	//查询股票信息       查询公告信息
 	@RequestMapping("/showStock")
 	public String showStock(Model model) {
-		List<Finance_product_funds> list=fontService.showStock();
+		List<Finance_product_funds> list=fontService.listStock();//理财产品信息
+		List<Push_notice> listPush=fontService.listPush();//公告信息
 		model.addAttribute("showStock", list);
-		System.out.println("controller");
+		model.addAttribute("listPush", listPush);
 		return "homePage";
 	}
 	
+
 	
  
 	

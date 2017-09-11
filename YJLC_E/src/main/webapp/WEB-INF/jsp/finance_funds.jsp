@@ -1,179 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<<<<<<< HEAD
-<meta charset="utf-8">
-<meta name="renderer" content="webkit|ie-comp|ie-stand">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport"
-	content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-<link rel="stylesheet" type="text/css"
-	href="/YJLC_E/static/h-ui/css/H-ui.min.css" />
-<link rel="stylesheet" type="text/css"
-	href="/YJLC_E/static/h-ui.admin/css/H-ui.admin.css" />
-<link rel="stylesheet" type="text/css"
-	href="/YJLC_E/lib/Hui-iconfont/1.0.8/iconfont.css" />
-<link rel="stylesheet" type="text/css"
-	href="/YJLC_E/static/h-ui.admin/skin/default/skin.css" id="skin" />
-<link rel="stylesheet" type="text/css"
-	href="/YJLC_E/static/h-ui.admin/css/style.css" />
-<!--[if IE 6]>
-<script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
-<script>DD_belatedPNG.fix('*');</script><![endif]-->
-<!--/meta 作为公共模版分离出去-->
-
-<title>盈+后台</title>
-</head>
-<body>
-<header class="navbar-wrapper">
-	<div class="navbar navbar-fixed-top" style="height: 500px">
-		<div class="container-fluid cl">
-				<font size="6" color="white">盈+系统</font>
-			<nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs">
-			<ul class="cl">
-				<li>超级管理员</li>
-				<li class="dropDown dropDown_hover"><a href="#"
-					class="dropDown_A">admin <i class="Hui-iconfont">&#xe6d5;</i></a>
-					<ul class="dropDown-menu menu radius box-shadow">
-						<li><a href="javascript:;" onClick="myselfinfo()">个人信息</a></li>
-						<li><a href="#">切换账户</a></li>
-						<li><a href="#">退出</a></li>
-					</ul></li>
-				<li id="Hui-msg"><a href="#" title="消息"> <span
-						class="badge badge-danger">1</span> <i class="Hui-iconfont"
-						style="font-size: 18px">&#xe68a;</i></a></li>
-				<li id="Hui-skin" class="dropDown right dropDown_hover"><a
-					href="javascript:;" class="dropDown_A" title="换肤"><i
-						class="Hui-iconfont" style="font-size: 18px">&#xe62a;</i></a>
-					<ul class="dropDown-menu menu radius box-shadow">
-						<li><a href="javascript:;" data-val="default" title="默认（黑色）">默认（黑色）</a>
-						</li>
-						<li><a href="javascript:;" data-val="blue" title="蓝色">蓝色</a>
-						</li>
-						<li><a href="javascript:;" data-val="green" title="绿色">绿色</a>
-						</li>
-						<li><a href="javascript:;" data-val="red" title="红色">红色</a></li>
-						<li><a href="javascript:;" data-val="yellow" title="黄色">黄色</a>
-						</li>
-						<li><a href="javascript:;" data-val="orange" title="橙色">橙色</a></li>
-					</ul></li>
-			</ul>
-			</nav>
-		</div>
-	</div>
-	</header>
-	<aside class="Hui-aside">
-
-	<div class="menu_dropdown bk_2">
-		<dl id="menu-article">
-			<dt>
-				<i class="Hui-iconfont">&#xe616;</i> 理财产品<i
-					class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
-			</dt>
-			<dd>
-				<ul>
-					<li><a href="products_Solid _Collection.jsp" title="理财产品">固收类/P2P</a></li>
-				</ul>
-			</dd>
-		</dl>
-		<dl id="menu-article">
-			<dt>
-				<i class="Hui-iconfont">&#xe616;</i> 学院管理<i
-					class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
-			</dt>
-			<dd>
-				<ul>
-					<li><a href="college_Consultation_Type.jsp" title="学院管理">资讯分类</a></li>
-					<li><a href="college_Consultation_Administration.jsp"
-						title="学院管理">资讯管理</a></li>
-				</ul>
-			</dd>
-		</dl>
-		<dl id="menu-article">
-			<dt>
-				<i class="Hui-iconfont">&#xe616;</i> 会员管理<i
-					class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
-			</dt>
-			<dd style="display: block">
-				<ul>
-					<li><a href="/YJLC_E/listAuditingAll" title="会员管理">账号管理</a></li>
-					<li><a href="vip_examine.jsp" title="会员管理">理财师审核</a></li>
-					<li><a href="vip_Bangker.jsp" title="会员管理">绑卡管理</a></li>
-					<li><a href="vip_plan.jsp" title="会员管理">付息计划</a></li>
-					<li><a href="vip_Recharge.jsp" title="会员管理">充值管理</a></li>
-					<li><a href="vip_Withdrawals.jsp" title="会员管理">提现管理</a></li>
-					<li class="current"><a href="vip_Invitation.jsp" title="会员管理">邀请奖励</a></li>
-				</ul>
-			</dd>
-		</dl>
-		<dl id="menu-article">
-			<dt>
-				<i class="Hui-iconfont">&#xe616;</i> 盈+管理<i
-					class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
-			</dt>
-			<dd>
-				<ul>
-					<li><a href="setUp_Announcement.jsp" title="盈+管理">公告管理</a></li>
-					<li><a href="setUp_Opinion.jsp" title="盈+管理">意见反馈</a></li>
-				</ul>
-			</dd>
-		</dl>
-		<dl id="menu-article">
-			<dt>
-				<i class="Hui-iconfont">&#xe616;</i> 系统管理<i
-					class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
-			</dt>
-			<dd>
-				<ul>
-					<li><a href="system_Account.jsp" title="系统设置">账户管理</a></li>
-					<li><a href="system_Role.jsp" title="系统设置">角色管理</a></li>
-					<li><a href="system_Password.jsp" title="系统设置">密码修改</a></li>
-				</ul>
-			</dd>
-		</dl>
-	</div>
-	</aside>
-	<div class="dislpayArrow hidden-xs">
-		<a class="pngfix" href="javascript:void(0);"
-			onClick="displaynavbar(this)"></a>
-	</div>
-	<!--/_menu 作为公共模版分离出去-->
-
-	<section class="Hui-article-box"> <nav class="breadcrumb">
-	<i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span>
-	会员管理 <span class="c-gray en">&gt;</span> 邀请奖励 <a
-		class="btn btn-success radius r"
-		style="line-height: 1.6em; margin-top: 3px"
-		href="javascript:location.replace(location.href);" title="刷新"><i
-		class="Hui-iconfont">&#xe68f;</i></a> </nav>
-	<div class="Hui-article">
-		<article class="cl pd-20">
-
-
-		<div class="mt-20"></div>
-		</article>
-	</div>
-	</section>
-
-	<!--_footer 作为公共模版分离出去-->
-	<script type="text/javascript" src="/YJLC_E/lib/jquery/1.9.1/jquery.min.js"></script>
-	<script type="text/javascript" src="/YJLC_E/lib/layer/2.4/layer.js"></script>
-	<script type="text/javascript" src="/YJLC_E/static/h-ui/js/H-ui.js"></script>
-	<script type="text/javascript"
-		src="/YJLC_E/static/h-ui.admin/js/H-ui.admin.page.js"></script>
-	<!--/_footer /作为公共模版分离出去-->
-
-	<!--请在下方写此页面业务相关的脚本-->
-	<script type="text/javascript"
-		src="/YJLC_E/lib/My97DatePicker/4.8/WdatePicker.js"></script>
-	<script type="text/javascript"
-		src="/YJLC_E/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
-	<script type="text/javascript" src="/YJLC_E/lib/laypage/1.2/laypage.js"></script>
-
-=======
 <title>Typography</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -185,6 +15,7 @@
 <!-- Custom CSS -->
 <link href="/YJLC_E/css/style.css" rel='stylesheet' type='text/css' />
 <link href="/YJLC_E/css/style-responsive.css" rel="stylesheet" />
+<link rel="stylesheet" href="/YJLC_E/css/layui.css"  media="all">
 <!-- font CSS -->
 <link
 	href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic'
@@ -193,6 +24,15 @@
 <link href="/YJLC_E/css/font-awesome.css" rel="stylesheet">
 <!-- //font-awesome icons -->
 <script src="/YJLC_E/js/jquery2.0.3.min.js"></script>
+<script src="/YJLC_E/js/layui.js" charset="utf-8"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#btn1").click(function(){
+			document.forms[0].action="/YJLC_E/funds/listfunds";
+			document.forms[0].submit();
+		});
+	});
+</script>
 </head>
 <body>
 	<section id="container"> <!--header start--> <header
@@ -388,9 +228,9 @@
 						<i class="fa fa-th"></i> <span>会员管理</span>
 				</a>
 					<ul class="sub">
-						<li><a href="/YJLC_E/listAuditingAll">账号管理</a></li>
+						<li><a class="active" href="/YJLC_E/listAuditingAll">账号管理</a></li>
 						<li><a href="vip_Bangker.jsp">绑卡管理</a></li>
-						<li><a class="active" href="vip_Invitation.jsp">邀请管理</a></li>
+						<li><a href="vip_Invitation.jsp">邀请管理</a></li>
 						<li><a href="vip_plan.jsp">付息计划</a></li>
 						<li><a href="vip_Recharge.jsp">充值管理</a></li>
 						<li><a href="vip_Withdrawals.jsp">体现管理</a></li>
@@ -417,12 +257,77 @@
 		<!-- sidebar menu end-->
 	</div>
 	</aside> <section id="main-content"> <section class="wrapper">
-
-	12131 </section> </section> <script src="/YJLC_E/js/bootstrap.js"></script> <script
-		src="/YJLC_E/js/jquery.dcjqaccordion.2.7.js"></script> <script
-		src="/YJLC_E/js/scripts.js"></script> <script src="/YJLC_E/js/jquery.slimscroll.js"></script>
+		
+		<div  align="center">
+		<form method="post">
+		名称：<input type="text" name="qname" value="${qname }" />&nbsp;
+		状态：<select name="wname">
+				<option value="">全部</option>
+				<option value="0">未发布</option>
+				<option value="1">募集中</option>
+				<option value="2">已结束</option>
+			</select>&nbsp;
+		类别：<select name="ename">
+				<option value="">全部</option>
+				<option value="SIMU">私募类</option>
+				<option value="GUQUAN">股权类</option>
+			</select>
+		<input class="layui-btn layui-btn-small layui-btn-normal" type="button" id="btn1" value="查询" />
+		<a class="layui-btn layui-btn-small layui-btn-normal">新增</a>
+			<table width="100%" border="1">
+				<tr>
+					<td>序号</td>
+					<td>ID</td>
+					<td>名称</td>
+					<td>类型</td>
+					<td>状态</td>
+					<td>年化收益</td>
+					<td>返佣比例</td>
+					<td>开始日期</td>
+					<td>结束日期</td>
+					<td>投资期限</td>
+					<td>起投金额</td>
+					<td>添加时间</td>
+					<td>操作</td>
+				</tr>
+				<c:forEach items="${listfunds }" var="funds" varStatus="num">
+					<tr>
+						<td>${num.index+1 }</td>
+						<td>${funds.id }</td>
+						<td>${funds.name }</td>
+						<c:if test="${funds.type=='SIMU' }">
+						<td>私募类</td>
+						</c:if>
+						<c:if test="${funds.type=='GUQUAN' }">
+						<td>股权类</td>
+						</c:if>
+						<c:if test="${funds.status==0 }">
+						<td>未发布</td>
+						</c:if>
+						<c:if test="${funds.status==1 }">
+						<td>募集中</td>
+						</c:if>
+						<c:if test="${funds.status==2 }">
+						<td>已结束</td>
+						</c:if>
+						<td>${funds.year_rate }%</td>
+						<td>${funds.ratio }</td>
+						<td>${funds.start_date }</td>
+						<td>${funds.end_date }</td>
+						<td>${funds.period }天</td>
+						<td>${funds.floor_amount }元</td>
+						<td>${funds.create_date }</td>
+						<td><a class="layui-btn layui-btn-small layui-btn-normal" href="/YJLC_E/funds/listsubscribe/${funds.id }">签署状态</a>  <a class="layui-btn layui-btn-small layui-btn-normal">编辑/查看</a></td>
+					</tr>
+				</c:forEach>
+			</table>
+		</form>
+		</div>
+		
+	 </section> <!-- footer --> <!-- / footer --> </section> <script src="/YJLC_E/js/bootstrap.js"></script>
+	<script src="/YJLC_E/js/jquery.dcjqaccordion.2.7.js"></script> <script
+		src="js/scripts.js"></script> <script src="/YJLC_E/js/jquery.slimscroll.js"></script>
 	<script src="/YJLC_E/js/jquery.nicescroll.js"></script> <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
 	<script src="/YJLC_E/js/jquery.scrollTo.js"></script>
->>>>>>> branch 'master' of https://github.com/StealthWealth/Git_library.git
 </body>
 </html>
