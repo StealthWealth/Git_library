@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.web.font.bean.Finance_product_funds;
+import com.web.finance_product_bean.Finance_product_funds;
 import com.web.font.bean.Push_notice;
 import com.web.font.dao.FontDao;
 
