@@ -33,6 +33,8 @@
 					<value>com.web.financial_planner_Bean</value>
 					<value>com.web.finance_product_bean</value>
 					<value>com.web.font.bean</value>
+					<value>com.web.font.bean</value>
+					<value>com.web.finance_product_bean</value>
 				</list>
 			</property>
 			<property name="hibernateProperties">

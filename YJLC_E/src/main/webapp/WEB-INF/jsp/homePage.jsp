@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -76,7 +77,7 @@
     </font></a>
   </li>	
   <li class="layui-nav-item">
-    <a href="">首页</a>
+    <a href="/YJLC_E/users/showStock">首页</a>
   </li>
   <li class="layui-nav-item">
     <a href="">网上体验中心 </a>
@@ -214,21 +215,14 @@
 	<h5>【最新公告】</h5>
 		<div class="notice_active">
 			<ul style="margin-top: 0.7rem;">
-					
-			<li class="notice_active_ch">
-					<span>滑动轮播1a去哦我我iwoi我i滑动轮播3滑</span>                
-					
-					<em>2017-01-20</em>
-				</li><li class="notice_active_ch">
-					<span>滑动轮播2滑动轮播3</span>                
-					
-					<em>2017-01-20</em>
-				</li><li class="notice_active_ch">
-					<span>站长素材文字滚动播放</span>                
-					
-					<em>2017-01-20</em>
-				</li></ul>   
-	
+				<c:forEach items="${listPush}" var="lp">	
+					<li class="notice_active_ch">
+						<span>${lp.title}</span>                
+					<!-- 使用fn标签在jsp页面截取字符串 -->
+						<em>${fn:substring(lp.create_date,0,10)}</em>
+					</li>
+				</c:forEach>	
+			</ul>   
 		</div>
 
 		<div class="gg_more">
@@ -276,7 +270,7 @@
 									</div>
 								<hr class="layui-bg-blue">
 									<div>
-									<font color="#808080">管理人:${product_manager_desc}</font>
+									<font color="#808080">管理人:${ssk.product_manager_desc}</font>
 									</div>
 								<hr class="layui-bg-blue">
 									<div>

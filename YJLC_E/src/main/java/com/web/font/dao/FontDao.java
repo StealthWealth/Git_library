@@ -6,15 +6,15 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 import com.web.font.bean.Finance_product_funds;
+import com.web.font.bean.Push_notice;
 import com.web.font.bean.Users;
 
 @Component
 public class FontDao {
 
 	@Autowired
-	private SessionFactory sessionFactory;
+	private SessionFactory sessionFactory;  
 	
 	public Session getSession() {
 		return this.sessionFactory.getCurrentSession();
@@ -33,13 +33,22 @@ public class FontDao {
 	
 	
 	//查询finance_product_funds(理财类基金产品表)
-	public List<Finance_product_funds> showStock(){
-		Session session=getSession();
+	public List<Finance_product_funds> listStock(){
+		Session session=this.getSession();
 		String hql="from Finance_product_funds";
 		List<Finance_product_funds> list=session.createQuery(hql).list();
-		System.out.println("dao");
 		return list;
 	}
+	
+	//查询公告
+	public List<Push_notice> listPush(){
+		Session session=this.getSession();
+		String hql="from Push_notice";
+		List<Push_notice> list=session.createQuery(hql).list();
+		return list;
+	}
+	
+
 	
 	
 }

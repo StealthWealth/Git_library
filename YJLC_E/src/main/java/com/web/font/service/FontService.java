@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.web.font.bean.Finance_product_funds;
+import com.web.font.bean.Push_notice;
 import com.web.font.dao.FontDao;
 
 @Service
@@ -18,11 +19,19 @@ public class FontService {
 	private FontDao fontDao;
 	
 	//查询finance_product_funds(理财类基金产品表)
-	public List<Finance_product_funds> showStock(){
-		List<Finance_product_funds> list=fontDao.showStock();
-		System.out.println("service");
+	public List<Finance_product_funds> listStock(){
+		List<Finance_product_funds> list=fontDao.listStock();
 		return list;
 	}
+	
+	
+	//查询公告
+	public List<Push_notice> listPush(){
+		List<Push_notice> list=fontDao.listPush();
+		return list;
+	}
+	
+	
 	
 	
 }
