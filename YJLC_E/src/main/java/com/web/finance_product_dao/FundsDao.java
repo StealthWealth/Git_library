@@ -21,7 +21,7 @@ public class FundsDao {
 		return this.sessionFactory.getCurrentSession();
 	}
 	
-	public List<Finance_product_funds> listfuns(Map map){
+	public List<Finance_product_funds> listfuns(Map map){  //查看私募/股权类
 		String hql = "from Finance_product_funds where 1=1";
 		hql = this.getHql(map, hql);
 		String hql2 = " order by period desc";
@@ -31,7 +31,7 @@ public class FundsDao {
 		return list;
 	}
 	
-	public String getHql(Map map,String hql){
+	public String getHql(Map map,String hql){   //私募/股权类  模糊查询
 		String qname = (String)map.get("qname");
 		String wname = (String)map.get("wname");
 		String ename = (String)map.get("ename");
@@ -48,10 +48,15 @@ public class FundsDao {
 		return hql;
 	}
 	
-	public List<Finance_product_subscribe> listsubscribe(int id){
+	public List<Finance_product_subscribe> listsubscribe(int id){   //查看签署状态
 		String hql = "from Finance_product_subscribe where product_id="+id+" order by create_date desc";
 		Session session = this.getSession();
 		List<Finance_product_subscribe> list = session.createQuery(hql).list();
 		return list;
+	}
+	
+	public void saveSubscribe(Finance_product_subscribe subscribe){
+		Session session = this.getSession();
+		session.save(subscribe);
 	}
 }

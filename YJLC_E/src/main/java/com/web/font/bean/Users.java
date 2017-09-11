@@ -1,4 +1,4 @@
-package com.font.bean;
+package com.web.font.bean;
 
 import java.util.Date;
 
