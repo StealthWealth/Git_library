@@ -1,11 +1,23 @@
-package com.bean;
+package com.web.financial_planner_Bean;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+import com.web.vip_auditing_Bean.Member;
+
+@Entity
+@Table
 public class Financial_planner {
 //  Financial_planner  理财师表
 	private int id;     //id
-	private int member_id;   //会员id
+	//private int member_id;   //会员id
 	private String name;       //真实姓名
 	private String orgname;    //机构名称
 	private String mycard;     //我的名片
@@ -13,17 +25,25 @@ public class Financial_planner {
 	private int status;     //状态
 	private Date create_date;     //创建时间
 	private Date update_date;     //修改时间
+	
+	private Member member;
+	
+	
+	@OneToOne
+	@JoinColumn(name="member_id")
+	public Member getMember() {
+		return member;
+	}
+	public void setMember(Member member) {
+		this.member = member;
+	}
+	@Id
+	@GeneratedValue
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
-	}
-	public int getMember_id() {
-		return member_id;
-	}
-	public void setMember_id(int member_id) {
-		this.member_id = member_id;
 	}
 	public String getName() {
 		return name;

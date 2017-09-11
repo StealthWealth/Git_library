@@ -1,6 +1,5 @@
 package com.web.vip_auditing_Controller;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.web.financial_planner_Bean.Financial_planner;
+import com.web.member_account_Bean.Member_account;
 import com.web.vip_auditing_Bean.Member;
 import com.web.vip_auditing_Service.MemberService;
 
@@ -46,8 +47,12 @@ public class MemberController {
 	//账号详情
 	@RequestMapping("/getMember/{id}")
 	public String getMember(@PathVariable("id")int id,Model model){
-		Member member = memberService.getMember(id);
+		Member member = memberService.getMember(id); //用户基本信息
+		Member_account member_account = memberService.getMember_account(id); //账号账户详情
+		Financial_planner finan = memberService.getFinancial_planner(id);
 		model.addAttribute("member", member);
+		model.addAttribute("member_account", member_account);
+		model.addAttribute("finan", finan);
 		return "vip_Auditing_details";
 	}
 	

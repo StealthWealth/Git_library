@@ -1,15 +1,29 @@
-package com.bean;
+package com.web.subject_purchase_record_Bean;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+import com.web.member_account_Bean.Member_account;
+import com.web.subject_Bean.Subject;
+import com.web.vip_auditing_Bean.Member;
+
+@Entity
+@Table
 public class Subject_purchase_record {
 	// subject_purchase_record  标的购买表
 	private int id;          //id
 	private String serial_number;       //流水号
 	private double amount;       //购买金额
 	private String deal_ip;      //交易ip
-	private int subject_id;      //标的Id
-	private int member_id;       //会员ID
+	//private int subject_id;      //标的Id
+	//private int member_id;       //会员ID
 	private int delflag;         //是否删除
 	private Date create_date;    //添加时间
 	private Date update_date;    //修改时间
@@ -18,11 +32,36 @@ public class Subject_purchase_record {
 	private int pay_interest_times;  //购买次数
 	private int last_profit_day;     //最后计息日
 	private String bonus_info;       //红包金额信息（app端实际投资额度+红包额度）
+	
+	
+	private Subject subject;
+	private Member member;
+	
+
+	@Id
+	@GeneratedValue
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	@OneToOne
+	@JoinColumn(name="member_id")
+	public Member getMember() {
+		return member;
+	}
+	public void setMember(Member member) {
+		this.member = member;
+	}
+	@ManyToOne
+	@JoinColumn(name="subject_id")
+	public Subject getSubject() {
+		return subject;
+	}
+	public void setSubject(Subject subject) {
+		this.subject = subject;
 	}
 	public String getSerial_number() {
 		return serial_number;
@@ -41,18 +80,6 @@ public class Subject_purchase_record {
 	}
 	public void setDeal_ip(String deal_ip) {
 		this.deal_ip = deal_ip;
-	}
-	public int getSubject_id() {
-		return subject_id;
-	}
-	public void setSubject_id(int subject_id) {
-		this.subject_id = subject_id;
-	}
-	public int getMember_id() {
-		return member_id;
-	}
-	public void setMember_id(int member_id) {
-		this.member_id = member_id;
 	}
 	public int getDelflag() {
 		return delflag;

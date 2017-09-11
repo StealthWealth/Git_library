@@ -25,6 +25,14 @@
 			<property name="packagesToScan">
 				<list>
 					<value>com.web.vip_auditing_Bean</value>
+					<value>com.web.member_account_Bean</value>
+					<value>com.web.member_bankcards_Bean</value>
+					<value>com.web.subject_Bean</value>
+					<value>com.web.subject_purchase_record_Bean</value>
+					<value>com.web.member_deposit_record_Bean</value>
+					<value>com.web.financial_planner_Bean</value>
+					<value>com.web.finance_product_bean</value>
+					<value>com.web.font.bean</value>
 					<value>com.web.font.bean</value>
 					<value>com.web.finance_product_bean</value>
 				</list>
@@ -48,6 +56,7 @@
 				<tx:method name="add*" propagation="REQUIRED"/>
 				<tx:method name="delete*" propagation="REQUIRED"/>
 				<tx:method name="update*" propagation="REQUIRED"/>
+				<tx:method name="get*" propagation="SUPPORTS"/>
 			</tx:attributes>
 		</tx:advice>
 

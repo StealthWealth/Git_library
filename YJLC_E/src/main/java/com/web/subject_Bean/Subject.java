@@ -1,7 +1,14 @@
-package com.bean;
+package com.web.subject_Bean;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table
 public class Subject {
   //   Subject  主题表
 	private int id;    //id
@@ -34,6 +41,9 @@ public class Subject {
 	private String projectDetails;    //项目详情
 	private String safetyControl;     //安全保障
 	private int exper_status;         //体验金是否可以购买(0：否，1：是)
+	
+	@Id
+	@GeneratedValue
 	public int getId() {
 		return id;
 	}

@@ -1,11 +1,22 @@
-package com.bean;
+package com.web.member_account_Bean;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+import com.web.vip_auditing_Bean.Member;
+
+@Entity
+@Table
 public class Member_account {
 //  member_account   成员账户表
 	private int id;      //id
-	private int member_id;   //用户ID	
+	//private int member_id;   //用户ID	
 	private double useable_balance;       //可用余额
 	private double imuseale_balance;    //冻结余额
 	private double total_profit;     //累计收益 
@@ -15,18 +26,28 @@ public class Member_account {
 	private double invest_amount;    //投资总额
 	private int delflag;      //默认为0
 	private double bbin_amount;   //体验金
+	
+
+	private Member member;
+		 
+	@Id
+	@GeneratedValue
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getMember_id() {
-		return member_id;
+	@OneToOne
+	@JoinColumn(name="member_id")
+	public Member getMember() {
+		return member;
 	}
-	public void setMember_id(int member_id) {
-		this.member_id = member_id;
+	public void setMember(Member member) {
+		this.member = member;
 	}
+	
+
 	public double getUseable_balance() {
 		return useable_balance;
 	}

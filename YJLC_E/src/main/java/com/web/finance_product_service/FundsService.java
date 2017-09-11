@@ -25,4 +25,8 @@ public class FundsService {
 	public List<Finance_product_subscribe> listsubscribe(int id){
 		return this.fundsDao.listsubscribe(id);
 	}
+	
+	public void savesubscribe(Finance_product_subscribe subscribe){
+		this.fundsDao.saveSubscribe(subscribe);
+	}
 }

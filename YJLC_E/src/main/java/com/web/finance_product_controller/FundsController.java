@@ -42,5 +42,9 @@ public class FundsController {
 		return "finance_subscribe";
 	}
 	
-	
+	@RequestMapping("/updatesubscribe/${id}")
+	public String updatesubscribe(Finance_product_subscribe subscribe){
+		subscribe.setStatus(3);
+		return "redirect:/funds/listsubscribe";
+	}
 }

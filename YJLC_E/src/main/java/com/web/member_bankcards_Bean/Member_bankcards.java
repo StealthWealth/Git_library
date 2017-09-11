@@ -1,17 +1,43 @@
-package com.bean;
+package com.web.member_bankcards_Bean;
+
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import com.web.vip_auditing_Bean.Member;
+
+@Entity
+@Table
 public class Member_bankcards {
 //      member_bankcards   成员银联表
 	private int id;      //id
 	private String type;     //银行卡类型
-	private int member_id;    //用户id
+	//private int member_id;    //用户id
 	private String card_no;   // 卡号
 	private int delflag;       // 是否删除（0：正常使用，2：被删除）',
 	private Date create_date;   //创建时间
 	private Date update_date;    //修改时间
 	private String cardaddress;   //银行开户所在地
+	
+	private Member member;
+	
+	
+	@ManyToOne
+	@JoinColumn(name="member_id")
+	public Member getMember() {
+		return member;
+	}
+	public void setMember(Member member) {
+		this.member = member;
+	}
+	@Id
+	@GeneratedValue
 	public int getId() {
 		return id;
 	}
@@ -23,12 +49,6 @@ public class Member_bankcards {
 	}
 	public void setType(String type) {
 		this.type = type;
-	}
-	public int getMember_id() {
-		return member_id;
-	}
-	public void setMember_id(int member_id) {
-		this.member_id = member_id;
 	}
 	public String getCard_no() {
 		return card_no;
