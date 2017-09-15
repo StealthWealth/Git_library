@@ -23,6 +23,7 @@
 <link href="/YJLC_E/css/font-awesome.css" rel="stylesheet">
 <!-- //font-awesome icons -->
 <script src="/YJLC_E/js/jquery2.0.3.min.js"></script>
+<script type="text/javascript" src="/YJLC_E/js/bootstrap.js"></script>
 </head>
 <body>
 	<section id="container"> <!--header start--> <header
@@ -210,7 +211,7 @@
 						class="fa fa-th"></i> <span>学院管理</span>
 				</a>
 					<ul class="sub">
-						<li><a href="college_Consultation_Administration.jsp">资讯管理</a>
+						<li><a href="/YJLC_E/listNews">资讯管理</a>
 						</li>
 						<li><a href="college_Consultation_Type.jsp">资讯分类</a></li>
 					</ul></li>
@@ -220,10 +221,10 @@
 					<ul class="sub">
 						<li><a class="active" href="/YJLC_E/listAuditingAll">账号管理</a></li>
 						<li><a href="/YJLC_E/listMember_Bankcards">绑卡管理</a></li>
-						<li><a href="vip_Invitation.jsp">邀请管理</a></li>
+						<li><a href="/YJLC_E/listAward_records">邀请管理</a></li>
 						<li><a href="/YJLC_E/listSubject">付息计划</a></li>
 						<li><a href="/YJLC_E/listMember_deposit_record">充值管理</a></li>
-						<li><a href="vip_Withdrawals.jsp">体现管理</a></li>
+						<li><a href="/YJLC_E/listMember_withdraw">体现管理</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
 						class="fa fa-th"></i> <span>盈+管理</span>
@@ -247,38 +248,39 @@
 		<!-- sidebar menu end-->
 	</div>
 	</aside> <section id="main-content"> <section class="wrapper">
-		
 		<div  align="center">
-			<form action="/YJLC_E/listAuditingAll" method="post">
-				<table>
+			<form action="/YJLC_E/listAuditingAll" method="post" role="form">
+			<div class="form-group">
+				<table width="80%" class="table">
 					<tr>
-						<td>用户名:</td>
-						<td><input type="text" name="MH_name" value="${MH_name }"></td>
-						<td>手机号:</td>
-						<td><input type="text" name="MH_mobile_Phone" value="${MH_mobile_Phone }"></td>
-						<td>姓名:</td>
-						<td><input type="text" name="MH_member_name" value="${MH_member_name }"></td>
-						<td>邀请码:</td>
-						<td><input type="text" name="MH_invitationCode" value="${MH_invitationCode }"></td>
+						<td align="right"><font class="text-info" size="4">用户名:&nbsp;</font></td>
+						<td align="left"><input  type="text" name="MH_name"   value="${MH_name }" class="form-control" ></td>
+						<td align="right"><font class="text-info" size="4">手机号:</font></td>
+						<td align="left"><input type="text" name="MH_mobile_Phone" class="form-control" value="${MH_mobile_Phone }"></td>
+						<td align="right"><font class="text-info" size="4">姓名:</font></td>
+						<td align="left"><input type="text" name="MH_member_name" class="form-control" value="${MH_member_name }"></td>
+						<td align="right"><font class="text-info" size="4">邀请码:</font></td>
+						<td align="left"><input type="text" name="MH_invitationCode" class="form-control" value="${MH_invitationCode }"></td>
 						<td></td>
 					</tr>
 					<tr>
-						<td>注册时间</td>
-						<td><input type="date" name="MH_QDate" value="${MH_QDate }"></td>
+						<td align="right"><font class="text-info" size="4">注册时间之间:</font></td>
+						<td align="left"><input type="date" name="MH_QDate" class="form-control" value="${MH_QDate }"></td>
 						<td></td>
 						<td></td>
+						<td align="right"><font class="text-info" size="4">注册时间之间:</font></td>
+						<td align="left"><input type="date" name="MH_HDate" class="form-control" align="left" value="${MH_HDate }"></td>
 						<td></td>
-						<td><input type="date" name="MH_HDate" align="left" value="${MH_HDate }"></td>
-						<td></td>
-						<td><input type="submit" value="查 询"></td>
+						<td><input type="submit" value="查 询" class="btn-lg btn-info" style="width: 100px;"></td>
 					</tr>
 				</table>
+				</div>
 			</form>
 			<br>
 			<hr>
 			<br>
-			<table width="80%" border="1">
-				<tr>
+			<table width="85%" border="1" height="500">
+				<tr align="center">
 					<td>序号</td>
 					<td>电话</td>
 					<td>用户名</td>
@@ -289,7 +291,7 @@
 					<td>详  情</td>
 				</tr>
 				<c:forEach items="${listAuditing }" var="auditing" varStatus="status">
-					<tr>
+					<tr align="center">
 						<td>${status.index+1 }</td>
 						<td>${auditing.mobile_Phone }</td>
 						<td>${auditing.name }</td>
@@ -297,7 +299,7 @@
 						<td>${auditing.identity }</td>
 						<td>${auditing.invitationCode }</td>
 						<td>${auditing.create_date }</td>
-						<td><a href="/YJLC_E/getMember/${auditing.id }">账号详情</a></td>
+						<td><a href="/YJLC_E/getMember/${auditing.id }"><font color="while"><b>账号详情</b></font></a></td>
 					</tr>
 				</c:forEach>
 			</table>

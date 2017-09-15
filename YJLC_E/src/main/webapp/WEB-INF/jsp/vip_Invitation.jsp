@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -23,6 +25,13 @@
 <!-- //font-awesome icons -->
 <script src="/YJLC_E/js/jquery2.0.3.min.js"></script>
 </head>
+	<script type="text/javascript">
+		$(function(){
+			$("#MH_isAward_Zhu").val("${MH_isAward_Zhu}");
+			$("#MH_isAward_Tou").val("${MH_isAward_Tou}");
+		});
+	</script>
+
 <body>
 	<section id="container"> <!--header start--> <header
 		class="header fixed-top clearfix"> <!--logo start-->
@@ -209,7 +218,7 @@
 						class="fa fa-th"></i> <span>学院管理</span>
 				</a>
 					<ul class="sub">
-						<li><a href="college_Consultation_Administration.jsp">资讯管理</a>
+						<li><a href="/YJLC_E/listNews">资讯管理</a>
 						</li>
 						<li><a href="college_Consultation_Type.jsp">资讯分类</a></li>
 					</ul></li>
@@ -219,10 +228,10 @@
 					<ul class="sub">
 						<li><a href="/YJLC_E/listAuditingAll">账号管理</a></li>
 						<li><a href="/YJLC_E/listMember_Bankcards">绑卡管理</a></li>
-						<li><a class="active" href="vip_Invitation.jsp">邀请管理</a></li>
+						<li><a class="active" href="/YJLC_E/listAward_records">邀请管理</a></li>
 						<li><a href="/YJLC_E/listSubject">付息计划</a></li>
 						<li><a href="/YJLC_E/listMember_deposit_record">充值管理</a></li>
-						<li><a href="vip_Withdrawals.jsp">体现管理</a></li>
+						<li><a href="/YJLC_E/listMember_withdraw">体现管理</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
 						class="fa fa-th"></i> <span>盈+管理</span>
@@ -246,8 +255,98 @@
 		<!-- sidebar menu end-->
 	</div>
 	</aside> <section id="main-content"> <section class="wrapper">
-
-	12131 </section> </section> <script src="/YJLC_E/js/bootstrap.js"></script> <script
+	<form action="/YJLC_E/listAward_records" method="post">
+	
+	<table width="100%" class="table">
+				<tr>
+					<td align="right"><font class="text-info" size="4">姓名:</font></td>
+					<td align="left"><input type="text" class="form-control" name="MH_member_name" value="${MH_member_name }"></td>
+					<td align="right"><font class="text-info" size="4">手机号:</font></td>
+					<td align="left"><input type="text" name="MH_mobile_Phone" class="form-control" value="${MH_mobile_Phone }"></td>
+					<td align="right"><font class="text-info" size="4">邀请码:</font></td>
+					<td align="left"><input type="text" class="form-control" name="MH_invitationCode" value="${MH_invitationCode }"></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td align="right"><font class="text-info" size="4">被邀请码:</font></td>
+					<td align="left"><input type="text" name="MH_invitedCode" class="form-control" value="${MH_invitedCode }"></td>
+					<td align="right"><font class="text-info" size="4">是否已注册奖励:</font></td>
+					<td align="left"><select name="MH_isAward_Zhu" id="MH_isAward_Zhu" class="form-control">
+							<option value="-1" selected="selected">请选择</option>
+							<option value="1">是</option>
+							<option value="0">否</option>
+						</select></td>
+					<td align="right"><font class="text-info" size="4">是否已投资奖励:</font></td>
+					<td align="left">
+						<select name="MH_isAward_Tou" id="MH_isAward_Tou" class="form-control">
+							<option value="-1" selected="selected">请选择</option>
+							<option value="1">是</option>
+							<option value="0">否</option>
+						</select>
+					</td>	
+					<td><input type="submit" class="btn btn-info" value="查 询"></td>
+				</tr>
+			</table>
+			</form>
+			<br>
+			<hr>
+			<br>
+			<table width="100%" border="1" height="150">
+				<tr align="center">
+					<td>序号</td>
+					<td>手机号</td>
+					<td>姓名</td>
+					<td>邀请码</td>
+					<td>被邀请码</td>
+					<td>投资金额</td>
+					<td>奖励类型</td>
+					<td>是否奖励</td>
+					<td>注册时间</td>
+					<td>奖励记录</td>
+				</tr>
+				<c:forEach items="${award_records }" var="award" varStatus="status">
+					<tr align="center">
+						<td>${status.index+1 }</td>
+						<td>${award.member.mobile_Phone }</td>
+						<td>${award.member.member_name }</td>
+						<td>${award.member.invitationCode }</td>
+						<td>${award.member.invitedCode }</td>
+						<td>
+							<c:forEach items="${award_memner }" var="aw">
+								<c:if test="${award.member.id==aw.member_id }">
+									<fmt:formatNumber type="number" value="${aw.member_amount }" pattern="0.00" maxFractionDigits="2"></fmt:formatNumber> 
+								</c:if>
+							</c:forEach>
+						</td>
+						<td>
+							<c:if test="${award.type==0 }">
+								注册奖励
+							</c:if>
+							<c:if test="${award.type==1 }">
+								投资奖励
+							</c:if>
+							</td>
+						<td>	
+							<c:if test="${award.isAward==0 }">
+								<font color="red"><b>未奖励</b></font>
+							</c:if>
+							<c:if test="${award.isAward==1 }">
+								<font color="green"><b>以奖励</b></font>
+							</c:if>
+						</td>
+						<td>${award.member.create_date }</td>
+						<td>
+							<c:if test="${award.isAward==0 }">
+								<font color="red">还未奖励</font>
+							</c:if>
+							<c:if test="${award.isAward==1 }">
+								<a href="/YJLC_E/reward_record/${award.id }/${award.byinvitingid}"><b>奖励记录</b></a>
+							</c:if>
+						</td>
+					</tr>
+				</c:forEach>
+			</table>
+	 </section> </section> <script src="/YJLC_E/js/bootstrap.js"></script> <script
 		src="/YJLC_E/js/jquery.dcjqaccordion.2.7.js"></script> <script
 		src="/YJLC_E/js/scripts.js"></script> <script src="/YJLC_E/js/jquery.slimscroll.js"></script>
 	<script src="/YJLC_E/js/jquery.nicescroll.js"></script> <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->

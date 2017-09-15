@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <title>Typography</title>
@@ -22,6 +23,9 @@
 <!-- //font-awesome icons -->
 <script src="/YJLC_E/js/jquery2.0.3.min.js"></script>
 </head>
+<style type="text/css">
+
+</style>
 <body>
 	<section id="container"> <!--header start--> <header
 		class="header fixed-top clearfix"> <!--logo start-->
@@ -210,7 +214,7 @@
 				</a>
 					<ul class="sub">
 						<li><a class="active"
-							href="college_Consultation_Administration.jsp">资讯管理</a></li>
+							href="/YJLC_E/listNews">资讯管理</a></li>
 						<li><a href="college_Consultation_Type.jsp">资讯分类</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
@@ -219,10 +223,10 @@
 					<ul class="sub">
 						<li><a href="/YJLC_E/listAuditingAll">账号管理</a></li>
 						<li><a href="/YJLC_E/listMember_Bankcards">绑卡管理</a></li>
-						<li><a href="vip_Invitation.jsp">邀请管理</a></li>
+						<li><a href="/YJLC_E/listAward_records">邀请管理</a></li>
 						<li><a href="/YJLC_E/listSubject">付息计划</a></li>
 						<li><a href="/YJLC_E/listMember_deposit_record">充值管理</a></li>
-						<li><a href="vip_Withdrawals.jsp">体现管理</a></li>
+						<li><a href="/YJLC_E/listMember_withdraw">体现管理</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
 						class="fa fa-th"></i> <span>盈+管理</span>
@@ -239,20 +243,61 @@
 						<li><a href="system_Password.jsp">密码修改</a></li>
 						<li><a href="system_Role.jsp">角色管理</a></li>
 					</ul></li>
-
-
 			</ul>
 		</div>
-		<!-- sidebar menu end-->
+
 	</div>
 	</aside> <section id="main-content"> <section class="wrapper">
+			<div align="right"><button class="btn btn-primary btn-lg" data-toggle="modal" onclick="addCollege()" >添 加</button></div>
+			<table width="100%" border="1">
+				<tr>
+					<td>序号</td>
+					<td width="10%">标题</td>
+					<td>副标题</td>
+					<td width="10%">简介</td>
+					<td width="10%">类别</td>
+					<td>封面</td>
+					<td>作者</td>
+					<td>来源</td>
+					<td>点击数量</td>
+					<td>是否置顶</td>
+					<td>是否推荐</td>
+					<td>是否审核</td>
+					<td>添加时间</td>
+					<td>操  作</td>
+				</tr>
+				<c:forEach items="${listNews }" var="news" varStatus="status">
+					<tr>
+						<td>${status.index+1 }</td>
+						<td>${news.title }</td>
+						<td>${news.subTitle }</td>
+						<td>${news.info }</td>
+						<td>${news.news_type.name }</td>
+						<td width="80"><img  src="/YJLC_E/${news.cPhoto }" width="80px" height="100"></td>
+						<td>${news.author }</td>
+						<td>${news.source }</td>
+						<td>${news.clickNumber }</td>
+						<td>${news.placTop }</td>
+						<td>${news.recommend }</td>
+						<td>${news.audit }</td>
+						<td>${news.addTime }</td>
+						<td><a href="/YJLC_E/delete/${news.id }">删除</a> || <a href="/YJLC_E/updateNews/${news.id }">修 改</a></td>
+					</tr>
+				</c:forEach>
+			</table>
+			
+			<script type="text/javascript">
+				function addCollege(){
+					location="/YJLC_E/getAddCollege";
+				}
+			</script>
 
-	12131 </section> <!-- footer --> <!-- / footer --> </section> <script
-		src="/YJLC/js/bootstrap.js"></script> <script
-		src="/YJLC/js/jquery.dcjqaccordion.2.7.js"></script> <script
-		src="/YJLC/js/scripts.js"></script> <script
-		src="/YJLC/js/jquery.slimscroll.js"></script> <script
-		src="/YJLC/js/jquery.nicescroll.js"></script> <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
-	<script src="/YJLC/js/jquery.scrollTo.js"></script>
+	 </section> <!-- footer --> <!-- / footer --> </section> <script
+		src="/YJLC_E/js/bootstrap.js"></script> <script
+		src="/YJLC_E/js/jquery.dcjqaccordion.2.7.js"></script> <script
+		src="/YJLC_E/js/scripts.js"></script> <script
+		src="/YJLC_E/js/jquery.slimscroll.js"></script> <script
+		src="/YJLC_E/js/jquery.nicescroll.js"></script> <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
+	<script src="/YJLC_E/js/jquery.scrollTo.js"></script>
 </body>
 </html>

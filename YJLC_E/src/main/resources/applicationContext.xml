@@ -19,7 +19,10 @@
 			<property name="username" value="root"></property>
 			<property name="password" value="root"></property>
 		</bean>
-		
+		<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	<property name="defaultEncoding" value="utf-8"></property>
+	<property name="maxInMemorySize" value="10240000"></property>
+</bean>
 		<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 			<property name="dataSource" ref="dataSource"></property>
 			<property name="packagesToScan">
@@ -33,8 +36,13 @@
 					<value>com.web.financial_planner_Bean</value>
 					<value>com.web.finance_product_bean</value>
 					<value>com.web.font.bean</value>
-					<value>com.web.font.bean</value>
 					<value>com.web.finance_product_bean</value>
+					<value>com.web.member_withdraw_record_Bean</value>
+					<value>com.web.member_trade_record_Bean</value>
+					<value>com.web.award_records_Bean</value>
+					<value>com.web.sublect_bbin_purchase_record_Bean</value>
+					<value>com.web.news_Bean</value>
+					<value>com.web.news_type_Bean</value>
 				</list>
 			</property>
 			<property name="hibernateProperties">

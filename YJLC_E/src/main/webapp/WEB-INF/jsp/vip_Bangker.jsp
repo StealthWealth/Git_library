@@ -210,7 +210,7 @@
 						class="fa fa-th"></i> <span>学院管理</span>
 				</a>
 					<ul class="sub">
-						<li><a href="college_Consultation_Administration.jsp">资讯管理</a>
+						<li><a href="/YJLC_E/listNews">资讯管理</a>
 						</li>
 						<li><a href="college_Consultation_Type.jsp">资讯分类</a></li>
 					</ul></li>
@@ -220,10 +220,10 @@
 					<ul class="sub">
 						<li><a href="/YJLC_E/listAuditingAll">账号管理</a></li>
 						<li><a class="active" href="/YJLC_E/listMember_Bankcards">绑卡管理</a></li>
-						<li><a href="vip_Invitation.jsp">邀请管理</a></li>
+						<li><a href="/YJLC_E/listAward_records">邀请管理</a></li>
 						<li><a href="/YJLC_E/listSubject">付息计划</a></li>
 						<li><a href="/YJLC_E/listMember_deposit_record">充值管理</a></li>
-						<li><a href="vip_Withdrawals.jsp">体现管理</a></li>
+						<li><a href="/YJLC_E/listMember_withdraw">体现管理</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
 						class="fa fa-th"></i> <span>盈+管理</span>
@@ -249,45 +249,47 @@
 	</aside> <section id="main-content"> <section class="wrapper">
 		
 		<form action="/YJLC_E/listMember_Bankcards" method="post">
-		<table width="70%" align="center">
+		<div class="form-group">
+		<table width="80%" align="center" class="table">
 			<tr>
-				<td align="right">手机号:</td>
-				<td align="left"><input type="text" name="MH_mobile_Phone" value="${MH_mobile_Phone }"></td>
-				<td align="right">绑卡人姓名:</td>
-				<td align="left"><input type="text" name="MH_member_name" value="${MH_member_name }"></td>
-				<td align="right">卡号:</td>
-				<td align="left"><input type="text" name="MH_card_no" value="${MH_card_no }"></td>
+				<td align="right"><font class="text-info" size="4">手机号:&nbsp;</font></td>
+				<td align="left"><input type="text" name="MH_mobile_Phone" class="form-control" value="${MH_mobile_Phone }"></td>
+				<td align="right"><font class="text-info" size="4">绑卡人姓名:</font></td>
+				<td align="left"><input type="text" name="MH_member_name" class="form-control" value="${MH_member_name }"></td>
+				<td align="right"><font class="text-info" size="4">卡号:</font></td>
+				<td align="left"><input type="text" name="MH_card_no" class="form-control" value="${MH_card_no }"></td>
 			<tr>
 			<tr>
-						<td>注册时间:</td>
-						<td><input type="date" name="MH_QDate" value="${MH_QDate }"></td>
+						<td align="right"><font class="text-info" size="4">注册时间前:</font></td>
+						<td align="left"><input type="date" name="MH_QDate" class="form-control" value="${MH_QDate }"></td>
 						<td></td>
 						<td></td>
+						<td align="right"><font class="text-info" size="4">注册时间后:</font></td>
+						<td align="left"><input type="date" name="MH_HDate" align="left" class="form-control" value="${MH_HDate }"></td>
 						<td></td>
-						<td><input type="date" name="MH_HDate" align="left" value="${MH_HDate }"></td>
-						<td></td>
-						<td><input type="submit" value="查 询"></td>
+						<td align="center"><input type="submit" class="btn-lg btn-info" value="查 询"></td>
 					</tr>
 		</table>
+		</div>
 		</form>
 		<br>
 		<hr>
 		<br>
-		<table width="100%" align="center" border="1">
-			<tr>
-				<th>序号</th>
-				<th>手机号</th>
-				<th>绑卡人姓名</th>
-				<th>绑卡人身分证</th>
-				<th>绑卡类型</th>
-				<th>绑卡卡号</th>
-				<th>绑卡地址</th>
-				<th>状态</th>
-				<th>添加时间</th>
-				<th>操 作</th>
+		<table width="100%" align="center" border="1" height="300">
+			<tr align="center">
+				<td>序号</td>
+				<td>手机号</td>
+				<td>绑卡人姓名</td>
+				<td>绑卡人身分证</td>
+				<td>绑卡类型</td>
+				<td>绑卡卡号</td>
+				<td>绑卡地址</td>
+				<td>状态</td>
+				<td>添加时间</td>
+				<td>操 作</td>
 			</tr>
 			<c:forEach items="${member_bankcards }" var="memberBan" varStatus="status">
-				<tr>
+				<tr align="center">
 					<td>${status.index+1}</td>
 					<td>${memberBan.member.mobile_Phone }</td>
 					<td>${memberBan.member.member_name }</td>
@@ -300,18 +302,18 @@
 							<font color="green">正常</font>
 						</c:if>
 						<c:if test="${memberBan.delflag==2 }">
-							<font color="red">以解绑</font>
+							<font color="red"><b>以解绑</b></font>
 						</c:if>
 					</td>
 					<td>${memberBan.create_date }</td>
 					<td>
 						<c:if test="${memberBan.delflag==0 }">
-							<a href="/YJLC_E/updateDelflag/${memberBan.id }">解  绑</a></td>
+							<a href="/YJLC_E/updateDelflag/${memberBan.id }"><b>解  绑</b></a>
 						</c:if>
 						<c:if test="${memberBan.delflag==2 }">
-							<font color="red">以解绑</font>
+							<font color="red"><b>以解绑</b></font>
 						</c:if>
-						
+					</td>
 				</tr>
 			</c:forEach>
 		</table>
