@@ -247,35 +247,55 @@
 		<!-- sidebar menu end-->
 	</div>
 	</aside> <section id="main-content"> <section class="wrapper">	
-			<table width="100%" border="1">
+			
+			<table width="100%">
 				<tr>
-					<td>编号</td>
-					<td>邀请人手机号</td>
-					<td>被邀请人手机号</td>
-					<td>奖励类型</td>
-					<td>奖励金额</td>
-					<td>奖励时间</td>
-					<td>邀请码</td>
-				</tr>
-				<tr>
-					<td>${award_inviting.id }</td>
-					<td>${award_inviting.member.mobile_Phone }</td>
+				
 					<td>
-						<c:if test="${award_inviting.byinvitingid==member_ByinvitingName.id }">
-							${member_ByinvitingName.mobile_Phone }
-						</c:if>
+						<table class="table">
+							<tr>
+								<td align="center"><font color="black"><b>编号: ${award_inviting.id }</b></font></td>
+							</tr>
+							<tr><td align="center">
+									<font color="black"><b>邀请人手机号:${award_inviting.member.mobile_Phone }</b></font>	
+								</td>
+							 </tr>
+							 <tr>
+							 	<td align="center">
+									<font color="black"><b>被邀请人手机号:	 <c:if test="${award_inviting.byinvitingid==member_ByinvitingName.id }">
+														${member_ByinvitingName.mobile_Phone }
+													</c:if>	
+													</b></font>	
+							 	</td>
+							 </tr>
+							 <tr>
+							 	<td align="center">
+									<font color="black"><b>奖励类型:<c:if test="${award_inviting.type==0 }">
+											注册奖励
+											</c:if>
+											<c:if test="${award_inviting.type==1 }">
+											投资奖励
+											</c:if>	 		
+											</b></font>
+							 	</td>
+							 </tr>
+							 <tr>
+							 	<td align="center">
+							 		<font color="black"><b>奖励金额:${award_inviting.amount }</b></font>
+							 	</td>
+							 </tr>
+							 <tr>
+							 	<td align="center">
+							 		<font color="black"><b>奖励时间:${award_inviting.addTime }</b></font>
+							 	</td>
+							 </tr>
+							 <tr>
+							 	<td align="center">
+									<font color="black"><b>邀请码:${award_inviting.member.invitationCode }</b></font>	 		
+							 	</td>
+							 </tr>
+						</table>
 					</td>
-					<td>
-						<c:if test="${award_inviting.type==0 }">
-							注册奖励
-						</c:if>
-						<c:if test="${award_inviting.type==1 }">
-							投资奖励
-						</c:if>
-					</td>
-					<td>${award_inviting.amount }</td>
-					<td>${award_inviting.addTime }</td>
-					<td>${award_inviting.member.invitationCode }</td>
 				</tr>
 			</table>
 	 </section> </section> <script src="/YJLC_E/js/bootstrap.js"></script> <script
