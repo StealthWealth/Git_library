@@ -256,63 +256,62 @@
 	<form id="formFile" method="post" enctype="multipart/form-data">
 			<table border="1" class="table">
 				<tr>
-					
-						
 						<td colspan="8" align="center">
 						<c:if test="${not empty fileName }">
 						<img  src="/YJLC_E/upload/${fileName }" width="200" height="200"   class="img-circle" >
-						<input type="hidden" name="fileName"  id="fileName" value="${fileName }">
+						<input type="hidden" name="fileName"  id="fileName" value="${fileName }" >
 						</c:if>
-						<br>
-						<input type="file" name="cPhoto" onchange="upload()"><br>
+						<br><div style="width: 100px;">
+						<input type="file" name="cPhoto" onchange="upload()" class="form-control"><br>
+						</div>
 					</td>
 				</tr>
 				<tr>
-					<td>标题:</td>
-					<td><input type="text" name="title" value="${title }"></td>
-					<td>副标题:</td>
-					<td><input type="text" name="subTitle" value="${subTitle }"></td>
-					<td>排序:</td>
-					<td><input type="text" name="sort" value="${sort }"></td>
-					<td>链接地址:</td>
-					<td><input type="text" name="link" value="${link }"></td>
+					<td><font class="text-primary" size="5">标题:</font></td>
+					<td><input type="text" name="title" value="${title }"  class="form-control"></td>
+					<td><font class="text-primary" size="5">副标题:</font></td>
+					<td><input type="text" name="subTitle" value="${subTitle }"  class="form-control"></td>
+					<td><font class="text-primary" size="5">排序:</font></td>
+					<td><input type="text" name="sort" value="${sort }" id="sort"  class="form-control"></td>
+					<td><font class="text-primary" size="5">链接地址:</font></td>
+					<td><input type="text" name="link" value="${link }"  class="form-control"></td>
 				</tr>
 				<tr>
-					<td>作者:</td>
-					<td><input type="text" name="author" value="${author }"></td>
-					<td>来源:</td>
-					<td><input type="text" name="source" value="${source }"></td>
-					<td>标签:</td>
-					<td><input type="text" name="label" value="${label }"></td>
-					<td>附件地址:</td>
-					<td><input type="text" name="filelink" value="${filelink }"></td>
+					<td><font class="text-primary" size="5">作者:</font></td>
+					<td><input type="text" name="author" value="${author }"  class="form-control"></td>
+					<td><font class="text-primary" size="5">来源:</font></td>
+					<td><input type="text" name="source" value="${source }"  class="form-control"></td>
+					<td><font class="text-primary" size="5">标签:</font></td>
+					<td><input type="text" name="label" value="${label }"  class="form-control"></td>
+					<td><font class="text-primary" size="5">附件地址:</font></td>
+					<td><input type="text" name="filelink" value="${filelink }"  class="form-control"></td>
 				</tr>
 				<tr>
-					<td>是否置顶:</td>
+					<td><font class="text-primary" size="5">是否置顶:</font></td>
 					<td>
 						<select name="placTop" id="placTop">
 							<option value="0" selected="selected">否</option>
 							<option value="1">是</option>
 						</select>
 					</td>
-					<td>页面seo标题:</td>
-					<td><input type="text" name="seoTitle" value="${seoTitle }"></td>
-					<td>seo关键字:</td>
-					<td><input type="text" name="seoKey" value="${seoKey }"></td>
-					<td>seo描述:</td>
-					<td><input type="text" name="seoDes" value="${seoDes }"></td>
+					<td><font class="text-primary" size="5">页面seo标题:</font></td>
+					<td><input type="text" name="seoTitle" value="${seoTitle }"  class="form-control"></td>
+					<td><font class="text-primary" size="5">seo关键字:</font></td>
+					<td><input type="text" name="seoKey" value="${seoKey }"  class="form-control"></td>
+					<td><font class="text-primary" size="5">seo描述:</font></td>
+					<td><input type="text" name="seoDes" value="${seoDes }"  class="form-control"></td>
 				</tr>
 				<tr>
-					<td>是否推荐:</td>
+					<td><font class="text-primary" size="5">是否推荐:</font></td>
 					<td>
-						<select name="recommend" id="recommend">
+						<select name="recommend" id="recommend" class="form-control">
 							<option value="0" selected="selected">否</option>
 							<option value="1">是</option>
 						</select>
 					</td>
-					<td>类别:</td>
+					<td><font class="text-primary" size="5">类别:</font></td>
 					<td>
-						<select name="typeId" name="typeId">
+						<select name="typeId" name="typeId" class="form-control">
 							<c:forEach items="${listNews_type }" var="list">
 								<option value="${list.id }">${list.name }</option>
 							</c:forEach>
@@ -321,24 +320,19 @@
 					</td>	
 					<td></td>
 					<td>
-					
 				</tr>
-				
-				
 			</table>
 			<table width="100%" align="center" border="1">
 				<tr align="center">
-					<td align="center">简介: <script id="editor" type="text/plain" style="width:100%;height:100px;" name="editor">${editor}</script></td>
-					
-					
+					<td align="center"><font class="text-primary" size="5">简介:</font> <script id="editor" type="text/plain" style="width:100%;height:100px;" name="editor">${editor}</script></td>
 				</tr>
 				<tr>
 					<td align="center">
-						内容:<script id="text" type="text/plain" style="width:100%;height:100px;" name="text">${text}</script>
+						<font class="text-primary" size="5">内容:</font><script id="text" type="text/plain" style="width:100%;height:100px;" name="text">${text}</script>
 					</td>
 				</tr>
 				<tr>
-					<td  colspan="4"  align="center"><input type="button" id="but" onclick="add()" value="添  加"></td>
+					<td  colspan="4"  align="center"><input type="button" id="but" onclick="add()" value="添   加" class="btn-lg btn-info"></td>
 				</tr>
 			</table>
 			<div style="width: 100px;height: 400px;">
@@ -367,9 +361,15 @@
 				 document.forms[0].submit();
 			}
 			function add(){
-				 document.forms[0].action="/YJLC_E/add";
-				 document.forms[0].submit();
-			}
+				if($("#sort").val()==null || $("#sort").val()==""){
+					alert("请填写排序序号");
+				}else{
+				    document.forms[0].action="/YJLC_E/add"; 
+					 document.forms[0].submit();
+				}	
+				}
+				
+				 
 		</script>
 	 </section> <!-- footer --> <!-- / footer --> </section> <script
 		src="/YJLC_E/js/bootstrap.js"></script> <script

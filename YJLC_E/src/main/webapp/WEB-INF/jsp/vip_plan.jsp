@@ -279,14 +279,16 @@
 						<td>${subject.name }</td>
 						<td>${subject.amount }</td>
 						<td>
+																
 							<c:forEach items="${sum_subject }" var="su">
 								<c:if test="${subject.id==su.subject_id }">
 									<fmt:formatNumber type="number" value="${su.sum_amount }" pattern="0.0" ></fmt:formatNumber> 元
 								</c:if>
-								<c:if test="${subject.id!=su.subject_id }">
-									
-								</c:if>
 							</c:forEach>
+							<c:if test="${subject.bought==0 }">
+								0元	
+							</c:if>
+							
 						</td>
 						<td>${subject.bought }人</td>
 						<td>${subject.period }天 </td>

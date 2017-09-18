@@ -5,7 +5,9 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -29,9 +31,26 @@ public class NewsController {
 
 	//²éÑ¯ËùÓÐ
 	@RequestMapping("/listNews")
-	public String listNews(Model model){
-		List<News> listNews = newsService.listNews();
+	public String listNews(Model model,String MH_title,String type_name){
+		
+		if(type_name!=null && type_name.equals("-1")){
+			type_name=null;
+		}
+		System.out.println("type_name:"+type_name);
+		
+		Map map = new HashMap<>();
+		map.put("MH_title", MH_title);
+		map.put("type_name", type_name);
+		
+		
+		
+		List<News> listNews = newsService.listNews(map);
 		model.addAttribute("listNews",listNews);
+		List<News_type> listNews_type = newsService.listNews_type();
+		model.addAttribute("listNews_type", listNews_type);
+		
+		model.addAttribute("MH_title", MH_title);
+		model.addAttribute("type_name", type_name);
 		return "college_Consultation_Administration";
 	}
 	

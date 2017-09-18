@@ -1,7 +1,7 @@
 package com.web.news_Dao;
 
-import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -24,12 +24,29 @@ public class NewsDao {
 
 	
 	//查询所有
-	public List<News> listNews(){
+	public List<News> listNews(Map map){
 		Session session = getSession();
-		String hql = "from News ";
+		String hql = "from News as ne where 0=0  ";
+		hql=MH_listNews(map, hql);
+		System.out.println("hql="+hql);
 		List<News> listNews = session.createQuery(hql).list();
 		return listNews;
 	}
+	
+	//模糊查询
+	public String MH_listNews(Map map,String hql){
+		String MH_title = (String) map.get("MH_title");
+		String type_name = (String) map.get("type_name");
+		
+		if(MH_title!=null && !MH_title.equals("")){
+			hql+=" and title like '%"+MH_title+"%'";
+		}
+		if(type_name!=null && !type_name.equals("")){
+			hql+=" and ne.news_type.id="+type_name;
+		}
+		return hql;
+	}
+	
 	
 	//查询所有类别
 	public List<News_type> list_news_type(){

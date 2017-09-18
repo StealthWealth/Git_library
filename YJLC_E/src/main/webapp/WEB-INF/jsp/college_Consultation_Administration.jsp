@@ -248,26 +248,48 @@
 
 	</div>
 	</aside> <section id="main-content"> <section class="wrapper">
+			<form action="/YJLC_E/listNews" method="post">
+			<table width="50%" align="center">
+				<tr>
+					<td align="right">标题:</td>
+					<td align="left" width="200"><input type="text" name="MH_title" value="${MH_title }" class="form-control"></td>
+					<td align="right">类别:</td>
+					<td align="left" width="200">
+						<select name="type_name" id="type_name" class="form-control">
+							<option value="-1">请选择</option>
+							<c:forEach items="${listNews_type }" var="t">
+								<option value=${t.id }>${t.name }</option>
+							</c:forEach>
+						</select>
+					</td>
+					<td align="center">&nbsp;<input type="submit" value="查  询"  class="btn btn-info"></td>
+				</tr>
+			</table>
+			</form>
+			<br>
+			<hr>
+			<br>
+			<br>
 			<div align="right"><button class="btn btn-primary btn-lg" data-toggle="modal" onclick="addCollege()" >添 加</button></div>
 			<table width="100%" border="1">
-				<tr>
-					<td>序号</td>
-					<td width="10%">标题</td>
-					<td>副标题</td>
-					<td width="10%">简介</td>
-					<td width="10%">类别</td>
+				<tr align="center">
+					<td width="100" align="center">序号</td>
+					<td width="10%" align="center">标题</td>
+					<td width="100" align="center">副标题</td>
+					<td width="10%" align="center">简介</td>
+					<td width="100" align="center">类别</td>
 					<td>封面</td>
-					<td>作者</td>
-					<td>来源</td>
-					<td>点击数量</td>
-					<td>是否置顶</td>
-					<td>是否推荐</td>
-					<td>是否审核</td>
-					<td>添加时间</td>
-					<td>操  作</td>
+					<td width="100" align="center">作者</td>
+					<td width="100" align="center">来源</td>
+					<td width="100" align="center">点击数量</td>
+					<td width="100" align="center">是否置顶</td>
+					<td width="100" align="center">是否推荐</td>
+					<td width="100" align="center">是否审核</td>
+					<td width="170" align="center">添加时间</td>
+					<td width="100">操  作</td>
 				</tr>
 				<c:forEach items="${listNews }" var="news" varStatus="status">
-					<tr>
+					<tr align="center">
 						<td>${status.index+1 }</td>
 						<td>${news.title }</td>
 						<td>${news.subTitle }</td>
@@ -277,16 +299,44 @@
 						<td>${news.author }</td>
 						<td>${news.source }</td>
 						<td>${news.clickNumber }</td>
-						<td>${news.placTop }</td>
-						<td>${news.recommend }</td>
-						<td>${news.audit }</td>
+						<td><c:if test="${news.placTop==1 }">
+							是
+						</c:if>
+						<c:if test="${news.placTop==0 }">
+							否
+						</c:if>
+							</td>
+						<td>
+							<c:if test="${news.recommend==1 }">
+								是
+							</c:if>
+							<c:if test="${news.recommend==0 }">
+							 否
+							</c:if>
+						</td>
+						<td>
+							<c:if test="${news.audit==1 }">
+								是
+							</c:if>
+							<c:if test="${news.audit==0 }">
+								否
+							</c:if>
+						</td>
 						<td>${news.addTime }</td>
-						<td><a href="/YJLC_E/delete/${news.id }">删除</a> || <a href="/YJLC_E/updateNews/${news.id }">修 改</a></td>
+						<td><a href="/YJLC_E/delete/${news.id }"><b>删除</b></a> || <a href="/YJLC_E/updateNews/${news.id }"><b>修 改</b></a></td>
 					</tr>
 				</c:forEach>
 			</table>
 			
 			<script type="text/javascript">
+			var type = $("#type_name").val("${type_name}") 
+				if(type.val()==null){
+					$("#type_name").val("-1");
+				}else{
+					$("#type_name").val("${type_name}")
+				}
+				 
+			
 				function addCollege(){
 					location="/YJLC_E/getAddCollege";
 				}

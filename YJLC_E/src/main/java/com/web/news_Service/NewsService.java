@@ -1,6 +1,7 @@
 package com.web.news_Service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,8 +19,8 @@ public class NewsService {
 	private NewsDao newsDao;
 
 	//查询所有
-	public List<News> listNews(){
-		return newsDao.listNews();
+	public List<News> listNews(Map map){
+		return newsDao.listNews(map);
 	}
 	
 	//查询所有类别
