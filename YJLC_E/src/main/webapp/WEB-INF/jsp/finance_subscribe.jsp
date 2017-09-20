@@ -287,6 +287,8 @@
 						<td><a class="layui-btn layui-btn-mini layui-btn-radius layui-btn-disabled">已签署</a></td>
 						</c:if>
 						<c:if test="${subscribe.status==2 }">
+						<td><a class="layui-btn layui-btn-small layui-btn-normal layui-btn-radius" href="/YJLC_E/funds/subscribeadd/${subscribe.id }/${subscribe.funds.period}">签署</a>&nbsp;
+							<a class="layui-btn layui-btn-small layui-btn-normal layui-btn-radius" href="/YJLC_E/funds/updatesubscribe/${subscribe.id }/${subscribe.funds.id}" onclick="return confirm('真的要签署失败吗？')">签署失败</a></td>
 						</c:if>
 						<c:if test="${subscribe.status==3 }">
 						<td><a class="layui-btn layui-btn-mini layui-btn-radius layui-btn-disabled">签署失败</a></td>
