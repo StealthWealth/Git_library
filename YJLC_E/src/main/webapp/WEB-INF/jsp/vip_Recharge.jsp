@@ -208,15 +208,15 @@
 						class="fa fa-book"></i> <span>理财产品</span>
 				</a>
 					<ul class="sub">
-						<li><a href="products_Solid _Collection.jsp">固收类/P2P</a></li>
+						<li><a href="/YJLC_E/subject/listsubject">固收类/P2P</a></li>
 						<li><a href="/YJLC_E/funds/listfunds">私募/股权类</a></li>
-						<li><a href="products_Solid _Collection.jsp">海外配置</a></li>
+						<li><a href="/YJLC_E/config/listconfig">海外配置</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
 						class="fa fa-th"></i> <span>学院管理</span>
 				</a>
 					<ul class="sub">
-						<li><a href="college_Consultation_Administration.jsp">资讯管理</a>
+						<li><a href="/YJLC_E/listNews">资讯管理</a>
 						</li>
 						<li><a href="college_Consultation_Type.jsp">资讯分类</a></li>
 					</ul></li>
@@ -226,10 +226,10 @@
 					<ul class="sub">
 						<li><a href="/YJLC_E/listAuditingAll">账号管理</a></li>
 						<li><a href="/YJLC_E/listMember_Bankcards">绑卡管理</a></li>
-						<li><a href="vip_Invitation.jsp">邀请管理</a></li>
+						<li><a href="/YJLC_E/listAward_records">邀请管理</a></li>
 						<li><a href="/YJLC_E/listSubject">付息计划</a></li>
 						<li><a class="active" href="/YJLC_E/listMember_deposit_record">充值管理</a></li>
-						<li><a href="vip_Withdrawals.jsp">体现管理</a></li>
+						<li><a href="/YJLC_E/listMember_withdraw">体现管理</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
 						class="fa fa-th"></i> <span>盈+管理</span>
@@ -254,32 +254,33 @@
 	</div>
 	</aside> <section id="main-content"> <section class="wrapper">
 		<form action="/YJLC_E/listMember_deposit_record" method="post">
-		<table width="80%" align="center">
+		<table width="100%" align="center" class="table">
 			<tr>
-				<th align="right">订单编号:</th>
-				<th align="left"><input type="text" name="MH_serial_number" value="${MH_serial_number }"></th>
-				<th align="right">手机号:</th>
-				<th align="left"><input type="text" name="MH_mobile_Phone" value="${MH_mobile_Phone }"></th>
-				<th align="right">订单状态:</th>
+				<th align="right"><font class="text-info" size="4">订单编号:</font></th>
+				<th align="left"><input type="text" name="MH_serial_number"  class="form-control" value="${MH_serial_number }"></th>
+				<th align="right"><font class="text-info" size="4">手机号:</font></th>
+				<th align="left"><input type="text" name="MH_mobile_Phone" value="${MH_mobile_Phone }" class="form-control"></th>
+				<th align="right"><font class="text-info" size="4">订单状态:</font></th>
 				<th align="left">
-					<select name="MH_status" id="MH_status">
+					<select name="MH_status" id="MH_status"  class="form-control">
 						<option value="2" selected="selected">请选择</option>
 						<option value="0">充值失败</option>
 						<option value="1">充值成功</option>
 					</select>
 				</th>
-				<th align="right">充值渠道订单号:</th>
-				<th align="left"><input type="text" name="MH_pay_channel_order_no" value="${MH_pay_channel_order_no }"></th>
+				<th align="right"><font class="text-info" size="4">充值渠道订单号:</font></th>
+				<th align="left"><input type="text" name="MH_pay_channel_order_no" value="${MH_pay_channel_order_no }" class="form-control"></th>
 			</tr>
 			<tr>
-				<th align="right">订单时间:</th>
-				<th align="left"><input type="date" name="MH_QDate" value="${MH_QDate }"></th>
+				<th align="right"><font class="text-info" size="4">订单时间前:</font></th>
+				<th align="left"><input type="date" name="MH_QDate" value="${MH_QDate }" class="form-control"></th>
 				<th></th>
 				<th></th>
 				<th></th>
 				<th></th>
-				<th><input type="date" name="MH_HDate" value="${MH_HDate }"></th>
-				<th><input type="submit" value="查 询"></th>
+				<th><font class="text-info" size="4">订单时间后:</font></th>
+				<th><input type="date" name="MH_HDate" value="${MH_HDate }" class="form-control"></th>
+				<th><input type="submit" class="btn btn-info" value="查 询"></th>
 			</tr>
 		</table>
 			
@@ -288,18 +289,18 @@
 		<hr><br>
 		<div align="right" style="width: 100%;"><a href="/YJLC_E/listMember_deposit_record">更新列表</a></div>
 		<table width="100%" align="center" border="1">
-			<tr>
-				<th>序号</th>
-				<th>订单编号</th>
-				<th>手机号</th>
-				<th>订单金额</th>
-				<th>订单状态</th>
-				<th>充值渠道</th>
-				<th>充值渠道订单号</th>
-				<th>订单时间</th>
+			<tr align="center">
+				<td>序号</td>
+				<td>订单编号</td>
+				<td>手机号</td>
+				<td>订单金额</td>
+				<td>订单状态</td>
+				<td>充值渠道</td>
+				<td>充值渠道订单号</td>
+				<td>订单时间</td>
 			</tr>
 			<c:forEach items="${member_deposit_record }" var="member" varStatus="status">
-				<tr>
+				<tr align="center">
 					<td>${status.index+1 }</td>
 					<td>${member.serial_number }</td>
 					<td>${member.member.mobile_Phone }</td>

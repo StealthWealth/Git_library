@@ -202,13 +202,15 @@
 						class="fa fa-book"></i> <span>理财产品</span>
 				</a>
 					<ul class="sub">
-						<li><a href="products_Solid _Collection.jsp">固收类/P2P</a></li>
+						<li><a href="/YJLC_E/subject/listsubject">固收类/P2P</a></li>
+						<li><a href="/YJLC_E/funds/listfunds">私募/股权类</a></li>
+						<li><a href="/YJLC_E/config/listconfig">海外配置</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
 						class="fa fa-th"></i> <span>学院管理</span>
 				</a>
 					<ul class="sub">
-						<li><a href="college_Consultation_Administration.jsp">资讯管理</a>
+						<li><a href="/YJLC_E/listNews">资讯管理</a>
 						</li>
 						<li><a href="college_Consultation_Type.jsp">资讯分类</a></li>
 					</ul></li>
@@ -218,10 +220,10 @@
 					<ul class="sub">
 						<li><a href="/YJLC_E/listAuditingAll">账号管理</a></li>
 						<li><a href="/YJLC_E/listMember_Bankcards">绑卡管理</a></li>
-						<li><a href="vip_Invitation.jsp">邀请管理</a></li>
+						<li><a href="/YJLC_E/listAward_records">邀请管理</a></li>
 						<li><a class="active" href="/YJLC_E/listSubject">付息计划</a></li>
 						<li><a href="/YJLC_E/listMember_deposit_record">充值管理</a></li>
-						<li><a href="vip_Withdrawals.jsp">体现管理</a></li>
+						<li><a href="/YJLC_E/listMember_withdraw">体现管理</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
 						class="fa fa-th"></i> <span>盈+管理</span>
@@ -246,21 +248,21 @@
 	</div>
 	</aside> <section id="main-content"> <section class="wrapper">
 		<table width="100%" border="1">
-			<tr>
-				<th>序号</th>
-				<th>流水号</th>
-				<th>投资人手机号</th>
-				<th>投资人姓名</th>
-				<th>投资人身份证</th>
-				<th>投资金额</th>
-				<th>本息</th>
-				<th>投资时间</th>
-				<th>还款时间</th>
-				<th>还款状态</th>
-				<th>操 作</th>
+			<tr align="center">
+				<td>序号</td>
+				<td>流水号</td>
+				<td>投资人手机号</td>
+				<td>投资人姓名</td>
+				<td>投资人身份证</td>
+				<td>投资金额</td>
+				<td>本息</td>
+				<td>投资时间</td>
+				<td>还款时间</t>
+				<td>还款状态</td>
+				<td>操 作</td>
 			</tr>
 			<c:forEach items="${listSubject_Purchase }" var="subject_Purchase" varStatus="status">
-				<tr>
+				<tr align="center">
 					<td>${status.index+1 }</td>
 					<td>${subject_Purchase.serial_number }</td>
 					<td>${subject_Purchase.member.mobile_Phone }</td>
@@ -272,18 +274,18 @@
 					<td>${subject_Purchase.update_date }</td>
 					<td>
 						<c:if test="${subject_Purchase.ispayment==0 }">
-							<font color="red">未还款</font>
+							<font color="red"><b>未还款</b></font>
 						</c:if>	
 						<c:if test="${subject_Purchase.ispayment==1 }">	
-							<font color="green">已还款</font>
+							<font color="green"><b>已还款</b></font>
 						</c:if>	
 					</td>
 					<td>
 							<c:if test="${subject_Purchase.ispayment==0 }">
-								<a href="/YJLC_E/updateSubject_Purchase/${subject_Purchase.id}/${subject_Purchase.subject.id}">还款</a>
+								<a href="/YJLC_E/updateSubject_Purchase/${subject_Purchase.id}/${subject_Purchase.subject.id}"><b>还款</b></a>
 						</c:if>
 						<c:if test="${subject_Purchase.ispayment==1 }">
-							<font color="green">已还款</font>
+							<font color="green"><b>已还款</b></font>
 						</c:if>	
 					</td>
 						

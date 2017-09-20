@@ -1,5 +1,6 @@
 package com.web.Member_bankcards_Dao;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -72,6 +73,8 @@ public class Member_bankcardsDao {
 	//½â°ó
 	public void updateDelflag(Member_bankcards member_bankcards){
 		Session session = getSession();
+		Date date = new Date();
+		member_bankcards.setUpdate_date(date);
 		session.update(member_bankcards);
 	}
 	

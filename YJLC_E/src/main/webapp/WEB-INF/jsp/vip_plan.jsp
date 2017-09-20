@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -202,15 +203,15 @@
 						class="fa fa-book"></i> <span>理财产品</span>
 				</a>
 					<ul class="sub">
-						<li><a href="products_Solid _Collection.jsp">固收类/P2P</a></li>
+						<li><a href="/YJLC_E/subject/listsubject">固收类/P2P</a></li>
 						<li><a href="/YJLC_E/funds/listfunds">私募/股权类</a></li>
-						<li><a href="products_Solid _Collection.jsp">海外配置</a></li>
+						<li><a href="/YJLC_E/config/listconfig">海外配置</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
 						class="fa fa-th"></i> <span>学院管理</span>
 				</a>
 					<ul class="sub">
-						<li><a href="college_Consultation_Administration.jsp">资讯管理</a>
+						<li><a href="/YJLC_E/listNews">资讯管理</a>
 						</li>
 						<li><a href="college_Consultation_Type.jsp">资讯分类</a></li>
 					</ul></li>
@@ -220,10 +221,10 @@
 					<ul class="sub">
 						<li><a href="/YJLC_E/listAuditingAll">账号管理</a></li>
 						<li><a href="/YJLC_E/listMember_Bankcards">绑卡管理</a></li>
-						<li><a href="vip_Invitation.jsp">邀请管理</a></li>
+						<li><a href="/YJLC_E/listAward_records">邀请管理</a></li>
 						<li><a class="active" href="/YJLC_E/listSubject">付息计划</a></li>
 						<li><a href="/YJLC_E/listMember_deposit_record">充值管理</a></li>
-						<li><a href="vip_Withdrawals.jsp">体现管理</a></li>
+						<li><a href="/YJLC_E/listMember_withdraw">体现管理</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
 						class="fa fa-th"></i> <span>盈+管理</span>
@@ -247,48 +248,70 @@
 		<!-- sidebar menu end-->
 	</div>
 	</aside> <section id="main-content"> <section class="wrapper">
-		
-			<table width="100%" border="1">
-				<tr>
-					<th>序号</th>
-					<th>合同编号</th>
-					<th>标的类别</th>
-					<th>标的名称</th>
-					<th>标的总金额</th>
-					<th>已投金额</th>
-					<th>已投人数</th>
-					<th>标的期限</th>
-					<th>年化收益</th>
-					<th>标的状态</th>
-					<th>可体验金购买</th>
-					<th>操  作</th>
+		<br>
+			<table width="100%" border="1" height="200">
+				<tr align="center">
+					<td>序号</td>
+					<td>合同编号</td>
+					<td>标的类别</td>
+					<td>标的名称</td>
+					<td>标的总金额</td>
+					<td>已投金额</td>
+					<td>已投人数</td>
+					<td>标的期限</td>
+					<td>年化收益</td>
+					<td>标的状态</td>
+					<td>可体验金购买</td>
+					<td>操  作</td>
 				</tr>
 				<c:forEach items="${listSubject }" var="subject" varStatus="status">
-					<tr>
+					<tr align="center">
 						<td>${status.index+1 }</td>
 						<td>${subject.serial_no }</td>
-						<td>${subject.type }</td>
+						<td>
+							<c:if test="${subject.type==0 }">
+								固收类
+							</c:if>
+							<c:if test="${subject.type==1 }">
+								P2P车贷
+							</c:if>
+						</td>
 						<td>${subject.name }</td>
 						<td>${subject.amount }</td>
-						<td>${subject.floor_amount }</td>
-						<td>${subject.bought }</td>
-						<td>${subject.raise_end }</td>
-						<td>${subject.year_rate }</td>
-						<td>${subject.status }</td>
 						<td>
-							<c:if test="${subject.exper_status==1 }">
-								<font color="green">可以体验金购买</font>
+																
+							<c:forEach items="${sum_subject }" var="su">
+								<c:if test="${subject.id==su.subject_id }">
+									<fmt:formatNumber type="number" value="${su.sum_amount }" pattern="0.0" ></fmt:formatNumber> 元
+								</c:if>
+							</c:forEach>
+							<c:if test="${subject.bought==0 }">
+								0元	
 							</c:if>
-							<c:if test="${subject.exper_status==0 }">
-								<font color="red">不能使用体验金</font>
+							
+						</td>
+						<td>${subject.bought }人</td>
+						<td>${subject.period }天 </td>
+						<td><fmt:formatNumber type="number" value=" ${subject.year_rate }" pattern="0"></fmt:formatNumber>%</td>
+						<td>
+							<c:if test="${subject.status==1 }">
+								募集中
 							</c:if>
 						</td>
 						<td>
 							<c:if test="${subject.exper_status==1 }">
-								<a>体验金付息</a>&nbsp;<a href="/YJLC_E/listSubject_Purchase_Record/${subject.id }">付息列表</a>
+								<font color="green"><b>可以体验金购买</b></font>
 							</c:if>
 							<c:if test="${subject.exper_status==0 }">
-								<a href="/YJLC_E/listSubject_Purchase_Record/${subject.id }">付息列表</a>
+								<font color="red"><b>不能使用体验金</b></font>
+							</c:if>
+						</td>
+						<td>
+							<c:if test="${subject.exper_status==1 }">
+								<a href="/YJLC_E/listSubject_bbin/${subject.id }"><b>体验金付息</b></a>&nbsp;<a href="/YJLC_E/listSubject_Purchase_Record/${subject.id }">付息列表</a>
+							</c:if>
+							<c:if test="${subject.exper_status==0 }">
+								<a href="/YJLC_E/listSubject_Purchase_Record/${subject.id }"><b>付息列表</b></a>
 							</c:if>
 						</td>
 					</tr>

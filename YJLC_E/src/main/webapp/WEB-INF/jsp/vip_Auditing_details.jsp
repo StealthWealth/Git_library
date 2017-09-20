@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -219,15 +220,15 @@ table{
 						class="fa fa-book"></i> <span>理财产品</span>
 				</a>
 					<ul class="sub">
-						<li><a href="products_Solid _Collection.jsp">固收类/P2P</a></li>
+						<li><a href="/YJLC_E/subject/listsubject">固收类/P2P</a></li>
 						<li><a href="/YJLC_E/funds/listfunds">私募/股权类</a></li>
-						<li><a href="products_Solid _Collection.jsp">海外配置</a></li>
+						<li><a href="/YJLC_E/config/listconfig">海外配置</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
 						class="fa fa-th"></i> <span>学院管理</span>
 				</a>
 					<ul class="sub">
-						<li><a href="college_Consultation_Administration.jsp">资讯管理</a>
+						<li><a href="/YJLC_E/listNews">资讯管理</a>
 						</li>
 						<li><a href="college_Consultation_Type.jsp">资讯分类</a></li>
 					</ul></li>
@@ -237,10 +238,10 @@ table{
 					<ul class="sub">
 						<li><a class="active" href="/YJLC_E/listAuditingAll">账号管理</a></li>
 						<li><a href="/YJLC_E/listMember_Bankcards">绑卡管理</a></li>
-						<li><a href="vip_Invitation.jsp">邀请管理</a></li>
+						<li><a href="/YJLC_E/listAward_records">邀请管理</a></li>
 						<li><a href="/YJLC_E/listSubject">付息计划</a></li>
 						<li><a href="/YJLC_E/listMember_deposit_record">充值管理</a></li>
-						<li><a href="vip_Withdrawals.jsp">体现管理</a></li>
+						<li><a href="/YJLC_E/listMember_withdraw">体现管理</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
 						class="fa fa-th"></i> <span>盈+管理</span>
@@ -273,7 +274,7 @@ table{
 	<table  class="table"  style="text-align: center;font-size: 6">
 	<thead>
 		<tr>
-			<td colspan="8" align="center"><font color="black" size="7">账号详情</font></td>
+			<td colspan="8" align="center"><font color="black"><h2>账号详情</h2></font></td>
 		</tr>
 		<tr>
 			<td align="right"><font color="black">姓名:</font></td>
@@ -306,7 +307,7 @@ table{
 			<td>
 				<table class="table"  style="text-align: center;font-size: 6">
 					<tr>
-						<td colspan="8" align="center"><font color="black" size="7">账户详情</font></td>
+						<td colspan="8" align="center">><font color="black"><h2>账户详情</h2></font></td>
 					</tr>
 					<tr>
 						<td align="right"><font color="black">姓名:</font></td>
@@ -338,7 +339,7 @@ table{
 			<td>
 				<table  class="table"  style="text-align: center;font-size: 6">
 					<tr>
-						<td colspan="8" align="center"><font color="black" size="7">理财师详情</font></td>
+						<td colspan="8" align="center">><font color="black"><h2>理财师详情</h2></font></td>
 					</tr>
 					<tr>
 						<td align="right"><font color="black">真实姓名:</font></td>
@@ -357,6 +358,159 @@ table{
 			</td>
 		</tr>
 	</table>
+	<table width="100%" border="0">
+		<tr>	
+			<td>
+				<table class="table"  style="text-align: center;font-size: 6">
+				<thead>
+					<tr>
+						<td colspan="7" align="center">><font color="black"><h2>投资详情</h2></font></td>
+					</tr>
+					<tr align="center">
+						<td align="center"><font color="black">序号</font></td>
+						<td><font color="black">投资编号</font></td>
+						<td><font color="black">投资金额</font></td>
+						<td><font color="black">投资状态</font></td>
+						<td><font color="black">投资标名称</font></td>
+						<td><font color="black">投资收益</font></td>
+						<td><font color="black">投资时间</font></td>
+					</tr>
+				</thead>	
+					<c:forEach items="${member_subject }" var="su" varStatus="status">
+						<tr>
+							<td><font color="black">${status.index+1 }</font></td>
+							<td><font color="black">${su.id }</font></td>
+							<td><font color="black">${su.amount }</font></td>
+							<td><font color="black">${su.subject.status }</font></td>
+							<td><font color="black">${su.subject.name }</font></td>
+							<td><font color="black"><fmt:formatNumber type="number" value="${((su.amount*(su.subject.year_rate/100))/365)*su.subject.period }" pattern="0.00" maxFractionDigits="2"></fmt:formatNumber></font></td>
+							<td><font color="black">${su.create_date }</font></td>
+						</tr>
+					</c:forEach>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<table width="100%" border="0">
+		<tr>
+			<td>
+				<table class="table"  style="text-align: center;font-size: 6">
+					<tr>
+						<td colspan="7" align="center">><font color="black"><h2>提现详情</h2></font></td>
+					</tr>
+					<tr>
+						<td><font color="black">序号</font></td>
+						<td><font color="black">提现编号</font></td>
+						<td><font color="black">提现金额</font></td>
+						<td><font color="black">提现状态</font></td>
+						<td><font color="black">提现银行</font></td>
+						<td><font color="black">提现卡号</font></td>
+						<td><font color="black">提现时间</font></td>
+					</tr>
+					<c:forEach items="${member_withdraw }" var="with" varStatus="status">
+						<tr>
+							<td><font color="black">${status.index+1 }</font></td>
+							<td><font color="black">${with.id }</font></td>
+							<td><font color="black">${with.amount }</font></td>
+							<td>
+								<c:if test="${with.status==0 }">
+									<font color="red">待审核</font>
+								</c:if>
+								<c:if test="${with.status==1 }">
+									<font color="green">已打款</font>
+								</c:if>
+								<c:if test="${with.status==2 }">
+									<font color="red">打款中</font>
+								</c:if>
+								<c:if test="${with.status==3 }">
+									<font color="red">打款失败</font>
+								</c:if>
+								</td>
+							<td><font color="black">${with.bank_name }</font></td>
+							<td><font color="black">${with.bank_card }</font></td>
+							<td><font color="black">${with.create_date }</font></td>
+						</tr>
+					</c:forEach>
+				</table>
+			</td>
+		</tr>
+	</table>
+		
+	<table width="100%" border="0">
+		<tr>
+			<td>
+				<table class="table"  style="text-align: center;font-size: 6">	
+					<tr>
+						<td colspan="7" align="center">><font color="black"><h2>充值详情</h2></font></td>
+					</tr>
+					<tr>
+						<td><font color="black">序号</font></td>
+						<td><font color="black">充值编号</font></td>
+						<td><font color="black">充值金额</font></td>
+						<td><font color="black">充值状态</font></td>
+						<td><font color="black">充值渠道</font></td>
+						<td><font color="black">充值渠道编号</font></td>
+						<td><font color="black">充值时间</font></td>
+					</tr>
+					<c:forEach items="${member_deposit }" var="depo" varStatus="status">
+						<tr>
+							<td><font color="black">${status.index+1 }</font></td>
+							<td><font color="black">${depo.id }</font></td>
+							<td><font color="black">${depo.amount }</font></td>
+							<td>
+								<c:if test="${depo.status==0 }">
+									<font color="red">充值失败</font>
+								</c:if>
+								<c:if test="${depo.status==1 }">
+									<font color="green">充值成功</font>
+								</c:if>
+							</td>
+							<td><font color="black">${depo.pay_channel_name }</font></td>
+							<td><font color="black">${depo.pay_channel_order_no }</font></td>
+							<td><font color="black">${depo.create_date }</font></td>
+						</tr>
+					</c:forEach>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<table width="100%" border="0">
+		<tr>
+			<td>
+				<table class="table"  style="text-align: center;font-size: 6">
+					<tr>
+						<td colspan="7" align="center"><font color="black" size="7">交易详情</font></td>
+					</tr>
+					<tr>
+						<td><font color="black">序号</font></td>
+						<td><font color="black">交易编号</font></td>
+						<td><font color="black">交易金额</font></td>
+						<td><font color="black">交易状态</font></td>
+						<td><font color="black">交易分类</font></td>
+						<td><font color="black">交易名称</font></td>
+						<td><font color="black">交易时间</font></td>
+					</tr>
+					<c:forEach items="${member_trade }" var="trade" varStatus="status" >
+						<tr>
+							<td><font color="black">${status.index+1 }</font></td>
+							<td><font color="black">${trade.id }</font></td>
+							<td><font color="black">${trade.amount }</font></td>
+							<td><c:if test="${trade.trade_status==0 }">
+													<font color="green">交易成功</font>
+													</c:if>
+								<c:if test="${trade.trade_status==2 }">
+											<font color="red">交易失败</font>
+								</c:if>					
+													</td>
+							<td><font color="black">${trade.trade_type }</font></td>
+							<td><font color="black">${trade.trade_name }</font></td>
+							<td><font color="black">${trade.create_date }</font></td>
+						</tr>
+					</c:forEach>
+				</table>
+			</td>
+		</tr>
+	</table>	
 	
 
 	</section> <!-- footer --> <!-- / footer --> </section> <script

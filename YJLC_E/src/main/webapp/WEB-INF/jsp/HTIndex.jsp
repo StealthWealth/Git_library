@@ -85,7 +85,7 @@
 			</dt>
 			<dd>
 				<ul>
-					<li><a href="college_Consultation_Type.jsp" title="学院管理">资讯分类</a></li>
+					<li><a href="/YJLC_E/listNews" title="学院管理">资讯分类</a></li>
 					<li><a href="college_Consultation_Administration.jsp"
 						title="学院管理">资讯管理</a></li>
 				</ul>
@@ -104,8 +104,8 @@
 					<li><a href="vip_Bangker.jsp" title="会员管理">绑卡管理</a></li>
 					<li><a href="vip_plan.jsp" title="会员管理">付息计划</a></li>
 					<li><a href="vip_Recharge.jsp" title="会员管理">充值管理</a></li>
-					<li><a href="vip_Withdrawals.jsp" title="会员管理">提现管理</a></li>
-					<li><a href="vip_Invitation.jsp" title="会员管理">邀请奖励</a></li>
+					<li><a href="/YJLC_E/listMember_withdraw" title="会员管理">提现管理</a></li>
+					<li><a href="/YJLC_E/listAward_records" title="会员管理">邀请奖励</a></li>
 				</ul>
 			</dd>
 		</dl>

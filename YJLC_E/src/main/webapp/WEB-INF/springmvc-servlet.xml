@@ -15,34 +15,7 @@
 			expression="org.springframework.web.bind.annotation.ControllerAdvice" />
 	</context:component-scan>
 	<mvc:default-servlet-handler />
-	<mvc:resources location="/static/h-ui/css/" mapping="/static/h-ui/css/**"/>
-	<mvc:resources location="/static/h-ui.admin/css/" mapping="/static/h-ui.admin/css/**"/>
-	<mvc:resources location="/lib/Hui-iconfont/1.0.8/" mapping="/lib/Hui-iconfont/1.0.8/**"/>
-	<mvc:resources location="/static/h-ui.admin/skin/default/" mapping="/static/h-ui.admin/skin/default/**"/>
-	<mvc:resources location="/static/h-ui.admin/css/" mapping="/static/h-ui.admin/css/**"/>
-	<mvc:resources location="/lib/jquery/1.9.1/" mapping="/lib/jquery/1.9.1/**"/>
-	<mvc:resources location="/lib/layer/2.4/" mapping="/lib/layer/2.4/**"/>
-	<mvc:resources location="/static/h-ui/" mapping="/static/h-ui/**"/>
-	<mvc:resources location="/static/h-ui.admin/js/" mapping="/static/h-ui.admin/js/**"/>
-	<mvc:resources location="/lib/My97DatePicker/4.8/" mapping="/lib/My97DatePicker/4.8/**"/>
-	<mvc:resources location="/lib/datatables/1.10.0/" mapping="/lib/datatables/1.10.0/**"/>
-	<mvc:resources location="/lib/laypage/1.2/" mapping="/lib/laypage/1.2/**"/>
-	
-	
-	<mvc:resources location="/font/css/" mapping="/font/css/**"/>
-	<mvc:resources location="/font/fonts/" mapping="/font/fonts/**"/>
-	<mvc:resources location="/font/images/" mapping="/images/**"/>
-	<mvc:resources location="/font/img/" mapping="/font/img/**"/>
-	<mvc:resources location="/font/jQuer_GunDong/" mapping="/font/jQuer_GunDong/**"/>
-	<mvc:resources location="/font/jQuery_GongGao/" mapping="/font/jQuery_GongGao/**"/>
-	<mvc:resources location="/font/js/" mapping="/font/js/**"/>
-	<mvc:resources location="/font/layui/" mapping="/font/layui/**"/>
-	<mvc:resources location="/font/layui/css/" mapping="/font/layui/css/**"/>
-	<mvc:resources location="/font/layui/font/" mapping="/font/layui/font/**"/>
-	<mvc:resources location="/font/layui/images/" mapping="/font/layui/images/**"/>
-	<mvc:resources location="/font/layui/lay/" mapping="/font/layui/lay/**"/>
-	<mvc:resources location="/pressCentre/" mapping="/pressCentre/**"/>
-	
+
 	<bean  class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/jsp/"></property>
 		<property name="suffix" value=".jsp"></property>
@@ -53,6 +26,9 @@
 	<mvc:resources location="/js/" mapping="/js/**"/>
 	<mvc:resources location="/fonts/" mapping="/fonts/**"/>
 	<mvc:resources location="/images/" mapping="/images/**"/>
+	<mvc:resources location="/upload/" mapping="/upload/**"/>
+
+
 	<context:component-scan base-package="com.*" use-default-filters="false">
 	 <context:include-filter type="annotation"
 			expression="org.springframework.stereotype.Controller" />

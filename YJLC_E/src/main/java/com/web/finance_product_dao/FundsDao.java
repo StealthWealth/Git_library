@@ -1,5 +1,7 @@
 package com.web.finance_product_dao;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -10,6 +12,7 @@ import org.springframework.stereotype.Component;
 
 import com.web.finance_product_bean.Finance_product_funds;
 import com.web.finance_product_bean.Finance_product_subscribe;
+import com.web.vip_auditing_Bean.Member;
 
 @Component
 public class FundsDao {
@@ -49,14 +52,61 @@ public class FundsDao {
 	}
 	
 	public List<Finance_product_subscribe> listsubscribe(int id){   //查看签署状态
-		String hql = "from Finance_product_subscribe where product_id="+id+" order by create_date desc";
+		String hql = "from Finance_product_subscribe where funds.id="+id+" order by create_date desc";
 		Session session = this.getSession();
 		List<Finance_product_subscribe> list = session.createQuery(hql).list();
 		return list;
 	}
 	
-	public void saveSubscribe(Finance_product_subscribe subscribe){
+	public void fundsSave(Finance_product_funds funds){ //保存理财项目信息
 		Session session = this.getSession();
-		session.save(subscribe);
+		SimpleDateFormat sim = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String str = sim.format(new Date());
+		funds.setCreate_date(str);
+		funds.setUpdate_date(str);
+		session.save(funds);
+	}
+	
+	public Finance_product_funds getfundsid(int id){  //  私募  根据ID查询一行数据
+		Session session = this.getSession();
+		Finance_product_funds funds = (Finance_product_funds)session.get(Finance_product_funds.class, id);
+		return funds;
+	}
+	
+	public void updatefunds(Finance_product_funds funds){   //修改 私募/股权类信息
+		Session session = this.getSession();
+		SimpleDateFormat sim = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String str = sim.format(new Date());
+		funds.setUpdate_date(str);
+		session.update(funds);
+	}
+	
+	public Finance_product_subscribe getsubscribeid(int id){  //查询数据
+		Session session = this.getSession();
+		Finance_product_subscribe subscribe = (Finance_product_subscribe)session.get(Finance_product_subscribe.class, id);
+		return subscribe;
+	}
+	
+	public void updatesubscribe(int id){  //签署失败
+		Session session = this.getSession();
+		Finance_product_subscribe subscribe = this.getsubscribeid(id);
+		subscribe.setStatus(3);
+		session.update(subscribe);
+	}
+	
+	public void updatesubscribe(Finance_product_subscribe subscribe){
+		Session session = this.getSession();
+		SimpleDateFormat sim = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String str = sim.format(new Date());
+		subscribe.setUpdate_date(str);
+		subscribe.setStatus(1);
+		session.update(subscribe);
+	}
+	
+	
+	public Member getmemberid(int id){
+		Session session = this.getSession();
+		Member member = (Member)session.get(Member.class, id);
+		return member;
 	}
 }
