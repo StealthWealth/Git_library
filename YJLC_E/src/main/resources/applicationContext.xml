@@ -67,7 +67,7 @@
 				<value>com.web.member_deposit_record_Bean</value>
 				<value>com.web.financial_planner_Bean</value>
 				<value>com.web.finance_product_bean</value>
-				<value>com.web.font.bean</value>
+				<value>com.web.font_bean</value>
 				<value>com.web.finance_product_bean</value>
 				<value>com.web.member_withdraw_record_Bean</value>
 				<value>com.web.member_trade_record_Bean</value>
