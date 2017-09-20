@@ -9,6 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.web.member_account_Bean.Member_account;
 import com.web.vip_auditing_Bean.Member;
 
 @Entity
@@ -20,6 +21,7 @@ public class Award_records {
 	private int byinvitingid; //±»ÑûÇëÈËid
 	private int type; 		//½±ÀøÀàĞÍ(0:×¢²á½±Àø,1:Í¶×Ê½±Àø)
 	private int isAward;    //½±Àø×´Ì¬(0:Î´½±Àø 1:ÒÑ½±Àø)
+	private String amount; //½±Àø½ğ¶î
 	private Date addTime;	//Ìí¼ÓÊ±¼ä
 	
 	private Member member;
@@ -33,6 +35,13 @@ public class Award_records {
 	public void setMember(Member member) {
 		this.member = member;
 	}
+	public String getAmount() {
+		return amount;
+	}
+	public void setAmount(String amount) {
+		this.amount = amount;
+	}
+	
 	@Id
 	@GeneratedValue
 	public int getId() {

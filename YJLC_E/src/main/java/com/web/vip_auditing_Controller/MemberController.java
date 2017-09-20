@@ -12,6 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.web.financial_planner_Bean.Financial_planner;
 import com.web.member_account_Bean.Member_account;
+import com.web.member_deposit_record_Bean.Member_deposit_record;
+import com.web.member_trade_record_Bean.Member_trade_record;
+import com.web.member_withdraw_record_Bean.Member_withdraw_record;
+import com.web.subject_purchase_record_Bean.Subject_purchase_record;
 import com.web.vip_auditing_Bean.Member;
 import com.web.vip_auditing_Service.MemberService;
 
@@ -49,8 +53,16 @@ public class MemberController {
 	public String getMember(@PathVariable("id")int id,Model model){
 		Member member = memberService.getMember(id); //用户基本信息
 		Member_account member_account = memberService.getMember_account(id); //账号账户详情
-		Financial_planner finan = memberService.getFinancial_planner(id);
-		model.addAttribute("member", member);
+		Financial_planner finan = memberService.getFinancial_planner(id); //理财师详情
+		List<Subject_purchase_record> member_subject = memberService.listSubject_purchase_record(id); //投资详情
+		List<Member_withdraw_record> member_withdraw = memberService.listMember_withdraw(id); //提现详情
+		List<Member_deposit_record> member_deposit = memberService.listMember_deposit(id); //充值记录
+		List<Member_trade_record> member_trade = memberService.listMember_trade_record(id); //交易详情
+		model.addAttribute("member_trade", member_trade);
+		model.addAttribute("member_deposit", member_deposit);
+		model.addAttribute("member_withdraw", member_withdraw);
+		model.addAttribute("member_subject", member_subject);
+		model.addAttribute("member", member); 
 		model.addAttribute("member_account", member_account);
 		model.addAttribute("finan", finan);
 		return "vip_Auditing_details";

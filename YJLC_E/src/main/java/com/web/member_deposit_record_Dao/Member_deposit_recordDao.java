@@ -53,7 +53,7 @@ public class Member_deposit_recordDao {
 			hql+=" and mem.status="+MH_status;
 		}
 		if(MH_pay_channel_order_no!=null && !MH_pay_channel_order_no.equals("")){
-			hql+=" and mem.pay_channel_order_no="+MH_pay_channel_order_no;
+			hql+=" and mem.pay_channel_order_no='"+MH_pay_channel_order_no+"'";
 		}
 		if(MH_QDate!=null && !MH_QDate.equals("")){
 			hql+=" and mem.create_date>='"+MH_QDate+"'";
