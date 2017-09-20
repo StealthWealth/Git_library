@@ -38,7 +38,7 @@ public class News {
 	private int addId;     //添加人ID
 	private int updId;     //修改人ID
 	private Date updTime;  // 修改时间
-	private Date addTime;   //添加时间
+	private String addTime;   //添加时间
 	
 	private News_type news_type;
 	
@@ -185,10 +185,11 @@ public class News {
 	public void setUpdTime(Date updTime) {
 		this.updTime = updTime;
 	}
-	public Date getAddTime() {
+	public String getAddTime() {
 		return addTime;
 	}
-	public void setAddTime(Date addTime) {
+	public void setAddTime(String addTime) {
 		this.addTime = addTime;
 	}
+
 }

@@ -59,131 +59,50 @@ public class NewsController {
 	public String getAddCollege(Model model){
 		List<News_type> listNews_type = newsService.listNews_type();
 		model.addAttribute("listNews_type", listNews_type);
+		model.addAttribute("typeId", 1);
 		return "addCollege";
 	}
 	
 	
 	//添加
 	@RequestMapping("/add")
-	public String add(HttpServletRequest request){
-		//获取表单数据
-		String title = request.getParameter("title");
-		String typeId = request.getParameter("typeId");
-		String subTitle = request.getParameter("subTitle");
-		String sort = request.getParameter("sort");
-		String link = request.getParameter("link");
-		String author = request.getParameter("author");
-		String source = request.getParameter("source");
-		String label = request.getParameter("label");
-		String text = request.getParameter("text");
-		String filelink = request.getParameter("filelink");
-		String seoTitle = request.getParameter("seoTitle");
-		String seoKey = request.getParameter("seoKey");
-		String seoDes = request.getParameter("seoDes");
-		String placTop = request.getParameter("placTop");
-		String recommend = request.getParameter("recommend");
-		String editor = request.getParameter("editor"); //简介
-		String fileName = request.getParameter("fileName");  //图片
-		
-		News news = new News();
-		news.setTitle(title);
-		News_type news_type = newsService.getNews_type(Integer.valueOf(typeId));
+	public String add(News news,int typeId){
+
+		News_type news_type = newsService.getNews_type(typeId);
 		news.setNews_type(news_type);
-		news.setSubTitle(subTitle);
-		news.setSort(Integer.valueOf(sort));
-		news.setInfo(editor);
-		news.setLink(link);
-		news.setAuthor(author);
-		news.setSource(source);
-		news.setLabel(label);
 		news.setClickNumber(0);
-		news.setText(text); //内容
-		news.setFilelink(filelink);
-		news.setSeoTitle(seoTitle);
-		news.setSeoKey(seoKey);
-		news.setSeoDes(seoDes);
-		news.setPlacTop(Integer.valueOf(placTop));
-		news.setRecommend(Integer.valueOf(recommend));
+		news.setAddId(0);
 		news.setAudit(0);
 		news.setUpdId(0);
-		news.setcPhoto("/upload/"+fileName);
 		Date date = new Date();
-		news.setAddTime(date);
+		
+		news.setAddTime((new SimpleDateFormat("yyyy-MM-dd")).format(date));
+		news.setcPhoto("/upload/"+news.getcPhoto());
 		newsService.add(news);
-		
-		
 		return "redirect:/listNews";
 	}
 	
 	
 	//单个文件上传
 		@RequestMapping("/uploadFile")
-		public String upload(@RequestParam(value="cPhoto")MultipartFile cPhoto,HttpServletRequest request,Model model) throws IOException{
-			
-			//获取表单数据
-			String title = request.getParameter("title");
-			String typeId = request.getParameter("typeId");
-			String subTitle = request.getParameter("subTitle");
-			String sort = request.getParameter("sort");
-			String link = request.getParameter("link");
-			String author = request.getParameter("author");
-			String source = request.getParameter("source");
-			String label = request.getParameter("label");
-			String text = request.getParameter("text");
-			String filelink = request.getParameter("filelink");
-			String seoTitle = request.getParameter("seoTitle");
-			String seoKey = request.getParameter("seoKey");
-			String seoDes = request.getParameter("seoDes");
-			String placTop = request.getParameter("placTop");
-			String recommend = request.getParameter("recommend");
-			String audit = request.getParameter("audit");
-			String editor = request.getParameter("editor"); //简介
-			
-			if(placTop==null){
-				placTop="0";
-			}
-			if(recommend==null){
-				recommend="0";
-			}
-			
+		public String upload(@RequestParam(value="file")MultipartFile file,String typeId,HttpServletRequest request,News news,Model model) throws IOException{
 			List<News_type> listNews_type = newsService.listNews_type();
-			model.addAttribute("listNews_type", listNews_type);
-			model.addAttribute("editor", editor);
-			model.addAttribute("audit", audit);
-			model.addAttribute("recommend", recommend);
-			model.addAttribute("placTop", placTop);
-			model.addAttribute("seoDes", seoDes);
-			model.addAttribute("seoKey", seoKey);
-			model.addAttribute("seoTitle", seoTitle);
-			model.addAttribute("filelink", filelink);
-			model.addAttribute("text", text);
-			model.addAttribute("label", label);
-			model.addAttribute("source", source);
-			model.addAttribute("author", author);
-			model.addAttribute("link", link);
-			model.addAttribute("sort", sort);
-			model.addAttribute("subTitle", subTitle);
-			model.addAttribute("typeId", typeId);
-			model.addAttribute("title", title);
-			
 			//获取文件名
-			String filename = cPhoto.getOriginalFilename();
-			System.out.println("filename:"+filename);
+			String filename = file.getOriginalFilename();
 			//获取上传的绝对路径  upload 手动创建
 			String path = request.getRealPath("/upload/");
-			System.out.println("path:"+path);
 			//获取新的文件对象
 			File newFile = new File(path, filename);
 			if(!newFile.exists()){ //文件不存在
 				//创建文件
 				newFile.createNewFile();
 			}
-			//System.out.println("----------"+news.getTitle());
-			System.out.println("-------"+newFile.getName());
 			//将文件内容放入新的文件
-			cPhoto.transferTo(newFile);
-			model.addAttribute("fileName", newFile.getName());
-			
+			file.transferTo(newFile);
+			news.setcPhoto(newFile.getName());
+			model.addAttribute("typeId", typeId);
+			model.addAttribute("listNews_type", listNews_type);
+			model.addAttribute("news", news);
 			return "addCollege";
 		}
 		
@@ -201,181 +120,53 @@ public class NewsController {
 		@RequestMapping("/updateNews/{id}")
 		public String getNews(@PathVariable("id")int id,Model model){
 			News news = newsService.getNews(id);
-			
-			//获取表单数据
-			String title = news.getTitle();
-			String typeId = String.valueOf(news.getNews_type().getId());
-			String subTitle = news.getSubTitle();
-			String sort = String.valueOf(news.getSort());
-			String link = news.getLink();
-			String author = news.getAuthor();
-			String source = news.getSource();
-			String label = news.getLabel();
-			String text = news.getText();
-			String filelink = news.getFilelink();
-			String seoTitle = news.getSeoTitle();
-			String seoKey = news.getSeoKey();
-			String seoDes = news.getSeoDes();
-			String placTop = String.valueOf(news.getPlacTop());
-			String recommend = String.valueOf(news.getRecommend());
-			String audit = String.valueOf(news.getAudit());
-			String editor = news.getInfo();
-			String fileName = news.getcPhoto();
-			String addTime = String.valueOf(news.getAddTime());
-			int news_id =news.getId();
-			
+			int  typeId = news.getNews_type().getId();
 			List<News_type> listNews_type = newsService.listNews_type();
-			model.addAttribute("news_id", news_id);
-			model.addAttribute("addTime", addTime);
 			model.addAttribute("listNews_type", listNews_type);
-			model.addAttribute("fileName", fileName);
-			model.addAttribute("editor", editor);
-			model.addAttribute("audit", audit);
-			model.addAttribute("recommend", recommend);
-			model.addAttribute("placTop", placTop);
-			model.addAttribute("seoDes", seoDes);
-			model.addAttribute("seoKey", seoKey);
-			model.addAttribute("seoTitle", seoTitle);
-			model.addAttribute("filelink", filelink);
-			model.addAttribute("text", text);
-			model.addAttribute("label", label);
-			model.addAttribute("source", source);
-			model.addAttribute("author", author);
-			model.addAttribute("link", link);
-			model.addAttribute("sort", sort);
-			model.addAttribute("subTitle", subTitle);
+			model.addAttribute("news", news);
 			model.addAttribute("typeId", typeId);
-			System.out.println("------------------"+typeId);
-			model.addAttribute("title", title);
 			return "updateNews";
 		}
 		
 		//修改图片预览
 			@RequestMapping("/updateFile")
-			public String updateFile(@RequestParam(value="cPhoto")MultipartFile cPhoto,HttpServletRequest request,Model model) throws IOException{
+			public String updateFile(@RequestParam(value="file")MultipartFile file,News news,String typeId,HttpServletRequest request,Model model) throws IOException{
 				
-				//获取表单数据
-				String title = request.getParameter("title");
-				String typeId = request.getParameter("typeId");
-				String subTitle = request.getParameter("subTitle");
-				String sort = request.getParameter("sort");
-				String link = request.getParameter("link");
-				String author = request.getParameter("author");
-				String source = request.getParameter("source");
-				String label = request.getParameter("label");
-				String text = request.getParameter("text");
-				String filelink = request.getParameter("filelink");
-				String seoTitle = request.getParameter("seoTitle");
-				String seoKey = request.getParameter("seoKey");
-				String seoDes = request.getParameter("seoDes");
-				String placTop = request.getParameter("placTop");
-				String recommend = request.getParameter("recommend");
-				String audit = request.getParameter("audit");
-				String editor = request.getParameter("editor"); //简介
-				String news_id =request.getParameter("news_id");
-				String addTime = request.getParameter("addTime");
-				
-				if(placTop==null){
-					placTop="0";
-				}
-				if(recommend==null){
-					recommend="0";
-				}
 				
 				List<News_type> listNews_type = newsService.listNews_type();
-				model.addAttribute("addTime", addTime);
-				model.addAttribute("news_id", news_id);
-				model.addAttribute("listNews_type", listNews_type);
-				model.addAttribute("editor", editor);
-				model.addAttribute("audit", audit);
-				model.addAttribute("recommend", recommend);
-				model.addAttribute("placTop", placTop);
-				model.addAttribute("seoDes", seoDes);
-				model.addAttribute("seoKey", seoKey);
-				model.addAttribute("seoTitle", seoTitle);
-				model.addAttribute("filelink", filelink);
-				model.addAttribute("text", text);
-				model.addAttribute("label", label);
-				model.addAttribute("source", source);
-				model.addAttribute("author", author);
-				model.addAttribute("link", link);
-				model.addAttribute("sort", sort);
-				model.addAttribute("subTitle", subTitle);
-				model.addAttribute("typeId", typeId);
-				model.addAttribute("title", title);
 				
 				//获取文件名
-				String filename = cPhoto.getOriginalFilename();
-				System.out.println("filename:"+filename);
+				String filename = file.getOriginalFilename();
 				//获取上传的绝对路径  upload 手动创建
 				String path = request.getRealPath("/upload/");
-				System.out.println("path:"+path);
 				//获取新的文件对象
 				File newFile = new File(path, filename);
 				if(!newFile.exists()){ //文件不存在
 					//创建文件
 					newFile.createNewFile();
 				}
-				System.out.println("-------"+newFile.getName());
 				//将文件内容放入新的文件
-				cPhoto.transferTo(newFile);
-				model.addAttribute("fileName", "upload/"+newFile.getName());
+				file.transferTo(newFile);
+				news.setcPhoto("upload/"+newFile.getName());
+				model.addAttribute("typeId", typeId);
+				model.addAttribute("listNews_type", listNews_type);
+			//	model.addAttribute("news",news);
 				return "updateNews";
 			}
 			
 			
 			//修改
 			@RequestMapping("/update")
-			public String update(HttpServletRequest request) throws ParseException{
+			public String update(News news,int typeId) throws ParseException{
 				
-				//获取表单数据
-				String title = request.getParameter("title");
-				String typeId = request.getParameter("typeId");
-				String subTitle = request.getParameter("subTitle");
-				String sort = request.getParameter("sort");
-				String link = request.getParameter("link");
-				String author = request.getParameter("author");
-				String source = request.getParameter("source");
-				String label = request.getParameter("label");
-				String text = request.getParameter("text");
-				String filelink = request.getParameter("filelink");
-				String seoTitle = request.getParameter("seoTitle");
-				String seoKey = request.getParameter("seoKey");
-				String seoDes = request.getParameter("seoDes");
-				String placTop = request.getParameter("placTop");
-				String recommend = request.getParameter("recommend");
-				String editor = request.getParameter("editor"); //简介
-				String news_id =request.getParameter("news_id");
-				String fileName = request.getParameter("fileName");
-				String addTime = request.getParameter("addTime");
-				News news = new News();
-				news.setId(Integer.valueOf(news_id));
-				news.setTitle(title);
-				News_type news_type = newsService.getNews_type(Integer.valueOf(typeId));
+				News_type news_type = newsService.getNews_type(typeId);
 				news.setNews_type(news_type);
-				news.setSubTitle(subTitle);
-				news.setSort(Integer.valueOf(sort));
-				news.setInfo(editor);
-				news.setLink(link);
-				news.setAuthor(author);
-				news.setSource(source);
-				news.setLabel(label);
 				news.setClickNumber(0);
-				news.setText(text); //内容
-				news.setFilelink(filelink);
-				news.setSeoTitle(seoTitle);
-				news.setSeoKey(seoKey);
-				news.setSeoDes(seoDes);
-				news.setPlacTop(Integer.valueOf(placTop));
-				news.setRecommend(Integer.valueOf(recommend));
 				news.setAudit(0);
 				news.setUpdId(0);
-				SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-				
-				news.setAddTime(format.parse(addTime));
+				news.setAddId(0);
 				Date date = new Date();
 				news.setUpdTime(date);
-				news.setcPhoto(fileName);
 				newsService.update(news);
 				return "redirect:/listNews";
 			}

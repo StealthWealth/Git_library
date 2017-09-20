@@ -259,38 +259,38 @@
 					
 						
 						<td colspan="8" align="center">
-						<c:if test="${not empty fileName }">
-						<img  src="/YJLC_E/${fileName }"  width="200" height="200"   class="img-circle">
-						<input type="hidden" name="fileName"  id="fileName" value="${fileName }" >
+						<c:if test="${not empty news.cPhoto }">
+						<img  src="/YJLC_E/${news.cPhoto }"  width="200" height="200"   class="img-circle">
+						<input type="hidden" name="cPhoto"  id="cPhoto" value="${news.cPhoto }" >
 						</c:if>
 						<br>
 						<div style="width: 100px;">
-						<input type="file" name="cPhoto" onchange="upload()" class="form-control"><br>
+						<input type="file" name="file" onchange="upload()" class="form-control"><br>
 						</div>
 						<br>
-						<input type="hidden" value="${news_id }" name="news_id">
-						<input type="hidden" value="${addTime }" name="addTime">
+						<input type="hidden" value="${news.id }" name="id">
+						 <input type="hidden" value="${news.addTime }" name="addTime">
 					</td>
 				</tr>
 				<tr>
 					<td><font class="text-primary" size="5">标题:</font></td>
-					<td><input type="text" name="title" value="${title }" class="form-control"></td>
+					<td><input type="text" name="title" value="${news.title }" class="form-control"></td>
 					<td><font class="text-primary" size="5">副标题:</font></td>
-					<td><input type="text" name="subTitle" value="${subTitle }" class="form-control"></td>
+					<td><input type="text" name="subTitle" value="${news.subTitle }" class="form-control"></td>
 					<td><font class="text-primary" size="5">排序:</font></td>
-					<td><input type="text" name="sort" value="${sort }" id="sort" class="form-control"></td>
+					<td><input type="text" name="sort" value="${news.sort }" id="sort" class="form-control"></td>
 					<td><font class="text-primary" size="5">链接地址:</font></td>
-					<td><input type="text" name="link" value="${link }" class="form-control"></td>
+					<td><input type="text" name="link" value="${news.link }" class="form-control"></td>
 				</tr>
 				<tr>
 					<td><font class="text-primary" size="5">作者:</font></td>
-					<td><input type="text" name="author" value="${author }" class="form-control"></td>
+					<td><input type="text" name="author" value="${news.author }" class="form-control"></td>
 					<td><font class="text-primary" size="5">来源:</font></td>
-					<td><input type="text" name="source" value="${source }" class="form-control"></td>
+					<td><input type="text" name="source" value="${news.source }" class="form-control"></td>
 					<td><font class="text-primary" size="5">标签:</font></td>
-					<td><input type="text" name="label" value="${label }" class="form-control"></td>
+					<td><input type="text" name="label" value="${news.label }" class="form-control"></td>
 					<td><font class="text-primary" size="5">附件地址:</font></td>
-					<td><input type="text" name="filelink" value="${filelink }" class="form-control"></td>
+					<td><input type="text" name="filelink" value="${news.filelink }" class="form-control"></td>
 				</tr>
 				<tr>
 					<td><font class="text-primary" size="5">是否置顶:</font></td>
@@ -301,11 +301,11 @@
 						</select>
 					</td>
 					<td><font class="text-primary" size="5">页面seo标题:</font></td>
-					<td><input type="text" name="seoTitle" value="${seoTitle }" class="form-control"></td>
+					<td><input type="text" name="seoTitle" value="${news.seoTitle }" class="form-control"></td>
 					<td><font class="text-primary" size="5">seo关键字:</font></td>
-					<td><input type="text" name="seoKey" value="${seoKey }" class="form-control"></td>
+					<td><input type="text" name="seoKey" value="${news.seoKey }" class="form-control"></td>
 					<td><font class="text-primary" size="5">seo描述:</font></td>
-					<td><input type="text" name="seoDes" value="${seoDes }" class="form-control"></td>
+					<td><input type="text" name="seoDes" value="${news.seoDes }" class="form-control"></td>
 				</tr>
 				<tr>
 					<td><font class="text-primary" size="5">是否推荐:</font></td>
@@ -325,21 +325,15 @@
 						
 					</td>	
 					<td></td>
-					<td>
-					
 				</tr>
-				
-				
 			</table>
 			<table width="100%" align="center" border="1" >
 				<tr align="center" >
-					<td align="center"><font class="text-primary" size="5">简介:</font> <script id="editor" type="text/plain" style="width:100%;height:100px;" name="editor">${editor}</script></td>
-					
-					
+					<td align="center"><font class="text-primary" size="5">简介:</font> <script id="editor" type="text/plain" style="width:100%;height:100px;" name="info">${news.info}</script></td>
 				</tr>
 				<tr>
 					<td>
-						<font class="text-primary" size="5">内容:</font><script id="text" type="text/plain" style="width:100%;height:100px;" name="text">${text}</script>
+						<font class="text-primary" size="5">内容:</font><script id="text" type="text/plain" style="width:100%;height:100px;" name="text">${news.text}</script>
 					</td>
 				</tr>
 				<tr>
@@ -352,8 +346,8 @@
 		 var ue = UE.getEditor('editor');
 		 var t = UE.getEditor('text');
 			$(function(){
-			 var rec=$("#recommend").val("${recommend}");
-			 var plac=$("#placTop").val("${placTop}");
+			 var rec=$("#recommend").val("${news.recommend}");
+			 var plac=$("#placTop").val("${news.placTop}");
 			 $("#typeId").val("${typeId}");
 			 if(rec.val()==null){
 					$("#recommend").val("0");

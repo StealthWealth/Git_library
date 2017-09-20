@@ -256,50 +256,51 @@
 	<form id="formFile" method="post" enctype="multipart/form-data">
 			<table border="1" class="table">
 				<tr>
-						<td colspan="8" align="center">
-						<c:if test="${not empty fileName }">
-						<img  src="/YJLC_E/upload/${fileName }" width="200" height="200"   class="img-circle" >
-						<input type="hidden" name="fileName"  id="fileName" value="${fileName }" >
+				  <td colspan="8" align="center">
+						<c:if test="${not empty news.cPhoto }">
+						<img  src="/YJLC_E/upload/${news.cPhoto }" width="200" height="200"   class="img-circle" >
+						<input type="hidden" name="cPhoto"  id="cPhoto" value="${news.cPhoto }" >
 						</c:if>
 						<br><div style="width: 100px;">
-						<input type="file" name="cPhoto" onchange="upload()" class="form-control"><br>
+						<input type="file" name="file" onchange="upload()" class="form-control"><br>
 						</div>
 					</td>
 				</tr>
 				<tr>
 					<td><font class="text-primary" size="5">标题:</font></td>
-					<td><input type="text" name="title" value="${title }"  class="form-control"></td>
+					<td><input type="text" name="title" value="${news.title }"  class="form-control"></td>
 					<td><font class="text-primary" size="5">副标题:</font></td>
-					<td><input type="text" name="subTitle" value="${subTitle }"  class="form-control"></td>
+					<td><input type="text" name="subTitle" value="${news.subTitle }"  class="form-control"></td>
 					<td><font class="text-primary" size="5">排序:</font></td>
-					<td><input type="text" name="sort" value="${sort }" id="sort"  class="form-control"></td>
+					
+					<td><input type="text" name="sort" value="${news.sort }" id="sort"  class="form-control"></td>
 					<td><font class="text-primary" size="5">链接地址:</font></td>
-					<td><input type="text" name="link" value="${link }"  class="form-control"></td>
+					<td><input type="text" name="link" value="${news.link }"  class="form-control"></td>
 				</tr>
 				<tr>
 					<td><font class="text-primary" size="5">作者:</font></td>
-					<td><input type="text" name="author" value="${author }"  class="form-control"></td>
+					<td><input type="text" name="author" value="${news.author }"  class="form-control"></td>
 					<td><font class="text-primary" size="5">来源:</font></td>
-					<td><input type="text" name="source" value="${source }"  class="form-control"></td>
+					<td><input type="text" name="source" value="${news.source }"  class="form-control"></td>
 					<td><font class="text-primary" size="5">标签:</font></td>
-					<td><input type="text" name="label" value="${label }"  class="form-control"></td>
+					<td><input type="text" name="label" value="${news.label }"  class="form-control"></td>
 					<td><font class="text-primary" size="5">附件地址:</font></td>
-					<td><input type="text" name="filelink" value="${filelink }"  class="form-control"></td>
+					<td><input type="text" name="filelink" value="${news.filelink }"  class="form-control"></td>
 				</tr>
 				<tr>
 					<td><font class="text-primary" size="5">是否置顶:</font></td>
 					<td>
-						<select name="placTop" id="placTop">
+						<select name="placTop" id="placTop"  class="form-control">
 							<option value="0" selected="selected">否</option>
 							<option value="1">是</option>
 						</select>
 					</td>
 					<td><font class="text-primary" size="5">页面seo标题:</font></td>
-					<td><input type="text" name="seoTitle" value="${seoTitle }"  class="form-control"></td>
+					<td><input type="text" name="seoTitle" value="${news.seoTitle }"  class="form-control"></td>
 					<td><font class="text-primary" size="5">seo关键字:</font></td>
-					<td><input type="text" name="seoKey" value="${seoKey }"  class="form-control"></td>
+					<td><input type="text" name="seoKey" value="${news.seoKey }"  class="form-control"></td>
 					<td><font class="text-primary" size="5">seo描述:</font></td>
-					<td><input type="text" name="seoDes" value="${seoDes }"  class="form-control"></td>
+					<td><input type="text" name="seoDes" value="${news.seoDes }"  class="form-control"></td>
 				</tr>
 				<tr>
 					<td><font class="text-primary" size="5">是否推荐:</font></td>
@@ -311,7 +312,7 @@
 					</td>
 					<td><font class="text-primary" size="5">类别:</font></td>
 					<td>
-						<select name="typeId" name="typeId" class="form-control">
+						<select name="typeId" id="typeId" class="form-control">
 							<c:forEach items="${listNews_type }" var="list">
 								<option value="${list.id }">${list.name }</option>
 							</c:forEach>
@@ -319,44 +320,42 @@
 						
 					</td>	
 					<td></td>
-					<td>
 				</tr>
 			</table>
+			
 			<table width="100%" align="center" border="1">
 				<tr align="center">
-					<td align="center"><font class="text-primary" size="5">简介:</font> <script id="editor" type="text/plain" style="width:100%;height:100px;" name="editor">${editor}</script></td>
+					<td align="center"><font class="text-primary" size="5">简介:</font> <script id="editor" type="text/plain" style="width:100%;height:100px;" name="info">${news.info}</script></td>
 				</tr>
 				<tr>
 					<td align="center">
-						<font class="text-primary" size="5">内容:</font><script id="text" type="text/plain" style="width:100%;height:100px;" name="text">${text}</script>
+						<font class="text-primary" size="5">内容:</font><script id="text" type="text/plain" style="width:100%;height:100px;" name="text">${news.text}</script>
 					</td>
 				</tr>
 				<tr>
 					<td  colspan="4"  align="center"><input type="button" id="but" onclick="add()" value="添   加" class="btn-lg btn-info"></td>
 				</tr>
 			</table>
-			<div style="width: 100px;height: 400px;">
-						<br>
-						
-						
-		</div><td>
 		</form>
 		
 		<script>
 		 var ue = UE.getEditor('editor');
 		 var t = UE.getEditor('text');
 			$(function(){
-			 var rec=$("#recommend").val("${recommend}");
-			 var plac=$("#placTop").val("${placTop}");
-			 
+			 var rec=$("#recommend").val("${news.recommend}");
+			 var plac=$("#placTop").val("${news.placTop}");
+			 var type =$("#typeId").val("${typeId}");	
 			 if(rec.val()==null){
 					$("#recommend").val("0");
-				}
+				}	
 			if(plac.val()==null){
 				$("#placTop").val("0");
 			} 
 			})
 			function upload(){
+				if($("#sort").val()==null || $("#sort").val()==""){
+					$("#sort").val(0);
+				}
 				 document.forms[0].action="/YJLC_E/uploadFile";
 				 document.forms[0].submit();
 			}
