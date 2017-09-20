@@ -8,12 +8,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.web.finance_product_bean.Finance_product_funds;
-import com.web.font_bean.News;
 import com.web.font_bean.Push_notice;
 import com.web.font_bean.User_log;
 import com.web.font_bean.User_login_token;
 import com.web.font_bean.Users;
 import com.web.font_dao.FontDao;
+import com.web.news_Bean.News;
 import com.web.vip_auditing_Bean.Member;
 
 @Service

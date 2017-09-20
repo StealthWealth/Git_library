@@ -1,9 +1,6 @@
 package com.web.font_dao;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.List;
-import javax.persistence.Cache;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -11,11 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.web.finance_product_bean.Finance_product_funds;
-import com.web.font_bean.News;
 import com.web.font_bean.Push_notice;
 import com.web.font_bean.User_log;
 import com.web.font_bean.User_login_token;
 import com.web.font_bean.Users;
+import com.web.news_Bean.News;
 import com.web.vip_auditing_Bean.Member;
 
 @Component
