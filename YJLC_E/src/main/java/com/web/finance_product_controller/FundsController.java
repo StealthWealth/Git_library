@@ -14,7 +14,7 @@ import com.web.finance_product_bean.Finance_product_funds;
 import com.web.finance_product_bean.Finance_product_subscribe;
 import com.web.finance_product_service.FundsService;
 
-@Controller
+@Controller(value="funds")
 @RequestMapping("/funds")
 public class FundsController {
 
@@ -45,6 +45,7 @@ public class FundsController {
 	@RequestMapping("/updatesubscribe/${id}")
 	public String updatesubscribe(Finance_product_subscribe subscribe){
 		subscribe.setStatus(3);
+		this.fundsService.savesubscribe(subscribe);
 		return "redirect:/funds/listsubscribe";
 	}
 }

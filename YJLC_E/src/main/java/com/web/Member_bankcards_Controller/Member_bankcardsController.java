@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.web.Member_bankcards_Service.Member_bankcardsService;
 import com.web.member_bankcards_Bean.Member_bankcards;
 
-@Controller
+@Controller(value="Member_bank")
 public class Member_bankcardsController {
 
 	@Autowired

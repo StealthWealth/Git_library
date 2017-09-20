@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib  prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Typography</title>
+<title>账户管理</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="" />
@@ -246,8 +247,47 @@
 		<!-- sidebar menu end-->
 	</div>
 	</aside> <section id="main-content"> <section class="wrapper">
+	<!-- 内容开始 -->
+	<style>#id{float:top;}</style>
+	<div id="td" style="width:100%">
+		<h1>▶管理员账号</h1>
+	</div>
+	
+	<div style="width:100%">
+		<table width="94%"  border="1" align="center">
+			<tr>
+			<th><a href="/YJLC_E/users/sin">新增</a></th>
+			</tr>
+			
+			
+			<tr>
+				<td align="center">序号</td>
+				<td align="center">用户名</td>
+				<td align="center">手机号</td>
+				<td align="center">创建时间</td>
+				<td align="center">操作</td>
+			</tr>
+		<c:forEach items="${listUsers }" var="lu" varStatus="status">
+			<tr style="width: 100px" align="center">	
+				<td>${status.index+1}</td>
+				<td>${lu.user_name }</td>
+				<td>${lu.mobile_Phone}</td>
+				<td>${lu.create_date}</td>
+				<td><a href="/YJLC_E/users/updateusers?id=${lu.id}">编辑</a>  ||  <a href="/YJLC_E/users/deleteus?id=${lu.id}">删除</a></td>
+				
+			</tr>	
+			</c:forEach>
+			
+		</table>
+		
+		
+		
+		
+	</div>
+	
 
-	12131 </section> </section> <script src="/YJLC_E/js/bootstrap.js"></script> <script
+
+	 </section> </section> <script src="/YJLC_E/js/bootstrap.js"></script> <script
 		src="/YJLC_E/js/jquery.dcjqaccordion.2.7.js"></script> <script
 		src="/YJLC_E/js/scripts.js"></script> <script src="js/jquery.slimscroll.js"></script>
 	<script src="/YJLC_E/js/jquery.nicescroll.js"></script> <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->

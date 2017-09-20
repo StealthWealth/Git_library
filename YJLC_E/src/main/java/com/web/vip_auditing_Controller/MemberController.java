@@ -15,7 +15,7 @@ import com.web.member_account_Bean.Member_account;
 import com.web.vip_auditing_Bean.Member;
 import com.web.vip_auditing_Service.MemberService;
 
-@Controller
+@Controller(value="MemberController")
 public class MemberController {
 
 	@Autowired

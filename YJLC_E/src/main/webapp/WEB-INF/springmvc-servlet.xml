@@ -41,6 +41,7 @@
 	<mvc:resources location="/font/layui/font/" mapping="/font/layui/font/**"/>
 	<mvc:resources location="/font/layui/images/" mapping="/font/layui/images/**"/>
 	<mvc:resources location="/font/layui/lay/" mapping="/font/layui/lay/**"/>
+	<mvc:resources location="/pressCentre/" mapping="/pressCentre/**"/>
 	
 	<bean  class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/jsp/"></property>

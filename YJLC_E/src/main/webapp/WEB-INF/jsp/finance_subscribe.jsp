@@ -288,7 +288,7 @@
 						</c:if>
 						<c:if test="${subscribe.status==2 }">
 						<td><a class="layui-btn layui-btn-small layui-btn-normal layui-btn-radius">签署</a>&nbsp;
-							<a class="layui-btn layui-btn-small layui-btn-normal layui-btn-radius" href="/YJLC_E/funds/updatesubscribe/${subscribe.id }">签署失败</a></td>
+							<a class="layui-btn layui-btn-small layui-btn-normal layui-btn-radius" href="/YJLC_E/funds/updatesubscribe/${subscribe.id } return ">签署失败</a></td>
 						</c:if>
 						<c:if test="${subscribe.status==3 }">
 						<td><a class="layui-btn layui-btn-mini layui-btn-radius layui-btn-disabled">签署失败</a></td>

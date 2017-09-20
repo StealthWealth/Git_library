@@ -12,7 +12,7 @@ import com.web.subject_Bean.Subject;
 import com.web.subject_Service.SubjectService;
 import com.web.subject_purchase_record_Bean.Subject_purchase_record;
 
-@Controller
+@Controller(value="SubjectController")
 public class SubjectController {
 
 	@Autowired

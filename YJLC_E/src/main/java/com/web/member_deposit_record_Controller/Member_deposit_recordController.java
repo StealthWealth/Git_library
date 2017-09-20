@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.web.member_deposit_record_Bean.Member_deposit_record;
 import com.web.member_deposit_record_Service.Member_deposit_recordService;
 
-@Controller
+@Controller(value="Member_deposit_recordController")
 public class Member_deposit_recordController {
 
 	@Autowired
