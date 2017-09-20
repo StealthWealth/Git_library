@@ -204,9 +204,9 @@
 						class="fa fa-book"></i> <span>理财产品</span>
 				</a>
 					<ul class="sub">
-						<li><a href="products_Solid _Collection.jsp">固收类/P2P</a></li>
+						<li><a href="/YJLC_E/subject/listsubject">固收类/P2P</a></li>
 						<li><a  class="active" href="/YJLC_E/funds/listfunds">私募/股权类</a></li>
-						<li><a href="products_Solid _Collection.jsp">海外配置</a></li>
+						<li><a href="/YJLC_E/config/listconfig">海外配置</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
 						class="fa fa-th"></i> <span>学院管理</span>
@@ -264,8 +264,8 @@
 				<c:forEach items="${listsubscribe }" var="subscribe" varStatus="num">
 					<tr>
 						<td>${num.index+1 }</td>
-						<td>${subscribe.name }</td>
-						<td>${subscribe.phone }</td>
+						<td>${subscribe.member.member_name }</td>
+						<td>${subscribe.member.mobile_Phone }</td>
 						<td>${subscribe.addr }</td>
 						<c:if test="${subscribe.status==0 }">
 						<td><font color="red">签署拍照</font></td>
@@ -287,8 +287,8 @@
 						<td><a class="layui-btn layui-btn-mini layui-btn-radius layui-btn-disabled">已签署</a></td>
 						</c:if>
 						<c:if test="${subscribe.status==2 }">
-						<td><a class="layui-btn layui-btn-small layui-btn-normal layui-btn-radius">签署</a>&nbsp;
-							<a class="layui-btn layui-btn-small layui-btn-normal layui-btn-radius" href="/YJLC_E/funds/updatesubscribe/${subscribe.id }">签署失败</a></td>
+						<td><a class="layui-btn layui-btn-small layui-btn-normal layui-btn-radius" href="/YJLC_E/funds/subscribeadd/${subscribe.id }/${subscribe.funds.period}">签署</a>&nbsp;
+							<a class="layui-btn layui-btn-small layui-btn-normal layui-btn-radius" href="/YJLC_E/funds/updatesubscribe/${subscribe.id }/${subscribe.funds.id}" onclick="return confirm('真的要签署失败吗？')">签署失败</a></td>
 						</c:if>
 						<c:if test="${subscribe.status==3 }">
 						<td><a class="layui-btn layui-btn-mini layui-btn-radius layui-btn-disabled">签署失败</a></td>

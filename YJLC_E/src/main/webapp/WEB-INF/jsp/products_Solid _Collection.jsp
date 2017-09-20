@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -21,7 +22,17 @@
 <!-- font-awesome icons -->
 <link href="/YJLC_E/css/font-awesome.css" rel="stylesheet">
 <!-- //font-awesome icons -->
+<link rel="stylesheet" href="/YJLC_E/css/layui.css"  media="all">
 <script src="/YJLC_E/js/jquery2.0.3.min.js"></script>
+<script src="/YJLC_E/js/layui.js" charset="utf-8"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#btn1").click(function(){
+			document.forms[0].action="/YJLC_E/subject/listsubject";
+			document.forms[0].submit();
+		});
+	});
+</script>
 </head>
 <body>
 	<section id="container"> <!--header start--> <header
@@ -202,9 +213,9 @@
 						class="fa fa-book"></i> <span>理财产品</span>
 				</a>
 					<ul class="sub">
-						<li><a class="active" href="products_Solid _Collection.jsp">固收类/P2P</a></li>
+						<li><a class="active" href="/YJLC_E/subject/listsubject">固收类/P2P</a></li>
 						<li><a href="/YJLC_E/funds/listfunds">私募/股权类</a></li>
-						<li><a href="products_Solid _Collection.jsp">海外配置</a></li>
+						<li><a href="/YJLC_E/config/listconfig">海外配置</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
 						class="fa fa-th"></i> <span>学院管理</span>
@@ -247,8 +258,85 @@
 		<!-- sidebar menu end-->
 	</div>
 	</aside> <section id="main-content"> <section class="wrapper">
-
-	12131 </section> <!-- footer --> <!-- / footer --> </section> <script src="/YJLC_E/js/bootstrap.js"></script>
+	
+	<div  align="center">
+		<form method="post">
+		名称：<input type="text" name="qname" value="" />&nbsp;
+		状态：<select name="wname">
+				<option value="">全部</option>
+				<option value="0">未发布</option>
+				<option value="1">募集中</option>
+				<option value="2">已结束</option>
+			</select>&nbsp;
+		类别：<select name="ename">
+				<option value="">全部</option>
+				<option value="0">固收类</option>
+				<option value="1">P2P车贷</option>
+				<option value="2">P2P房贷</option>
+			</select>
+		<input class="layui-btn layui-btn-small layui-btn-normal" type="button" id="btn1" value="查询" />
+		<a class="layui-btn layui-btn-small layui-btn-normal" href="/YJLC_E/subject/addsubject">新增</a>
+			<table width="100%" border="1">
+				<tr>
+					<td>序号</td>
+					<td>ID</td>
+					<td>合同编号</td>
+					<td>类型</td>
+					<td>名称</td>
+					<td>标的总金额</td>
+					<td>已投总金额</td>
+					<td>投资期限</td>
+					<td>起投金额</td>
+					<td>年化收益</td>
+					<td>状态</td>
+					<td>可使用体验金</td>
+					<td>添加时间</td>
+					<td>操作</td>
+				</tr>
+				<c:forEach items="${listsubject }" var="subject" varStatus="num">
+					<tr>
+						<td>${num.index+1 }</td>
+						<td>${subject.id }</td>
+						<td>${subject.serial_no }</td>
+						<c:if test="${subject.type==0 }">
+						<td>固收类</td>
+						</c:if>
+						<c:if test="${subject.type==1 }">
+						<td>P2P车贷</td>
+						</c:if>
+						<c:if test="${subject.type==2 }">
+						<td>P2P房贷</td>
+						</c:if>
+						<td>${subject.name }</td>
+						<td>￥${subject.amount }</td>
+						<td>￥${subject.floor_amount }</td>
+						<td>${subject.period }天</td>
+						<td>${subject.floor_amount }元</td>
+						<td>${subject.year_rate }%</td>
+						<c:if test="${subject.status==0 }">
+						<td>未发布</td>
+						</c:if>
+						<c:if test="${subject.status==1 }">
+						<td>募集中</td>
+						</c:if>
+						<c:if test="${subject.status==2 }">
+						<td>已结束</td>
+						</c:if>
+						<c:if test="${subject.exper_status==0 }">
+						<td>否</td>
+						</c:if>
+						<c:if test="${subject.exper_status==1 }">
+						<td>是</td>
+						</c:if>
+						<td>${subject.create_date }</td>
+						<td><a class="layui-btn layui-btn-small layui-btn-normal" href="/YJLC_E/subject/editsubject/${subject.id }">编辑/查看</a>  <a class="layui-btn layui-btn-small layui-btn-normal" href="/YJLC_E/subject/listrecord/${subject.id }">查看投资</a></td>
+					</tr>
+				</c:forEach>
+			</table>
+		</form>
+		</div>
+	
+	</section> <!-- footer --> <!-- / footer --> </section> <script src="/YJLC_E/js/bootstrap.js"></script>
 	<script src="/YJLC_E/js/jquery.dcjqaccordion.2.7.js"></script> <script
 		src="/YJLC_E/js/scripts.js"></script> <script src="/YJLC_E/js/jquery.slimscroll.js"></script>
 	<script src="/YJLC_E/js/jquery.nicescroll.js"></script> <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->

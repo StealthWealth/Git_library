@@ -214,9 +214,9 @@
 						class="fa fa-book"></i> <span>理财产品</span>
 				</a>
 					<ul class="sub">
-						<li><a href="products_Solid _Collection.jsp">固收类/P2P</a></li>
+						<li><a href="/YJLC_E/subject/listsubject">固收类/P2P</a></li>
 						<li><a class="active" href="/YJLC_E/funds/listfunds">私募/股权类</a></li>
-						<li><a href="products_Solid _Collection.jsp">海外配置</a></li>
+						<li><a href="/YJLC_E/config/listconfig">海外配置</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
 						class="fa fa-th"></i> <span>学院管理</span>
@@ -277,7 +277,7 @@
 				<option value="GUQUAN">股权类</option>
 			</select>
 		<input class="layui-btn layui-btn-small layui-btn-normal" type="button" id="btn1" value="查询" />
-		<a class="layui-btn layui-btn-small layui-btn-normal">新增</a>
+		<a class="layui-btn layui-btn-small layui-btn-normal" href="/YJLC_E/funds/fundsadd">新增</a>
 			<table width="100%" border="1">
 				<tr>
 					<td>序号</td>
@@ -287,8 +287,6 @@
 					<td>状态</td>
 					<td>年化收益</td>
 					<td>返佣比例</td>
-					<td>开始日期</td>
-					<td>结束日期</td>
 					<td>投资期限</td>
 					<td>起投金额</td>
 					<td>添加时间</td>
@@ -316,12 +314,10 @@
 						</c:if>
 						<td>${funds.year_rate }%</td>
 						<td>${funds.ratio }</td>
-						<td>${funds.start_date }</td>
-						<td>${funds.end_date }</td>
 						<td>${funds.period }天</td>
 						<td>${funds.floor_amount }元</td>
 						<td>${funds.create_date }</td>
-						<td><a class="layui-btn layui-btn-small layui-btn-normal" href="/YJLC_E/funds/listsubscribe/${funds.id }">签署状态</a>  <a class="layui-btn layui-btn-small layui-btn-normal">编辑/查看</a></td>
+						<td><a class="layui-btn layui-btn-small layui-btn-normal" href="/YJLC_E/funds/listsubscribe/${funds.id }">签署状态</a>  <a class="layui-btn layui-btn-small layui-btn-normal" href="/YJLC_E/funds/editfunds/${funds.id }">编辑/查看</a></td>
 					</tr>
 				</c:forEach>
 			</table>
