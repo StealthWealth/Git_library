@@ -1,7 +1,14 @@
-package com.bean;
+package com.web.oversea_config_bean;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table
 public class Oversea_config_subscribe {
 //oversea_config_subscribe  海外配置订阅表
 	private int id;    //id
@@ -13,6 +20,9 @@ public class Oversea_config_subscribe {
 	private int status;        //状态
 	private Date create_date;  //创建时间
 	private Date update_date;   //修改时间
+	
+	@Id
+	@GeneratedValue
 	public int getId() {
 		return id;
 	}

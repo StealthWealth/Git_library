@@ -2,14 +2,16 @@ package com.bean;
 
 import java.util.Date;
 
+
+
 public class Subject_bbin_purchase_record {
 	//Subject_bbin_purchase_record  体验金购买标的表
 	private int id;              //id
 	private String serial_number;    //流水号
 	private double amount;           //购买金额
 	private String deal_ip;          //交易ip
-	private int subject_id;          //标的Id
-	private int member_id;           //会员ID
+	private int member_id;          //会员ID
+	private int subject_id;         //标的ID
 	private int delflag;            //是否删除
 	private Date create_date;       //创建时间
 	private Date update_date;       //修改时间
@@ -17,6 +19,8 @@ public class Subject_bbin_purchase_record {
 	private int ispayment;          //是否还款
 	private int pay_interest_times; //支付次数
 	private int last_profit_day;    //最后计息日
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -41,17 +45,17 @@ public class Subject_bbin_purchase_record {
 	public void setDeal_ip(String deal_ip) {
 		this.deal_ip = deal_ip;
 	}
-	public int getSubject_id() {
-		return subject_id;
-	}
-	public void setSubject_id(int subject_id) {
-		this.subject_id = subject_id;
-	}
 	public int getMember_id() {
 		return member_id;
 	}
 	public void setMember_id(int member_id) {
 		this.member_id = member_id;
+	}
+	public int getSubject_id() {
+		return subject_id;
+	}
+	public void setSubject_id(int subject_id) {
+		this.subject_id = subject_id;
 	}
 	public int getDelflag() {
 		return delflag;

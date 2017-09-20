@@ -1,7 +1,15 @@
-package com.bean;
+package com.web.oversea_config_bean;
+
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table
 public class Oversea_config {
 //oversea_config  海外配置表
 	private int id;     //id
@@ -11,12 +19,15 @@ public class Oversea_config {
 	private String child_title;     // 子标题
 	private String description;    //描述'
 	private String user_type;    //用户群体'.
-	private Date updTime;      //修改时间
-	private Date addTime;     //创建时间
+	private String updTime;      //修改时间
+	private String addTime;     //创建时间
 	private String oversea_icon;     //图标
-	private Date start_date;   //开始时间
-	private Date end_date;    //结束时间
+	private String start_date;   //开始时间
+	private String end_date;    //结束时间
 	private int status;   //状态
+	
+	@Id
+	@GeneratedValue
 	public int getId() {
 		return id;
 	}
@@ -59,17 +70,17 @@ public class Oversea_config {
 	public void setUser_type(String user_type) {
 		this.user_type = user_type;
 	}
-	public Date getUpdTime() {
+	public String getUpdTime() {
 		return updTime;
 	}
-	public void setUpdTime(Date updTime) {
+	public void setUpdTime(String updTime) {
 		this.updTime = updTime;
 	}
-	public Date getAddTime() {
+	public String getAddTime() {
 		return addTime;
 	}
-	public void setAddTime(Date addTime) {
-		this.addTime = addTime;
+	public void setAddTime(String date) {
+		this.addTime = date;
 	}
 	public String getOversea_icon() {
 		return oversea_icon;
@@ -77,16 +88,16 @@ public class Oversea_config {
 	public void setOversea_icon(String oversea_icon) {
 		this.oversea_icon = oversea_icon;
 	}
-	public Date getStart_date() {
+	public String getStart_date() {
 		return start_date;
 	}
-	public void setStart_date(Date start_date) {
+	public void setStart_date(String start_date) {
 		this.start_date = start_date;
 	}
-	public Date getEnd_date() {
+	public String getEnd_date() {
 		return end_date;
 	}
-	public void setEnd_date(Date end_date) {
+	public void setEnd_date(String end_date) {
 		this.end_date = end_date;
 	}
 	public int getStatus() {
