@@ -111,7 +111,6 @@ public class NewsController {
 		@RequestMapping("/delete/{id}")
 		public String delete(@PathVariable("id")int id){
 			newsService.delete(id);
-			
 			return "redirect:/listNews";
 		}
 		

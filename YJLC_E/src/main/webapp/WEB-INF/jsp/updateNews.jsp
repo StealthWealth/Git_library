@@ -269,7 +269,7 @@
 						</div>
 						<br>
 						<input type="hidden" value="${news.id }" name="id">
-						 <input type="hidden" value="${news.addTime }" name="addTime">
+						<input type="hidden" value="${news.addTime }" name="addTime">
 					</td>
 				</tr>
 				<tr>
