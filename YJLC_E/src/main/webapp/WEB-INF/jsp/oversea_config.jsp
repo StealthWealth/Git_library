@@ -214,7 +214,7 @@
 						class="fa fa-th"></i> <span>学院管理</span>
 				</a>
 					<ul class="sub">
-						<li><a href="college_Consultation_Administration.jsp">资讯管理</a>
+						<li><a href="/YJLC_E/listNews">资讯管理</a>
 						</li>
 						<li><a href="college_Consultation_Type.jsp">资讯分类</a></li>
 					</ul></li>
@@ -285,7 +285,7 @@
 					<td align="center">已结束</td>
 					</c:if>
 					<td align="center">${config.sortColum }</td>
-					<td align="center"><img src="${config.oversea_icon }" /></td>
+					<td align="center"><img src="/YJLC_E/${config.oversea_icon }" height="70" width="70" /></td>
 					<td align="center">${config.addTime }</td>
 					<td align="center"><a href="/YJLC_E/config/listsubscribe/${config.id }">查看预约</a>&nbsp;&nbsp;&nbsp;<a href="/YJLC_E/config/editconfig/${config.id }">编辑/查看</a></td>
 				</tr>

@@ -221,7 +221,7 @@
 						class="fa fa-th"></i> <span>学院管理</span>
 				</a>
 					<ul class="sub">
-						<li><a href="college_Consultation_Administration.jsp">资讯管理</a>
+						<li><a href="/YJLC_E/listNews">资讯管理</a>
 						</li>
 						<li><a href="college_Consultation_Type.jsp">资讯分类</a></li>
 					</ul></li>
@@ -260,7 +260,7 @@
 	</aside> <section id="main-content"> <section class="wrapper">
 
 	<div>
-		<form action="/YJLC_E/subject/savesubject" method="post">
+		<form action="/YJLC_E/subject/savesubject" method="post" enctype="multipart/form-data">
 			<table border="0" width="100%">
 				<tr>
 					<td width="10%">名称：</td>
@@ -356,10 +356,10 @@
 					</td>
 				</tr>
 				<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
-				<!-- <tr>
-					<td colspan="4">文件：<input type="file" name="" /></td>
+				<tr>
+					<td colspan="4">文件：<input type="file" name="file" /></td>
 				</tr>
-				<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr> -->
+				<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
 				<tr>
 					<td colspan="4"><input type="submit" value="保存" /></td>
 				</tr>

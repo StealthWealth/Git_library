@@ -220,7 +220,7 @@
 						class="fa fa-th"></i> <span>学院管理</span>
 				</a>
 					<ul class="sub">
-						<li><a href="college_Consultation_Administration.jsp">资讯管理</a>
+						<li><a href="/YJLC_E/listNews">资讯管理</a>
 						</li>
 						<li><a href="college_Consultation_Type.jsp">资讯分类</a></li>
 					</ul></li>
@@ -261,31 +261,42 @@
 	<section id="main-content"> <section class="wrapper">
 		
 		<div>
-		<form action="/YJLC_E/config/saveconfig" method="post">
+		<form action="/YJLC_E/config/saveconfig" method="post" enctype="multipart/form-data">
 		<table border="0" width="100%">
 			<tr>
+				<td width="10%">图标：</td>
+				<td>
+					<img  src="/YJLC_E/upload/${photo.oversea_icon }" width="200" height="200"   class="img-circle" ><br>
+					<div style="width: 100px;">
+					<input type="hidden" name="oversea_icon" value="${photo.oversea_icon }" >
+					<input type="file" name="file" onchange="upload()" ><br>
+					</div>
+				</td>
+			</tr>
+			<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+			<tr>
 				<td width="10%">标题：</td>
-				<td><input type="text" required name="title" /></td>
+				<td><input type="text" required name="title" value="${photo.title }" /></td>
 			</tr>
 			<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
 			<tr>
 				<td width="10%">子标题：</td>
-				<td><input type="text" required name="child_title" /></td>
+				<td><input type="text" required name="child_title" value="${photo.child_title }" /></td>
 			</tr>
 			<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
 			<tr>
 				<td width="10%">描述：</td>
-				<td><input type="text" required name="description" /></td>
+				<td><input type="text" required name="description" value="${photo.description }" /></td>
 			</tr>
 			<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
 			<tr>
 				<td width="10%">用户群体：</td>
-				<td><input type="text" required name="user_type" /></td>
+				<td><input type="text" required name="user_type" value="${photo.user_type }" /></td>
 			</tr>
 			<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
 			<tr>
 				<td width="10%">排序值：</td>
-				<td><input type="number" required name="sortColum" /></td>
+				<td><input type="number" required name="sortColum" id="sortColum" value="${photo.sortColum }" /></td>
 			</tr>
 			<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
 			<tr>
@@ -300,22 +311,17 @@
 			<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
 			<tr>
 				<td width="10%">开始时间：</td>
-				<td><input type="date" required name="start_date" /></td>
+				<td><input type="date" required name="start_date" value="${photo.start_date }" /></td>
 			</tr>
 			<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
 			<tr>
 				<td width="10%">结束时间：</td>
-				<td><input type="date" required name="end_date" /></td>
-			</tr>
-			<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
-			<tr>
-				<td width="10%">图标：</td>
-				<td><input type="file" name="oversea_icon"></td>
+				<td><input type="date" required name="end_date" value="${photo.end_date }" /></td>
 			</tr>
 			<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
 			<tr>
 				<td colspan="2">
-					<textarea rows="100%" cols="350" id="myUeditor" name="content"></textarea>
+					<textarea rows="100%" cols="350" id="myUeditor" name="content">${photo.content }</textarea>
 				</td>
 			</tr>
 			<tr>
@@ -333,7 +339,13 @@
 	<script type="text/javascript" charset="utf-8">
 		var ue = UE.getEditor("myUeditor",{initialFrameWidth : 1200,
 	        initialFrameHeight: 400});
-		
+		function upload(){
+			if($("#sortColum").val()==null || $("#sortColum").val()==""){
+				$("#sortColum").val(0);
+			}
+			 document.forms[0].action="/YJLC_E/config/uploadFile";
+			 document.forms[0].submit();
+		}
 	</script>
 </body>
 </html>

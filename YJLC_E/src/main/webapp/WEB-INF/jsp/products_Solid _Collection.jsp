@@ -309,7 +309,19 @@
 						</c:if>
 						<td>${subject.name }</td>
 						<td>￥${subject.amount }</td>
-						<td>￥${subject.floor_amount }</td>
+						<td>
+						<script type="text/javascript">
+							var id = '${subject.id}';
+							$.ajaxSetup({
+								async:false
+							});
+							var num1 = 0;
+							$.post("/YJLC_E/subject/getTotalMoney",{id:id},function(data){
+								num1=data
+							});
+							document.write("￥"+num1);
+						</script>
+						</td>
 						<td>${subject.period }天</td>
 						<td>${subject.floor_amount }元</td>
 						<td>${subject.year_rate }%</td>

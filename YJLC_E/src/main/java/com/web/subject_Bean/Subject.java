@@ -1,10 +1,22 @@
 package com.web.subject_Bean;
 
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.web.bean.Subject_folder;
+import com.web.subject_purchase_record_Bean.Subject_purchase_record;
+import com.web.sublect_bbin_purchase_record_Bean.Subject_bbin_purchase_record;
 
 @Entity
 @Table
@@ -28,7 +40,7 @@ public class Subject {
 	private int safeGuard_way;   //保障方式
 	private double year_rate;   //年化率
 	private String comment;   //产品速览
-	private int folder_id;    //文件夹Id
+//	private int folder_id;    //文件夹Id
 	private int delflag;   //是否删除
 	private String update_date;         //更新时间
 	private String create_date;         //创建日期
@@ -38,6 +50,12 @@ public class Subject {
 	private String projectDetails;    //项目详情
 	private String safetyControl;     //安全保障
 	private int exper_status;         //体验金是否可以购买(0：否，1：是)
+	
+	
+	private Subject_folder folder;
+	
+	private Set<Subject_purchase_record> record = new HashSet<>();
+	private Set<Subject_bbin_purchase_record> bbinrecord = new HashSet<>();
 	
 	@Id
 	@GeneratedValue
@@ -149,12 +167,12 @@ public class Subject {
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
-	public int getFolder_id() {
-		return folder_id;
-	}
-	public void setFolder_id(int folder_id) {
-		this.folder_id = folder_id;
-	}
+//	public int getFolder_id() {
+//		return folder_id;
+//	}
+//	public void setFolder_id(int folder_id) {
+//		this.folder_id = folder_id;
+//	}
 	public int getDelflag() {
 		return delflag;
 	}
@@ -208,5 +226,31 @@ public class Subject {
 	}
 	public void setExper_status(int exper_status) {
 		this.exper_status = exper_status;
+	}
+	
+	@ManyToOne
+	@JoinColumn(name="folder_id")
+	public Subject_folder getFolder() {
+		return folder;
+	}
+	public void setFolder(Subject_folder folder) {
+		this.folder = folder;
+	}
+	
+	
+	@OneToMany(cascade=CascadeType.ALL,mappedBy="subject")
+	public Set<Subject_purchase_record> getRecord() {
+		return record;
+	}
+	public void setRecord(Set<Subject_purchase_record> record) {
+		this.record = record;
+	}
+	
+	@OneToMany(cascade=CascadeType.ALL,mappedBy="subject")
+	public Set<Subject_bbin_purchase_record> getBbinrecord() {
+		return bbinrecord;
+	}
+	public void setBbinrecord(Set<Subject_bbin_purchase_record> bbinrecord) {
+		this.bbinrecord = bbinrecord;
 	}
 }

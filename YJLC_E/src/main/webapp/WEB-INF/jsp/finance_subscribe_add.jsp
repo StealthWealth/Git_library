@@ -222,7 +222,7 @@
 						class="fa fa-th"></i> <span>学院管理</span>
 				</a>
 					<ul class="sub">
-						<li><a href="college_Consultation_Administration.jsp">资讯管理</a>
+						<li><a href="/YJLC_E/listNews">资讯管理</a>
 						</li>
 						<li><a href="college_Consultation_Type.jsp">资讯分类</a></li>
 					</ul></li>
@@ -261,7 +261,7 @@
 	</aside> <section id="main-content"> <section class="wrapper">
 		
 		<div  align="center">
-		<form action="/YJLC_E/funds/update" method="post">
+		<form action="/YJLC_E/funds/update" method="post" enctype="multipart/form-data">
 			<table width="100%" border="0">
 			<input type="hidden" name="id" value="${subscribe.id }" />
 			<input type="hidden" name="did" value="${subscribe.funds.id}" />
@@ -302,12 +302,16 @@
 				<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
 				<tr>
 					<td align="right">私募合同：</td>
-					<td><input type="file" name="comment" /></td>
+				<td>
+					<input type="file" name="file">
+				</td>
 				</tr>
 				<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
 				<tr>
 					<td align="right">风险揭示书：</td>
-					<td><input type="file" name="risk_reveal" /></td>
+				<td>
+					<input type="file" name="file">
+				</td>
 				</tr>
 				<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
 				<tr>

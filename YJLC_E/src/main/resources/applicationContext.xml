@@ -76,6 +76,7 @@
 				<value>com.web.news_Bean</value>
 				<value>com.web.news_type_Bean</value>
 				<value>com.web.oversea_config_bean</value>
+				<value>com.web.bean</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">

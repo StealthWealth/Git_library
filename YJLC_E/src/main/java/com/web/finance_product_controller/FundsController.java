@@ -1,16 +1,22 @@
 package com.web.finance_product_controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.web.finance_product_bean.Finance_product_funds;
 import com.web.finance_product_bean.Finance_product_subscribe;
@@ -54,6 +60,7 @@ public class FundsController {
 	
 	@RequestMapping("/savefunds")
 	public String savefunds(Finance_product_funds funds){  //保存 私募/股权类信息
+		funds.setProduct_manager_pic("upload/"+funds.getProduct_manager_pic());
 		this.fundsService.fundssave(funds);
 		return "redirect:/funds/listfunds";
 	}
@@ -95,13 +102,47 @@ public class FundsController {
 	
 	//签署合同
 	@RequestMapping("/update")
-	public String savesubscribe(Finance_product_subscribe subscribe,int did,int member_id){
-		System.out.println("-----------------did:"+did);
-		Finance_product_funds funds = this.fundsService.getfundsid(did);
-		Member member = this.fundsService.getmemberid(member_id);
-		subscribe.setFunds(funds);
-		subscribe.setMember(member);
-		this.fundsService.updatesubscribe(subscribe);
+	public String savesubscribe(Finance_product_subscribe subscribe,int did,int member_id,@RequestParam("file")MultipartFile[] files,HttpServletRequest request)throws Exception{
+		for (int i = 0; i < files.length; i++) {
+			String filename = files[i].getOriginalFilename();
+			
+			System.out.println(filename+"///000000000");
+			String path = request.getRealPath("/upload/");
+			File newFiles = new File(path, filename);
+			if (!newFiles.exists()) {
+				newFiles.createNewFile();
+			}
+			files[i].transferTo(newFiles);
+			System.out.println("--------------------"+newFiles.getName());
+			subscribe.setComment("upload/"+files[0].getOriginalFilename());
+			subscribe.setRisk_reveal("upload/"+files[1].getOriginalFilename());
+			System.out.println("-----------------did:"+did);
+			Finance_product_funds funds = this.fundsService.getfundsid(did);
+			Member member = this.fundsService.getmemberid(member_id);
+			subscribe.setFunds(funds);
+			subscribe.setMember(member);
+			this.fundsService.updatesubscribe(subscribe);
+		}
 		return "redirect:/funds/listsubscribe/"+did;
+	}
+	
+	//图片相关
+	@RequestMapping("/uploadFile")
+	public String upload(@RequestParam("file")MultipartFile file,HttpServletRequest request,Finance_product_funds funds,Model model) throws IOException{
+		//获取文件名
+		String filename = file.getOriginalFilename();
+		//获取上传的绝对路径  upload 手动创建
+		String path = request.getRealPath("/upload/");
+		//获取新的文件对象
+		File newFile = new File(path, filename);
+		if(!newFile.exists()){ //文件不存在
+			//创建文件
+			newFile.createNewFile();
+		}
+		//将文件内容放入新的文件
+		file.transferTo(newFile);
+		funds.setProduct_manager_pic(newFile.getName());
+		model.addAttribute("photo", funds);
+		return "finance_funds_add";
 	}
 }
