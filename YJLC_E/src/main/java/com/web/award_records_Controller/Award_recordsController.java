@@ -10,7 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.web.award_records_Bean.Award_member_account;
+import com.web.award_records_Bean.Award_Bean;
 import com.web.award_records_Bean.Award_records;
 import com.web.award_records_Service.Award_recordsService;
 import com.web.vip_auditing_Bean.Member;
@@ -39,10 +39,12 @@ public class Award_recordsController {
 		map.put("MH_invitedCode", MH_invitedCode);
 		map.put("MH_isAward_Zhu", MH_isAward_Zhu);
 		map.put("MH_isAward_Tou", MH_isAward_Tou);
-		List<Award_records> award_records = award_recordsService.listAward_records(map);
-		List<Award_member_account> award_memner = award_recordsService.getAward_member();
-		model.addAttribute("award_memner", award_memner);
+		
+		List<Award_Bean> award_records = award_recordsService.listAward_records(map);
 		model.addAttribute("award_records", award_records);
+		
+		List<Member> listMember_Name = award_recordsService.listMember_Name();
+		model.addAttribute("listMember_Name", listMember_Name);
 		
 		if(MH_isAward_Zhu==null){
 			MH_isAward_Zhu="-1";
@@ -61,12 +63,12 @@ public class Award_recordsController {
 	}
 	
 	//½±Àø¼ÇÂ¼
-	@RequestMapping("/reward_record/{id}/{byinvitingid}")
-	public String reward_record(@PathVariable("id")int id,@PathVariable("byinvitingid")int byinvitingid,Model model){
-		Award_records award = award_recordsService.getAward(id);
-		Member member_ByinvitingName = award_recordsService.getByinvitingName(byinvitingid);
-		model.addAttribute("award_inviting", award);
-		model.addAttribute("member_ByinvitingName", member_ByinvitingName);
-		return "reward_record";
+	@RequestMapping("/reward_record/{byinvitingid}")
+	public String reward_record(@PathVariable("byinvitingid")String byinvitingid,Model model){
+			List<Award_records> award_inviting = award_recordsService.getAwardList(byinvitingid);
+			Member award_member_phone = award_recordsService.getByinvitingName(Integer.valueOf(byinvitingid));
+			model.addAttribute("award_inviting", award_inviting);
+			model.addAttribute("award_member_phone", award_member_phone);
+			return "reward_record";
 	}
 }

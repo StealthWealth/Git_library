@@ -116,7 +116,7 @@
 			</dt>
 			<dd>
 				<ul>
-					<li><a href="setUp_Announcement.jsp" title="盈+设置">公告管理</a></li>
+					<li><a href="/YJLC_E/listPush_notice" title="盈+设置">公告管理</a></li>
 					<li><a href="setUp_Opinion.jsp" title="盈+设置">意见反馈</a></li>
 				</ul>
 			</dd>

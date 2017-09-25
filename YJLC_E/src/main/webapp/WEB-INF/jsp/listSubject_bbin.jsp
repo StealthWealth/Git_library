@@ -230,7 +230,7 @@
 						class="fa fa-th"></i> <span>盈+管理</span>
 				</a>
 					<ul class="sub">
-						<li><a href="setUp_Announcement.jsp">公告管理</a></li>
+						<li><a href="/YJLC_E/listPush_notice">公告管理</a></li>
 						<li><a href="setUp_Opinion.jsp">意见反馈</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
@@ -247,7 +247,11 @@
 		</div>
 		<!-- sidebar menu end-->
 	</div>
+	
 	</aside> <section id="main-content"> <section class="wrapper">
+	<table>
+		
+	</table>
 		<table width="100%" border="1">
 			<tr align="center">
 				<td>序号</td>
@@ -270,7 +274,14 @@
 					<td>${su.member.identity }</td>
 					<td>${su.amount }</td>
 					<td><fmt:formatNumber type="number" value="${su.interest }" pattern="0.0"></fmt:formatNumber> </td>
-					<td>${su.update_date }</td>
+					<td>
+						<c:forEach items="${map }" var="m">
+							<c:if test="${m.key==su.id }">
+								<fmt:formatDate value="${m.value }" type="date" pattern="yyyy-MM-dd"/>
+							</c:if>
+				
+						</c:forEach>
+					</td>
 					<td><c:if test="${su.ispayment==0 }">
 							<font color="red"><b>未还款</b></font>
 						</c:if>

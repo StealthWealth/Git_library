@@ -7,6 +7,8 @@ public class Sum_Subject {
 
 	private String subject_id;
 	private String sum_amount;
+	private String count;
+	
 	public String getSubject_id() {
 		return subject_id;
 	}
@@ -19,7 +21,13 @@ public class Sum_Subject {
 	public void setSum_amount(String sum_amount) {
 		this.sum_amount = sum_amount;
 	}
-
+	public String getCount() {
+		return count;
+	}
+	public void setCount(String count) {
+		this.count = count;
+	}
+	
 
 		
 

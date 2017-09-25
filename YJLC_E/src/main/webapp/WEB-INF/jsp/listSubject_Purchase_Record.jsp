@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -229,7 +230,7 @@
 						class="fa fa-th"></i> <span>盈+管理</span>
 				</a>
 					<ul class="sub">
-						<li><a href="setUp_Announcement.jsp">公告管理</a></li>
+						<li><a href="/YJLC_E/listPush_notice">公告管理</a></li>
 						<li><a href="setUp_Opinion.jsp">意见反馈</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
@@ -271,7 +272,13 @@
 					<td>${subject_Purchase.amount }</td>
 					<td>${subject_Purchase.amount+subject_Purchase.interest }</td>
 					<td>${subject_Purchase.create_date }</td>
-					<td>${subject_Purchase.update_date }</td>
+					<td>
+							<c:forEach items="${map }" var="m">
+							<c:if test="${m.key==subject_Purchase.id }">
+								<fmt:formatDate value="${m.value }" type="date" pattern="yyyy-MM-dd"/>
+							</c:if>
+						</c:forEach>
+					</td>
 					<td>
 						<c:if test="${subject_Purchase.ispayment==0 }">
 							<font color="red"><b>未还款</b></font>

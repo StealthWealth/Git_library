@@ -260,28 +260,28 @@
 	<table width="100%" class="table">
 				<tr>
 					<td align="right"><font class="text-info" size="4">姓名:</font></td>
-					<td align="left"><input type="text" class="form-control" name="MH_member_name" value="${MH_member_name }"></td>
+					<td align="left"><input type="text" class="form-control" name="MH_member_name" value="${MH_member_name }" id="MH_member_name"></td>
 					<td align="right"><font class="text-info" size="4">手机号:</font></td>
-					<td align="left"><input type="text" name="MH_mobile_Phone" class="form-control" value="${MH_mobile_Phone }"></td>
+					<td align="left"><input type="text" name="MH_mobile_Phone" class="form-control" value="${MH_mobile_Phone }" id="MH_mobile_Phone"></td>
 					<td align="right"><font class="text-info" size="4">邀请码:</font></td>
-					<td align="left"><input type="text" class="form-control" name="MH_invitationCode" value="${MH_invitationCode }"></td>
+					<td align="left"><input type="text" class="form-control" name="MH_invitationCode" value="${MH_invitationCode }" id="MH_invitationCode"></td>
 					<td></td>
 				</tr>
 				<tr>
 					<td align="right"><font class="text-info" size="4">被邀请码:</font></td>
-					<td align="left"><input type="text" name="MH_invitedCode" class="form-control" value="${MH_invitedCode }"></td>
+					<td align="left"><input type="text" name="MH_invitedCode" class="form-control" value="${MH_invitedCode }" id="MH_invitedCode"></td>
 					<td align="right"><font class="text-info" size="4">是否已注册奖励:</font></td>
 					<td align="left"><select name="MH_isAward_Zhu" id="MH_isAward_Zhu" class="form-control">
 							<option value="-1" selected="selected">请选择</option>
-							<option value="1">是</option>
-							<option value="0">否</option>
+							<option value="已注册奖励">是</option>
+							<option value="未注册奖励">否</option>
 						</select></td>
 					<td align="right"><font class="text-info" size="4">是否已投资奖励:</font></td>
 					<td align="left">
 						<select name="MH_isAward_Tou" id="MH_isAward_Tou" class="form-control">
 							<option value="-1" selected="selected">请选择</option>
-							<option value="1">是</option>
-							<option value="0">否</option>
+							<option value="已投资奖励">是</option>
+							<option value="未投资奖励">否</option>
 						</select>
 					</td>	
 					<td><input type="submit" class="btn btn-info" value="查 询"></td>
@@ -298,7 +298,8 @@
 					<td>姓名</td>
 					<td>邀请码</td>
 					<td>被邀请码</td>
-					<td>投资金额</td>
+					<td>被邀请人姓名</td>
+					<td>奖励金额</td>
 					<td>奖励类型</td>
 					<td>是否奖励</td>
 					<td>注册时间</td>
@@ -307,46 +308,36 @@
 				<c:forEach items="${award_records }" var="award" varStatus="status">
 					<tr align="center">
 						<td>${status.index+1 }</td>
-						<td>${award.member.mobile_Phone }</td>
-						<td>${award.member.member_name }</td>
-						<td>${award.member.invitationCode }</td>
-						<td>${award.member.invitedCode }</td>
+						<td>${award.mobile_Phone }</td>
+						<td>${award.member_name }</td>
+						<td>${award.invitationCode }</td>
+						<td>${award.invitedCode }</td>
 						<td>
-							<c:forEach items="${award_memner }" var="aw">
-								<c:if test="${award.member.id==aw.member_id }">
-									<fmt:formatNumber type="number" value="${aw.member_amount }" pattern="0.00" maxFractionDigits="2"></fmt:formatNumber> 
+							<c:forEach items="${listMember_Name }" var="m_name">
+								<c:if test="${award.byinvitingid==m_name.id }">
+									${m_name.member_name }
 								</c:if>
 							</c:forEach>
 						</td>
+						<td>${award.amount }</td>
 						<td>
-							<c:if test="${award.type==0 }">
-								注册奖励
-							</c:if>
-							<c:if test="${award.type==1 }">
-								投资奖励
-							</c:if>
-							</td>
-						<td>	
-							<c:if test="${award.isAward==0 }">
-								<font color="red"><b>未奖励</b></font>
-							</c:if>
-							<c:if test="${award.isAward==1 }">
-								<font color="green"><b>以奖励</b></font>
-							</c:if>
+							${award.enroll }
 						</td>
-						<td>${award.member.create_date }</td>
+						<td>	
+							${award.invest }
+						</td>
+						<td>${award.create_date }</td>
 						<td>
-							<c:if test="${award.isAward==0 }">
-								<font color="red">还未奖励</font>
-							</c:if>
-							<c:if test="${award.isAward==1 }">
-								<a href="/YJLC_E/reward_record/${award.id }/${award.byinvitingid}"><b>奖励记录</b></a>
+							<c:if test="${award.enroll=='已注册奖励' && award.invest=='已投资奖励' }">
+								<a href="/YJLC_E//reward_record/${award.byinvitingid}">奖励记录</a>
 							</c:if>
 						</td>
 					</tr>
 				</c:forEach>
 			</table>
-	 </section> </section> <script src="/YJLC_E/js/bootstrap.js"></script> <script
+	 </section> </section> 
+	  
+	 <script src="/YJLC_E/js/bootstrap.js"></script> <script
 		src="/YJLC_E/js/jquery.dcjqaccordion.2.7.js"></script> <script
 		src="/YJLC_E/js/scripts.js"></script> <script src="/YJLC_E/js/jquery.slimscroll.js"></script>
 	<script src="/YJLC_E/js/jquery.nicescroll.js"></script> <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->

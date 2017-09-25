@@ -68,15 +68,13 @@ public class SubjectDao {
 		Session session = getSession();
 		Subject_bbin_purchase_record subject_bbin = (Subject_bbin_purchase_record) session.get(Subject_bbin_purchase_record.class, id);
 		subject_bbin.setIspayment(1);
-		Date date = new Date();
-		subject_bbin.setUpdate_date(date);
 		session.update(subject_bbin);
 	}
 	
-	//已投金额
+	//已投金额 已投人数
 	public List<Sum_Subject> listSum_subject(){
 		Session session = getSession();
-		String sql = "select sum_subject.subject_id,sum_subject.sum_amount*sum_subject.sum_pay from  (select subject_id,SUM(amount) as sum_amount,SUM(pay_interest_times) as sum_pay from subject_purchase_record GROUP BY subject_id)as sum_subject";
+		String sql = "select sum_subject.subject_id,sum_subject.sum_amount*sum_subject.sum_pay,getCount from  (select subject_id,SUM(amount) as sum_amount,SUM(pay_interest_times) as sum_pay,count(id) as getCount from subject_purchase_record GROUP BY subject_id)as sum_subject";
 		List list= session.createSQLQuery(sql).list();
 		List<Sum_Subject> temp=new ArrayList<Sum_Subject>();
 		for(int i=0;i<list.size();i++){
@@ -84,11 +82,11 @@ public class SubjectDao {
 			Sum_Subject sum=new Sum_Subject();
 			sum.setSubject_id(obj[0].toString());
 			sum.setSum_amount(obj[1].toString());
+			sum.setCount(obj[2].toString());
 			temp.add(sum);
 		}
 		return temp;
 	}
-	
 	
 }
 

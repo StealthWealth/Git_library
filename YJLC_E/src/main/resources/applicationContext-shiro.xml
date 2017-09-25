@@ -14,7 +14,7 @@
         <property name="successUrl" value="/sys" />
         <property name="filters">
             <map>
-　　　　<!--自定义登录验证过滤器-->
+		<!--自定义登录验证过滤器-->
                 <entry key="authc" value-ref="formAuthenticationFilter" />
             </map>
         </property>

@@ -245,59 +245,42 @@
 			</ul>
 		</div>
 		<!-- sidebar menu end-->
-	</div>
+	</div><br><br><br><br>
 	</aside> <section id="main-content"> <section class="wrapper">	
+			<br>
+			<h1 align="center">奖励记录</h1>
 			
-			<table width="100%">
-				<tr>
-				
-					<td>
-						<table class="table">
-							<tr>
-								<td align="center"><font color="black"><b>编号: ${award_inviting.id }</b></font></td>
-							</tr>
-							<tr><td align="center">
-									<font color="black"><b>邀请人手机号:${award_inviting.member.mobile_Phone }</b></font>	
-								</td>
-							 </tr>
-							 <tr>
-							 	<td align="center">
-									<font color="black"><b>被邀请人手机号:	 <c:if test="${award_inviting.byinvitingid==member_ByinvitingName.id }">
-														${member_ByinvitingName.mobile_Phone }
-													</c:if>	
-													</b></font>	
-							 	</td>
-							 </tr>
-							 <tr>
-							 	<td align="center">
-									<font color="black"><b>奖励类型:<c:if test="${award_inviting.type==0 }">
-											注册奖励
-											</c:if>
-											<c:if test="${award_inviting.type==1 }">
-											投资奖励
-											</c:if>	 		
-											</b></font>
-							 	</td>
-							 </tr>
-							 <tr>
-							 	<td align="center">
-							 		<font color="black"><b>奖励金额:${award_inviting.amount }</b></font>
-							 	</td>
-							 </tr>
-							 <tr>
-							 	<td align="center">
-							 		<font color="black"><b>奖励时间:${award_inviting.addTime }</b></font>
-							 	</td>
-							 </tr>
-							 <tr>
-							 	<td align="center">
-									<font color="black"><b>邀请码:${award_inviting.member.invitationCode }</b></font>	 		
-							 	</td>
-							 </tr>
-						</table>
-					</td>
-				</tr>
-			</table>
+			<hr>
+			<br>
+				<table width="80%" align="center" border="1">
+					<tr>
+						<td>序号</td>
+						<td>邀请人手机号</td>
+						<td>被邀请人手机号</td>
+						<td>奖励类型</td>
+						<td>奖励金额</td>
+						<td>奖励时间</td>
+						<td>邀请码</td>
+					</tr>
+					<c:forEach items="${award_inviting }" var="aw" varStatus="status">
+						<tr>
+							<td>${status.index+1 }</td>
+							<td>${aw.member.mobile_Phone }</td>
+							<td>${award_member_phone.mobile_Phone }</td>
+							<td><c:if test="${aw.type==0 }">
+								注册奖励
+							</c:if>
+							<c:if test="${aw.type==1 }">
+								投资奖励
+							</c:if>
+							</td>
+							<td>${aw.amount }</td>
+							<td>${aw.addTime }</td>
+							<td>${aw.member.invitationCode }</td>
+						</tr>
+					</c:forEach>
+				</table>
+			
 	 </section> </section> <script src="/YJLC_E/js/bootstrap.js"></script> <script
 		src="/YJLC_E/js/jquery.dcjqaccordion.2.7.js"></script> <script
 		src="/YJLC_E/js/scripts.js"></script> <script src="/YJLC_E/js/jquery.slimscroll.js"></script>

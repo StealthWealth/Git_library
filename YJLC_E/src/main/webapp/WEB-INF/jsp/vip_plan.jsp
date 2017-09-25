@@ -308,7 +308,7 @@
 						</td>
 						<td>
 							<c:if test="${subject.exper_status==1 }">
-								<a href="/YJLC_E/listSubject_bbin/${subject.id }"><b>体验金付息</b></a>&nbsp;<a href="/YJLC_E/listSubject_Purchase_Record/${subject.id }">付息列表</a>
+								<a href="/YJLC_E/listSubject_bbin/${subject.id }"><b>体验金付息</b></a>&nbsp;<a href="/YJLC_E/listSubject_Purchase_Record/${subject.id }"><b>付息列表</b></a>
 							</c:if>
 							<c:if test="${subject.exper_status==0 }">
 								<a href="/YJLC_E/listSubject_Purchase_Record/${subject.id }"><b>付息列表</b></a>

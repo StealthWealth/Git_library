@@ -1,6 +1,10 @@
 package com.web.subject_Controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,6 +31,13 @@ public class SubjectController {
 	public String listSubject(Model model){
 		List<Subject> listSubject = subjectService.listSubject();
 		List<Sum_Subject> sum_subject = subjectService.listSum_subject();
+		for (Subject s:  listSubject) {
+			for (Sum_Subject sum : sum_subject) {
+				if(s.getId()==Integer.valueOf(sum.getSubject_id())){
+					s.setBought(Integer.valueOf(sum.getCount()));
+				}
+			}
+		}
 		model.addAttribute("listSubject", listSubject);
 		model.addAttribute("sum_subject", sum_subject);
 		return "vip_plan";
@@ -36,6 +47,13 @@ public class SubjectController {
 	@RequestMapping("/listSubject_Purchase_Record/{id}")
 	public String listSubject_Purchase_Record(@PathVariable("id")int id,Model model){
 		List<Subject_purchase_record> listSubject_Purchase = subjectService.listSubject_Purchase_Record(id);
+		Map map = new HashMap<>();
+		for (Subject_purchase_record s : listSubject_Purchase) {
+			Date date = s.getCreate_date(); //创建时间
+			Date sumDate =addDate(date,s.getSubject().getPeriod());
+			map.put(s.getId(), sumDate);
+		}
+		model.addAttribute("map", map);
 		model.addAttribute("listSubject_Purchase", listSubject_Purchase);
 		return "listSubject_Purchase_Record";
 	}
@@ -52,10 +70,24 @@ public class SubjectController {
 	@RequestMapping("/listSubject_bbin/{subject_id}")
 	public String listSubject_bbin(@PathVariable("subject_id")int id,Model model){
 		List<Subject_bbin_purchase_record> subject_bbin = subjectService.listSubject_bbin(id);
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		Map map = new HashMap<>();
+		for (Subject_bbin_purchase_record s : subject_bbin) {
+			Date date =s.getCreate_date(); //创建时间
+			Date sumDate =addDate(date,s.getSubject().getPeriod());
+			map.put(s.getId(), sumDate);
+		}
+		model.addAttribute("map", map);
 		model.addAttribute("subject_bbin", subject_bbin);
 		return "listSubject_bbin";
 	}
 	
+	public static Date addDate(Date d,long day) {
+		  long time = d.getTime(); 
+		  day = day*24*60*60*1000; 
+		  time+=day; 
+		  return new Date(time);
+		  }
 	//修改体验金还款
 	@RequestMapping("/updateSubject_bbin/{id}/{subject_id}")
 	public String updateSubject_bbin(@PathVariable("id")int id,@PathVariable("subject_id")int subject_id){

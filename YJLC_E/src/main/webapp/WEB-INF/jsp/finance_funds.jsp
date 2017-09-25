@@ -241,7 +241,7 @@
 						class="fa fa-th"></i> <span>盈+管理</span>
 				</a>
 					<ul class="sub">
-						<li><a href="setUp_Announcement.jsp">公告管理</a></li>
+						<li><a href="/YJLC_E/listPush_notice">公告管理</a></li>
 						<li><a href="setUp_Opinion.jsp">意见反馈</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
