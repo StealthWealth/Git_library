@@ -215,7 +215,7 @@
 					<ul class="sub">
 						<li><a class="active"
 							href="/YJLC_E/listNews">资讯管理</a></li>
-						<li><a href="college_Consultation_Type.jsp">资讯分类</a></li>
+						<li><a href="/YJLC_E/listnewstype">资讯分类</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
 						class="fa fa-th"></i> <span>会员管理</span>
@@ -234,6 +234,8 @@
 					<ul class="sub">
 						<li><a href="/YJLC_E/listPush_notice">公告管理</a></li>
 						<li><a href="setUp_Opinion.jsp">意见反馈</a></li>
+						<li><a href="/YJLC_E/notice/listnotice">公告管理</a></li>
+						<li><a href="/YJLC_E/feedback/listfeedback">意见反馈</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
 						class="fa fa-th"></i> <span>系统管理</span>
@@ -249,7 +251,7 @@
 	</div>
 	</aside> <section id="main-content"> <section class="wrapper">
 			<form action="/YJLC_E/listNews" method="post">
-			<table width="50%" align="center">
+			<table width="50%" align="center" class="table">
 				<tr>
 					<td align="right">标题:</td>
 					<td align="left" width="200"><input type="text" name="MH_title" value="${MH_title }" class="form-control"></td>

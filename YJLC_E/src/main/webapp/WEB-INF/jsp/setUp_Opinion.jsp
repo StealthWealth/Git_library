@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -212,7 +213,7 @@
 					<ul class="sub">
 						<li><a href="/YJLC_E/listNews">资讯管理</a>
 						</li>
-						<li><a href="college_Consultation_Type.jsp">资讯分类</a></li>
+						<li><a href="/YJLC_E/listnewstype">资讯分类</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
 						class="fa fa-th"></i> <span>会员管理</span>
@@ -229,8 +230,8 @@
 						<i class="fa fa-th"></i> <span>盈+管理</span>
 				</a>
 					<ul class="sub">
-						<li><a href="setUp_Announcement.jsp">公告管理</a></li>
-						<li><a class="active" href="setUp_Opinion.jsp">意见反馈</a></li>
+						<li><a href="/YJLC_E/notice/listnotice">公告管理</a></li>
+						<li><a class="active" href="/YJLC_E/feedback/listfeedback">意见反馈</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
 						class="fa fa-th"></i> <span>系统管理</span>
@@ -246,9 +247,28 @@
 		</div>
 		<!-- sidebar menu end-->
 	</div>
-	</aside> <section id="main-content"> <section class="wrapper">
-
-	12131 </section> <!-- footer --> <!-- / footer --> </section> <script
+	</aside>
+	<section id="main-content"> <section class="wrapper">
+	
+	<table border="1" width="100%" >
+        <tr height="40">
+         	<td align="center">序号</td>
+         	<td align="center">意见反馈人</td>
+         	<td align="center">意见内容</td>
+         	<td align="center">添加时间</td>
+      	</tr>
+      	<c:forEach items="${listfeedback }" var="list" varStatus="num">
+      		<tr height="60">
+      			<td align="center">${num.index+1 }</td>
+      			<td align="center">${list.member.member_name }</td>
+      			<td align="center">${list.content }</td>
+      			<td align="center">${list.create_date }</td>
+      		</tr>
+      	</c:forEach>
+   	</table>
+	
+	</section>
+	<!-- footer --> <!-- / footer --> </section> <script
 		src="/YJLC_E/js/bootstrap.js"></script> <script
 		src="/YJLC_E/js/jquery.dcjqaccordion.2.7.js"></script> <script
 		src="/YJLC_E/js/scripts.js"></script> <script

@@ -214,17 +214,17 @@
 					<ul class="sub">
 						<li><a href="/YJLC_E/listNews">资讯管理</a>
 						</li>
-						<li><a href="college_Consultation_Type.jsp">资讯分类</a></li>
+						<li><a href="/YJLC_E/listnewstype">资讯分类</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;">
 						<i class="fa fa-th"></i> <span>会员管理</span>
 				</a>
 					<ul class="sub">
 						<li><a href="/YJLC_E/listAuditingAll">账号管理</a></li>
-						<li><a href="vip_Bangker.jsp">绑卡管理</a></li>
+						<li><a href="/YJLC_E/listMember_Bankcards">绑卡管理</a></li>
 						<li><a href="/YJLC_E/listAward_records">邀请管理</a></li>
-						<li><a href="vip_plan.jsp">付息计划</a></li>
-						<li><a href="vip_Recharge.jsp">充值管理</a></li>
+						<li><a href="/YJLC_E/listSubject">付息计划</a></li>
+						<li><a href="/YJLC_E/listMember_deposit_record">充值管理</a></li>
 						<li><a href="/YJLC_E/listMember_withdraw">体现管理</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
@@ -233,6 +233,8 @@
 					<ul class="sub">
 						<li><a href="/YJLC_E/listPush_notice">公告管理</a></li>
 						<li><a href="setUp_Opinion.jsp">意见反馈</a></li>
+						<li><a href="/YJLC_E/notice/listnotice">公告管理</a></li>
+						<li><a href="/YJLC_E/feedback/listfeedback">意见反馈</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
 						class="fa fa-th"></i> <span>系统管理</span>
@@ -287,6 +289,8 @@
 						<td><a class="layui-btn layui-btn-mini layui-btn-radius layui-btn-disabled">已签署</a></td>
 						</c:if>
 						<c:if test="${subscribe.status==2 }">
+						<td><a class="layui-btn layui-btn-small layui-btn-normal layui-btn-radius" href="/YJLC_E/funds/subscribeadd/${subscribe.id }/${subscribe.funds.period}">签署</a>&nbsp;
+							<a class="layui-btn layui-btn-small layui-btn-normal layui-btn-radius" href="/YJLC_E/funds/updatesubscribe/${subscribe.id }/${subscribe.funds.id}" onclick="return confirm('真的要签署失败吗？')">签署失败</a></td>
 						</c:if>
 						<c:if test="${subscribe.status==3 }">
 						<td><a class="layui-btn layui-btn-mini layui-btn-radius layui-btn-disabled">签署失败</a></td>

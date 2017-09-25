@@ -222,20 +222,20 @@
 						class="fa fa-th"></i> <span>学院管理</span>
 				</a>
 					<ul class="sub">
-						<li><a href="college_Consultation_Administration.jsp">资讯管理</a>
+						<li><a href="/YJLC_E/listNews">资讯管理</a>
 						</li>
-						<li><a href="college_Consultation_Type.jsp">资讯分类</a></li>
+						<li><a href="/YJLC_E/listnewstype">资讯分类</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;">
 						<i class="fa fa-th"></i> <span>会员管理</span>
 				</a>
 					<ul class="sub">
 						<li><a href="/YJLC_E/listAuditingAll">账号管理</a></li>
-						<li><a href="vip_Bangker.jsp">绑卡管理</a></li>
-						<li><a href="vip_Invitation.jsp">邀请管理</a></li>
-						<li><a href="vip_plan.jsp">付息计划</a></li>
-						<li><a href="vip_Recharge.jsp">充值管理</a></li>
-						<li><a href="vip_Withdrawals.jsp">体现管理</a></li>
+						<li><a href="/YJLC_E/listMember_Bankcards">绑卡管理</a></li>
+						<li><a href="/YJLC_E/listAward_records">邀请管理</a></li>
+						<li><a href="/YJLC_E/listSubject">付息计划</a></li>
+						<li><a href="/YJLC_E/listMember_deposit_record">充值管理</a></li>
+						<li><a href="/YJLC_E/listMember_withdraw">体现管理</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
 						class="fa fa-th"></i> <span>盈+管理</span>
@@ -243,6 +243,8 @@
 					<ul class="sub">
 						<li><a href="/YJLC_E/listPush_notice">公告管理</a></li>
 						<li><a href="setUp_Opinion.jsp">意见反馈</a></li>
+						<li><a href="/YJLC_E/notice/listnotice">公告管理</a></li>
+						<li><a href="/YJLC_E/feedback/listfeedback">意见反馈</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
 						class="fa fa-th"></i> <span>系统管理</span>
@@ -261,7 +263,7 @@
 	</aside> <section id="main-content"> <section class="wrapper">
 		
 		<div  align="center">
-		<form action="/YJLC_E/funds/update" method="post">
+		<form action="/YJLC_E/funds/update" method="post" enctype="multipart/form-data">
 			<table width="100%" border="0">
 			<input type="hidden" name="id" value="${subscribe.id }" />
 			<input type="hidden" name="did" value="${subscribe.funds.id}" />
@@ -302,12 +304,16 @@
 				<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
 				<tr>
 					<td align="right">私募合同：</td>
-					<td><input type="file" name="comment" /></td>
+				<td>
+					<input type="file" name="file">
+				</td>
 				</tr>
 				<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
 				<tr>
 					<td align="right">风险揭示书：</td>
-					<td><input type="file" name="risk_reveal" /></td>
+				<td>
+					<input type="file" name="file">
+				</td>
 				</tr>
 				<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
 				<tr>

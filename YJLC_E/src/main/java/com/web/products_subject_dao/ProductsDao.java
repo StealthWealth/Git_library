@@ -10,6 +10,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.web.bean.Subject_file;
 import com.web.subject_Bean.Subject;
 import com.web.subject_purchase_record_Bean.Subject_purchase_record;
 
@@ -83,5 +84,16 @@ public class ProductsDao {
 		subject.setCreate_date(str2);
 		subject.setUpdate_date(str2);
 		session.save(subject);
+	}
+	
+	//新增时候的文件上传
+	public void save_subject_file(Subject_file subject_file){
+		Session session = this.getsession();
+		SimpleDateFormat sim1 = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat sim2 = new SimpleDateFormat("yyyyMMdd");
+		subject_file.setCreate_date(sim1.format(new Date()));
+		subject_file.setUpdate_date(sim1.format(new Date()));
+		subject_file.setPath("upload/"+sim2.format(new Date()));
+		session.save(subject_file);
 	}
 }

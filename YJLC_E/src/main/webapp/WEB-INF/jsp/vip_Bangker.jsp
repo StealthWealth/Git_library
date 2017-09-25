@@ -212,7 +212,7 @@
 					<ul class="sub">
 						<li><a href="/YJLC_E/listNews">资讯管理</a>
 						</li>
-						<li><a href="college_Consultation_Type.jsp">资讯分类</a></li>
+						<li><a href="/YJLC_E/listnewstype">资讯分类</a></li>
 					</ul></li>
 				<li class="sub-menu"><a class="active" href="javascript:;">
 						<i class="fa fa-th"></i> <span>会员管理</span>
@@ -229,8 +229,8 @@
 						class="fa fa-th"></i> <span>盈+管理</span>
 				</a>
 					<ul class="sub">
-						<li><a href="setUp_Announcement.jsp">公告管理</a></li>
-						<li><a href="setUp_Opinion.jsp">意见反馈</a></li>
+						<li><a href="/YJLC_E/notice/listnotice">公告管理</a></li>
+						<li><a href="/YJLC_E/feedback/listfeedback">意见反馈</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
 						class="fa fa-th"></i> <span>系统管理</span>

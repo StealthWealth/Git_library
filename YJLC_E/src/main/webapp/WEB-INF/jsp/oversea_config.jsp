@@ -214,27 +214,27 @@
 						class="fa fa-th"></i> <span>学院管理</span>
 				</a>
 					<ul class="sub">
-						<li><a href="college_Consultation_Administration.jsp">资讯管理</a>
+						<li><a href="/YJLC_E/listNews">资讯管理</a>
 						</li>
-						<li><a href="college_Consultation_Type.jsp">资讯分类</a></li>
+						<li><a href="/YJLC_E/listnewstype">资讯分类</a></li>
 					</ul></li>
 				<li class="sub-menu"><a  href="javascript:;">
 						<i class="fa fa-th"></i> <span>会员管理</span>
 				</a>
 					<ul class="sub">
-						<li><a  href="/YJLC_E/listAuditingAll">账号管理</a></li>
+						<li><a href="/YJLC_E/listAuditingAll">账号管理</a></li>
 						<li><a href="/YJLC_E/listMember_Bankcards">绑卡管理</a></li>
-						<li><a href="vip_Invitation.jsp">邀请管理</a></li>
+						<li><a href="/YJLC_E/listAward_records">邀请管理</a></li>
 						<li><a href="/YJLC_E/listSubject">付息计划</a></li>
 						<li><a href="/YJLC_E/listMember_deposit_record">充值管理</a></li>
-						<li><a href="vip_Withdrawals.jsp">体现管理</a></li>
+						<li><a href="/YJLC_E/listMember_withdraw">体现管理</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
 						class="fa fa-th"></i> <span>盈+管理</span>
 				</a>
 					<ul class="sub">
-						<li><a href="setUp_Announcement.jsp">公告管理</a></li>
-						<li><a href="setUp_Opinion.jsp">意见反馈</a></li>
+						<li><a href="/YJLC_E/notice/listnotice">公告管理</a></li>
+						<li><a href="/YJLC_E/feedback/listfeedback">意见反馈</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
 						class="fa fa-th"></i> <span>系统管理</span>
@@ -256,7 +256,7 @@
 		
 		<div>
 		<form method="post">
-		<a href="/YJLC_E/config/configadd">新增</a>
+		<a class="layui-btn layui-btn-small layui-btn-normal" href="/YJLC_E/config/configadd">新增</a>
 			<table width="100%" border="1">
 				<tr>
 					<td align="center">序号</td>
@@ -285,9 +285,9 @@
 					<td align="center">已结束</td>
 					</c:if>
 					<td align="center">${config.sortColum }</td>
-					<td align="center"><img src="${config.oversea_icon }" /></td>
+					<td align="center"><img src="/YJLC_E/${config.oversea_icon }" height="70" width="70" /></td>
 					<td align="center">${config.addTime }</td>
-					<td align="center"><a href="/YJLC_E/config/listsubscribe/${config.id }">查看预约</a>&nbsp;&nbsp;&nbsp;<a href="/YJLC_E/config/editconfig/${config.id }">编辑/查看</a></td>
+					<td align="center"><a class="layui-btn layui-btn-small layui-btn-normal" href="/YJLC_E/config/listsubscribe/${config.id }">查看预约</a>&nbsp;&nbsp;&nbsp;<a class="layui-btn layui-btn-small layui-btn-normal" href="/YJLC_E/config/editconfig/${config.id }">编辑/查看</a></td>
 				</tr>
 				</c:forEach>
 			</table>

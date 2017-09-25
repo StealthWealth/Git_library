@@ -21,12 +21,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.web.finance_product_bean.Finance_product_funds;
-import com.web.font_bean.News;
 import com.web.font_bean.Push_notice;
 import com.web.font_bean.User_log;
 import com.web.font_bean.User_login_token;
 import com.web.font_bean.Users;
 import com.web.font_service.FontService;
+import com.web.news_Bean.News;
 import com.web.vip_auditing_Bean.Member;
 
 @Controller(value="users")

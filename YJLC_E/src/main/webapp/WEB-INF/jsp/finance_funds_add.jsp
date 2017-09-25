@@ -221,20 +221,20 @@
 						class="fa fa-th"></i> <span>学院管理</span>
 				</a>
 					<ul class="sub">
-						<li><a href="college_Consultation_Administration.jsp">资讯管理</a>
+						<li><a href="/YJLC_E/listNews">资讯管理</a>
 						</li>
-						<li><a href="college_Consultation_Type.jsp">资讯分类</a></li>
+						<li><a href="/YJLC_E/listnewstype">资讯分类</a></li>
 					</ul></li>
 				<li class="sub-menu"><a  href="javascript:;">
 						<i class="fa fa-th"></i> <span>会员管理</span>
 				</a>
 					<ul class="sub">
-						<li><a  href="/YJLC_E/listAuditingAll">账号管理</a></li>
+						<li><a href="/YJLC_E/listAuditingAll">账号管理</a></li>
 						<li><a href="/YJLC_E/listMember_Bankcards">绑卡管理</a></li>
-						<li><a href="vip_Invitation.jsp">邀请管理</a></li>
+						<li><a href="/YJLC_E/listAward_records">邀请管理</a></li>
 						<li><a href="/YJLC_E/listSubject">付息计划</a></li>
 						<li><a href="/YJLC_E/listMember_deposit_record">充值管理</a></li>
-						<li><a href="vip_Withdrawals.jsp">体现管理</a></li>
+						<li><a href="/YJLC_E/listMember_withdraw">体现管理</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
 						class="fa fa-th"></i> <span>盈+管理</span>
@@ -242,6 +242,8 @@
 					<ul class="sub">
 						<li><a href="/YJLC_E/listPush_notice">公告管理</a></li>
 						<li><a href="setUp_Opinion.jsp">意见反馈</a></li>
+						<li><a href="/YJLC_E/notice/listnotice">公告管理</a></li>
+						<li><a href="/YJLC_E/feedback/listfeedback">意见反馈</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
 						class="fa fa-th"></i> <span>系统管理</span>
@@ -262,93 +264,99 @@
 	<section id="main-content"> <section class="wrapper">
 		
 	<div>
-		<form action="/YJLC_E/funds/savefunds" method="post">
+		<form action="/YJLC_E/funds/savefunds" method="post" enctype="multipart/form-data">
 			<table border="0" width="80%">
 				<tr>
 					<td width="3%">类别：</td>
 					<td>
 						<select name="type">
-							<option value="SIMU">私募类</option>
-							<option value="GUQUAN">股权类</option>
+							<option value="SIMU" ${photo.type=="SIMU"?'selected':'' }>私募类</option>
+							<option value="GUQUAN" ${photo.type=="GUQUAN"?'selected':'' }>股权类</option>
 						</select>
 					</td>
 				</tr>
 				<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
 				<tr>
 					<td width="3%">名称：</td>
-					<td><input type="text" name="name" required/></td>
+					<td><input type="text" name="name" required value="${photo.name }"/></td>
 				</tr>
 				<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
 				<tr>
 					<td width="3%">起投金额(元)：</td>
-					<td><input type="text" name="floor_amount" required /></td>
+					<td><input type="text" name="floor_amount" required value="${photo.floor_amount }" /></td>
 				</tr>
 				<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
 				<tr>
 					<td width="3%">年化收益(%)：</td>
-					<td><input type="text" required name="year_rate" /></td>
+					<td><input type="text" required name="year_rate" value="${photo.year_rate }" /></td>
 				</tr>
 				<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
 				<tr>
 					<td width="3%">返佣比例：</td>
-					<td><input type="text" name="ratio" required /></td>
+					<td><input type="text" name="ratio" required value="${photo.ratio }" /></td>
 				</tr>
 				<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
 				<tr>
 					<td width="3%">状态：</td>
 					<td>
 						<select name="status">
-							<option value="0">未发布</option>
-							<option value="1">募集中</option>
-							<option value="2">已结束</option>
+							<option value="0" ${photo.status=="0"?'selected':'' }>未发布</option>
+							<option value="1" ${photo.status=="1"?'selected':'' }>募集中</option>
+							<option value="2" ${photo.status=="2"?'selected':'' }>已结束</option>
 						</select>
 					</td>
 				</tr>
 				<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
 				<tr>
 					<td width="3%">投资期限(天)：</td>
-					<td><input type="text" name="period" required /></td>
+					<td><input type="text" name="period" required value="${photo.period }" /></td>
 				</tr>
 				<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
 				<tr><td colspan="2"><h1>▶基金专题/关于基金</h1></td></tr>
 				<tr>
 					<td colspan="2">
-						<textarea id="myUeditor1" name="product_topic"></textarea>
+						<textarea id="myUeditor1" name="product_topic">${photo.product_topic }</textarea>
 					</td>
 				</tr>
 				<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
 				<tr><td colspan="2"><h1>▶基金经理</h1></td></tr>
 				<tr>
 					<td width="3%">基金经理名称：</td>
-					<td><input type="text" name="product_manager_name" required /></td>
+					<td><input type="text" name="product_manager_name" required value="${photo.product_manager_name }" /></td>
 				</tr>
 				<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
 				<tr>
 					<td width="3%">基金经理头衔：</td>
-					<td><input type="text" name="product_manager_title" required /></td>
+					<td><input type="text" name="product_manager_title" required value="${photo.product_manager_title }" /></td>
 				</tr>
 				<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
 				<tr>
 					<td width="3%">基金经理简介：</td>
-					<td><input type="text" name="product_manager_desc" required /></td>
+					<td><input type="text" name="product_manager_desc" required value="${photo.product_manager_desc }" /></td>
 				</tr>
 				<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
 				<tr>
 					<td width="3%">基金经理头像：</td>
-					<td><input type="file" name="product_manager_pic" /></td>
+					<td>
+						<img  src="/YJLC_E/upload/${photo.product_manager_pic }" width="200" height="200"   class="img-circle" ><br>
+						<div style="width: 100px;">
+							<input type="hidden" name="product_manager_pic" value="${photo.product_manager_pic }" >
+							<input type="file" name="file" onchange="upload()" ><br>
+						</div>
+					</td>
 				</tr>
 				<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
 				<tr><td colspan="2"><h1>▶基金经理详情</h1></td></tr>
 				<tr>
 					<td colspan="2">
-						<textarea id="myUeditor2" name="product_manager"></textarea>
+						<textarea id="myUeditor2" name="product_manager" >${photo.product_manager }</textarea>
 					</td>
 				</tr>
 				<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
 				<tr><td colspan="2"><h1>▶合同内容</h1></td></tr>
 				<tr>
 					<td colspan="2">
-						<textarea id="myUeditor3" name="contract"></textarea>
+						<textarea id="myUeditor3" name="contract">${photo.contract }</textarea>
 					</td>
 				</tr>
 				<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
@@ -357,7 +365,7 @@
 				<tr>
 					<td width="3%">银行账户：</td>
 					<td>
-						<input type="text" name="bank_account" style="width:600px" />
+						<input type="text" name="bank_account" style="width:600px" value="${photo.bank_account }" />
 						<div><font color="#FF00FF">例：招商银行杭州高新支行|1234 5678 1234 123|杭州吉威投资管理有限公司</font></div>
 					</td>
 				</tr>
@@ -380,6 +388,10 @@
 	        initialFrameHeight: 400});
 		var ue = UE.getEditor("myUeditor3",{initialFrameWidth : 1200,
 	        initialFrameHeight: 400});
+		function upload(){
+			 document.forms[0].action="/YJLC_E/funds/uploadFile";
+			 document.forms[0].submit();
+		}
 	</script>
 </body>
 </html>

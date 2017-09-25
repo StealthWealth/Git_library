@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.web.bean.Subject_file;
 import com.web.products_subject_dao.ProductsDao;
 import com.web.subject_Bean.Subject;
 import com.web.subject_purchase_record_Bean.Subject_purchase_record;
@@ -41,5 +42,10 @@ public class ProductsService {
 	//添加   固收类
 	public void savesubject(Subject subject){
 		this.subjectDao.savesubject(subject);
+	}
+	
+	//添加文件上传
+	public void save_subject_file(Subject_file subject_file){
+		this.subjectDao.save_subject_file(subject_file);
 	}
 }

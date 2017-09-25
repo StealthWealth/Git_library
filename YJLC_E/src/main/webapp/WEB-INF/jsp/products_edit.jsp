@@ -221,9 +221,9 @@
 						class="fa fa-th"></i> <span>学院管理</span>
 				</a>
 					<ul class="sub">
-						<li><a href="college_Consultation_Administration.jsp">资讯管理</a>
+						<li><a href="/YJLC_E/listNews">资讯管理</a>
 						</li>
-						<li><a href="college_Consultation_Type.jsp">资讯分类</a></li>
+						<li><a href="/YJLC_E/listnewstype">资讯分类</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
 						class="fa fa-th"></i> <span>会员管理</span>
@@ -231,17 +231,17 @@
 					<ul class="sub">
 						<li><a href="/YJLC_E/listAuditingAll">账号管理</a></li>
 						<li><a href="/YJLC_E/listMember_Bankcards">绑卡管理</a></li>
-						<li><a href="vip_Invitation.jsp">邀请管理</a></li>
+						<li><a href="/YJLC_E/listAward_records">邀请管理</a></li>
 						<li><a href="/YJLC_E/listSubject">付息计划</a></li>
 						<li><a href="/YJLC_E/listMember_deposit_record">充值管理</a></li>
-						<li><a href="vip_Withdrawals.jsp">体现管理</a></li>
+						<li><a href="/YJLC_E/listMember_withdraw">体现管理</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
 						class="fa fa-th"></i> <span>盈+管理</span>
 				</a>
 					<ul class="sub">
-						<li><a href="setUp_Announcement.jsp">公告管理</a></li>
-						<li><a href="setUp_Opinion.jsp">意见反馈</a></li>
+						<li><a href="/YJLC_E/notice/listnotice">公告管理</a></li>
+						<li><a href="/YJLC_E/feedback/listfeedback">意见反馈</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
 						class="fa fa-th"></i> <span>系统管理</span>
@@ -260,7 +260,7 @@
 	</aside> <section id="main-content"> <section class="wrapper">
 
 	<div>
-		<form action="/YJLC_E/subject/updatesubject" method="post">
+		<form action="/YJLC_E/subject/updatesubject" method="post" enctype="multipart/form-data">
 			<table border="0" width="100%">
 			<input type="hidden" name="id" value="${subject.id }" />
 			<input type="hidden" name="serial_number" value="${subject.serial_number }" />
@@ -269,7 +269,7 @@
 			<input type="hidden" name="create_date" value="${subject.create_date }" />
 			
 			
-			<input type="hidden" name="folder_id" value="${subject.folder_id }" />
+<%-- 			<input type="hidden" name="folder_id" value="${subject.folder_id }" /> --%>
 				<tr>
 					<td width="10%">名称：</td>
 					<td><input type="text" name="name"
@@ -373,7 +373,7 @@
 				</tr>
 				<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
 				<tr>
-					<td colspan="4">文件：<input type="file" name="" /></td>
+					<td colspan="4">文件：<input type="file" name="file" /></td>
 				</tr>
 				<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
 				<tr>

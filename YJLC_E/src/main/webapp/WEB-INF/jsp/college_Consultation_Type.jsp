@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -212,7 +213,7 @@
 					<ul class="sub">
 						<li><a href="/YJLC_E/listNews">资讯管理</a>
 						</li>
-						<li><a class="active" href="college_Consultation_Type.jsp">资讯分类</a>
+						<li><a class="active" href="/YJLC_E/listnewstype">资讯分类</a>
 						</li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
@@ -232,6 +233,8 @@
 					<ul class="sub">
 						<li><a href="/YJLC_E/listPush_notice">公告管理</a></li>
 						<li><a href="setUp_Opinion.jsp">意见反馈</a></li>
+						<li><a href="/YJLC_E/notice/listnotice">公告管理</a></li>
+						<li><a href="/YJLC_E/feedback/listfeedback">意见反馈</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
 						class="fa fa-th"></i> <span>系统管理</span>
@@ -247,9 +250,46 @@
 		</div>
 		<!-- sidebar menu end-->
 	</div>
-	</aside> <section id="main-content"> <section class="wrapper">
-
-	12131 </section> <!-- footer --> <!-- / footer --> </section> <script
+	</aside>
+	<section id="main-content"> <section class="wrapper">
+	
+	<form action="/YJLC_E/addnewstype" method="post">
+		
+		根类别：<select name="supType" id="supType">
+				<option value="0">根类别</option>
+					<c:forEach items="${listAll }" var="la">
+						<option value="${la.id}">${la.name }</option>
+					</c:forEach>
+			</select>
+		名称：<input type="text" name="name" >
+		排序：<input type="text" name="sort">
+		简介：<input type="text" name="info" >
+		<input type="submit" value="添加">
+	</form>
+	<table border="1" width="100%">
+		<tr>
+			<td>序号</td>
+			<td>名称</td>
+			<td>排序</td>
+			<td>上级类别</td>
+			<td>简介</td>
+			<td>添加时间</td>
+			<td>操作</td>
+		</tr>
+		<c:forEach items="${listAll}" var="la" varStatus="status">
+			<tr>
+				<td>${status.index+1}</td>
+				<td>${la.name }</td>
+				<td>${la.sort }</td>
+				<td>${la.supType }</td>
+				<td>${la.info }</td>
+				<td>${la.addTime}</td>
+				<td><a href="/YJLC_E/getNews_type/${la.id}">修改</a></td>
+			</tr>
+		</c:forEach>
+	</table>
+	
+	</section> <!-- footer --> <!-- / footer --> </section> <script
 		src="/YJLC_E/js/bootstrap.js"></script> <script
 		src="/YJLC_E/js/jquery.dcjqaccordion.2.7.js"></script> <script
 		src="/YJLC_E/js/scripts.js"></script> <script

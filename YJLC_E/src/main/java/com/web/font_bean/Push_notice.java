@@ -1,6 +1,5 @@
 package com.web.font_bean;
 
-import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,8 +14,8 @@ public class Push_notice {
 	private String title;   //标题
 	private String content;  //内容
 	private int status;   //公告状态
-	private Date create_date;  //创建时间
-	private Date update_Date;    //修改时间
+	private String create_date;  //创建时间
+	private String update_Date;    //修改时间
 	
 	@Id
 	@GeneratedValue
@@ -44,16 +43,16 @@ public class Push_notice {
 	public void setStatus(int status) {
 		this.status = status;
 	}
-	public Date getCreate_date() {
+	public String getCreate_date() {
 		return create_date;
 	}
-	public void setCreate_date(Date create_date) {
+	public void setCreate_date(String create_date) {
 		this.create_date = create_date;
 	}
-	public Date getUpdate_Date() {
+	public String getUpdate_Date() {
 		return update_Date;
 	}
-	public void setUpdate_Date(Date update_Date) {
+	public void setUpdate_Date(String update_Date) {
 		this.update_Date = update_Date;
 	}
 }

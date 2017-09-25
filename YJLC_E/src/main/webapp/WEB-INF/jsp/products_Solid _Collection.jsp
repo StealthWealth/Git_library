@@ -223,13 +223,13 @@
 					<ul class="sub">
 						<li><a href="/YJLC_E/listNews">资讯管理</a>
 						</li>
-						<li><a href="college_Consultation_Type.jsp">资讯分类</a></li>
+						<li><a href="/YJLC_E/listnewstype">资讯分类</a></li>
 					</ul></li>
 				<li class="sub-menu"><a  href="javascript:;">
 						<i class="fa fa-th"></i> <span>会员管理</span>
 				</a>
 					<ul class="sub">
-						<li><a  href="/YJLC_E/listAuditingAll">账号管理</a></li>
+						<li><a href="/YJLC_E/listAuditingAll">账号管理</a></li>
 						<li><a href="/YJLC_E/listMember_Bankcards">绑卡管理</a></li>
 						<li><a href="/YJLC_E/listAward_records">邀请管理</a></li>
 						<li><a href="/YJLC_E/listSubject">付息计划</a></li>
@@ -240,8 +240,8 @@
 						class="fa fa-th"></i> <span>盈+管理</span>
 				</a>
 					<ul class="sub">
-						<li><a href="setUp_Announcement.jsp">公告管理</a></li>
-						<li><a href="setUp_Opinion.jsp">意见反馈</a></li>
+						<li><a href="/YJLC_E/notice/listnotice">公告管理</a></li>
+						<li><a href="/YJLC_E/feedback/listfeedback">意见反馈</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
 						class="fa fa-th"></i> <span>系统管理</span>
@@ -309,7 +309,19 @@
 						</c:if>
 						<td>${subject.name }</td>
 						<td>￥${subject.amount }</td>
-						<td>￥${subject.floor_amount }</td>
+						<td>
+						<script type="text/javascript">
+							var id = '${subject.id}';
+							$.ajaxSetup({
+								async:false
+							});
+							var num1 = 0;
+							$.post("/YJLC_E/subject/getTotalMoney",{id:id},function(data){
+								num1=data
+							});
+							document.write("￥"+num1);
+						</script>
+						</td>
 						<td>${subject.period }天</td>
 						<td>${subject.floor_amount }元</td>
 						<td>${subject.year_rate }%</td>
