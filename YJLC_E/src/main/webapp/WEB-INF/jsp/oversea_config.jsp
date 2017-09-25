@@ -256,7 +256,7 @@
 		
 		<div>
 		<form method="post">
-		<a href="/YJLC_E/config/configadd">新增</a>
+		<a class="layui-btn layui-btn-small layui-btn-normal" href="/YJLC_E/config/configadd">新增</a>
 			<table width="100%" border="1">
 				<tr>
 					<td align="center">序号</td>
@@ -287,7 +287,7 @@
 					<td align="center">${config.sortColum }</td>
 					<td align="center"><img src="/YJLC_E/${config.oversea_icon }" height="70" width="70" /></td>
 					<td align="center">${config.addTime }</td>
-					<td align="center"><a href="/YJLC_E/config/listsubscribe/${config.id }">查看预约</a>&nbsp;&nbsp;&nbsp;<a href="/YJLC_E/config/editconfig/${config.id }">编辑/查看</a></td>
+					<td align="center"><a class="layui-btn layui-btn-small layui-btn-normal" href="/YJLC_E/config/listsubscribe/${config.id }">查看预约</a>&nbsp;&nbsp;&nbsp;<a class="layui-btn layui-btn-small layui-btn-normal" href="/YJLC_E/config/editconfig/${config.id }">编辑/查看</a></td>
 				</tr>
 				</c:forEach>
 			</table>
