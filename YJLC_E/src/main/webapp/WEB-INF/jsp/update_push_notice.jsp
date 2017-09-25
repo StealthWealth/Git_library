@@ -208,13 +208,13 @@
 				<li><a href="index.html"> <i class="fa fa-dashboard"></i> <span>Dashboard</span>
 				</a></li>
 
-				<li class="sub-menu"><a class="active" href="javascript:;"> <i
+				<li class="sub-menu"><a href="javascript:;"> <i
 						class="fa fa-book"></i> <span>理财产品</span>
 				</a>
 					<ul class="sub">
 						<li><a href="/YJLC_E/subject/listsubject">固收类/P2P</a></li>
 						<li><a href="/YJLC_E/funds/listfunds">私募/股权类</a></li>
-						<li><a class="active" href="/YJLC_E/config/listconfig">海外配置</a></li>
+						<li><a href="/YJLC_E/config/listconfig">海外配置</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
 						class="fa fa-th"></i> <span>学院管理</span>
@@ -224,7 +224,7 @@
 						</li>
 						<li><a href="/YJLC_E/listnewstype">资讯分类</a></li>
 					</ul></li>
-				<li class="sub-menu"><a  href="javascript:;">
+				<li class="sub-menu"><a href="javascript:;">
 						<i class="fa fa-th"></i> <span>会员管理</span>
 				</a>
 					<ul class="sub">
@@ -235,11 +235,11 @@
 						<li><a href="/YJLC_E/listMember_deposit_record">充值管理</a></li>
 						<li><a href="/YJLC_E/listMember_withdraw">体现管理</a></li>
 					</ul></li>
-				<li class="sub-menu"><a href="javascript:;"> <i
+				<li class="sub-menu"><a class="active" href="javascript:;"> <i
 						class="fa fa-th"></i> <span>盈+管理</span>
 				</a>
 					<ul class="sub">
-						<li><a href="/YJLC_E/notice/listnotice">公告管理</a></li>
+						<li><a class="active" href="/YJLC_E/notice/listnotice">公告管理</a></li>
 						<li><a href="/YJLC_E/feedback/listfeedback">意见反馈</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i
@@ -260,76 +260,29 @@
 	
 	<section id="main-content"> <section class="wrapper">
 		
-		<div>
-		<form action="/YJLC_E/config/saveconfig" method="post" enctype="multipart/form-data">
-		<table border="0" width="100%">
-			<tr>
-				<td width="10%">图标：</td>
-				<td>
-					<img  src="/YJLC_E/upload/${photo.oversea_icon }" width="200" height="200"   class="img-circle" ><br>
-					<div style="width: 100px;">
-					<input type="hidden" name="oversea_icon" value="${photo.oversea_icon }" >
-					<input type="file" name="file" onchange="upload()" ><br>
-					</div>
-				</td>
-			</tr>
-			<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
-			<tr>
-				<td width="10%">标题：</td>
-				<td><input type="text" required name="title" value="${photo.title }" /></td>
-			</tr>
-			<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
-			<tr>
-				<td width="10%">子标题：</td>
-				<td><input type="text" required name="child_title" value="${photo.child_title }" /></td>
-			</tr>
-			<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
-			<tr>
-				<td width="10%">描述：</td>
-				<td><input type="text" required name="description" value="${photo.description }" /></td>
-			</tr>
-			<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
-			<tr>
-				<td width="10%">用户群体：</td>
-				<td><input type="text" required name="user_type" value="${photo.user_type }" /></td>
-			</tr>
-			<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
-			<tr>
-				<td width="10%">排序值：</td>
-				<td><input type="number" required name="sortColum" id="sortColum" value="${photo.sortColum }" /></td>
-			</tr>
-			<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
-			<tr>
-				<td width="10%">状态：</td>
-				<td>
-					<select name="status">
-						<option value="0">未发布</option>
-						<option value="1">募集中</option>
-					</select>
-				</td>
-			</tr>
-			<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
-			<tr>
-				<td width="10%">开始时间：</td>
-				<td><input type="date" required name="start_date" value="${photo.start_date }" /></td>
-			</tr>
-			<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
-			<tr>
-				<td width="10%">结束时间：</td>
-				<td><input type="date" required name="end_date" value="${photo.end_date }" /></td>
-			</tr>
-			<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
-			<tr>
-				<td colspan="2">
-					<textarea rows="100%" cols="350" id="myUeditor" name="content">${photo.content }</textarea>
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2"><input type="submit" value="保存" /></td>
-			</tr>
-		</table>
+	<div>
+		<form action="/YJLC_E/notice/updatenotice" method="post">
+			<table border="0" width="80%">
+				<tr>
+				<input type="hidden" name="id" value="${editnotice.id }" />
+				<input type="hidden" name="status" value="${editnotice.status }" />
+				<input type="hidden" name="create_date" value="${editnotice.create_date }" />
+					<td width="3%">标题：</td>
+					<td><input type="text" name="title" required value="${editnotice.title }"/></td>
+				</tr>
+				<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+				<tr><td colspan="2"><h1>▶内容</h1></td></tr>
+				<tr>
+					<td colspan="2">
+						<textarea id="myUeditor" name="content">${editnotice.content }</textarea>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2"><input class="layui-btn layui-btn-small layui-btn-normal" type="submit" value="保存" /></td>
+				</tr>
+			</table>
 		</form>
-		</div>
+	</div>
 		
 	 </section> <!-- footer --> <!-- / footer --> </section> <script src="/YJLC_E/js/bootstrap.js"></script>
 	<script src="/YJLC_E/js/jquery.dcjqaccordion.2.7.js"></script> <script
@@ -339,13 +292,6 @@
 	<script type="text/javascript" charset="utf-8">
 		var ue = UE.getEditor("myUeditor",{initialFrameWidth : 1200,
 	        initialFrameHeight: 400});
-		function upload(){
-			if($("#sortColum").val()==null || $("#sortColum").val()==""){
-				$("#sortColum").val(0);
-			}
-			 document.forms[0].action="/YJLC_E/config/uploadFile";
-			 document.forms[0].submit();
-		}
 	</script>
 </body>
 </html>
