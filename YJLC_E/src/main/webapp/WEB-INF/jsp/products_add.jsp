@@ -1,22 +1,20 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>Typography</title>
-<script type="text/javascript" charset="utf-8"
-	src="/YJLC_E/js/ueditor/ueditor.config.js"></script>
-<script type="text/javascript" charset="utf-8"
-	src="/YJLC_E/js/ueditor/ueditor.all.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/YJLC_E/js/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="/YJLC_E/js/ueditor/ueditor.all.min.js"></script>
 <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
 <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
-<script type="text/javascript" charset="utf-8"
-	src="/YJLC_E/js/ueditor/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript" charset="utf-8" src="/YJLC_E/js/ueditor/lang/zh-cn/zh-cn.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="" />
 <script type="application/x-javascript">
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
 </script>
 <!-- bootstrap-css -->
 <link rel="stylesheet" href="/YJLC_E/css/bootstrap.min.css">
@@ -26,8 +24,7 @@
 <link href="/YJLC_E/css/style-responsive.css" rel="stylesheet" />
 <link rel="stylesheet" href="/YJLC_E/css/layui.css" media="all">
 <!-- font CSS -->
-<link
-	href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic'
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic'
 	rel='stylesheet' type='text/css'>
 <!-- font-awesome icons -->
 <link href="/YJLC_E/css/font-awesome.css" rel="stylesheet">
@@ -36,166 +33,21 @@
 <script src="/YJLC_E/js/layui.js" charset="utf-8"></script>
 </head>
 <body>
-	<section id="container"> <!--header start--> <header
-		class="header fixed-top clearfix"> <!--logo start-->
+	<section id="container"> <!--header start--> <header class="header fixed-top clearfix"> <!--logo start-->
 	<div class="brand">
-		<a href="index.html" class="logo"> VISITORS </a>
+		<a href="/YJLC_E/addLogin" class="logo"> VISITORS </a>
 		<div class="sidebar-toggle-box">
 			<div class="fa fa-bars"></div>
 		</div>
 	</div>
 	<!--logo end-->
-
-	<div class="nav notify-row" id="top_menu">
-		<!--  notification start -->
-		<ul class="nav top-menu">
-			<!-- settings start -->
-			<li class="dropdown"><a data-toggle="dropdown"
-				class="dropdown-toggle" href="#"> <i class="fa fa-tasks"></i> <span
-					class="badge bg-success">8</span>
-			</a>
-				<ul class="dropdown-menu extended tasks-bar">
-					<li>
-						<p class="">You have 8 pending tasks</p>
-					</li>
-					<li><a href="#">
-							<div class="task-info clearfix">
-								<div class="desc pull-left">
-									<h5>Target Sell</h5>
-									<p>25% , Deadline 12 June’13</p>
-								</div>
-								<span class="notification-pie-chart pull-right"
-									data-percent="45"> <span class="percent"></span>
-								</span>
-							</div>
-					</a></li>
-					<li><a href="#">
-							<div class="task-info clearfix">
-								<div class="desc pull-left">
-									<h5>Product Delivery</h5>
-									<p>45% , Deadline 12 June’13</p>
-								</div>
-								<span class="notification-pie-chart pull-right"
-									data-percent="78"> <span class="percent"></span>
-								</span>
-							</div>
-					</a></li>
-					<li><a href="#">
-							<div class="task-info clearfix">
-								<div class="desc pull-left">
-									<h5>Payment collection</h5>
-									<p>87% , Deadline 12 June’13</p>
-								</div>
-								<span class="notification-pie-chart pull-right"
-									data-percent="60"> <span class="percent"></span>
-								</span>
-							</div>
-					</a></li>
-					<li><a href="#">
-							<div class="task-info clearfix">
-								<div class="desc pull-left">
-									<h5>Target Sell</h5>
-									<p>33% , Deadline 12 June’13</p>
-								</div>
-								<span class="notification-pie-chart pull-right"
-									data-percent="90"> <span class="percent"></span>
-								</span>
-							</div>
-					</a></li>
-
-					<li class="external"><a href="#">See All Tasks</a></li>
-				</ul></li>
-			<!-- settings end -->
-			<!-- inbox dropdown start-->
-			<li id="header_inbox_bar" class="dropdown"><a
-				data-toggle="dropdown" class="dropdown-toggle" href="#"> <i
-					class="fa fa-envelope-o"></i> <span class="badge bg-important">4</span>
-			</a>
-				<ul class="dropdown-menu extended inbox">
-					<li>
-						<p class="red">You have 4 Mails</p>
-					</li>
-					<li><a href="#"> <span class="photo"><img
-								alt="avatar" src="images/3.png"></span> <span class="subject">
-								<span class="from">Jonathan Smith</span> <span class="time">Just
-									now</span>
-						</span> <span class="message"> Hello, this is an example msg. </span>
-					</a></li>
-					<li><a href="#"> <span class="photo"><img
-								alt="avatar" src="images/1.png"></span> <span class="subject">
-								<span class="from">Jane Doe</span> <span class="time">2
-									min ago</span>
-						</span> <span class="message"> Nice admin template </span>
-					</a></li>
-					<li><a href="#"> <span class="photo"><img
-								alt="avatar" src="images/3.png"></span> <span class="subject">
-								<span class="from">Tasi sam</span> <span class="time">2
-									days ago</span>
-						</span> <span class="message"> This is an example msg. </span>
-					</a></li>
-					<li><a href="#"> <span class="photo"><img
-								alt="avatar" src="images/2.png"></span> <span class="subject">
-								<span class="from">Mr. Perfect</span> <span class="time">2
-									hour ago</span>
-						</span> <span class="message"> Hi there, its a test </span>
-					</a></li>
-					<li><a href="#">See all messages</a></li>
-				</ul></li>
-			<!-- inbox dropdown end -->
-			<!-- notification dropdown start-->
-			<li id="header_notification_bar" class="dropdown"><a
-				data-toggle="dropdown" class="dropdown-toggle" href="#"> <i
-					class="fa fa-bell-o"></i> <span class="badge bg-warning">3</span>
-			</a>
-				<ul class="dropdown-menu extended notification">
-					<li>
-						<p>Notifications</p>
-					</li>
-					<li>
-						<div class="alert alert-info clearfix">
-							<span class="alert-icon"><i class="fa fa-bolt"></i></span>
-							<div class="noti-info">
-								<a href="#"> Server #1 overloaded.</a>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="alert alert-danger clearfix">
-							<span class="alert-icon"><i class="fa fa-bolt"></i></span>
-							<div class="noti-info">
-								<a href="#"> Server #2 overloaded.</a>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="alert alert-success clearfix">
-							<span class="alert-icon"><i class="fa fa-bolt"></i></span>
-							<div class="noti-info">
-								<a href="#"> Server #3 overloaded.</a>
-							</div>
-						</div>
-					</li>
-
-				</ul></li>
-			<!-- notification dropdown end -->
-		</ul>
-		<!--  notification end -->
-	</div>
 	<div class="top-nav clearfix">
 		<!--search & user info start-->
 		<ul class="nav pull-right top-menu">
-			<li><input type="text" class="form-control search"
-				placeholder=" Search"></li>
 			<!-- user login dropdown start-->
-			<li class="dropdown"><a data-toggle="dropdown"
-				class="dropdown-toggle" href="#"> <img alt="" src="images/2.png">
-					<span class="username">John Doe</span> <b class="caret"></b>
-			</a>
-				<ul class="dropdown-menu extended logout">
-					<li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
-					<li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
-					<li><a href="login.html"><i class="fa fa-key"></i> Log Out</a></li>
-				</ul></li>
+			<li class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle" href="#"> <img alt="" src="images/2.png"> <span
+					class="username"></span>
+			</a></li>
 			<!-- user login dropdown end -->
 
 		</ul>
@@ -206,27 +58,21 @@
 		<!-- sidebar menu start-->
 		<div class="leftside-navigation">
 			<ul class="sidebar-menu" id="nav-accordion">
-				<li><a href="index.html"> <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-				</a></li>
 
-				<li class="sub-menu"><a class="active" href="javascript:;">
-						<i class="fa fa-book"></i> <span>理财产品</span>
+				<li class="sub-menu"><a class="active" href="javascript:;"> <i class="fa fa-book"></i> <span>理财产品</span>
 				</a>
 					<ul class="sub">
 						<li><a class="active" href="/YJLC_E/subject/listsubject">固收类/P2P</a></li>
 						<li><a href="/YJLC_E/funds/listfunds">私募/股权类</a></li>
 						<li><a href="/YJLC_E/config/listconfig">海外配置</a></li>
 					</ul></li>
-				<li class="sub-menu"><a href="javascript:;"> <i
-						class="fa fa-th"></i> <span>学院管理</span>
+				<li class="sub-menu"><a href="javascript:;"> <i class="fa fa-th"></i> <span>学院管理</span>
 				</a>
 					<ul class="sub">
-						<li><a href="/YJLC_E/listNews">资讯管理</a>
-						</li>
+						<li><a href="/YJLC_E/listNews">资讯管理</a></li>
 						<li><a href="/YJLC_E/listnewstype">资讯分类</a></li>
 					</ul></li>
-				<li class="sub-menu"><a href="javascript:;"> <i
-						class="fa fa-th"></i> <span>会员管理</span>
+				<li class="sub-menu"><a href="javascript:;"> <i class="fa fa-th"></i> <span>会员管理</span>
 				</a>
 					<ul class="sub">
 						<li><a href="/YJLC_E/listAuditingAll">账号管理</a></li>
@@ -236,15 +82,13 @@
 						<li><a href="/YJLC_E/listMember_deposit_record">充值管理</a></li>
 						<li><a href="/YJLC_E/listMember_withdraw">体现管理</a></li>
 					</ul></li>
-				<li class="sub-menu"><a href="javascript:;"> <i
-						class="fa fa-th"></i> <span>盈+管理</span>
+				<li class="sub-menu"><a href="javascript:;"> <i class="fa fa-th"></i> <span>盈+管理</span>
 				</a>
 					<ul class="sub">
 						<li><a href="/YJLC_E/notice/listnotice">公告管理</a></li>
 						<li><a href="/YJLC_E/feedback/listfeedback">意见反馈</a></li>
 					</ul></li>
-				<li class="sub-menu"><a href="javascript:;"> <i
-						class="fa fa-th"></i> <span>系统管理</span>
+				<li class="sub-menu"><a href="javascript:;"> <i class="fa fa-th"></i> <span>系统管理</span>
 				</a>
 					<ul class="sub">
 						<li><a href="system_Account.jsp">账户管理</a></li>
@@ -268,98 +112,149 @@
 					<td width="10%">合同编号：</td>
 					<td><input type="text" name="serial_no" /></td>
 				</tr>
-				<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
 				<tr>
 					<td width="10%">起投金额(元)：</td>
 					<td><input type="text" name="floor_amount" /></td>
 					<td width="10%">年化率(%)：</td>
 					<td><input type="text" name="year_rate" /></td>
 				</tr>
-				<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
 				<tr>
 					<td width="10%">状态：</td>
-					<td>
-						<select name="status">
-							<option value="0" >未发布</option>
-							<option value="1" >募集中</option>
-							<option value="2" >已结束</option>
-						</select>
-					</td>
+					<td><select name="status">
+							<option value="0">未发布</option>
+							<option value="1">募集中</option>
+							<option value="2">已结束</option>
+					</select></td>
 					<td width="10%">投资期限(天)：</td>
 					<td><input type="text" name="period" /></td>
 				</tr>
-				<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
 				<tr>
 					<td width="10%">借款人姓名：</td>
 					<td><input type="text" name="borrowername" /></td>
 					<td width="10%">类型：</td>
-					<td>
-						<select name="type">
-							<option value="0" >固收类</option>
-							<option value="1" >P2P车贷</option>
-							<option value="2" >P2P房贷</option>
-						</select>
-					</td>
+					<td><select name="type">
+							<option value="0">固收类</option>
+							<option value="1">P2P车贷</option>
+							<option value="2">P2P房贷</option>
+					</select></td>
 				</tr>
-				<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
 				<tr>
 					<td width="10%">借款用途：</td>
 					<td><input type="text" name="purpose" /></td>
 					<td width="10%">保障方式：</td>
-					<td>
-						<select name="safeGuard_way">
+					<td><select name="safeGuard_way">
 							<option value="0">企业担保</option>
 							<option value="1">银行保障</option>
-						</select>
-					</td>
+					</select></td>
 				</tr>
-				<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
 				<tr>
 					<td width="10%">购买人数：</td>
 					<td><input type="text" name="bought" /></td>
 					<td width="10%">可否使用体验金：</td>
-					<td>
-						<select name="exper_status">
+					<td><select name="exper_status">
 							<option value="0">否</option>
 							<option value="1">是</option>
-						</select>
-					</td>
+					</select></td>
 				</tr>
-				<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
 				<tr>
 					<td colspan="4">▶▶产品速览</td>
 				</tr>
-				<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
 				<tr>
-					<td colspan="4">
-						<textarea id="myUeditor1" name="comment"></textarea>
-					</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
 				</tr>
-				<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+				<tr>
+					<td colspan="4"><textarea id="myUeditor1" name="comment"></textarea></td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
 				<tr>
 					<td colspan="4">▶▶项目详情</td>
 				</tr>
-				<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
 				<tr>
-					<td colspan="4">
-						<textarea id="myUeditor2" name="projectDetails"></textarea>
-					</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
 				</tr>
-				<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+				<tr>
+					<td colspan="4"><textarea id="myUeditor2" name="projectDetails"></textarea></td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
 				<tr>
 					<td colspan="4">▶▶安全保障</td>
 				</tr>
-				<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
 				<tr>
-					<td colspan="4">
-						<textarea id="myUeditor3" name="safetyControl"></textarea>
-					</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
 				</tr>
-				<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+				<tr>
+					<td colspan="4"><textarea id="myUeditor3" name="safetyControl"></textarea></td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
 				<tr>
 					<td colspan="4">文件：<input type="file" name="file" /></td>
 				</tr>
-				<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
 				<tr>
 					<td colspan="4"><input type="submit" value="保存" /></td>
 				</tr>
@@ -367,20 +262,22 @@
 		</form>
 	</div>
 
-	</section> <!-- footer --> <!-- / footer --> </section> <script
-		src="/YJLC_E/js/bootstrap.js"></script> <script
-		src="/YJLC_E/js/jquery.dcjqaccordion.2.7.js"></script> <script
-		src="/YJLC_E/js/scripts.js"></script> <script
-		src="/YJLC_E/js/jquery.slimscroll.js"></script> <script
-		src="/YJLC_E/js/jquery.nicescroll.js"></script> <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
-	<script src="/YJLC_E/js/jquery.scrollTo.js"></script> <script
-		type="text/javascript" charset="utf-8">
-		var ue = UE.getEditor("myUeditor1",{initialFrameWidth : 1200,
-	        initialFrameHeight: 400});
-		var ue = UE.getEditor("myUeditor2",{initialFrameWidth : 1200,
-	        initialFrameHeight: 400});
-		var ue = UE.getEditor("myUeditor3",{initialFrameWidth : 1200,
-	        initialFrameHeight: 400});
-	</script>
+	</section> <!-- footer --> <!-- / footer --> </section> <script src="/YJLC_E/js/bootstrap.js"></script> <script src="/YJLC_E/js/jquery.dcjqaccordion.2.7.js"></script> <script
+		src="/YJLC_E/js/scripts.js"></script> <script src="/YJLC_E/js/jquery.slimscroll.js"></script> <script src="/YJLC_E/js/jquery.nicescroll.js"></script>
+	<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]--> <script
+		src="/YJLC_E/js/jquery.scrollTo.js"></script> <script type="text/javascript" charset="utf-8">
+			var ue = UE.getEditor("myUeditor1", {
+				initialFrameWidth : 1200,
+				initialFrameHeight : 400
+			});
+			var ue = UE.getEditor("myUeditor2", {
+				initialFrameWidth : 1200,
+				initialFrameHeight : 400
+			});
+			var ue = UE.getEditor("myUeditor3", {
+				initialFrameWidth : 1200,
+				initialFrameHeight : 400
+			});
+		</script>
 </body>
 </html>
