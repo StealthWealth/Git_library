@@ -106,16 +106,16 @@
 
 	<div align="center">
 		<form method="post">
-			名称：<input type="text" name="qname" value="" />&nbsp; 状态：<select name="wname">
+			名称：<input type="text" name="qname" value="${qname }" />&nbsp; 状态：<select name="wname">
 				<option value="">全部</option>
-				<option value="0">未发布</option>
-				<option value="1">募集中</option>
-				<option value="2">已结束</option>
+				<option value="0" ${wname=="0"?'selected':'' }>未发布</option>
+				<option value="1" ${wname=="1"?'selected':'' }>募集中</option>
+				<option value="2" ${wname=="2"?'selected':'' }>已结束</option>
 			</select>&nbsp; 类别：<select name="ename">
 				<option value="">全部</option>
-				<option value="0">固收类</option>
-				<option value="1">P2P车贷</option>
-				<option value="2">P2P房贷</option>
+				<option value="0" ${ename=="0"?'selected':'' }>固收类</option>
+				<option value="1" ${ename=="1"?'selected':'' }>P2P车贷</option>
+				<option value="2" ${ename=="2"?'selected':'' }>P2P房贷</option>
 			</select> <input class="layui-btn layui-btn-small layui-btn-normal" type="button" id="btn1" value="查询" /> <a
 				class="layui-btn layui-btn-small layui-btn-normal" href="/YJLC_E/subject/addsubject">新增</a>
 			<table width="100%" border="1">
