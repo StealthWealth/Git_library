@@ -216,11 +216,11 @@
 			<artifactId>aopalliance</artifactId>
 			<version>1.0</version>
 		</dependency>
-        <dependency>
-    <groupId>org.aspectj</groupId>
-    <artifactId>aspectjweaver</artifactId>
-    <version>1.8.10</version>
-    </dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.8.10</version>
+		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-core -->
 		<dependency>
@@ -260,23 +260,23 @@
 		</dependency>
 
 
-	<dependency>
-			<groupId>com.alipay</groupId>
-			<artifactId>alipay</artifactId>
-			<version>1.1</version>
-	</dependency>
-
-
-	<dependency>
+		<dependency>
 			<groupId>com.alipay</groupId>
 			<artifactId>alipay</artifactId>
 			<version>1.1</version>
 		</dependency>
 
-	<dependency>
-		<groupId>com.baidu</groupId>
-		<artifactId>ueditor</artifactId>
-		<version>1.1.2</version>
-	</dependency>
+
+		<dependency>
+			<groupId>com.alipay</groupId>
+			<artifactId>alipay</artifactId>
+			<version>1.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.baidu</groupId>
+			<artifactId>ueditor</artifactId>
+			<version>1.1.2</version>
+		</dependency>
 	</dependencies>
 </project>

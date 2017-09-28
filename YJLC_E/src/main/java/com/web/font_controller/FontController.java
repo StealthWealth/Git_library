@@ -116,6 +116,7 @@ public class FontController {
 			List<Push_notice> listPush=fontService.listPush();//公告信息
 			model.addAttribute("showStock", list);
 			model.addAttribute("listPush", listPush);
+			model.addAttribute("member", null);
 		}
 		return "homePage";
 	}
