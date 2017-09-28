@@ -3,17 +3,24 @@ package com.web.font_controller;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.text.DateFormat;
+import java.text.Format;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.config.IniSecurityManagerFactory;
 import org.apache.shiro.crypto.hash.Md5Hash;
 import org.apache.shiro.mgt.SecurityManager;
-import org.apache.shiro.subject.Subject;
 import org.apache.shiro.util.Factory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,6 +33,9 @@ import com.web.font_bean.User_log;
 import com.web.font_bean.User_login_token;
 import com.web.font_bean.Users;
 import com.web.font_service.FontService;
+import com.web.member_account_Bean.Member_account;
+import com.web.news_Bean.News;
+import com.web.subject_Bean.Subject;
 import com.web.news_Bean.News;
 import com.web.vip_auditing_Bean.Member;
 
@@ -46,7 +56,7 @@ public class FontController {
 		// 把SecurityManager实例绑定到SecurityUtils
 		SecurityUtils.setSecurityManager(securityManager);
 		// 得到当前执行的用户
-		Subject currentUser=SecurityUtils.getSubject();
+		Subject currentUser=(Subject) SecurityUtils.getSubject();
 		// 创建token令牌,用户名密码形式
 		UsernamePasswordToken token=new UsernamePasswordToken(userName, password);
 	/*	try {
@@ -74,58 +84,64 @@ public class FontController {
 	
 	//前台注册
 	@RequestMapping("/MemberSignIn")
-	public String MemberSignIn(Member member) {
+	public String MemberSignIn(Member member,Member_account ma) {
 		member.setStatus("0");//账号状态
 		member.setDel_flag("0");//删除标记
 		member.setCreate_date(Calendar.getInstance().getTime());//创建时间
-		fontService.addMemberSignIn(member);
+		ma.setBbin_amount(1000.00);//默认给每个注册的用户发放1000元的奖励金
+		ma.setCreate_date(member.getCreate_date());
+		fontService.addMemberSignIn(member,ma);
 		return "redirect:/users/showStock";
 	}
 	
 	
 	//前台登录
 	@RequestMapping("/MemberSignUp")
-	public String MemberSignUpp(Member member,Model model) {
-		Member member2=fontService.getMemberSignUp(member);
-		if (member2 != null) {
-			model.addAttribute("member", member2);
-			System.out.println(member2.getPassword()+"  "+member2.getName());
+	public String MemberSignUpp(Member member,Model model,HttpSession session) {
+		boolean fal=fontService.getMemberSignUp(member);
+		Member member2=null;
+		if (fal) {
+			 member2=fontService.getMemberCZ(member);
+			System.err.println("name="+member2.getName()+"  password="+member2.getPassword());
+			session.setAttribute("member", member2);
+			List<Finance_product_funds> list=fontService.listStock();//理财产品信息
+			List<Push_notice> listPush=fontService.listPush();//公告信息
+			model.addAttribute("showStock", list);
+			model.addAttribute("listPush", listPush);
 		}else {
+			member2=null;
 			model.addAttribute("dlyz", "账号或密码错误");
-			System.out.println("aaaa");
+			System.out.println("账号或密码错误");
+			List<Finance_product_funds> list=fontService.listStock();//理财产品信息
+			List<Push_notice> listPush=fontService.listPush();//公告信息
+			model.addAttribute("showStock", list);
+			model.addAttribute("listPush", listPush);
 		}
+		return "homePage";
+	}
+	
+	//前台退出
+	@RequestMapping("/tuile")
+	public String TuiLe(HttpSession session) {
+		session.setAttribute("member",null);
 		return "redirect:/users/showStock";
 	}
 	
 	
 	
+	//跳转到支付
+	@RequestMapping("/alipay")
+	public String alipay() {
+		return "alipay.index";
+	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	@RequestMapping("/alipay_pag")
+	public String alipay_pag() {
+		return "alipay.trade.page.pay";
+	}
 	
 
-	
 	
 	
 
@@ -172,19 +188,103 @@ public class FontController {
 		return "study_center";
 	}
 	
+	
+	
 	//跳转到产品中心-固收类理财
 	@RequestMapping("/product")
-	public String product_Solid() {
+	public String product_Solid(HttpServletRequest request,HttpServletResponse response,Model model) {
 		
+		Map map=new HashMap();//新建一个map集合
+		String status=request.getParameter("stutas");//标的状态
+		String year_rate=request.getParameter("year_rate");//年化收益
+		map=initMap(request, map);
+		List<Subject>list=fontService.listCPZX(map);//查询所有
+		System.out.println("+++++++++++++++++++++++++++++++++++++++++++");
+		model.addAttribute("listCPZX",list);
 		return "product_center";
+		
 	}
+	
+	
+	//拼接产品中心
+	public Map initMap(HttpServletRequest request,Map map){
+		String type=request.getParameter("type");
+		String year_rate=request.getParameter("year_rate");//年化收益
+		String period_start=request.getParameter("period_start");//开始期限
+		String period_end=request.getParameter("period_end");//结束期限
+		String status=request.getParameter("status");//标的状态
+		String flag=request.getParameter("flag"); //标志
+        map.put("type",type);
+		map.put("year_rate",year_rate);
+		map.put("period_start",period_start);
+		map.put("period_end",period_end);
+		map.put("status",status);
+		map.put("flag",flag);
+	  if(type!=null){
+			request.setAttribute("type",type);
+		}
+		if(year_rate!=null){
+			request.setAttribute("year_date",year_rate);
+		}
+		if(period_start!=null){
+			request.setAttribute("period_start",period_start);
+		}
+		if(period_end!=null){
+			request.setAttribute("period_end",period_end);
+		}
+		if(status!=null){
+			request.setAttribute("status",status);
+		}
+		if(flag!=null){
+			request.setAttribute("flag",flag);
+		}
+		return map;
+
+	}
+	
+	
+	
+	
 	
 	//产品中心-固收类理财-点击购买后跳转的购买页面
 	@RequestMapping("/productbuy")
-	public String product_buy() {
+	public String product_buy(int id,Model model,int mid,HttpSession session) {
+		 Subject subject=fontService.getByIdSubject(id);
+		 Member_account ma=null;
+		  if (mid != 0) {
+			  ma=fontService.getByidMember_account(mid);
+		}
+		Date s=Calendar.getInstance().getTime();
+		String jxrq=new SimpleDateFormat("yyyy-MM-dd").format(s);
 		
+		
+		
+		//设置还款日期1
+		Format f = new SimpleDateFormat("yyyy-MM-dd"); 
+		Date today = new Date();  
+		Calendar calendar=Calendar.getInstance();
+		calendar.setTime(s);
+		calendar.add(Calendar.DAY_OF_MONTH, subject.getPeriod());//今天的日期加上标的周期
+		Date hkrq1=calendar.getTime();//还款日期
+		//设置还款日期二
+		Calendar calendar2=Calendar.getInstance();
+		calendar2.setTime(s);
+		calendar2.add(Calendar.DAY_OF_MONTH, subject.getPeriod()+1);//今天的日期加上标的周期 加上可能会延迟的一天
+		Date hkrq2=calendar2.getTime();
+		
+		model.addAttribute("subject", subject);
+		if (mid != 0) {
+			session.setAttribute("ma", ma);
+		}
+		model.addAttribute("jxrq", jxrq);
+		model.addAttribute("hkrq1", f.format(hkrq1));
+		model.addAttribute("hkrq2", f.format(hkrq2));
 		return "product_buy";
 	}
+	
+	
+	
+	
 	
 	
 	//账户管理页面
@@ -194,6 +294,8 @@ public class FontController {
 		model.addAttribute("listUsers",list);
 		return "system_Account";
 	}
+	
+	
 	
 	@RequestMapping("/sin")
 	public String sin() {
@@ -265,6 +367,6 @@ public class FontController {
 		return "redirect:/users/sys_Account";
 	}
 	
-	
+
 	
 }

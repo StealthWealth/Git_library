@@ -4,17 +4,44 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
 
+<title>Insert title here</title>
+<!-- 
+	    <style>
+    	body{
+    		margin:0;
+    	}
+    	
+    	video{ 
+  position: fixed; right: 0; bottom: 0; 
+  min-width: 100%; min-height: 100%; 
+  width: auto; 
+  height: auto; 
+  z-index:-9999;
+  background: url(polina.jpg) no-repeat; 
+  background-size: cover;
+  
+   }
+    </style>
+    
+ -->
 
 </head>
 
 
 <body>
+<!--  
+	<video autoplay="autoplay" loop="loop" muted="muted">
+    			<source src="/YJLC_E/font/Stellar-Marionette.mp4"></source>
+    </video>
+-->
 
-	<c:if test="${!empty dlyz}">
-		<script type="text/javascript">
+<c:if test="${!empty dlyz }">
+<script type="text/javascript">
 	alert("${dlyz}");
+	<%
+	request.setAttribute("dlyz", null);
+	%>
 </script>
 	</c:if>
 
@@ -58,66 +85,83 @@
 	描述：导航栏
 -->
 	<ul class="layui-nav">
-
-		<div>
-			<li class="layui-nav-item"><a href=""><font color="#FFFFFF">盈+理财&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font></a></li>
-			<li class="layui-nav-item"><a href="/YJLC_E/users/showStock">首页</a></li>
-			<li class="layui-nav-item"><a href="">网上体验中心 </a></li>
-			<li class="layui-nav-item"><a href="/YJLC_E/users/product">产品中心</a></li>
-			<li class="layui-nav-item"><a href="/YJLC_E/users/pressCenter">新闻中心</a></li>
-			<li class="layui-nav-item"><a href="/YJLC_E/users/download_center">下载中心</a></li>
-			<li class="layui-nav-item"><a href="/YJLC_E/users/YJcommercial_college">盈+商学院</a></li>
-			<li class="layui-nav-item"><a href="/YJLC_E/users/study_center">投研中心</a></li>
-
-			<c:if test="${!empty member}">
-				<li class="layui-nav-item"><a href="">我的加法库<span class="layui-badge">9</span></a></li>
-			</c:if>
-
-
-			<c:if test="${empty member }">
-				<a href="#" class="play-icon popup-with-zoom-anim">我的加法库<span class="layui-badge-dot"></span></a>
-			</c:if>
-
-			<c:if test="${!empty member }">
-				<a href="#" class="play-icon popup-with-zoom-anim">个人中心<span class="layui-badge-dot"></span></a>
-
-			</c:if>
-
-			<c:if test="${empty member}">
-				<li class="layui-nav-item"><a href="#small-dialog" class="play-icon popup-with-zoom-anim">个人中心<span class="layui-badge-dot"></span></a></li>
-			</c:if>
-
-
-			<c:if test="${!empty member}">
-				<li class="layui-nav-item"><a href="javascript:;"><img src="/YJLC_E/font/img/1.jpg" class="layui-nav-img">我</a>
-					<dl class="layui-nav-child">
-						<dd>
-							<a href="javascript:;">修改信息</a>
-						</dd>
-						<dd>
-							<a href="javascript:;">安全管理</a>
-						</dd>
-						<dd>
-							<a href="javascript:;">退了</a>
-						</dd>
-					</dl></li>
-			</c:if>
-
-
-			<c:if test="${empty member}">
-				<li class="layui-nav-item"><a href="#small-dialog" class="play-icon popup-with-zoom-anim">登录</a></li>
-			</c:if>
-
-		</div>
-	</ul>
-
+<div >
+  <li class="layui-nav-item">
+    <a href=""><font color="#FFFFFF" >盈+理财&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </font></a>
+  </li>	
+  <li class="layui-nav-item">
+    <a href="/YJLC_E/users/showStock">首页</a>
+  </li>
+  <li class="layui-nav-item">
+    <a href="">网上体验中心 </a>
+  </li>
+  <li class="layui-nav-item">
+    <a href="/YJLC_E/users/product">产品中心</a>
+  </li>
+  <li class="layui-nav-item">
+    <a href="/YJLC_E/users/pressCenter">新闻中心</a>
+  </li>
+  <li class="layui-nav-item">
+    <a href="/YJLC_E/users/download_center">下载中心</a>
+  </li>
+  <li class="layui-nav-item">
+    <a href="/YJLC_E/users/YJcommercial_college">盈+商学院</a>
+  </li>
+  <li class="layui-nav-item">
+    <a href="/YJLC_E/users/study_center">投研中心</a>
+  </li>
+  
+  <c:if test="${!empty member}">
+  <li class="layui-nav-item">
+    <a href="#">我的加法库<span class="layui-badge">9</span></a>
+  </li>
+  </c:if>
+  
+  
+  <c:if test="${empty member }">
+  <a href="#" >我的加法库</a>
+  </c:if>
+  
+  <c:if test="${!empty member }">
+  <a href="#" >个人中心</a>
+  
+  </c:if>
+  
+  <c:if test="${empty member}">
+  <li class="layui-nav-item" >
+    <a href="#" >个人中心</a>
+  </li>
+  </c:if>
+  
+  
+  <c:if test="${!empty member}">
+  <li class="layui-nav-item" >
+    <a href="javascript:;"><img src="/YJLC_E/font/img/1.jpg" class="layui-nav-img">我</a>
+    <dl class="layui-nav-child">
+      <dd><a href="javascript:;">修改信息</a></dd>
+      <dd><a href="javascript:;">安全管理</a></dd>
+      <dd><a href="/YJLC_E/users/tuile">退了</a></dd>
+    </dl>
+  </li>
+  </c:if>
+  
+  
+  <c:if test="${empty member}">
+  <li class="layui-nav-item">
+  	<a href="#small-dialog" class="play-icon popup-with-zoom-anim">登录</a>
+  </li>
+  </c:if>
+  
+</div>
+</ul>
 
 
 	<!-- -------------------------------- -->
@@ -206,11 +250,13 @@
 					<i class="fa fa-key" aria-hidden="true"></i> <input type="password" id="aaa" name="Password" placeholder="密码" required="">
 				</div>
 				<div class="agileits_w3layouts_user">
-					<i class="fa fa-key" aria-hidden="true"></i> <input type="password" id="bbb" name="Password" placeholder="再次输入密码" required="">
-				</div>
-				<br>
+					<i class="fa fa-key" aria-hidden="true"></i>
+					<input type="password" id="bbb" name="Passwordzc" placeholder="再次输入密码" required="">
+				</div><br>
 				<div class="agileits_w3layouts_user">
-					<i class="fa fa-asl-interpreting" aria-hidden="true"></i> <input type="text" name="invitationCode" placeholder="理财师邀请码">
+					<i class="fa fa-asl-interpreting" aria-hidden="true"></i> 
+					<input type="text" name="invitationCode" placeholder="理财师邀请码" >
+
 				</div>
 				<br>
 				<div class="agileits_w3layouts_user">
@@ -256,6 +302,7 @@
 
 
 </body>
+
 
 
 <link rel="stylesheet" href="/YJLC_E/font/layui/css/layui.css" />

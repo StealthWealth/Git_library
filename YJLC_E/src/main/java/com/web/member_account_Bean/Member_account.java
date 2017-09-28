@@ -2,13 +2,18 @@ package com.web.member_account_Bean;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.web.member_deposit_record_Bean.Member_deposit_record;
+import com.web.member_trade_record_Bean.Member_trade_record;
 import com.web.vip_auditing_Bean.Member;
 
 @Entity
@@ -16,20 +21,22 @@ import com.web.vip_auditing_Bean.Member;
 public class Member_account {
 //  member_account   成员账户表
 	private int id;      //id
-	//private int member_id;   //用户ID	
+//	private int member_id;   //用户ID	
 	private double useable_balance;       //可用余额
 	private double imuseale_balance;    //冻结余额
 	private double total_profit;     //累计收益 
-	private Date create_date;    //创建时间
+	private Date create_date;    //创建时间k
 	private Date update_date;     //修改时间
 	private double bonus_amount;    //红包余额
 	private double invest_amount;    //投资总额
 	private int delflag;      //默认为0
 	private double bbin_amount;   //体验金
-	
+	private Member_deposit_record mdr;//充值记录表	
+	private Member member;//成员账户基本表
+	private Member_trade_record mtr;//交易记录表
 
-	private Member member;
-		 
+	
+	
 	@Id
 	@GeneratedValue
 	public int getId() {
@@ -38,6 +45,9 @@ public class Member_account {
 	public void setId(int id) {
 		this.id = id;
 	}
+	
+	
+	
 	@OneToOne
 	@JoinColumn(name="member_id")
 	public Member getMember() {
@@ -47,7 +57,10 @@ public class Member_account {
 		this.member = member;
 	}
 	
+	
+	
 
+	
 	public double getUseable_balance() {
 		return useable_balance;
 	}
@@ -96,6 +109,8 @@ public class Member_account {
 	public void setDelflag(int delflag) {
 		this.delflag = delflag;
 	}
+	
+
 	public double getBbin_amount() {
 		return bbin_amount;
 	}

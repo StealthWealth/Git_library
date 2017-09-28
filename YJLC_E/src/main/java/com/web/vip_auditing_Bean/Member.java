@@ -2,6 +2,7 @@ package com.web.vip_auditing_Bean;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -16,7 +17,7 @@ import com.web.member_account_Bean.Member_account;
 @Entity
 @Table
 public class Member {
-
+//用户基本表
 	private int id; //编号
 	private String member_name;  //姓名
 	private String name; //账号
@@ -36,8 +37,18 @@ public class Member {
 	private String qqAccount;  //QQ账号关联
 	private String invitedCode; //被邀请码
 	private String qqNumber; //QQ号码
+	private Member_account member_account;//成员账户表  与基本表应为一对一关系
 	
-
+	
+	@OneToOne(cascade=CascadeType.ALL)
+	public Member_account getMember_account() {
+		return member_account;
+	}
+	
+	public void setMember_account(Member_account member_account) {
+		this.member_account = member_account;
+	}
+	
 	@Id
 	@GeneratedValue
 	public int getId() {
