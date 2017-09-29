@@ -20,6 +20,7 @@ import com.web.member_account_Bean.Member_account;
 import com.web.news_Bean.News;
 import com.web.subject_Bean.Subject;
 import com.web.subject_purchase_record_Bean.Subject_purchase_record;
+import com.web.sublect_bbin_purchase_record_Bean.Subject_bbin_purchase_record;
 import com.web.vip_auditing_Bean.Member;
 
 @Component
@@ -252,7 +253,16 @@ public class FontDao {
 		return 0;
 	}
 	
-	
+	//我的加法库--体验金记录
+	public List<Subject_bbin_purchase_record> listSBPR(int mid){
+		Session session=this.getSession();
+		String hql="from Subject_bbin_purchase_record where member_id="+mid+"";
+		List list=session.createQuery(hql).list();
+		if (list.size() > 0) {
+			return list;
+		}
+		return list=null;
+	}
 	
 	
 	
