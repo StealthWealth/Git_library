@@ -2,9 +2,6 @@ package com.web.font_dao;
 
 
 import java.util.List;
-
-
-import java.util.List;
 import java.util.Map;
 
 import org.hibernate.Criteria;
@@ -13,6 +10,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Expression;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
 import com.web.finance_product_bean.Finance_product_funds;
 import com.web.font_bean.Push_notice;
 import com.web.font_bean.User_log;
@@ -21,7 +19,7 @@ import com.web.font_bean.Users;
 import com.web.member_account_Bean.Member_account;
 import com.web.news_Bean.News;
 import com.web.subject_Bean.Subject;
-import com.web.news_Bean.News;
+import com.web.subject_purchase_record_Bean.Subject_purchase_record;
 import com.web.vip_auditing_Bean.Member;
 
 @Component
@@ -233,7 +231,26 @@ public class FontDao {
 	}
 	
 	
-	
+	//我的加法库--投资记录
+	public List<Subject_purchase_record> listSPR(int mid) {
+		Session session=this.getSession();
+		String hql="from Subject_purchase_record where member_id="+mid+"";
+		List list=session.createQuery(hql).list();
+		if (list.size() > 0) {
+			return list;
+		}
+		return list=null;
+	}
+	//我的加法库--统计投资记录
+	public int getCount(int mid) {
+		Session session=this.getSession();
+		List list=session.createQuery("select count(*) from Subject_purchase_record where member_id="+mid+"").list();
+		if (list.size() > 0) {
+			int count = (int) list.get(0);
+			return count;
+		}
+		return 0;
+	}
 	
 	
 	
