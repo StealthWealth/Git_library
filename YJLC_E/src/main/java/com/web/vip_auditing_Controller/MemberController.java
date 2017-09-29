@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -68,4 +70,27 @@ public class MemberController {
 		return "vip_Auditing_details";
 	}
 	
+	//  查询个人充值记录
+	@RequestMapping("/chongzhijilu")
+	public String chongzhijilu(HttpSession session,Model model){
+		int id = ((Member)session.getAttribute("member")).getId();
+		System.out.println("------------++++++++++"+id);
+		List<Member_deposit_record> chongzhi = this.memberService.listMember_deposit(id);
+		Member_account account = this.memberService.getMember_account(id);
+		session.setAttribute("chongzhi", chongzhi);
+		model.addAttribute("account", account);
+		return "chongzhijilu";
+	}
+	
+	//  查询个人提现记录
+	@RequestMapping("/tikuanjilu")
+	public String tixianjilu(HttpSession session,Model model){
+		int id = ((Member)session.getAttribute("member")).getId();
+		System.out.println("------------++++++++++"+id);
+		List<Member_withdraw_record> tixian = this.memberService.listMember_withdraw(id);
+		Member_account account = this.memberService.getMember_account(id);
+		session.setAttribute("tixian", tixian);
+		model.addAttribute("account", account);
+		return "tikuanjilu";
+	}
 }

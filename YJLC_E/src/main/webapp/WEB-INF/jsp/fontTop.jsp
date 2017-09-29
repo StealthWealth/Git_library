@@ -121,7 +121,7 @@
   
   <c:if test="${!empty member}">
   <li class="layui-nav-item">
-    <a href="#">我的加法库<span class="layui-badge">9</span></a>
+    <a href="/YJLC_E/chongzhijilu">我的加法库<span class="layui-badge">9</span></a>
   </li>
   </c:if>
   
@@ -131,7 +131,7 @@
   </c:if>
   
   <c:if test="${!empty member }">
-  <a href="#" >个人中心</a>
+  <a href="/YJLC_E/chongzhijilu" >个人中心</a>
   
   </c:if>
   
