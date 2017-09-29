@@ -109,7 +109,6 @@
 				<input type="hidden" name="id" value="${subject.id }" />
 				<input type="hidden" name="serial_number" value="${subject.serial_number }" />
 				<input type="hidden" name="raise_start" value="${subject.raise_start }" />
-				<input type="hidden" name="raise_end" value="${subject.raise_end }" />
 				<input type="hidden" name="create_date" value="${subject.create_date }" />
 
 
@@ -187,12 +186,33 @@
 				</tr>
 				<tr>
 					<td width="10%">购买人数：</td>
-					<td><input type="text" name="bought" value="${subject.bought }" /></td>
+					<td><input type="text" name="bought" value="${subject.bought }" readonly /></td>
 					<td width="10%">可否使用体验金：</td>
 					<td><select name="exper_status">
 							<option value="0" ${subject.exper_status=="0"?'selected':'' }>否</option>
 							<option value="1" ${subject.exper_status=="1"?'selected':'' }>是</option>
 					</select></td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="10%">标的金额(￥):</td>
+					<td><input type="text" name="amount" value="${subject.amount }" /></td>
+					<td width="10%">&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td colspan="4">文件：<input type="file" name="file" required /></td>
 				</tr>
 				<tr>
 					<td>&nbsp;</td>
@@ -247,15 +267,6 @@
 				</tr>
 				<tr>
 					<td colspan="4"><textarea id="myUeditor3" name="safetyControl">${subject.safetyControl }</textarea></td>
-				</tr>
-				<tr>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-				</tr>
-				<tr>
-					<td colspan="4">文件：<input type="file" name="file" /></td>
 				</tr>
 				<tr>
 					<td>&nbsp;</td>

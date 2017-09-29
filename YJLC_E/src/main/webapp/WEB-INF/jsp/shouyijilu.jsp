@@ -89,18 +89,17 @@
 			</ul>
 		</div>
 		<script>
-			var menu_item = "member_center_menu_withdraw_record";
+			var menu_item = "member_center_menu_profit_record";
 			$("#" + menu_item).addClass("select");
 		</script>
 
 		<div class="admin-right">
 			<div class="tbConBox">
 				<div class="tab">
-					<a class="select" href="javascript:;">提款记录</a>
+					<a class="select" href="javascript:;">收益记录</a>
 				</div>
 				<div id="conBox">
 					<div class="box" style="display: block">
-
 
 						<meta name="keywords"
 							content="盈+，盈，社区金融，O2O社区金融，社区金融O2O，O2O，互联网+社区金融，O2O连锁，社区门店，首家社区金融，社区金融服务，综合金融，互联网金融，体验中心，普惠金融，金融创新，社区化，普惠化，全渠道化，互联网线上平台，O2O交易，全国首家，盈十，金融衍生品，固收类理财，私募基金，股权基金，股指期货，玩转股指，商品期货，国际期货，外盘，A50，沪深300，中证500，上证50">
@@ -114,31 +113,18 @@
 										<th width="20%">时间</th>
 										<th width="30%">订单号</th>
 										<th width="20%">金额</th>
-										<th width="10%">状态</th>
+										<th width="20%">备注</th>
 									</tr>
-									<c:forEach items="${tixian }" var="tikuan">
+									<c:forEach items="${shouyi }" var="yi">
 										<tr>
-											<td>${tikuan.create_date }</td>
-											<td><font color="#ff503f">${tikuan.serial_number }</font></td>
-											<td>${tikuan.amount }</td>
-											<c:if test="${tikuan.status==0 }">
-												<td>待审核</td>
-											</c:if>
-											<c:if test="${tikuan.status==1 }">
-												<td>已打款</td>
-											</c:if>
-											<c:if test="${tikuan.status==2 }">
-												<td>打款中</td>
-											</c:if>
-											<c:if test="${tikuan.status==3 }">
-												<td>打款失败</td>
-											</c:if>
+											<td><script>document.write("${yi.create_date }".substring(0, 10));</script></td>
+											<td>${yi.serial_number }</td>
+											<td>${yi.amount }</td>
+											<td>${yi.comment }</td>
 										</tr>
 									</c:forEach>
 								</tbody>
 							</table>
-
-
 						</div>
 						<script type="text/javascript">
 							function getJsonInfo(url) {

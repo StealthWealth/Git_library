@@ -108,9 +108,9 @@
 			<table border="0" width="100%">
 				<tr>
 					<td width="10%">名称：</td>
-					<td><input type="text" name="name" /></td>
+					<td><input type="text" name="name" required /></td>
 					<td width="10%">合同编号：</td>
-					<td><input type="text" name="serial_no" /></td>
+					<td><input type="text" name="serial_no" required /></td>
 				</tr>
 				<tr>
 					<td>&nbsp;</td>
@@ -120,9 +120,9 @@
 				</tr>
 				<tr>
 					<td width="10%">起投金额(元)：</td>
-					<td><input type="text" name="floor_amount" /></td>
+					<td><input type="text" name="floor_amount" required /></td>
 					<td width="10%">年化率(%)：</td>
-					<td><input type="text" name="year_rate" /></td>
+					<td><input type="text" name="year_rate" required /></td>
 				</tr>
 				<tr>
 					<td>&nbsp;</td>
@@ -138,7 +138,7 @@
 							<option value="2">已结束</option>
 					</select></td>
 					<td width="10%">投资期限(天)：</td>
-					<td><input type="text" name="period" /></td>
+					<td><input type="text" name="period" required /></td>
 				</tr>
 				<tr>
 					<td>&nbsp;</td>
@@ -148,7 +148,7 @@
 				</tr>
 				<tr>
 					<td width="10%">借款人姓名：</td>
-					<td><input type="text" name="borrowername" /></td>
+					<td><input type="text" name="borrowername" required /></td>
 					<td width="10%">类型：</td>
 					<td><select name="type">
 							<option value="0">固收类</option>
@@ -164,7 +164,7 @@
 				</tr>
 				<tr>
 					<td width="10%">借款用途：</td>
-					<td><input type="text" name="purpose" /></td>
+					<td><input type="text" name="purpose" required /></td>
 					<td width="10%">保障方式：</td>
 					<td><select name="safeGuard_way">
 							<option value="0">企业担保</option>
@@ -179,12 +179,33 @@
 				</tr>
 				<tr>
 					<td width="10%">购买人数：</td>
-					<td><input type="text" name="bought" /></td>
+					<td><input type="text" name="bought" required /></td>
 					<td width="10%">可否使用体验金：</td>
 					<td><select name="exper_status">
 							<option value="0">否</option>
 							<option value="1">是</option>
 					</select></td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="10%">标的金额(￥):</td>
+					<td><input type="text" name="amount" required /></td>
+					<td width="10%">&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td colspan="4">文件：<input type="file" name="file" required /></td>
 				</tr>
 				<tr>
 					<td>&nbsp;</td>
@@ -239,15 +260,6 @@
 				</tr>
 				<tr>
 					<td colspan="4"><textarea id="myUeditor3" name="safetyControl"></textarea></td>
-				</tr>
-				<tr>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-				</tr>
-				<tr>
-					<td colspan="4">文件：<input type="file" name="file" /></td>
 				</tr>
 				<tr>
 					<td>&nbsp;</td>

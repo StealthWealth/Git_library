@@ -19,6 +19,7 @@ import com.web.member_trade_record_Bean.Member_trade_record;
 import com.web.member_withdraw_record_Bean.Member_withdraw_record;
 import com.web.subject_purchase_record_Bean.Subject_purchase_record;
 import com.web.vip_auditing_Bean.Member;
+import com.web.vip_auditing_Bean.Member_profit_record;
 import com.web.vip_auditing_Service.MemberService;
 
 @Controller(value="MemberController")
@@ -92,5 +93,18 @@ public class MemberController {
 		session.setAttribute("tixian", tixian);
 		model.addAttribute("account", account);
 		return "tikuanjilu";
+	}
+	
+	
+	//   查询收益记录
+	@RequestMapping("/shouyijilu")
+	public String shouyijilu(HttpSession session,Model model){
+		int id = ((Member)session.getAttribute("member")).getId();
+		System.out.println("------------++++++++++"+id);
+		List<Member_profit_record> shouyi = this.memberService.listmemberprofitrecord(id);
+		Member_account account = this.memberService.getMember_account(id);
+		model.addAttribute("shouyi", shouyi);
+		model.addAttribute("account", account);
+		return "shouyijilu";
 	}
 }

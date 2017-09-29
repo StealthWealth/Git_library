@@ -70,6 +70,7 @@ public class ProductsDao {
 		SimpleDateFormat sim = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String str = sim.format(new Date());
 		subject.setUpdate_date(str);
+		subject.setRaise_end(str);
 		session.update(subject);
 	}
 	
@@ -83,6 +84,8 @@ public class ProductsDao {
 		subject.setSerial_number("YJ"+str);
 		subject.setCreate_date(str2);
 		subject.setUpdate_date(str2);
+		subject.setRaise_start(str2);
+		subject.setRaise_end(str2);
 		session.save(subject);
 	}
 	

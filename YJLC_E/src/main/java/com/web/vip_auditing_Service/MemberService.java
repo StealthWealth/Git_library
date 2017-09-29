@@ -14,6 +14,7 @@ import com.web.member_trade_record_Bean.Member_trade_record;
 import com.web.member_withdraw_record_Bean.Member_withdraw_record;
 import com.web.subject_purchase_record_Bean.Subject_purchase_record;
 import com.web.vip_auditing_Bean.Member;
+import com.web.vip_auditing_Bean.Member_profit_record;
 import com.web.vip_auditing_Dao.MemberDao;
 
 @Service
@@ -62,5 +63,10 @@ public class MemberService {
 	//交易详情
 	public List<Member_trade_record> listMember_trade_record(int id){
 		return auditingDao.listMember_trade(id);
+	}
+	
+	// 查询收益记录
+	public List<Member_profit_record> listmemberprofitrecord(int id){
+		return this.auditingDao.listmemberprofitrecord(id);
 	}
 }

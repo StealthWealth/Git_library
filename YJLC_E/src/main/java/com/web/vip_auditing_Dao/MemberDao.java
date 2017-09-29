@@ -16,6 +16,7 @@ import com.web.member_trade_record_Bean.Member_trade_record;
 import com.web.member_withdraw_record_Bean.Member_withdraw_record;
 import com.web.subject_purchase_record_Bean.Subject_purchase_record;
 import com.web.vip_auditing_Bean.Member;
+import com.web.vip_auditing_Bean.Member_profit_record;
 
 @Component
 public class MemberDao {
@@ -131,5 +132,14 @@ public class MemberDao {
 		String hql = "from Member_trade_record as mem where mem.member.id="+id;
 		List<Member_trade_record> member_trade = session.createQuery(hql).list();
 		return member_trade;
+	}
+	
+	
+	//查询收益记录
+	public List<Member_profit_record> listmemberprofitrecord(int id){
+		Session session = this.getSession();
+		String hql = "from Member_profit_record as record where record.member.id="+id;
+		List<Member_profit_record> profit_record = session.createQuery(hql).list();
+		return profit_record;
 	}
 }

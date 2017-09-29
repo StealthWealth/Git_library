@@ -74,18 +74,22 @@ public class ProductsController {
 		
 		//获取文件名
 		String filename = file.getOriginalFilename();
-		//获取上传的绝对路径  upload 手动创建
-		String path = request.getRealPath("/upload/");
-		//获取新的文件对象
-		File newFile = new File(path, filename);
-		if(!newFile.exists()){ //文件不存在
-			//创建文件
-			newFile.createNewFile();
+		if (!filename.equals("")&&filename!=null) {
+			//获取上传的绝对路径  upload 手动创建
+			String path = request.getRealPath("/upload/");
+			//获取新的文件对象
+			File newFile = new File(path, filename);
+			if(!newFile.exists()){ //文件不存在
+				//创建文件
+				newFile.createNewFile();
+			}
+			//将文件内容放入新的文件
+			file.transferTo(newFile);
+			subject_file.setFile_name(file_name);
+			this.subjectService.save_subject_file(subject_file);
+		}else{
+			//
 		}
-		//将文件内容放入新的文件
-		file.transferTo(newFile);
-		subject_file.setFile_name(file_name);
-		this.subjectService.save_subject_file(subject_file);
 		
 		return "redirect:/subject/listsubject";
 	}

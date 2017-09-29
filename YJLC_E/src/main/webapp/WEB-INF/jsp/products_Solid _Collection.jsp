@@ -125,7 +125,7 @@
 					<td>合同编号</td>
 					<td>类型</td>
 					<td>名称</td>
-					<td>标的总金额</td>
+					<td>标的金额</td>
 					<td>已投总金额</td>
 					<td>投资期限</td>
 					<td>起投金额</td>
@@ -175,10 +175,10 @@
 							<td>已结束</td>
 						</c:if>
 						<c:if test="${subject.exper_status==0 }">
-							<td>否</td>
+							<td>不可以使用体验金</td>
 						</c:if>
 						<c:if test="${subject.exper_status==1 }">
-							<td>是</td>
+							<td>可以使用体验金</td>
 						</c:if>
 						<td>${subject.create_date }</td>
 						<td><a class="layui-btn layui-btn-small layui-btn-normal" href="/YJLC_E/subject/editsubject/${subject.id }">编辑/查看</a> <a
