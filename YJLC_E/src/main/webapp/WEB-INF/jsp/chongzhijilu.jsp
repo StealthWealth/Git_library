@@ -204,7 +204,14 @@
 </script>
 
 
-<!-- 动态导入font尾.jsp -->
-<jsp:include page="/WEB-INF/jsp/fontDown.jsp" flush="false"></jsp:include>
+	<div style="margin-top: 15px;">
+
+		<!-- 示例-970 -->
+		<ins class="adsbygoogle" style="display: inline-block; width: 970px; height: 90px" data-ad-client="ca-pub-6111334333458862"
+			data-ad-slot="3820120620"></ins>
+
+	</div>
+
+	<div style="width: 100%; height: 659px; background: url(/YJLC_E/font/img/fontDown01.png);"></div>
 </body>
 </html>

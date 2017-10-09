@@ -131,7 +131,7 @@
   </c:if>
   
   <c:if test="${!empty member }">
-  <a href="/YJLC_E/chongzhijilu" >个人中心</a>
+  <a href="/YJLC_E/users/listSPR?mid=${member.id}" >个人中心</a>
   
   </c:if>
   
