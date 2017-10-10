@@ -101,7 +101,9 @@
 	</div>
 	</aside> <section id="main-content"> <section class="wrapper">
 	<form action="/YJLC_E/listAward_records" method="post">
-
+		<h1 align="left">邀请管理</h1>
+		<hr>
+		<br>
 		<table width="100%" class="table">
 			<tr>
 				<td align="right"><font class="text-info" size="4">姓名:</font></td>
@@ -134,7 +136,7 @@
 	<br>
 	<hr>
 	<br>
-	<table width="100%" border="1" height="150">
+	<table width="100%" border="1">
 		<tr align="center">
 			<td>序号</td>
 			<td>手机号</td>
@@ -165,7 +167,7 @@
 				<td>${award.invest }</td>
 				<td>${award.create_date }</td>
 				<td><c:if test="${award.enroll=='已注册奖励' && award.invest=='已投资奖励' }">
-						<a href="/YJLC_E//reward_record/${award.byinvitingid}">奖励记录</a>
+						<a href="/YJLC_E//reward_record/${award.byinvitingid}"  class="btn btn-info">奖励记录</a>
 					</c:if></td>
 			</tr>
 		</c:forEach>

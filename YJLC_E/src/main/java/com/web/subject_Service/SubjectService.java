@@ -1,6 +1,7 @@
 package com.web.subject_Service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,8 +22,8 @@ public class SubjectService {
 
 	
 	//查询所有
-	public List<Subject> listSubject(){
-		return subjectDao.listSubject();
+	public List<Subject> listSubject(Map map){
+		return subjectDao.listSubject(map);
 	}
 	
 	//复习列表

@@ -23,6 +23,13 @@
 <!-- //font-awesome icons -->
 <script src="/YJLC_E/js/jquery2.0.3.min.js"></script>
 </head>
+	<script type="text/javascript">
+		$(function(){
+			$("#MH_stats").val("${MH_stats }");
+			$("#MH_type").val("${MH_type }");
+	
+		});
+	</script>
 <body>
 	<section id="container"> <!--header start--> <header class="header fixed-top clearfix"> <!--logo start-->
 	<div class="brand">
@@ -93,7 +100,41 @@
 		<!-- sidebar menu end-->
 	</div>
 	</aside> <section id="main-content"> <section class="wrapper"> <br>
-	<table width="100%" border="1" height="200">
+	<h1 align="left">付息计划</h1>
+	<hr>
+	<br>
+	
+	<form action="/YJLC_E/listSubject" method="post">
+		<table width="70%" align="center">
+			<tr>
+				<td align="right"><font class="text-info" size="4">标的名称:</font></td>
+				<td align="left" width="200"><input type="text" name="MH_name" value="${MH_name }"  class="form-control" ></td>
+				<td align="right"><font class="text-info" size="4">标的状态:</font></td>
+				<td align="left">
+					<select name="MH_stats" id="MH_stats"  class="form-control">
+						<option value="-1">请选择</option>
+						<option value="0">未发布</option>
+						<option value="1">募集中</option>
+						<option value="2">募集结束</option>
+					</select>
+				</td>
+				<td align="right"><font class="text-info" size="4">标的类型:</font></td>
+				<td align="left">
+					<select name="MH_type" id="MH_type"  class="form-control">
+						<option value="-1">请选择</option>
+						<option value="0">固守类</option>
+						<option value="1">P2P车贷</option>
+						<option value="2">房贷</option>
+					</select>
+				</td>
+				<td align="center"><input type="submit" value="查  询" class="btn btn-info"></td>
+			</tr>
+		</table>
+		
+	</form>
+	<hr>
+	<br>
+	<table width="100%" border="1">
 		<tr align="center">
 			<td>序号</td>
 			<td>合同编号</td>
@@ -138,9 +179,9 @@
 						<font color="red"><b>不能使用体验金</b></font>
 					</c:if></td>
 				<td><c:if test="${subject.exper_status==1 }">
-						<a href="/YJLC_E/listSubject_bbin/${subject.id }"><b>体验金付息</b></a>&nbsp;<a href="/YJLC_E/listSubject_Purchase_Record/${subject.id }"><b>付息列表</b></a>
+						<a href="/YJLC_E/listSubject_bbin/${subject.id }" class="btn btn-info"><b>体验金付息</b></a>&nbsp;<a href="/YJLC_E/listSubject_Purchase_Record/${subject.id }" class="btn btn-info"><b>付息列表</b></a>
 					</c:if> <c:if test="${subject.exper_status==0 }">
-						<a href="/YJLC_E/listSubject_Purchase_Record/${subject.id }"><b>付息列表</b></a>
+						<a href="/YJLC_E/listSubject_Purchase_Record/${subject.id }" class="btn btn-info"><b>付息列表</b></a>
 					</c:if></td>
 			</tr>
 		</c:forEach>

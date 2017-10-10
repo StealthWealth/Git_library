@@ -28,6 +28,13 @@ public class Member_bankcardsController {
 		map.put("MH_QDate", MH_QDate);
 		map.put("MH_HDate", MH_HDate);
 		List<Member_bankcards> member_bankcards = member_bankcardsService.listMember_bankcards(map);
+		
+		for (Member_bankcards member_bankcards2 : member_bankcards) {
+			if(member_bankcards2.getMember().getIdentity()!=null){
+				member_bankcards2.getMember().setIdentity(member_bankcards2.getMember().getIdentity().replaceAll("(\\d{4})\\d{10}(\\d{4})","$1****$2"));
+			}
+		}
+		
 		model.addAttribute("member_bankcards", member_bankcards);
 		model.addAttribute("MH_mobile_Phone", MH_mobile_Phone);
 		model.addAttribute("MH_member_name", MH_member_name);

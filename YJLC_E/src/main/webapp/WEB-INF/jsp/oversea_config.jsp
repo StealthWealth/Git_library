@@ -95,8 +95,13 @@
 	</aside> <section id="main-content"> <section class="wrapper">
 
 	<div>
+	<font size="6">海外配置</font>
+	<hr>
+	<br>
 		<form method="post">
-			<a class="layui-btn layui-btn-small layui-btn-normal" href="/YJLC_E/config/configadd">新增</a>
+		<div align="right">
+			<a class="btn btn-info"  href="/YJLC_E/config/configadd" >新增</a>
+		</div>	
 			<table width="100%" border="1">
 				<tr>
 					<td align="center">序号</td>
@@ -127,8 +132,8 @@
 						<td align="center">${config.sortColum }</td>
 						<td align="center"><img src="/YJLC_E/${config.oversea_icon }" height="70" width="70" /></td>
 						<td align="center">${config.addTime }</td>
-						<td align="center"><a class="layui-btn layui-btn-small layui-btn-normal" href="/YJLC_E/config/listsubscribe/${config.id }">查看预约</a>&nbsp;&nbsp;&nbsp;<a
-							class="layui-btn layui-btn-small layui-btn-normal" href="/YJLC_E/config/editconfig/${config.id }">编辑/查看</a></td>
+						<td align="center"><a class="btn btn-info" href="/YJLC_E/config/listsubscribe/${config.id }">查看预约</a>&nbsp;&nbsp;&nbsp;<a
+							class="btn btn-info" href="/YJLC_E/config/editconfig/${config.id }">编辑/查看</a></td>
 					</tr>
 				</c:forEach>
 			</table>

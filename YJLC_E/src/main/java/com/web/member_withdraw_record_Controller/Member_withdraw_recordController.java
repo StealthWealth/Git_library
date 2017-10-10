@@ -40,6 +40,12 @@ public class Member_withdraw_recordController {
 		if(MH_status==null){
 			MH_status="-1";
 		}
+		for (Member_withdraw_record member_withdraw_record : member_withdraw) {
+			if(member_withdraw_record.getMember().getIdentity()!=null){
+				member_withdraw_record.getMember().setIdentity(member_withdraw_record.getMember().getIdentity().replaceAll("(\\d{4})\\d{10}(\\d{4})","$1****$2"));
+			}
+			
+		}
 		
 		model.addAttribute("member_withdraw", member_withdraw);
 		model.addAttribute("MH_member_name", MH_member_name);

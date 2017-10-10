@@ -28,8 +28,23 @@ public class SubjectController {
 	
 	//²éÑ¯ËùÓÐ
 	@RequestMapping("/listSubject")
-	public String listSubject(Model model){
-		List<Subject> listSubject = subjectService.listSubject();
+	public String listSubject(Model model,String MH_name,String MH_stats,String MH_type){
+		System.out.println("MH_name:"+MH_name);
+		Map map = new HashMap<>();
+		
+		if(MH_stats!=null && MH_stats.equals("-1")){
+			MH_stats=null;
+		}
+		if(MH_type!=null && MH_type.equals("-1")){
+			MH_type=null;
+		}
+		
+		System.out.println("--MH_st:"+MH_stats);
+		System.out.println("--type:"+MH_type);
+		map.put("MH_name", MH_name);
+		map.put("MH_stats", MH_stats);
+		map.put("MH_type", MH_type);
+		List<Subject> listSubject = subjectService.listSubject(map);
 		List<Sum_Subject> sum_subject = subjectService.listSum_subject();
 		for (Subject s:  listSubject) {
 			for (Sum_Subject sum : sum_subject) {
@@ -38,6 +53,17 @@ public class SubjectController {
 				}
 			}
 		}
+		
+		if(MH_stats==null){
+			MH_stats="-1";
+		}
+		if(MH_type==null){
+			MH_type="-1";
+		}
+		
+		model.addAttribute("MH_type",MH_type);
+		model.addAttribute("MH_name", MH_name);
+		model.addAttribute("MH_stats", MH_stats);
 		model.addAttribute("listSubject", listSubject);
 		model.addAttribute("sum_subject", sum_subject);
 		return "vip_plan";

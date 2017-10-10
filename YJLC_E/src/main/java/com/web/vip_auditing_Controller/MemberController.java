@@ -39,6 +39,14 @@ public class MemberController {
 		map.put("MH_QDate", MH_QDate);
 		map.put("MH_HDate", MH_HDate);
 		List<Member> listAuditing = memberService.listAuditiongAll(map);
+		
+		for (Member member : listAuditing) { //身份证加密
+			if(member.getIdentity()!=null){
+				member.setIdentity(member.getIdentity().replaceAll("(\\d{4})\\d{10}(\\d{4})","$1****$2"));
+			}
+			
+		}
+		
 		model.addAttribute("listAuditing", listAuditing);
 		
 		//将值存储 在页面显示
@@ -56,6 +64,11 @@ public class MemberController {
 	public String getMember(@PathVariable("id")int id,Model model){
 		Member member = memberService.getMember(id); //用户基本信息
 		Member_account member_account = memberService.getMember_account(id); //账号账户详情
+		
+		if(member_account.getMember().getIdentity()!=null){
+			member_account.getMember().setIdentity(member.getIdentity().replaceAll("(\\d{4})\\d{10}(\\d{4})","$1****$2"));
+		}
+		
 		Financial_planner finan = memberService.getFinancial_planner(id); //理财师详情
 		List<Subject_purchase_record> member_subject = memberService.listSubject_purchase_record(id); //投资详情
 		List<Member_withdraw_record> member_withdraw = memberService.listMember_withdraw(id); //提现详情
@@ -100,7 +113,6 @@ public class MemberController {
 	@RequestMapping("/shouyijilu")
 	public String shouyijilu(HttpSession session,Model model){
 		int id = ((Member)session.getAttribute("member")).getId();
-		System.out.println("------------++++++++++"+id);
 		List<Member_profit_record> shouyi = this.memberService.listmemberprofitrecord(id);
 		Member_account account = this.memberService.getMember_account(id);
 		model.addAttribute("shouyi", shouyi);

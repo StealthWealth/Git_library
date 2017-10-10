@@ -93,6 +93,9 @@
 		<!-- sidebar menu end-->
 	</div>
 	</aside> <section id="main-content"> <section class="wrapper">
+	<h1 align="center">付息列表</h1>
+	<hr>
+	<br>
 	<table width="100%" border="1">
 		<tr align="center">
 			<td>序号</td>

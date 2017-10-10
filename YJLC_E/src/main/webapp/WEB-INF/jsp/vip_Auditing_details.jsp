@@ -226,7 +226,17 @@ table{
 							<td><font color="black">${status.index+1 }</font></td>
 							<td><font color="black">${su.id }</font></td>
 							<td><font color="black">${su.amount }</font></td>
-							<td><font color="black">${su.subject.status }</font></td>
+							<td>
+								<c:if test="${su.subject.status==0 }">
+									<font color="black">未发布</font>	
+								</c:if>
+								<c:if test="${su.subject.status==1 }">
+									<font color="black">募集中</font>	
+								</c:if>
+								<c:if test="${su.subject.status==2 }">
+									<font color="black">募集结束</font>
+								</c:if>
+								</td>
 							<td><font color="black">${su.subject.name }</font></td>
 							<td><font color="black"><fmt:formatNumber type="number" value="${((su.amount*(su.subject.year_rate/100))/365)*su.subject.period }"
 										pattern="0.00" maxFractionDigits="2"></fmt:formatNumber></font></td>

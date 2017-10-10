@@ -4,6 +4,7 @@ package com.web.subject_Dao;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -29,11 +30,31 @@ public class SubjectDao {
 	
 	
 	//查询所有
-	public List<Subject> listSubject(){
+	public List<Subject> listSubject(Map map){
 		Session session = getSession();
-		String hql = "from Subject";
+		String hql = "from Subject where 0=0 ";
+		hql=list_MHSubject(map, hql);
+		System.out.println("hql:"+hql);
 		List<Subject> subject = session.createQuery(hql).list();
 		return subject;
+	}
+	
+	//模糊查询
+	public String list_MHSubject(Map map,String hql){
+		String MH_name = (String) map.get("MH_name");
+		String MH_stats = (String) map.get("MH_stats");
+		String MH_type = (String) map.get("MH_type");
+		
+		if(MH_name!=null && !MH_name.equals("")){
+			hql+=" and name like '%"+MH_name+"%'";
+		}
+		if(MH_stats!=null && !MH_stats.equals("")){
+			hql+=" and status="+MH_stats;
+		}
+		if(MH_type!=null && !MH_type.equals("")){
+			hql+=" and type="+MH_type;
+		}
+		return hql;
 	}
 	
 	//付息列表

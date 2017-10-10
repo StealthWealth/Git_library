@@ -98,6 +98,9 @@
 		<!-- sidebar menu end-->
 	</div>
 	</aside> <section id="main-content"> <section class="wrapper">
+	<h1 align="left">充值管理</h1>
+	<hr>
+	<br>
 	<form action="/YJLC_E/listMember_deposit_record" method="post">
 		<table width="100%" align="center" class="table">
 			<tr>
