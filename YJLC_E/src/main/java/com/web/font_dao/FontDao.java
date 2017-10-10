@@ -243,11 +243,11 @@ public class FontDao {
 		return list=null;
 	}
 	//我的加法库--统计投资记录
-	public int getCount(int mid) {
+	public long getCount(int mid) {
 		Session session=this.getSession();
 		List list=session.createQuery("select count(*) from Subject_purchase_record where member_id="+mid+"").list();
 		if (list.size() > 0) {
-			int count = (int) list.get(0);
+			long count = (long) list.get(0);
 			return count;
 		}
 		return 0;
@@ -265,6 +265,17 @@ public class FontDao {
 	}
 	
 	
+	//我的加法库--查询账号账户详情
+	public Member_account getMember_account2(int id){
+		Session session = getSession();
+		String hql = "from Member_account as memberAcc  where memberAcc.member.id="+id;
+		List<Member_account> List_Member_account = session.createQuery(hql).list();
+		if(List_Member_account.size()>0){
+			return List_Member_account.get(0);
+		}
+		return null;
+		
+	}
 	
 	
 }
