@@ -66,8 +66,8 @@
 				<li class="sub-menu"><a class="active" href="javascript:;"> <i class="fa fa-th"></i> <span>学院管理</span>
 				</a>
 					<ul class="sub">
-						<li><a class="active" href="/YJLC_E/listNews">资讯管理</a></li>
-						<li><a href="/YJLC_E/listAll">资讯分类</a></li>
+						<li><a href="/YJLC_E/listNews">资讯管理</a></li>
+						<li><a class="active" href="/YJLC_E/listnewstype">资讯分类</a></li>
 					</ul></li>
 				<li class="sub-menu"><a href="javascript:;"> <i class="fa fa-th"></i> <span>会员管理</span>
 				</a>
@@ -97,16 +97,46 @@
 		<!-- sidebar menu end-->
 	</div>
 	</aside> <section id="main-content"> <section class="wrapper">
+	
+	<div align="center">
+	<br><br><br><br><br><br>
+		<h1>资讯分类修改</h1>
+	<br><br><br><br><br><br>
 	<form action="/YJLC_E/updatenewstype" method="post">
-		<input type="hidden" name="id" value="${nt.id }"> <input type="hidden" name="addTime" value="${nt.addTime }"> 根类别：<select
-			name="supType" id="supType">
-			<option value="0">根类别</option>
-			<c:forEach items="${listAll }" var="la">
-				<option value="${la.id}">${la.name }</option>
-			</c:forEach>
-		</select> 名称：<input type="text" name="name" value="${nt.name }"> 排序：<input type="text" name="sort" value="${nt.sort }"> 简介：<input type="text"
-			name="info" value="${nt.info }"> <input type="submit" value="修改">
+	<table width="60%" border="0">
+	<input type="hidden" name="id" value="${nt.id }">
+	<input type="hidden" name="addTime" value="${nt.addTime }">
+		<tr>
+			<td align="right" width="30%">根类别：</td>
+			<td>
+				<select name="supType" id="supType">
+					<option value="0">根类别</option>
+				<c:forEach items="${listAll }" var="la">
+					<option value="${la.id}">${la.name }</option>
+				</c:forEach>
+				</select>
+			</td>
+			<td align="right">名称：</td>
+			<td><input type="text" name="name" value="${nt.name }"></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td align="right">排序：</td>
+			<td><input type="text" name="sort" value="${nt.sort }"></td>
+			<td align="right">简介：</td>
+			<td><input type="text" name="info" value="${nt.info }"></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td align="center" colspan="4"><input type="submit" value="修改"></td>
+		</tr>
+	</table>
 	</form>
+	</div>
 	</section> <!-- footer --> <!-- / footer --> </section> <script src="/YJLC_E/js/bootstrap.js"></script> <script src="/YJLC_E/js/jquery.dcjqaccordion.2.7.js"></script> <script
 		src="/YJLC_E/js/scripts.js"></script> <script src="/YJLC_E/js/jquery.slimscroll.js"></script> <script src="/YJLC_E/js/jquery.nicescroll.js"></script>
 	<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]--> <script

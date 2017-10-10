@@ -168,7 +168,7 @@
 				</tr>
 				<tr>
 					<td align="right">私募合同：</td>
-					<td><input type="file" name="file"></td>
+					<td><input type="file" name="file" required></td>
 				</tr>
 				<tr>
 					<td>&nbsp;</td>
@@ -176,7 +176,7 @@
 				</tr>
 				<tr>
 					<td align="right">风险揭示书：</td>
-					<td><input type="file" name="file"></td>
+					<td><input type="file" name="file" required></td>
 				</tr>
 				<tr>
 					<td>&nbsp;</td>

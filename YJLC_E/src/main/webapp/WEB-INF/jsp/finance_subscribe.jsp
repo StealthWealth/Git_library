@@ -99,47 +99,47 @@
 	<div align="center">
 		<table width="100%" border="1">
 			<tr>
-				<td>序号</td>
-				<td>姓名</td>
-				<td>联系电话</td>
-				<td>地址</td>
-				<td>状态</td>
-				<td>预约时间</td>
-				<td>操作</td>
+				<td align="center" height="35">序号</td>
+				<td align="center">姓名</td>
+				<td align="center">联系电话</td>
+				<td align="center">地址</td>
+				<td align="center">状态</td>
+				<td align="center">预约时间</td>
+				<td align="center">操作</td>
 			</tr>
 			<c:forEach items="${listsubscribe }" var="subscribe" varStatus="num">
 				<tr>
-					<td>${num.index+1 }</td>
-					<td>${subscribe.member.member_name }</td>
-					<td>${subscribe.member.mobile_Phone }</td>
-					<td>${subscribe.addr }</td>
+					<td align="center" height="40">${num.index+1 }</td>
+					<td align="center">${subscribe.member.member_name }</td>
+					<td align="center">${subscribe.member.mobile_Phone }</td>
+					<td align="center">${subscribe.addr }</td>
 					<c:if test="${subscribe.status==0 }">
-						<td><font color="red">签署拍照</font></td>
+						<td align="center"><font color="red">签署拍照</font></td>
 					</c:if>
 					<c:if test="${subscribe.status==1 }">
-						<td><font color="green">已签约</font></td>
+						<td align="center"><font color="green">已签约</font></td>
 					</c:if>
 					<c:if test="${subscribe.status==2 }">
-						<td><font color="red">审核中</font></td>
+						<td align="center"><font color="red">审核中</font></td>
 					</c:if>
 					<c:if test="${subscribe.status==3 }">
-						<td><font color="red">签署失败</font></td>
+						<td align="center"><font color="red">签署失败</font></td>
 					</c:if>
-					<td>${subscribe.create_date }</td>
+					<td align="center">${subscribe.create_date }</td>
 					<c:if test="${subscribe.status==0 }">
-						<td><a class="layui-btn layui-btn-mini layui-btn-radius layui-btn-disabled">签署拍照</a></td>
+						<td align="center"><a class="layui-btn layui-btn-mini layui-btn-radius layui-btn-disabled">签署拍照</a></td>
 					</c:if>
 					<c:if test="${subscribe.status==1 }">
-						<td><a class="layui-btn layui-btn-mini layui-btn-radius layui-btn-disabled">已签署</a></td>
+						<td align="center"><a class="layui-btn layui-btn-mini layui-btn-radius layui-btn-disabled">已签署</a></td>
 					</c:if>
 					<c:if test="${subscribe.status==2 }">
-						<td><a class="layui-btn layui-btn-small layui-btn-normal layui-btn-radius"
+						<td align="center"><a class="layui-btn layui-btn-small layui-btn-normal layui-btn-radius"
 							href="/YJLC_E/funds/subscribeadd/${subscribe.id }/${subscribe.funds.period}">签署</a>&nbsp; <a
 							class="layui-btn layui-btn-small layui-btn-normal layui-btn-radius"
 							href="/YJLC_E/funds/updatesubscribe/${subscribe.id }/${subscribe.funds.id}" onclick="return confirm('真的要签署失败吗？')">签署失败</a></td>
 					</c:if>
 					<c:if test="${subscribe.status==3 }">
-						<td><a class="layui-btn layui-btn-mini layui-btn-radius layui-btn-disabled">签署失败</a></td>
+						<td align="center"><a class="layui-btn layui-btn-mini layui-btn-radius layui-btn-disabled">签署失败</a></td>
 					</c:if>
 				</tr>
 			</c:forEach>

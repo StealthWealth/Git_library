@@ -119,44 +119,44 @@
 				class="layui-btn layui-btn-small layui-btn-normal" href="/YJLC_E/funds/fundsadd">新增</a>
 			<table width="100%" border="1">
 				<tr>
-					<td>序号</td>
-					<td>ID</td>
-					<td>名称</td>
-					<td>类型</td>
-					<td>状态</td>
-					<td>年化收益</td>
-					<td>返佣比例</td>
-					<td>投资期限</td>
-					<td>起投金额</td>
-					<td>添加时间</td>
-					<td>操作</td>
+					<td align="center" height="35">序号</td>
+					<td align="center">ID</td>
+					<td align="center">名称</td>
+					<td align="center">类型</td>
+					<td align="center">状态</td>
+					<td align="center">年化收益</td>
+					<td align="center">返佣比例</td>
+					<td align="center">投资期限</td>
+					<td align="center">起投金额</td>
+					<td align="center">添加时间</td>
+					<td align="center">操作</td>
 				</tr>
 				<c:forEach items="${listfunds }" var="funds" varStatus="num">
 					<tr>
-						<td>${num.index+1 }</td>
-						<td>${funds.id }</td>
-						<td>${funds.name }</td>
+						<td align="center" height="50">${num.index+1 }</td>
+						<td align="center">${funds.id }</td>
+						<td align="center">${funds.name }</td>
 						<c:if test="${funds.type=='SIMU' }">
-							<td>私募类</td>
+							<td align="center">私募类</td>
 						</c:if>
 						<c:if test="${funds.type=='GUQUAN' }">
-							<td>股权类</td>
+							<td align="center">股权类</td>
 						</c:if>
 						<c:if test="${funds.status==0 }">
-							<td>未发布</td>
+							<td align="center">未发布</td>
 						</c:if>
 						<c:if test="${funds.status==1 }">
-							<td>募集中</td>
+							<td align="center">募集中</td>
 						</c:if>
 						<c:if test="${funds.status==2 }">
-							<td>已结束</td>
+							<td align="center">已结束</td>
 						</c:if>
-						<td>${funds.year_rate }%</td>
-						<td>${funds.ratio }</td>
-						<td>${funds.period }天</td>
-						<td>${funds.floor_amount }元</td>
-						<td>${funds.create_date }</td>
-						<td><a class="layui-btn layui-btn-small layui-btn-normal" href="/YJLC_E/funds/listsubscribe/${funds.id }">签署状态</a>
+						<td align="center">${funds.year_rate }%</td>
+						<td align="center">${funds.ratio }</td>
+						<td align="center">${funds.period }天</td>
+						<td align="center">${funds.floor_amount }元</td>
+						<td align="center">${funds.create_date }</td>
+						<td align="center"><a class="layui-btn layui-btn-small layui-btn-normal" href="/YJLC_E/funds/listsubscribe/${funds.id }">签署状态</a>
 							<a class="layui-btn layui-btn-small layui-btn-normal" href="/YJLC_E/funds/editfunds/${funds.id }">编辑/查看</a></td>
 					</tr>
 				</c:forEach>

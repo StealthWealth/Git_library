@@ -106,52 +106,52 @@
 
 	<div align="center">
 		<form method="post">
-			名称：<input type="text" name="qname" value="${qname }" />&nbsp; 状态：<select name="wname">
+			名称：<input type="text" name="qname" value="${qname }" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 状态：<select name="wname">
 				<option value="">全部</option>
 				<option value="0" ${wname=="0"?'selected':'' }>未发布</option>
 				<option value="1" ${wname=="1"?'selected':'' }>募集中</option>
 				<option value="2" ${wname=="2"?'selected':'' }>已结束</option>
-			</select>&nbsp; 类别：<select name="ename">
+			</select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 类别：<select name="ename">
 				<option value="">全部</option>
 				<option value="0" ${ename=="0"?'selected':'' }>固收类</option>
 				<option value="1" ${ename=="1"?'selected':'' }>P2P车贷</option>
 				<option value="2" ${ename=="2"?'selected':'' }>P2P房贷</option>
-			</select> <input class="layui-btn layui-btn-small layui-btn-normal" type="button" id="btn1" value="查询" /> <a
+			</select>&nbsp;&nbsp;&nbsp;<input class="layui-btn layui-btn-small layui-btn-normal" type="button" id="btn1" value="查询" /> <a
 				class="layui-btn layui-btn-small layui-btn-normal" href="/YJLC_E/subject/addsubject">新增</a>
 			<table width="100%" border="1">
 				<tr>
-					<td>序号</td>
-					<td>ID</td>
-					<td>合同编号</td>
-					<td>类型</td>
-					<td>名称</td>
-					<td>标的金额</td>
-					<td>已投总金额</td>
-					<td>投资期限</td>
-					<td>起投金额</td>
-					<td>年化收益</td>
-					<td>状态</td>
-					<td>可使用体验金</td>
-					<td>添加时间</td>
-					<td>操作</td>
+					<td align="center" height="35">序号</td>
+					<td align="center">ID</td>
+					<td align="center">合同编号</td>
+					<td align="center">类型</td>
+					<td align="center">名称</td>
+					<td align="center">标的金额</td>
+					<td align="center">已投总金额</td>
+					<td align="center">投资期限</td>
+					<td align="center">起投金额</td>
+					<td align="center">年化收益</td>
+					<td align="center">状态</td>
+					<td align="center">体验金</td>
+					<td align="center">添加时间</td>
+					<td align="center">操作</td>
 				</tr>
 				<c:forEach items="${listsubject }" var="subject" varStatus="num">
 					<tr>
-						<td>${num.index+1 }</td>
-						<td>${subject.id }</td>
-						<td>${subject.serial_no }</td>
+						<td align="center" height="50">${num.index+1 }</td>
+						<td align="center">${subject.id }</td>
+						<td align="center">${subject.serial_no }</td>
 						<c:if test="${subject.type==0 }">
-							<td>固收类</td>
+							<td align="center">固收类</td>
 						</c:if>
 						<c:if test="${subject.type==1 }">
-							<td>P2P车贷</td>
+							<td align="center">P2P车贷</td>
 						</c:if>
 						<c:if test="${subject.type==2 }">
-							<td>P2P房贷</td>
+							<td align="center">P2P房贷</td>
 						</c:if>
-						<td>${subject.name }</td>
-						<td>￥${subject.amount }</td>
-						<td><script type="text/javascript">
+						<td align="center">${subject.name }</td>
+						<td align="center">￥${subject.amount }</td>
+						<td align="center"><script type="text/javascript">
 							var id = '${subject.id}';
 							$.ajaxSetup({
 								async:false
@@ -162,26 +162,26 @@
 							});
 							document.write("￥"+num1);
 						</script></td>
-						<td>${subject.period }天</td>
-						<td>${subject.floor_amount }元</td>
-						<td>${subject.year_rate }%</td>
+						<td align="center">${subject.period }天</td>
+						<td align="center">${subject.floor_amount }元</td>
+						<td align="center">${subject.year_rate }%</td>
 						<c:if test="${subject.status==0 }">
-							<td>未发布</td>
+							<td align="center">未发布</td>
 						</c:if>
 						<c:if test="${subject.status==1 }">
-							<td>募集中</td>
+							<td align="center">募集中</td>
 						</c:if>
 						<c:if test="${subject.status==2 }">
-							<td>已结束</td>
+							<td align="center">已结束</td>
 						</c:if>
 						<c:if test="${subject.exper_status==0 }">
-							<td>不可以使用体验金</td>
+							<td align="center">不可以使用体验金</td>
 						</c:if>
 						<c:if test="${subject.exper_status==1 }">
-							<td>可以使用体验金</td>
+							<td align="center">可以使用体验金</td>
 						</c:if>
-						<td>${subject.create_date }</td>
-						<td><a class="layui-btn layui-btn-small layui-btn-normal" href="/YJLC_E/subject/editsubject/${subject.id }">编辑/查看</a> <a
+						<td align="center">${subject.create_date }</td>
+						<td align="center"><a class="layui-btn layui-btn-small layui-btn-normal" href="/YJLC_E/subject/editsubject/${subject.id }">编辑/查看</a> <a
 							class="layui-btn layui-btn-small layui-btn-normal" href="/YJLC_E/subject/listrecord/${subject.id }">查看投资</a></td>
 					</tr>
 				</c:forEach>

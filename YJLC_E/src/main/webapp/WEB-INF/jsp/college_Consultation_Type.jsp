@@ -102,7 +102,7 @@
 			<c:forEach items="${listAll }" var="la">
 				<option value="${la.id}">${la.name }</option>
 			</c:forEach>
-		</select> 名称：<input type="text" name="name"> 排序：<input type="text" name="sort"> 简介：<input type="text"
+		</select> 名称：<input type="text" name="name"> 排序：<input type="number" name="sort" required> 简介：<input type="text"
 			name="info"> <input type="submit" value="添加">
 	</form>
 	<table border="1" width="100%">
