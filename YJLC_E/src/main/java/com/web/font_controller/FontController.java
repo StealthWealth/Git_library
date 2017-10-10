@@ -36,6 +36,7 @@ import com.web.font_service.FontService;
 import com.web.member_account_Bean.Member_account;
 import com.web.news_Bean.News;
 import com.web.subject_Bean.Subject;
+import com.web.subject_purchase_record_Bean.Subject_purchase_record;
 import com.web.news_Bean.News;
 import com.web.vip_auditing_Bean.Member;
 
@@ -369,5 +370,42 @@ public class FontController {
 	}
 	
 
+	//我的加法库--投资记录
+	@RequestMapping("/listSPR")
+	public String listSpr(int mid,Model model) {
+		List<Subject_purchase_record> list=fontService.listSPR(mid);//投资记录所需内容
+		Member_account account = this.fontService.getMember_account(mid);//头像下面的那一排数字 账户金额等
+		long investCount = this.fontService.getCount(mid);//投资记录记录数
+		model.addAttribute("listSpr", list);
+		model.addAttribute("account", account);
+		model.addAttribute("investCount", investCount);
+		return "invest_record";
+	}
+	
+	//我的加法库--体验金
+	@RequestMapping("/listSBPR")
+	public String listSbpr(int mid,Model model) {
+		
+		
+		return "";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

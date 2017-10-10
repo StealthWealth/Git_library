@@ -94,9 +94,6 @@
 	</div>
 	</aside> <section id="main-content"> <section class="wrapper">
 	<div align="center">
-		<h1 align="left">账号管理</h1>
-		<hr>
-		<br>
 		<form action="/YJLC_E/listAuditingAll" method="post" role="form">
 			<div class="form-group">
 				<table width="80%" class="table">
@@ -127,7 +124,7 @@
 		<br>
 		<hr>
 		<br>
-		<table width="85%" border="1">
+		<table width="85%" border="1" height="500">
 			<tr align="center">
 				<td>序号</td>
 				<td>电话</td>
@@ -147,7 +144,7 @@
 					<td>${auditing.identity }</td>
 					<td>${auditing.invitationCode }</td>
 					<td>${auditing.create_date }</td>
-					<td><a href="/YJLC_E/getMember/${auditing.id }"><font color="while"  class="btn btn-info"><b>账号详情</b></font></a></td>
+					<td><a href="/YJLC_E/getMember/${auditing.id }"><font color="while"><b>账号详情</b></font></a></td>
 				</tr>
 			</c:forEach>
 		</table>

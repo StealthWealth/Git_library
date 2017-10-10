@@ -100,7 +100,7 @@
 		<form method="post">
 			<table width="100%" border="1">
 				<tr>
-					<td align="center">序号</td>
+					<td align="center" height="35">序号</td>
 					<td align="center">流水号</td>
 					<td align="center">会员姓名</td>
 					<td align="center">购买金额</td>
@@ -110,7 +110,7 @@
 				</tr>
 				<c:forEach items="${listrecord }" var="record" varStatus="num">
 					<tr>
-						<td align="center">${num.index+1}</td>
+						<td align="center" height="50">${num.index+1}</td>
 						<td align="center">${record.serial_number }</td>
 						<td align="center">${record.member.name }</td>
 						<td align="center">￥${record.amount }</td>

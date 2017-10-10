@@ -15,6 +15,8 @@ import com.web.font_dao.FontDao;
 import com.web.member_account_Bean.Member_account;
 import com.web.news_Bean.News;
 import com.web.subject_Bean.Subject;
+import com.web.subject_purchase_record_Bean.Subject_purchase_record;
+import com.web.sublect_bbin_purchase_record_Bean.Subject_bbin_purchase_record;
 import com.web.news_Bean.News;
 import com.web.vip_auditing_Bean.Member;
 
@@ -118,6 +120,38 @@ public class FontService {
 	public Member_account getByidMember_account(int mid) {
 		return fontDao.getMember_account(mid);
 	}
+	
+	
+	//我的加法库--投资记录
+	public List<Subject_purchase_record> listSPR(int mid){
+		return fontDao.listSPR(mid);
+	}
+	
+	
+	//我的加法库--账号账户详情
+	public Member_account getMember_account(int id){
+		return fontDao.getMember_account2(id);
+	}
+	
+	//我的加法库--多少条投资记录
+	public long getCount(int mid) {
+		return fontDao.getCount(mid);
+	}
+	
+	//我的加法库--体验金
+	public List<Subject_bbin_purchase_record> listSbpr(int mid){
+		return fontDao.listSBPR(mid);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

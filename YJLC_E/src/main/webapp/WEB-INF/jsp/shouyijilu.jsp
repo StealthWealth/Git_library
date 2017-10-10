@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>盈+ 提款记录</title>
+<title>盈+ 收益记录</title>
 <link href="http://www.ying158.com/images/icon.ico" type="image/x-icon" rel="shortcut icon">
 <link href="/YJLC_E/css/common.css" rel="stylesheet">
 <link href="/YJLC_E/css/jw.css" rel="stylesheet">

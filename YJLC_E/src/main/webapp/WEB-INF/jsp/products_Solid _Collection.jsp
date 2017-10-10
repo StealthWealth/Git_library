@@ -105,7 +105,6 @@
 	</aside> <section id="main-content"> <section class="wrapper">
 <font  size="6">固守类管理</font>
 	<div align="center">
-		
 		<hr>
 		<br>
 		<form method="post">
@@ -143,38 +142,38 @@
 				<br>
 			<table width="100%" border="1">
 				<tr align="center">
-					<td>序号</td>
-					<td>ID</td>
-					<td>合同编号</td>
-					<td>类型</td>
-					<td>名称</td>
-					<td>标的金额</td>
-					<td>已投总金额</td>
-					<td>投资期限</td>
-					<td>起投金额</td>
-					<td>年化收益</td>                                        
-					<td>状态</td>
-					<td>可使用体验金</td>
-					<td>添加时间</td>
-					<td>操作</td>
+					<td align="center">序号</td>
+					<td align="center">ID</td>
+					<td align="center">合同编号</td>
+					<td align="center">类型</td>
+					<td align="center">名称</td>
+					<td align="center">标的金额</td>
+					<td align="center">已投总金额</td>
+					<td align="center">投资期限</td>
+					<td align="center">起投金额</td>
+					<td align="center">年化收益</td>
+					<td align="center">状态</td>
+					<td align="center">体验金</td>
+					<td align="center">添加时间</td>
+					<td align="center">操作</td>
 				</tr>
 				<c:forEach items="${listsubject }" var="subject" varStatus="num">
 					<tr align="center">
-						<td>${num.index+1 }</td>
-						<td>${subject.id }</td>
-						<td>${subject.serial_no }</td>
+						<td align="center" height="50">${num.index+1 }</td>
+						<td align="center">${subject.id }</td>
+						<td align="center">${subject.serial_no }</td>
 						<c:if test="${subject.type==0 }">
-							<td>固收类</td>
+							<td align="center">固收类</td>
 						</c:if>
 						<c:if test="${subject.type==1 }">
-							<td>P2P车贷</td>
+							<td align="center">P2P车贷</td>
 						</c:if>
 						<c:if test="${subject.type==2 }">
-							<td>P2P房贷</td>
+							<td align="center">P2P房贷</td>
 						</c:if>
-						<td>${subject.name }</td>
-						<td>￥${subject.amount }</td>
-						<td><script type="text/javascript">
+						<td align="center">${subject.name }</td>
+						<td align="center">￥${subject.amount }</td>
+						<td align="center"><script type="text/javascript">
 							var id = '${subject.id}';
 							$.ajaxSetup({
 								async:false
@@ -185,23 +184,23 @@
 							});
 							document.write("￥"+num1);
 						</script></td>
-						<td>${subject.period }天</td>
-						<td>${subject.floor_amount }元</td>
-						<td>${subject.year_rate }%</td>
+						<td align="center">${subject.period }天</td>
+						<td align="center">${subject.floor_amount }元</td>
+						<td align="center">${subject.year_rate }%</td>
 						<c:if test="${subject.status==0 }">
-							<td>未发布</td>
+							<td align="center">未发布</td>
 						</c:if>
 						<c:if test="${subject.status==1 }">
-							<td>募集中</td>
+							<td align="center">募集中</td>
 						</c:if>
 						<c:if test="${subject.status==2 }">
-							<td>已结束</td>
+							<td align="center">已结束</td>
 						</c:if>
 						<c:if test="${subject.exper_status==0 }">
-							<td>不可以使用体验金</td>
+							<td align="center">不可以使用体验金</td>
 						</c:if>
 						<c:if test="${subject.exper_status==1 }">
-							<td>可以使用体验金</td>
+							<td align="center">可以使用体验金</td>
 						</c:if>
 						<td>${subject.create_date }</td>
 						<td><a  class="btn btn-info" href="/YJLC_E/subject/editsubject/${subject.id }">编辑/查看</a> <a

@@ -105,8 +105,8 @@
 	</aside> <section id="main-content"> <section class="wrapper">
 <font  size="6">私募/股权类</font>
 	<div align="center">
+	<font size="6">咨询分类</font>
 	<br>
-		
 		<hr>
 		<br>
 	<form method="post">
@@ -139,8 +139,6 @@
 				</td>
 			</tr>
 		</table>
-		
-		
 			<br>
 			<hr>
 			<br>
@@ -160,23 +158,23 @@
 				</tr>
 				<c:forEach items="${listfunds }" var="funds" varStatus="num">
 					<tr align="center">
-						<td>${num.index+1 }</td>
-						<td>${funds.id }</td>
-						<td>${funds.name }</td>
+						<td align="center" height="50">${num.index+1 }</td>
+						<td align="center">${funds.id }</td>
+						<td align="center">${funds.name }</td>
 						<c:if test="${funds.type=='SIMU' }">
-							<td>私募类</td>
+							<td align="center">私募类</td>
 						</c:if>
 						<c:if test="${funds.type=='GUQUAN' }">
-							<td>股权类</td>
+							<td align="center">股权类</td>
 						</c:if>
 						<c:if test="${funds.status==0 }">
-							<td>未发布</td>
+							<td align="center">未发布</td>
 						</c:if>
 						<c:if test="${funds.status==1 }">
-							<td>募集中</td>
+							<td align="center">募集中</td>
 						</c:if>
 						<c:if test="${funds.status==2 }">
-							<td>已结束</td>
+							<td align="center">已结束</td>
 						</c:if>
 						<td>${funds.year_rate }%</td>
 						<td>${funds.ratio }</td>

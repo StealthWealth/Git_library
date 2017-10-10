@@ -95,18 +95,50 @@
 	</div>
 	</aside> <section id="main-content"> <section class="wrapper">
 
+<font size="6">资讯分类</font>
+<hr>
+<br>
 	<form action="/YJLC_E/addnewstype" method="post">
-
-		根类别：<select name="supType" id="supType">
-			<option value="0">根类别</option>
-			<c:forEach items="${listAll }" var="la">
-				<option value="${la.id}">${la.name }</option>
-			</c:forEach>
-		</select> 名称：<input type="text" name="name"> 排序：<input type="text" name="sort"> 简介：<input type="text"
-			name="info"> <input type="submit" value="添加">
+		<table width="70%">
+			<tr>
+				<td><font class="text-info" size="4">根类别:</font></td>
+				<td><select name="supType" id="supType" class="form-control">
+						<option value="0">根类别</option>
+							<c:forEach items="${listAll }" var="la">
+								<option value="${la.id}">${la.name }</option>
+							</c:forEach>
+					</select>
+		</td>
+		<td>
+			<font class="text-info" size="4">名称:</font>
+		</td>
+		<td>
+			 <input type="text" name="name" class="form-control">
+		</td>
+		<td>
+			<font class="text-info" size="4">排序:</font>
+		</td>
+		<td>
+			<input type="number" name="sort" required class="form-control">
+		</td>
+		<td>
+			<font class="text-info" size="4"> 简介:</font>
+		</td>
+		<td>
+			<input type="text"
+			name="info" class="form-control">
+		</td>
+		<td align="center">&nbsp;
+			 <input type="submit" value="添加" class="btn btn-info" >	
+		</td>
+			</tr>
+			
+		</table>
+		 
 	</form>
+	<br>
 	<table border="1" width="100%">
-		<tr>
+		<tr align="center">
 			<td>序号</td>
 			<td>名称</td>
 			<td>排序</td>
@@ -116,14 +148,14 @@
 			<td>操作</td>
 		</tr>
 		<c:forEach items="${listAll}" var="la" varStatus="status">
-			<tr>
+			<tr align="center">
 				<td>${status.index+1}</td>
 				<td>${la.name }</td>
 				<td>${la.sort }</td>
 				<td>${la.supType }</td>
 				<td>${la.info }</td>
 				<td>${la.addTime}</td>
-				<td><a href="/YJLC_E/getNews_type/${la.id}">修改</a></td>
+				<td><a class="btn btn-info" href="/YJLC_E/getNews_type/${la.id}">修改</a></td>
 			</tr>
 		</c:forEach>
 	</table>
