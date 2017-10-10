@@ -214,7 +214,7 @@
 				<tr>
 					<td colspan="4">
 					<div>
-						<input type="hidden"   />
+						<input type="hidden" />
 						文件：<input type="file" name="file" required />
 					</div>
 				</td>
