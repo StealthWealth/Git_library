@@ -132,8 +132,6 @@
 
 	</form>
 	<br>
-	<hr>
-	<br>
 	<div align="right" style="width: 100%;">
 		<a href="/YJLC_E/listMember_deposit_record">更新列表</a>
 	</div>

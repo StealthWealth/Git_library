@@ -134,8 +134,6 @@
 		</table>
 	</form>
 	<br>
-	<hr>
-	<br>
 	<table width="100%" border="1">
 		<tr align="center">
 			<td>序号</td>
@@ -145,8 +143,8 @@
 			<td>被邀请码</td>
 			<td>被邀请人姓名</td>
 			<td>奖励金额</td>
-			<td>奖励类型</td>
-			<td>是否奖励</td>
+			<td>注册奖励</td>
+			<td>投资奖励</td>
 			<td>注册时间</td>
 			<td>奖励记录</td>
 		</tr>
@@ -168,7 +166,11 @@
 				<td>${award.create_date }</td>
 				<td><c:if test="${award.enroll=='已注册奖励' && award.invest=='已投资奖励' }">
 						<a href="/YJLC_E//reward_record/${award.byinvitingid}"  class="btn btn-info">奖励记录</a>
-					</c:if></td>
+					</c:if>
+					<c:if test="${award.enroll!='已注册奖励' || award.invest!='已投资奖励' }">
+						<a  class="btn btn-info disabled">奖励记录</a>
+					</c:if>
+					</td>
 			</tr>
 		</c:forEach>
 	</table>

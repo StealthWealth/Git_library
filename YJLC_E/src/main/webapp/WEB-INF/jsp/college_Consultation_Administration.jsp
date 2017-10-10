@@ -114,9 +114,6 @@
 		</table>
 	</form>
 	<br>
-	<hr>
-	<br>
-	<br>
 	<div align="right">
 		<button class="btn btn-primary btn-lg" data-toggle="modal" onclick="addCollege()">添 加</button>
 	</div>

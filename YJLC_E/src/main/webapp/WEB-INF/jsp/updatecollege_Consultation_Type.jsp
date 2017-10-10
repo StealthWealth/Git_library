@@ -117,16 +117,16 @@
 				</select>
 			</td>
 			<td align="right"><font class="text-info" size="4">名称：</font></td>
-			<td width="200"><input type="text" name="name" value="${nt.name }" class="form-control"></td>
+			<td width="200"><input type="text" name="name" value="${nt.name }" class="form-control" required></td>
 		</tr>
 		<tr>
 			<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
 		</tr>
 		<tr align="center">
 			<td align="right"><font class="text-info" size="4">排序：</font></td>
-			<td width="200"><input type="text" name="sort" value="${nt.sort }" class="form-control"></td>
+			<td width="200"><input type="number" name="sort" value="${nt.sort }" required class="form-control"></td>
 			<td align="right"><font class="text-info" size="4">简介：</font></td>
-			<td width="200"><input type="text" name="info" value="${nt.info }" class="form-control"></td>
+			<td width="200"><input type="text" name="info" value="${nt.info }" required class="form-control"></td>
 		</tr>
 		<tr>
 			<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>

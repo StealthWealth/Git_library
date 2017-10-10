@@ -140,8 +140,6 @@
 		</table>
 	</form>
 	<br>
-	<hr>
-	<br>
 	<table width="100%" border="1">
 		<tr align="center">
 			<td>序号</td>

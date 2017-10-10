@@ -121,8 +121,6 @@
 		</div>
 	</form>
 	<br>
-	<hr>
-	<br>
 	<table width="100%" align="center" border="1">
 		<tr align="center">
 			<td>序号</td>
@@ -152,7 +150,7 @@
 					</c:if></td>
 				<td>${memberBan.create_date }</td>
 				<td><c:if test="${memberBan.delflag==0 }">
-						<a href="/YJLC_E/updateDelflag/${memberBan.id }"  class="btn btn-info"><b>解 绑</b></a>
+						<a  class="btn btn-info" href="/YJLC_E/updateDelflag/${memberBan.id }" ><b>解 绑</b></a>
 					</c:if> <c:if test="${memberBan.delflag==2 }">
 						<font color="red"><b>以解绑</b></font>
 					</c:if></td>
