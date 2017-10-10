@@ -28,7 +28,7 @@
         <td align="left" valign="middle" class="info">
             <a href="http://pro.ying158.com/account/security">
                 <div class="img"><img src="/YJLC_E/images/img/userPic.jpg"></div>
-                <h2>${member.name}，<span>您好!</span></h2>
+                <h2>${member.member_name }，<span>您好!</span></h2>
             </a>
             <div class="safe">账户安全&nbsp;&nbsp;<span class="scroll"><em style="width:75%"></em></span></div>
             <ul class="listIco iconfont">
@@ -46,36 +46,30 @@
 </tbody></table>
 <div class="countBox">
     <ul>
-        <c:if test="${empty member.member_account }">
-    		<li><h2>0</h2><p>账户可用余额(元)<a href="javascript:;" class="iconfont"><span>账户可用余额</span><i></i></a></p></li>
-    	</c:if>
-    	<c:if test="${!empty member.member_account }">
-    		<li><h2>${account.useable_balance }</h2><p>账户可用余额(元)<a href="javascript:;" class="iconfont"><span>账户可用余额</span><i></i></a></p></li>
-    	</c:if>
-    	
-        <li><h2>${account.useable_balance+account.invest_amount+account.total_profit }</h2><p>账户总资产(元)<a href="javascript:;" class="iconfont"><span>可用余额+投资金额+累计收益</span><i></i></a></p></li>
-       
-        <c:if test="${empty member.member_account }">
-        	<li><h2 style="color:#9d8440">0</h2><p>投资金额(元)<a href="javascript:;" class="iconfont"><span>投资总资金</span><i></i></a></p></li>
-        </c:if>
-        <c:if test="${!empty member.member_account }">
-        	<li><h2 style="color:#9d8440">${account.invest_amount }</h2><p>投资金额(元)<a href="javascript:;" class="iconfont"><span>投资总资金</span><i></i></a></p></li>
-        </c:if>
-        
-        <c:if test="${empty member.member_account }">
-        	<li><h2 style="color:#9d8440">0</h2><p>累计收益(元)<a href="javascript:;" class="iconfont"><span>累计收益</span><i></i></a></p></li>
-        </c:if>
-        <c:if test="${!empty member.member_account }">
-        	<li><h2 style="color:#9d8440">${account.total_profit }</h2><p>累计收益(元)<a href="javascript:;" class="iconfont"><span>累计收益</span><i></i></a></p></li>
-        </c:if>
-        
-        <c:if test="${empty member.member_account }">
-        	<li><h2 style="color:#9d8440">0</h2><p>冻结金额(元)<a href="javascript:;" class="iconfont"><span>提现冻结金额</span><i></i></a></p></li>
-        </c:if>
-        <c:if test="${!empty member.member_account }">
-        	<li><h2 style="color:#9d8440">${account.imuseale_balance }</h2><p>冻结金额(元)<a href="javascript:;" class="iconfont"><span>提现冻结金额</span><i></i></a></p></li>
-        </c:if>
-    </ul>
+			<li><h2>${account.useable_balance }</h2>
+				<p>
+					账户可用余额(元)<a href="javascript:;" class="iconfont"><span>账户可用余额</span><i></i></a>
+				</p></li>
+
+			<li><h2>${account.useable_balance+account.invest_amount+account.total_profit }</h2>
+				<p>
+					账户总资产(元)<a href="javascript:;" class="iconfont"><span>可用余额+投资金额+累计收益</span><i></i></a>
+				</p></li>
+
+			<li><h2 style="color: #9d8440">${account.invest_amount }</h2>
+				<p>
+					投资金额(元)<a href="javascript:;" class="iconfont"><span>投资总资金</span><i></i></a>
+				</p></li>
+
+			<li><h2 style="color: #9d8440">${account.total_profit }</h2>
+				<p>
+					累计收益(元)<a href="javascript:;" class="iconfont"><span>累计收益</span><i></i></a>
+				</p></li>
+			<li><h2 style="color: #9d8440">${account.imuseale_balance }</h2>
+				<p>
+					冻结金额(元)<a href="javascript:;" class="iconfont"><span>提现冻结金额</span><i></i></a>
+				</p></li>
+		</ul>
     <a href="/YJLC_E/users/alipay" class="cz">充值</a>
     <a href="#" class="tk">提款</a>
 </div>

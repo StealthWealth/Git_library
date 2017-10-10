@@ -97,7 +97,7 @@
 	</aside> <section id="main-content"> <section class="wrapper">
 
 
-	<form id="formFile" method="post" enctype="multipart/form-data">
+	<form action="/YJLC_E/update" id="formFile" method="post" enctype="multipart/form-data">
 		<table border="1" class="table">
 			<tr>
 
@@ -112,23 +112,23 @@
 			</tr>
 			<tr>
 				<td><font class="text-primary" size="5">标题:</font></td>
-				<td><input type="text" name="title" value="${news.title }" class="form-control"></td>
+				<td><input type="text" name="title" value="${news.title }" class="form-control" required ></td>
 				<td><font class="text-primary" size="5">副标题:</font></td>
-				<td><input type="text" name="subTitle" value="${news.subTitle }" class="form-control"></td>
+				<td><input type="text" name="subTitle" value="${news.subTitle }" class="form-control" required></td>
 				<td><font class="text-primary" size="5">排序:</font></td>
-				<td><input type="text" name="sort" value="${news.sort }" id="sort" class="form-control"></td>
+				<td><input type="number" name="sort" value="${news.sort }" id="sort" class="form-control" required></td>
 				<td><font class="text-primary" size="5">链接地址:</font></td>
-				<td><input type="text" name="link" value="${news.link }" class="form-control"></td>
+				<td><input type="text" name="link" value="${news.link }" class="form-control" required></td>
 			</tr>
 			<tr>
 				<td><font class="text-primary" size="5">作者:</font></td>
-				<td><input type="text" name="author" value="${news.author }" class="form-control"></td>
+				<td><input type="text" name="author" value="${news.author }" class="form-control" required></td>
 				<td><font class="text-primary" size="5">来源:</font></td>
-				<td><input type="text" name="source" value="${news.source }" class="form-control"></td>
+				<td><input type="text" name="source" value="${news.source }" class="form-control" required></td>
 				<td><font class="text-primary" size="5">标签:</font></td>
-				<td><input type="text" name="label" value="${news.label }" class="form-control"></td>
+				<td><input type="text" name="label" value="${news.label }" class="form-control" required></td>
 				<td><font class="text-primary" size="5">附件地址:</font></td>
-				<td><input type="text" name="filelink" value="${news.filelink }" class="form-control"></td>
+				<td><input type="text" name="filelink" value="${news.filelink }" class="form-control" required></td>
 			</tr>
 			<tr>
 				<td><font class="text-primary" size="5">是否置顶:</font></td>
@@ -137,11 +137,11 @@
 						<option value="1">是</option>
 				</select></td>
 				<td><font class="text-primary" size="5">页面seo标题:</font></td>
-				<td><input type="text" name="seoTitle" value="${news.seoTitle }" class="form-control"></td>
+				<td><input type="text" name="seoTitle" value="${news.seoTitle }" class="form-control" required></td>
 				<td><font class="text-primary" size="5">seo关键字:</font></td>
-				<td><input type="text" name="seoKey" value="${news.seoKey }" class="form-control"></td>
+				<td><input type="text" name="seoKey" value="${news.seoKey }" class="form-control" required></td>
 				<td><font class="text-primary" size="5">seo描述:</font></td>
-				<td><input type="text" name="seoDes" value="${news.seoDes }" class="form-control"></td>
+				<td><input type="text" name="seoDes" value="${news.seoDes }" class="form-control" required></td>
 			</tr>
 			<tr>
 				<td><font class="text-primary" size="5">是否推荐:</font></td>
@@ -168,7 +168,7 @@
 				<script id="text" type="text/plain" style="width:100%;height:100px;" name="text">${news.text}</script></td>
 			</tr>
 			<tr>
-				<td align="center"><input type="button" id="but" onclick="add()" value="修   改" class="btn-lg btn-warning"></td>
+				<td align="center"><input type="submit" id="but"  value="修   改" class="btn-lg btn-warning"></td>
 			</tr>
 		</table>
 	</form>
@@ -188,18 +188,11 @@
 			} 
 			})
 			function upload(){
+				if ($("#sort").val() == null || $("#sort").val() == "") {
+					$("#sort").val(0);
+				}
 				 document.forms[0].action="/YJLC_E/updateFile";
 				 document.forms[0].submit();
-			}
-			function add(){
-			
-				if($("#sort").val()==null || $("#sort").val()==""){
-					alert("请填写序号!");
-				}else{
-					document.forms[0].action="/YJLC_E/update";
-					 document.forms[0].submit();	
-				}
-				 
 			}
 		</script> </section> <!-- footer --> <!-- / footer --> </section> <script src="/YJLC_E/js/bootstrap.js"></script> <script src="/YJLC_E/js/jquery.dcjqaccordion.2.7.js"></script>
 	<script src="/YJLC_E/js/scripts.js"></script> <script src="/YJLC_E/js/jquery.slimscroll.js"></script> <script src="/YJLC_E/js/jquery.nicescroll.js"></script>

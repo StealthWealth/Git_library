@@ -212,7 +212,12 @@
 					<td>&nbsp;</td>
 				</tr>
 				<tr>
-					<td colspan="4">文件：<input type="file" name="file" required /></td>
+					<td colspan="4">
+					<div>
+						<input type="hidden" />
+						文件：<input type="file" name="file" required />
+					</div>
+				</td>
 				</tr>
 				<tr>
 					<td>&nbsp;</td>

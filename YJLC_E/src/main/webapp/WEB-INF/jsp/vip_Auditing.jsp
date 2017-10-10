@@ -145,7 +145,7 @@
 					<td>${auditing.identity }</td>
 					<td>${auditing.invitationCode }</td>
 					<td>${auditing.create_date }</td>
-					<td><a href="/YJLC_E/getMember/${auditing.id }"><font color="while"><b>账号详情</b></font></a></td>
+					<td><a class="btn btn-info" href="/YJLC_E/getMember/${auditing.id }">账号详情</a></td>
 				</tr>
 			</c:forEach>
 		</table>

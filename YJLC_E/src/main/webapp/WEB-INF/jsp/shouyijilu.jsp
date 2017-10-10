@@ -25,7 +25,7 @@
 						<div class="img">
 							<img src="/YJLC_E/images/img/userPic.jpg">
 						</div>
-						<h2>${member.member_name }<span>您好!</span>
+						<h2>${member.member_name }，<span>您好!</span>
 						</h2>
 				</a>
 					<div class="safe">
@@ -74,11 +74,11 @@
 		<div class="adminLeft">
 			<h2>我的投资</h2>
 			<ul>
-				<li><a id="member_center_menu_invests" href="touzijilu.html"><em class="iconfont red"></em>投资记录</a></li>
+				<li><a id="member_center_menu_invests" href="/YJLC_E/users/listSPR?mid=${member.id}"><em class="iconfont red"></em>投资记录</a></li>
 				<li><a id="member_center_menu_profit_record" href="/YJLC_E/shouyijilu"><em class="iconfont red"></em>收益记录</a></li>
 				<li><a id="member_center_menu_deposit_record" href="/YJLC_E/chongzhijilu"><em class="iconfont red"></em>充值记录</a></li>
 				<li><a id="member_center_menu_withdraw_record" href="/YJLC_E/tikuanjilu"><em class="iconfont red"></em>提款记录</a></li>
-				<li><a id="member_center_menu_bbinInfo_record" href="tiyanjinjilu.html"><em class="iconfont red"></em>体验金记录</a></li>
+				<li><a id="member_center_menu_bbinInfo_record" href="/YJLC_E/users/listSBPR?mid=${member.id}"><em class="iconfont red"></em>体验金记录</a></li>
 			</ul>
 			<h2>我的账户</h2>
 			<ul>
@@ -163,7 +163,6 @@
 			</div>
 		</div>
 	</div>
-
 	<script>
 		var _hmt = _hmt || [];
 		(function() {

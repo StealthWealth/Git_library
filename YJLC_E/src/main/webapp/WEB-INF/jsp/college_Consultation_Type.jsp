@@ -98,8 +98,24 @@
 <font size="6">资讯分类</font>
 <hr>
 <br>
-	<form action="/YJLC_E/addnewstype" method="post">
-		<table width="70%">
+	<div align="right">
+	<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">添加</button>
+   </div>
+   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" 
+   aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" 
+               data-dismiss="modal" aria-hidden="true">
+                  &times;            </button>
+            <h4 class="modal-title" id="myModalLabel">
+            添加信息           </h4>
+         </div>
+         <div class="modal-body" style="height: 300px;">
+          	  
+            <form action="/YJLC_E/addnewstype" method="post">
+		<table width="100%" height="300">
 			<tr>
 				<td><font class="text-info" size="4">根类别:</font></td>
 				<td><select name="supType" id="supType" class="form-control">
@@ -113,8 +129,10 @@
 			<font class="text-info" size="4">名称:</font>
 		</td>
 		<td>
-			 <input type="text" name="name" class="form-control">
+			 <input type="text" name="name" class="form-control" required>
 		</td>
+		</tr>
+		<tr>
 		<td>
 			<font class="text-info" size="4">排序:</font>
 		</td>
@@ -126,16 +144,26 @@
 		</td>
 		<td>
 			<input type="text"
-			name="info" class="form-control">
+			name="info" class="form-control" required>
 		</td>
-		<td align="center">&nbsp;
-			 <input type="submit" value="添加" class="btn btn-info" >	
+		</tr>
+		<tr>
+		<td align="center" colspan="4">&nbsp;
+			<div class="modal-footer">
+            <button type="button" class="btn btn-default" 
+               data-dismiss="modal">关闭            </button>
+           <input type="submit" value="提交"  class="btn btn-primary">
+         </div>
 		</td>
-			</tr>
 			
 		</table>
-		 
-	</form>
+        </form>
+             
+           </div>
+         
+         
+      </div></div></div>	 
+	
 	<br>
 	<table border="1" width="100%">
 		<tr align="center">
@@ -152,7 +180,14 @@
 				<td>${status.index+1}</td>
 				<td>${la.name }</td>
 				<td>${la.sort }</td>
-				<td>${la.supType }</td>
+				<td>
+					<c:if test="${la.supType==0 }">
+						跟类别
+					</c:if>
+					<c:if test="${la.supType>0 }">
+						子类别
+					</c:if>
+				</td>
 				<td>${la.info }</td>
 				<td>${la.addTime}</td>
 				<td><a class="btn btn-info" href="/YJLC_E/getNews_type/${la.id}">修改</a></td>

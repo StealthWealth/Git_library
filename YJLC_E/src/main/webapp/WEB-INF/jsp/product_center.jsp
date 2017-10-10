@@ -161,7 +161,7 @@
 						</li>
 						<li class="second">					
 							<div class="txt1">
-								<h2>${s.year_rate }<span style="font-size:18px;">${s.year_rate}%</span></h2>
+								<h2>${s.year_rate}<span style="font-size:18px;">%</span></h2>
 								<p>年化收益</p>
 							</div>
 							<div class="txt2">
