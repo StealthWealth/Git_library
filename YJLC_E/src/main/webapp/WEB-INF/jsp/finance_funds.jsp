@@ -103,36 +103,61 @@
 		<!-- sidebar menu end-->
 	</div>
 	</aside> <section id="main-content"> <section class="wrapper">
-
+<font  size="6">私募/股权类</font>
 	<div align="center">
-		<form method="post">
-			名称：<input type="text" name="qname" value="${qname }" />&nbsp; 状态：<select name="wname">
-				<option value="">全部</option>
-				<option value="0" ${wname=="0"?'selected':'' }>未发布</option>
-				<option value="1" ${wname=="1"?'selected':'' }>募集中</option>
-				<option value="2" ${wname=="2"?'selected':'' }>已结束</option>
-			</select>&nbsp; 类别：<select name="ename">
-				<option value="">全部</option>
-				<option value="SIMU" ${ename=="SIMU"?'selected':'' }>私募类</option>
-				<option value="GUQUAN" ${ename=="GUQUAN"?'selected':'' }>股权类</option>
-			</select> <input class="layui-btn layui-btn-small layui-btn-normal" type="button" id="btn1" value="查询" /> <a
-				class="layui-btn layui-btn-small layui-btn-normal" href="/YJLC_E/funds/fundsadd">新增</a>
+	<font size="6">咨询分类</font>
+	<br>
+		<hr>
+		<br>
+	<form method="post">
+		<table width="60%">
+			<tr>
+				<td align="right"><font class="text-info" size="4">名称:</font></td>
+				<td align="left" width="200">
+					<input type="text" name="qname" value="${qname }" class="form-control" />		
+				</td>
+				<td align="right"><font class="text-info" size="4">状态:</font></td>
+				<td align="left">
+				<select name="wname" class="form-control">
+					<option value="">全部</option>
+					<option value="0" ${wname=="0"?'selected':'' }>未发布</option>
+					<option value="1" ${wname=="1"?'selected':'' }>募集中</option>
+					<option value="2" ${wname=="2"?'selected':'' }>已结束</option>
+				</select>
+				</td>
+				<td align="right"><font class="text-info" size="4">类别:</font></td>
+				<td align="left">
+				<select name="ename" class="form-control">
+					<option value="">全部</option>
+					<option value="SIMU" ${ename=="SIMU"?'selected':'' }>私募类</option>
+					<option value="GUQUAN" ${ename=="GUQUAN"?'selected':'' }>股权类</option>
+				</select> 
+				</td>
+				<td align="center">
+					 <input type="button" id="btn1" value="查询"  class="btn btn-info"/> <a
+			    class="btn btn-info"  href="/YJLC_E/funds/fundsadd">新增</a>
+				</td>
+			</tr>
+		</table>
+			<br>
+			<hr>
+			<br>
 			<table width="100%" border="1">
-				<tr>
-					<td align="center" height="35">序号</td>
-					<td align="center">ID</td>
-					<td align="center">名称</td>
-					<td align="center">类型</td>
-					<td align="center">状态</td>
-					<td align="center">年化收益</td>
-					<td align="center">返佣比例</td>
-					<td align="center">投资期限</td>
-					<td align="center">起投金额</td>
-					<td align="center">添加时间</td>
-					<td align="center">操作</td>
+				<tr align="center">
+					<td>序号</td>
+					<td>ID</td>
+					<td>名称</td>
+					<td>类型</td>
+					<td>状态</td>
+					<td>年化收益</td>
+					<td>返佣比例</td>
+					<td>投资期限</td>
+					<td>起投金额</td>
+					<td>添加时间</td>
+					<td>操作</td>
 				</tr>
 				<c:forEach items="${listfunds }" var="funds" varStatus="num">
-					<tr>
+					<tr align="center">
 						<td align="center" height="50">${num.index+1 }</td>
 						<td align="center">${funds.id }</td>
 						<td align="center">${funds.name }</td>
@@ -151,13 +176,13 @@
 						<c:if test="${funds.status==2 }">
 							<td align="center">已结束</td>
 						</c:if>
-						<td align="center">${funds.year_rate }%</td>
-						<td align="center">${funds.ratio }</td>
-						<td align="center">${funds.period }天</td>
-						<td align="center">${funds.floor_amount }元</td>
-						<td align="center">${funds.create_date }</td>
-						<td align="center"><a class="layui-btn layui-btn-small layui-btn-normal" href="/YJLC_E/funds/listsubscribe/${funds.id }">签署状态</a>
-							<a class="layui-btn layui-btn-small layui-btn-normal" href="/YJLC_E/funds/editfunds/${funds.id }">编辑/查看</a></td>
+						<td>${funds.year_rate }%</td>
+						<td>${funds.ratio }</td>
+						<td>${funds.period }天</td>
+						<td>${funds.floor_amount }元</td>
+						<td>${funds.create_date }</td>
+						<td><a class="btn btn-info" href="/YJLC_E/funds/listsubscribe/${funds.id }">签署状态</a>
+							<a class="btn btn-info" href="/YJLC_E/funds/editfunds/${funds.id }">编辑/查看</a></td>
 					</tr>
 				</c:forEach>
 			</table>

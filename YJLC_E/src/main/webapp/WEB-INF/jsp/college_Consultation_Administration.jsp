@@ -94,12 +94,15 @@
 
 	</div>
 	</aside> <section id="main-content"> <section class="wrapper">
+	<font size="6">咨询管理</font>
+	<hr>
+	<br>
 	<form action="/YJLC_E/listNews" method="post">
-		<table width="50%" align="center" class="table">
+		<table width="50%" align="center" >
 			<tr>
-				<td align="right">标题:</td>
+				<td align="right"><font class="text-info" size="4">标题:</font></td>
 				<td align="left" width="200"><input type="text" name="MH_title" value="${MH_title }" class="form-control"></td>
-				<td align="right">类别:</td>
+				<td align="right"><font class="text-info" size="4">类别:</font></td>
 				<td align="left" width="200"><select name="type_name" id="type_name" class="form-control">
 						<option value="-1">请选择</option>
 						<c:forEach items="${listNews_type }" var="t">
@@ -161,7 +164,7 @@
 								否
 							</c:if></td>
 				<td>${news.addTime }</td>
-				<td><a href="/YJLC_E/delete/${news.id }"><b>删除</b></a> || <a href="/YJLC_E/updateNews/${news.id }"><b>修
+				<td><a class="btn btn-info" href="/YJLC_E/delete/${news.id }"><b>删 除</b></a> <a class="btn btn-info" href="/YJLC_E/updateNews/${news.id }"><b>修
 							改</b></a></td>
 			</tr>
 		</c:forEach>

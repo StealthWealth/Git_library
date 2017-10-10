@@ -103,24 +103,46 @@
 		<!-- sidebar menu end-->
 	</div>
 	</aside> <section id="main-content"> <section class="wrapper">
-
+<font  size="6">固守类管理</font>
 	<div align="center">
+		<hr>
+		<br>
 		<form method="post">
-			名称：<input type="text" name="qname" value="${qname }" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 状态：<select name="wname">
-				<option value="">全部</option>
-				<option value="0" ${wname=="0"?'selected':'' }>未发布</option>
-				<option value="1" ${wname=="1"?'selected':'' }>募集中</option>
-				<option value="2" ${wname=="2"?'selected':'' }>已结束</option>
-			</select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 类别：<select name="ename">
-				<option value="">全部</option>
-				<option value="0" ${ename=="0"?'selected':'' }>固收类</option>
-				<option value="1" ${ename=="1"?'selected':'' }>P2P车贷</option>
-				<option value="2" ${ename=="2"?'selected':'' }>P2P房贷</option>
-			</select>&nbsp;&nbsp;&nbsp;<input class="layui-btn layui-btn-small layui-btn-normal" type="button" id="btn1" value="查询" /> <a
-				class="layui-btn layui-btn-small layui-btn-normal" href="/YJLC_E/subject/addsubject">新增</a>
-			<table width="100%" border="1">
+			<table width="70%">
 				<tr>
-					<td align="center" height="35">序号</td>
+					<td align="right"><font class="text-info" size="4">名称:</font></td>
+					<td width="200" align="left"><input type="text" name="qname" value="${qname }" class="form-control" /></td>
+					<td align="right"><font class="text-info" size="4">状态:</font></td>
+					<td align="left">
+					<select name="wname" class="form-control">
+						<option value="">全部</option>
+						<option value="0" ${wname=="0"?'selected':'' }>未发布</option>
+						<option value="1" ${wname=="1"?'selected':'' }>募集中</option>
+						<option value="2" ${wname=="2"?'selected':'' }>已结束</option>
+					</select>
+					</td>
+					<td align="right"><font class="text-info" size="4">类别:</font></td>
+					<td align="left">
+					<select name="ename" class="form-control">
+						<option value="">全部</option>
+						<option value="0" ${ename=="0"?'selected':'' }>固收类</option>
+						<option value="1" ${ename=="1"?'selected':'' }>P2P车贷</option>
+						<option value="2" ${ename=="2"?'selected':'' }>P2P房贷</option>
+					</select> 
+					</td>
+				<td align="center">
+					<input  type="button" id="btn1" value="查询"  class="btn btn-info" /> <a
+				 class="btn btn-info" href="/YJLC_E/subject/addsubject">新增</a>
+					
+				</td>					
+				</tr>
+			</table>
+			<br>
+				<hr>
+				<br>
+			<table width="100%" border="1">
+				<tr align="center">
+					<td align="center">序号</td>
 					<td align="center">ID</td>
 					<td align="center">合同编号</td>
 					<td align="center">类型</td>
@@ -136,7 +158,7 @@
 					<td align="center">操作</td>
 				</tr>
 				<c:forEach items="${listsubject }" var="subject" varStatus="num">
-					<tr>
+					<tr align="center">
 						<td align="center" height="50">${num.index+1 }</td>
 						<td align="center">${subject.id }</td>
 						<td align="center">${subject.serial_no }</td>
@@ -180,9 +202,9 @@
 						<c:if test="${subject.exper_status==1 }">
 							<td align="center">可以使用体验金</td>
 						</c:if>
-						<td align="center">${subject.create_date }</td>
-						<td align="center"><a class="layui-btn layui-btn-small layui-btn-normal" href="/YJLC_E/subject/editsubject/${subject.id }">编辑/查看</a> <a
-							class="layui-btn layui-btn-small layui-btn-normal" href="/YJLC_E/subject/listrecord/${subject.id }">查看投资</a></td>
+						<td>${subject.create_date }</td>
+						<td><a  class="btn btn-info" href="/YJLC_E/subject/editsubject/${subject.id }">编辑/查看</a> <a
+							 class="btn btn-info" href="/YJLC_E/subject/listrecord/${subject.id }">查看投资</a></td>
 					</tr>
 				</c:forEach>
 			</table>

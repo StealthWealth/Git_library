@@ -94,6 +94,9 @@
 	</aside> <section id="main-content"> <section class="wrapper">
 
 	<form action="/YJLC_E/listMember_Bankcards" method="post">
+	<h1 align="left">绑卡管理</h1>
+	<hr>
+	<br>
 		<div class="form-group">
 			<table width="80%" align="center" class="table">
 				<tr>
@@ -120,7 +123,7 @@
 	<br>
 	<hr>
 	<br>
-	<table width="100%" align="center" border="1" height="300">
+	<table width="100%" align="center" border="1">
 		<tr align="center">
 			<td>序号</td>
 			<td>手机号</td>
@@ -149,7 +152,7 @@
 					</c:if></td>
 				<td>${memberBan.create_date }</td>
 				<td><c:if test="${memberBan.delflag==0 }">
-						<a href="/YJLC_E/updateDelflag/${memberBan.id }"><b>解 绑</b></a>
+						<a href="/YJLC_E/updateDelflag/${memberBan.id }"  class="btn btn-info"><b>解 绑</b></a>
 					</c:if> <c:if test="${memberBan.delflag==2 }">
 						<font color="red"><b>以解绑</b></font>
 					</c:if></td>

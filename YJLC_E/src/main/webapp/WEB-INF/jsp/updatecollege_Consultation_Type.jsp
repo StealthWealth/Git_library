@@ -103,36 +103,36 @@
 		<h1>资讯分类修改</h1>
 	<br><br><br><br><br><br>
 	<form action="/YJLC_E/updatenewstype" method="post">
-	<table width="60%" border="0">
+	<table width="50%" border="0">
 	<input type="hidden" name="id" value="${nt.id }">
 	<input type="hidden" name="addTime" value="${nt.addTime }">
-		<tr>
-			<td align="right" width="30%">根类别：</td>
-			<td>
-				<select name="supType" id="supType">
+		<tr align="center">
+			<td align="right" width="30%"><font class="text-info" size="4">根类别：</font></td>
+			<td width="200">
+				<select name="supType" id="supType" class="form-control">
 					<option value="0">根类别</option>
 				<c:forEach items="${listAll }" var="la">
 					<option value="${la.id}">${la.name }</option>
 				</c:forEach>
 				</select>
 			</td>
-			<td align="right">名称：</td>
-			<td><input type="text" name="name" value="${nt.name }"></td>
+			<td align="right"><font class="text-info" size="4">名称：</font></td>
+			<td width="200"><input type="text" name="name" value="${nt.name }" class="form-control"></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+		</tr>
+		<tr align="center">
+			<td align="right"><font class="text-info" size="4">排序：</font></td>
+			<td width="200"><input type="text" name="sort" value="${nt.sort }" class="form-control"></td>
+			<td align="right"><font class="text-info" size="4">简介：</font></td>
+			<td width="200"><input type="text" name="info" value="${nt.info }" class="form-control"></td>
 		</tr>
 		<tr>
 			<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
 		</tr>
 		<tr>
-			<td align="right">排序：</td>
-			<td><input type="text" name="sort" value="${nt.sort }"></td>
-			<td align="right">简介：</td>
-			<td><input type="text" name="info" value="${nt.info }"></td>
-		</tr>
-		<tr>
-			<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
-		</tr>
-		<tr>
-			<td align="center" colspan="4"><input type="submit" value="修改"></td>
+			<td align="center" colspan="4"><input class="btn btn-info" type="submit" value="修改"></td>
 		</tr>
 	</table>
 	</form>

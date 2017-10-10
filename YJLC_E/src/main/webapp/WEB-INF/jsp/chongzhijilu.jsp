@@ -16,9 +16,8 @@
 <body>
 	<!-- jsp动态导入font头.jsp  -->
 	<jsp:include page="/WEB-INF/jsp/fontTop.jsp" flush="false"></jsp:include>
-	
-	
-	<table height="160" class="peopleInfo" width="970" border="0" cellspacing="0" cellpadding="0">
+
+<table height="160" class="peopleInfo" width="970" border="0" cellspacing="0" cellpadding="0">
     <tbody><tr>
         <td align="left" valign="middle" class="info">
             <a href="http://pro.ying158.com/account/security">
@@ -195,6 +194,8 @@
         s.parentNode.insertBefore(hm, s);
     })();
 </script>
+
+
 
 	<div style="margin-top: 15px;">
 

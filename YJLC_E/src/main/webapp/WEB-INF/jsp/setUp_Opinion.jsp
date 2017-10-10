@@ -94,6 +94,9 @@
 	</div>
 	</aside> <section id="main-content"> <section class="wrapper">
 
+<font size="6">意见反馈</font>
+<hr>
+<br>
 	<table border="1" width="100%">
 		<tr height="40">
 			<td align="center">序号</td>

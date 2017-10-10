@@ -103,10 +103,22 @@
 		<!-- sidebar menu end-->
 	</div>
 	</aside> <section id="main-content"> <section class="wrapper">
+	<font size="6">公告管理</font>
+<br>
+<hr>
 
 	<form method="post">
-		标题：<input type="text" name="qname" value="${qname }" /> <input class="layui-btn layui-btn-small layui-btn-normal" type="button" id="btn1"
-			value="查询" /> <a class="layui-btn layui-btn-small layui-btn-normal" href="/YJLC_E/notice/addnotice">新增</a>
+	<table align="right">
+		<tr>
+			<td><font class="text-info" size="4">标题:</font></td>
+			<td><input type="text" name="qname" value="${qname }" class="form-control"  style="width: 200px;"/></td>
+			<td>	 <input class="layui-btn layui-btn-small layui-btn-normal" type="button" id="btn1"value="查询" />
+		  <a class="layui-btn layui-btn-small layui-btn-normal" href="/YJLC_E/notice/addnotice">新增</a>
+	 </td>
+		</tr>
+	</table>
+		
+	
 		<table width="100%" border="1">
 			<tr height="40">
 				<td align="center">序号</td>

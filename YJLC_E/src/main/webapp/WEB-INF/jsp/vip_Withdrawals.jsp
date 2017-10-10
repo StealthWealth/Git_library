@@ -106,6 +106,9 @@
 		<!-- sidebar menu end-->
 	</div>
 	</aside> <section id="main-content"> <section class="wrapper">
+	<h1 align="left">提现管理</h1>
+	<hr>
+	<br>
 	<form action="/YJLC_E/listMember_withdraw" method="post">
 		<table width="90%" align="center" class="table">
 			<tr>
@@ -183,7 +186,7 @@
 					</c:if> <c:if test="${member_with.status==3 }">
 						<font color="red">打款失败</font>
 					</c:if></td>
-				<td><a href="/YJLC_E/getMember/${member_with.member.id}"><b>账号详情</b> </a></td>
+				<td><a href="/YJLC_E/getMember/${member_with.member.id}"  class="btn btn-info"><b>账号详情</b> </a></td>
 			</tr>
 		</c:forEach>
 

@@ -138,6 +138,7 @@ public class NewsController {
 				String filename = file.getOriginalFilename();
 				//获取上传的绝对路径  upload 手动创建
 				String path = request.getRealPath("/upload/");
+				System.out.println("-------path:"+path);
 				//获取新的文件对象
 				File newFile = new File(path, filename);
 				if(!newFile.exists()){ //文件不存在
