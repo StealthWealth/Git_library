@@ -93,6 +93,8 @@
 		<!-- sidebar menu end-->
 	</div>
 	</aside> <section id="main-content"> <section class="wrapper">
+	<font size="6">账号管理</font>
+	<hr>
 	<div align="center">
 		<form action="/YJLC_E/listAuditingAll" method="post" role="form">
 			<div class="form-group">
@@ -122,7 +124,6 @@
 			</div>
 		</form>
 		<br>
-		<hr>
 		<br>
 		<table width="85%" border="1" height="500">
 			<tr align="center">
