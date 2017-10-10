@@ -139,7 +139,7 @@ public class FontService {
 	}
 	
 	//我的加法库--体验金
-	public List<Subject_bbin_purchase_record> listSbpr(int mid){
+	public Subject_bbin_purchase_record listSbpr(int mid){
 		return fontDao.listSBPR(mid);
 	}
 	

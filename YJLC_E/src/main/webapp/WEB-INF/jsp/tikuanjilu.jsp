@@ -71,17 +71,17 @@
         	<li><h2 style="color:#9d8440">${account.imuseale_balance }</h2><p>冻结金额(元)<a href="javascript:;" class="iconfont"><span>提现冻结金额</span><i></i></a></p></li>
         </c:if>
     </ul>
-    <a href="http://pro.ying158.com/account/deposit" class="cz">充值</a>
-    <a href="http://pro.ying158.com/account/withdraw" class="tk">提款</a>
+    <a href="/YJLC_E/users/alipay" class="cz">充值</a>
+    <a href="" class="tk">提款</a>
 </div>    <div class="proMain clearfix">
 <div class="adminLeft">
     <h2>我的投资</h2>
     <ul>
-        <li><a id="member_center_menu_invests" href="touzijilu.html"><em class="iconfont red"></em>投资记录</a></li>
-        <li><a id="member_center_menu_profit_record" href="shouyijilu.html"><em class="iconfont red"></em>收益记录</a></li>
+        <li><a id="member_center_menu_invests" href="/YJLC_E/users/listSPR?mid=${member.id}"><em class="iconfont red"></em>投资记录</a></li>
+        <li><a id="member_center_menu_profit_record" href="/YJLE_E/shouyijilu"><em class="iconfont red"></em>收益记录</a></li>
         <li><a id="member_center_menu_deposit_record" href="/YJLC_E/chongzhijilu"><em class="iconfont red"></em>充值记录</a></li>
         <li><a id="member_center_menu_withdraw_record" href="/YJLC_E/tikuanjilu"><em class="iconfont red"></em>提款记录</a></li>
-        <li><a id="member_center_menu_bbinInfo_record" href="tiyanjinjilu.html"><em class="iconfont red"></em>体验金记录</a></li>
+        <li><a id="member_center_menu_bbinInfo_record" href="/YJLC_E/users/listSBPR?mid=${member.id}"><em class="iconfont red"></em>体验金记录</a></li>
     </ul>
     <h2>我的账户</h2>
     <ul>
