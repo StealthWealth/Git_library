@@ -8,6 +8,6 @@
 </head>
 <body>
 <!-- 购买完成后跳转到投资记录 -->
-<jsp:forward page="/YJLC_E/users/listSPR?mid=${member.id}"></jsp:forward>
+<jsp:forward page="/users/listSPR"></jsp:forward>
 </body>
 </html>

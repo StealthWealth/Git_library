@@ -276,7 +276,7 @@
 			</div>
 		</div>
 	</div>
-
+	
 	<script>
 		var _hmt = _hmt || [];
 		(function() {
@@ -295,7 +295,6 @@
 			data-ad-slot="3820120620"></ins>
 
 	</div>
-
 	<div style="width: 100%; height: 659px; background: url(/YJLC_E/font/img/fontDown01.png);"></div>
 </body>
 </html>

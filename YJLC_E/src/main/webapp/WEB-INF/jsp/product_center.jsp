@@ -37,6 +37,8 @@
 	<!-- 示例-970 -->
 	<ins class="adsbygoogle" style="display: inline-block; width: 970px; height: 90px" data-ad-client="ca-pub-6111334333458862" data-ad-slot="3820120620"></ins>
 
+	<h3 class="w3_agile_head">产品中心</h3>
+	<p class="augue_agile">We are all IT elites</p>
 
 <!-- 示例-970 -->
 <ins class="adsbygoogle" style="display:inline-block;width:970px;height:90px" data-ad-client="ca-pub-6111334333458862" data-ad-slot="3820120620"></ins>

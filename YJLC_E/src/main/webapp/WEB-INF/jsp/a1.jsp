@@ -8,6 +8,6 @@
 </head>
 <body>
 <!-- 去到充值记录页面 -->
-<jsp:forward page="/YJLC_E/chongzhijilu"></jsp:forward>
+<jsp:forward page="/users/listSPR"></jsp:forward>
 </body>
 </html>
