@@ -178,13 +178,13 @@
 					<td>&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="10%">购买人数：</td>
-					<td><input type="text" name="bought" required /></td>
 					<td width="10%">可否使用体验金：</td>
 					<td><select name="exper_status">
 							<option value="0">否</option>
 							<option value="1">是</option>
 					</select></td>
+					<td width="10%">&nbsp;</td>
+					<td><input type="hidden" name="bought" value="0" /></td>
 				</tr>
 				<tr>
 					<td>&nbsp;</td>
