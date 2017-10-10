@@ -37,6 +37,7 @@ import com.web.member_account_Bean.Member_account;
 import com.web.news_Bean.News;
 import com.web.subject_Bean.Subject;
 import com.web.subject_purchase_record_Bean.Subject_purchase_record;
+import com.web.sublect_bbin_purchase_record_Bean.Subject_bbin_purchase_record;
 import com.web.news_Bean.News;
 import com.web.vip_auditing_Bean.Member;
 
@@ -137,7 +138,7 @@ public class FontController {
 		return "alipay.index";
 	}
 	
-	
+	//跳转到充值页面
 	@RequestMapping("/alipay_pag")
 	public String alipay_pag() {
 		return "alipay.trade.page.pay";
@@ -385,9 +386,11 @@ public class FontController {
 	//我的加法库--体验金
 	@RequestMapping("/listSBPR")
 	public String listSbpr(int mid,Model model) {
-		
-		
-		return "";
+		Subject_bbin_purchase_record sbpr=fontService.listSbpr(mid);
+		Member_account account = this.fontService.getMember_account(mid);//头像下面的那一排数字 账户金额等
+		model.addAttribute("account", account);
+		model.addAttribute("sbpr", sbpr);
+		return "bbin_record";
 	}
 	
 	

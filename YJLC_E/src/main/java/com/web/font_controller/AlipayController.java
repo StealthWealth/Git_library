@@ -161,12 +161,13 @@ public class AlipayController {
 			
 			
 			
-			return "homePage";//充值成功后返回的页面
+			return "a1";//充值成功后返回的页面
 	}
 	
 	
 	
-
+	
+	//购买
 	@RequestMapping(value="/buygsl",method=RequestMethod.POST)
 	public String BUY_Solid_closed_class(HttpServletRequest request,int member_id,HttpSession session) throws UnknownHostException {
 		String sid=request.getParameter("sid");
@@ -234,7 +235,7 @@ public class AlipayController {
 		
 		this.alipayservlce.updatema(ma,member,mtr,subject,spr,mt);//调用修改方法
 		
-		return "homePage";//购买成功后返回的页面
+		return "a2";//购买成功后返回的页面
 	}
 	
 	

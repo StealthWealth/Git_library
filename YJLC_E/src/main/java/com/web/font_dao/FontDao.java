@@ -254,14 +254,15 @@ public class FontDao {
 	}
 	
 	//我的加法库--体验金记录
-	public List<Subject_bbin_purchase_record> listSBPR(int mid){
+	public Subject_bbin_purchase_record listSBPR(int mid){
 		Session session=this.getSession();
 		String hql="from Subject_bbin_purchase_record where member_id="+mid+"";
 		List list=session.createQuery(hql).list();
+		Subject_bbin_purchase_record sbpr=null;
 		if (list.size() > 0) {
-			return list;
+			return sbpr=(Subject_bbin_purchase_record)list.get(0);
 		}
-		return list=null;
+		return sbpr;
 	}
 	
 	
