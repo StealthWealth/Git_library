@@ -115,9 +115,9 @@
 				<%-- 			<input type="hidden" name="folder_id" value="${subject.folder_id }" /> --%>
 				<tr>
 					<td width="10%">名称：</td>
-					<td><input type="text" name="name" value="${subject.name }" /></td>
+					<td><input type="text" name="name" value="${subject.name }" required /></td>
 					<td width="10%">合同编号：</td>
-					<td><input type="text" name="serial_no" value="${subject.serial_no }" /></td>
+					<td><input type="text" name="serial_no" value="${subject.serial_no }" required /></td>
 				</tr>
 				<tr>
 					<td>&nbsp;</td>
@@ -127,9 +127,9 @@
 				</tr>
 				<tr>
 					<td width="10%">起投金额(元)：</td>
-					<td><input type="text" name="floor_amount" value="${subject.floor_amount }" /></td>
+					<td><input type="text" name="floor_amount" value="${subject.floor_amount }" required/></td>
 					<td width="10%">年化率(%)：</td>
-					<td><input type="text" name="year_rate" value="${subject.year_rate }" /></td>
+					<td><input type="text" name="year_rate" value="${subject.year_rate }" required/></td>
 				</tr>
 				<tr>
 					<td>&nbsp;</td>
@@ -145,7 +145,7 @@
 							<option value="2" ${subject.status=="2"?'selected':'' }>已结束</option>
 					</select></td>
 					<td width="10%">投资期限(天)：</td>
-					<td><input type="text" name="period" value="${subject.period }" /></td>
+					<td><input type="text" name="period" value="${subject.period }" required/></td>
 				</tr>
 				<tr>
 					<td>&nbsp;</td>
@@ -155,7 +155,7 @@
 				</tr>
 				<tr>
 					<td width="10%">借款人姓名：</td>
-					<td><input type="text" name="borrowername" value="${subject.borrowername }" /></td>
+					<td><input type="text" name="borrowername" value="${subject.borrowername }" required /></td>
 					<td width="10%">类型：</td>
 					<td><select name="type">
 							<option value="0" ${subject.type=="0"?'selected':'' }>固收类</option>
@@ -171,7 +171,7 @@
 				</tr>
 				<tr>
 					<td width="10%">借款用途：</td>
-					<td><input type="text" name="purpose" value="${subject.purpose }" /></td>
+					<td><input type="text" name="purpose" value="${subject.purpose }" required /></td>
 					<td width="10%">保障方式：</td>
 					<td><select name="safeGuard_way">
 							<option value="0" ${subject.safeGuard_way=="0"?'selected':'' }>企业担保</option>
@@ -201,7 +201,7 @@
 				</tr>
 				<tr>
 					<td width="10%">标的金额(￥):</td>
-					<td><input type="text" name="amount" value="${subject.amount }" /></td>
+					<td><input type="text" name="amount" value="${subject.amount }"required /></td>
 					<td width="10%">&nbsp;</td>
 					<td>&nbsp;</td>
 				</tr>
@@ -215,7 +215,7 @@
 					<td colspan="4">
 					<div>
 						<input type="hidden" />
-						文件：<input type="file" name="file" required />
+						文件：<input type="file" name="file" required/>
 					</div>
 				</td>
 				</tr>

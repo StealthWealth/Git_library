@@ -37,17 +37,6 @@ public class Member {
 	private String qqAccount;  //QQ账号关联
 	private String invitedCode; //被邀请码
 	private String qqNumber; //QQ号码
-	private Member_account member_account;//成员账户表  与基本表应为一对一关系
-	
-	
-	@OneToOne(cascade=CascadeType.ALL)
-	public Member_account getMember_account() {
-		return member_account;
-	}
-	
-	public void setMember_account(Member_account member_account) {
-		this.member_account = member_account;
-	}
 	
 	@Id
 	@GeneratedValue
