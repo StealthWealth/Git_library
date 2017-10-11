@@ -125,7 +125,7 @@
 		</form>
 		<br>
 		<br>
-		<table width="85%" border="1" height="500">
+		<table width="85%" border="1">
 			<tr align="center">
 				<td>序号</td>
 				<td>电话</td>
@@ -150,6 +150,7 @@
 			</c:forEach>
 		</table>
 	</div>
+
 
 	</section> <!-- footer --> <!-- / footer --> </section> <script src="/YJLC_E/js/bootstrap.js"></script> <script src="/YJLC_E/js/jquery.dcjqaccordion.2.7.js"></script> <script
 		src="/YJLC_E/js/scripts.js"></script> <script src="/YJLC_E/js/jquery.slimscroll.js"></script> <script src="/YJLC_E/js/jquery.nicescroll.js"></script>

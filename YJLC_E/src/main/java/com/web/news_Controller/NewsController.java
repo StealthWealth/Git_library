@@ -170,5 +170,7 @@ public class NewsController {
 				newsService.update(news);
 				return "redirect:/listNews";
 			}
+			
+			
 		
 }
