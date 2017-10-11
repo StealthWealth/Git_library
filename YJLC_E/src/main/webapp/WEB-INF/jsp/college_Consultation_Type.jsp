@@ -118,7 +118,7 @@
 		<table width="100%" height="300">
 			<tr>
 				<td><font class="text-info" size="4">根类别:</font></td>
-				<td><select name="supType" id="supType" class="form-control">
+				<td><select name="supType"  class="form-control">
 						<option value="0">根类别</option>
 							<c:forEach items="${listAll }" var="la">
 								<option value="${la.id}">${la.name }</option>
@@ -185,17 +185,96 @@
 						跟类别
 					</c:if>
 					<c:if test="${la.supType>0 }">
-						子类别
+						<c:forEach items="${listAll }" var="list">
+							<c:if test="${list.id==la.supType }">
+								${list.name }
+							</c:if>
+						</c:forEach>
 					</c:if>
 				</td>
 				<td>${la.info }</td>
 				<td>${la.addTime}</td>
-				<td><a class="btn btn-info" href="/YJLC_E/getNews_type/${la.id}">修改</a></td>
+				<td><a class="btn btn-info" id="update" onclick="fun(${la.id})" >修改</a></td>
 			</tr>
 		</c:forEach>
 	</table>
 
-	</section> <!-- footer --> <!-- / footer --> </section> <script src="/YJLC_E/js/bootstrap.js"></script> <script
+	</section> <!-- footer --> <!-- / footer --> </section> 
+	
+	<div class="modal fade" id="updateMyModal" tabindex="-1" role="dialog" 
+   aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" 
+               data-dismiss="modal" aria-hidden="true">
+                  &times;            </button>
+            <h4 class="modal-title" id="myModalLabel">
+            修改信息           </h4>
+         </div>
+         <div class="modal-body" style="height: 200px;">
+          	 	<form action="/YJLC_E/updatenewstype" method="post">
+	<table width="100%" border="0">
+	<input type="hidden" name="id" id="id">
+	<input type="hidden" name="addTime" id="addTime">
+		<tr>
+			<td align="right"><font class="text-info" size="4">根类别：</font></td>
+			<td>
+				<select name="supType" id="supType" class="form-control">
+					<option value="0">根类别</option>
+				<c:forEach items="${listAll }" var="la">
+					<option value="${la.id}">${la.name }</option>
+				</c:forEach>
+				</select>
+			</td>
+			<td align="right"><font class="text-info" size="4">名称：</font></td>
+			<td ><input type="text" name="name" id="name"  class="form-control" required></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+		</tr>
+		<tr >
+			<td align="right"><font class="text-info" size="4">排序：</font></td>
+			<td ><input type="number" name="sort" id="sort"  required class="form-control"></td>
+			<td align="right"><font class="text-info" size="4">简介：</font></td>
+			<td><input type="text" name="info" id="info" required class="form-control"></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+		</tr>
+		<tr>
+		<td align="center" colspan="4">&nbsp;
+			<div class="modal-footer">
+            <button type="button" class="btn btn-default" 
+               data-dismiss="modal">关闭            </button>
+           <input class="btn btn-info" type="submit" value="修改">
+         </div>
+		</td>
+			<td align="center" colspan="4"></td>
+		</tr>
+	</table>
+	</form>
+           </div>
+         
+         
+      </div></div></div>	 
+	
+	
+	<script>
+		function fun(id){
+			 $.post("/YJLC_E/getNews_type/"+id,function(msg){
+					$("#updateMyModal").modal('show');	
+					$("#id").val(msg.id);
+					$("#addTime").val(msg.addTime);
+					$("#name").val(msg.name);
+					$("#sort").val(msg.sort);
+					$("#info").val(msg.info);
+					$("#supType").val(msg.supType);
+			 });
+		}
+	</script>
+	
+	<script src="/YJLC_E/js/bootstrap.js"></script> <script
 		src="/YJLC_E/js/jquery.dcjqaccordion.2.7.js"></script> <script src="/YJLC_E/js/scripts.js"></script> <script
 		src="/YJLC_E/js/jquery.slimscroll.js"></script> <script src="/YJLC_E/js/jquery.nicescroll.js"></script> <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
 	<script src="/YJLC_E/js/jquery.scrollTo.js"></script>

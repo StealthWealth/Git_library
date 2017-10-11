@@ -185,13 +185,13 @@
 					<td>&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="10%">购买人数：</td>
-					<td><input type="text" name="bought" value="${subject.bought }" readonly /></td>
 					<td width="10%">可否使用体验金：</td>
 					<td><select name="exper_status">
 							<option value="0" ${subject.exper_status=="0"?'selected':'' }>否</option>
 							<option value="1" ${subject.exper_status=="1"?'selected':'' }>是</option>
 					</select></td>
+					<td width="10%">&nbsp;</td>
+					<td><input type="hidden" name="bought" value="${subject.bought }" /></td>
 				</tr>
 				<tr>
 					<td>&nbsp;</td>

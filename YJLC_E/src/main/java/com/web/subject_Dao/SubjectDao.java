@@ -95,7 +95,7 @@ public class SubjectDao {
 	//已投金额 已投人数
 	public List<Sum_Subject> listSum_subject(){
 		Session session = getSession();
-		String sql = "select sum_subject.subject_id,sum_subject.sum_amount*sum_subject.sum_pay,getCount from  (select subject_id,SUM(amount) as sum_amount,SUM(pay_interest_times) as sum_pay,count(id) as getCount from subject_purchase_record GROUP BY subject_id)as sum_subject";
+		String sql = "select subject_id,SUM(amount) as sum_amount,count(distinct member_id) as getCount from subject_purchase_record GROUP BY subject_id";
 		List list= session.createSQLQuery(sql).list();
 		List<Sum_Subject> temp=new ArrayList<Sum_Subject>();
 		for(int i=0;i<list.size();i++){
