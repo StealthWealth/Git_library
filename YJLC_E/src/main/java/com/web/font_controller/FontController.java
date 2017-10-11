@@ -373,14 +373,14 @@ public class FontController {
 
 	//我的加法库--投资记录
 	@RequestMapping("/listSPR")
-	public String listSpr(int mid,Model model,HttpSession session) {
+	public String listSpr(Model model,HttpSession session) {
 		Member member=(Member)session.getAttribute("member");
 		int mmid=member.getId();
 		List<Subject_purchase_record> list=fontService.listSPR(mmid);//投资记录所需内容
 		Member_account account = this.fontService.getMember_account(mmid);//头像下面的那一排数字 账户金额等
 		long investCount = this.fontService.getCount(mmid);//投资记录记录数
 		model.addAttribute("listSpr", list);
-		model.addAttribute("account", account);
+		model.addAttribute("account", account);	
 		model.addAttribute("investCount", investCount);
 		return "invest_record";
 	}
@@ -397,7 +397,11 @@ public class FontController {
 	
 	
 	
-	
+	//跳转到网上体验中心
+	@RequestMapping("/olty")
+	public String olty() {
+		return "Online_experience";
+	}
 	
 	
 	

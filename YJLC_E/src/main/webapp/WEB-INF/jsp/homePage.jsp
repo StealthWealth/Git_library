@@ -288,14 +288,19 @@
 			<p class="augue_agile">We are all IT elites</p>
 
 			<div class="str4 str_wrap" style="height: 161px;">
-				<div class="str_move str_origin" style="left: -2728.3px;">
-					<img src="/YJLC_E/font/jQuer_GunDong/1c0ae2205709722b62e843abc0471a55_S.jpg"> <img
-						src="/YJLC_E/font/jQuer_GunDong/01f1a05053c6242fcfa23075e5b963c1_S.jpg"> <img
-						src="/YJLC_E/font/jQuer_GunDong/6f43b5263fbba79c5962514b85d34738_S.jpg"> <img
-						src="/YJLC_E/font/jQuer_GunDong/8b6e33345ac8d5ffd9cf0d107a7d9e9d_S.jpg"> <img
-						src="/YJLC_E/font/jQuer_GunDong/9b2c4b44fb86522964124ed80d03c5e8_S.jpg"> <img
-						src="/YJLC_E/font/jQuer_GunDong/9ecd376e5371efaef9aad9bc9143aed8_S.jpg"> <img
-						src="/YJLC_E/font/jQuer_GunDong/9ecd376e5371efaef9aad9bc9143aed8_S.jpg">
+				<div class="str_move str_origin" style="left: -2728.3px;width: 190px;height: 160px">
+					<img style="width: 190px;height: 160px"
+						src="/YJLC_E/font/jQuer_GunDong/269953.jpg"> <img style="width: 190px;height: 160px"
+						src="/YJLC_E/font/jQuer_GunDong/294857.jpg "> <img style="width: 190px;height: 160px"
+						src="/YJLC_E/font/jQuer_GunDong/286359.jpg"> <img style="width: 190px;height: 160px"
+						src="/YJLC_E/font/jQuer_GunDong/265251.jpg"> <img style="width: 190px;height: 160px"
+						src="/YJLC_E/font/jQuer_GunDong/262785.jpg"> <img style="width: 190px;height: 160px"
+						src="/YJLC_E/font/jQuer_GunDong/291711.jpg "> <img style="width: 190px;height: 160px"
+						src="/YJLC_E/font/jQuer_GunDong/290999.jpg ">
+						<img style="width: 190px;height: 160px"
+						src="/YJLC_E/font/jQuer_GunDong/266731.jpg ">
+						<img style="width: 190px;height: 160px"
+						src="/YJLC_E/font/jQuer_GunDong/294665.jpg">
 				</div>
 			</div>
 		</div>

@@ -143,6 +143,8 @@ public class AlipayController {
 				mtr.setCreate_date(Calendar.getInstance().getTime());//创建时间
 				mtr.setUpdate_date(Calendar.getInstance().getTime());//修改时间
 				
+				
+				
 				if (mema.getUseable_balance() == 0) {//判断可用余额是否为0
 					ma.setUseable_balance(Double.valueOf(total_amount));//修改金额
 					this.alipayservlce.updateMA(ma, mdr,member,mtr);
@@ -178,6 +180,8 @@ public class AlipayController {
 		ma.setUpdate_date(Calendar.getInstance().getTime());//修改时间
 		ma.setUseable_balance(ma.getUseable_balance()-Double.valueOf(gmje));//修改金额
 		ma.setInvest_amount(ma.getInvest_amount()+Double.valueOf(gmje));//修改投资总金额
+		ma.setImuseale_balance(ma.getImuseale_balance()+Double.valueOf(gmje));//添加冻结金额
+
 		
 		
 		//2.添加交易记录
@@ -231,6 +235,8 @@ public class AlipayController {
 		mt.setAmount(Double.valueOf(gmje));//消费金额
 		mt.setPay_date(cusj);//支付时间
 		mt.setCreate_date(cusj);//创建时间
+		
+		
 		
 		
 		this.alipayservlce.updatema(ma,member,mtr,subject,spr,mt);//调用修改方法

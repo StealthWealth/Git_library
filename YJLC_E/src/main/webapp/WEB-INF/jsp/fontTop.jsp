@@ -101,7 +101,7 @@
     <a href="/YJLC_E/users/showStock">首页</a>
   </li>
   <li class="layui-nav-item">
-    <a href="">网上体验中心 </a>
+    <a href="/YJLC_E/users/olty">网上体验中心 </a>
   </li>
   <li class="layui-nav-item">
     <a href="/YJLC_E/users/product">产品中心</a>
@@ -145,16 +145,25 @@
   <c:if test="${!empty member}">
   <li class="layui-nav-item" >
     <a href="javascript:;"><img src="/YJLC_E/font/img/1.jpg" class="layui-nav-img">我</a>
+    
     <dl class="layui-nav-child">
       <dd><a href="javascript:;">修改信息</a></dd>
       <dd><a href="javascript:;">安全管理</a></dd>
       <dd><a href="/YJLC_E/users/tuile">退了</a></dd>
     </dl>
+    
   </li>
   </c:if>
   
   
+  
+  <c:if test="${!empty member}">
+  <a href="/YJLC_E/users/tuile">退了</a>
+  </c:if>
+  
+  
   <c:if test="${empty member}">
+  
   <li class="layui-nav-item">
   	<a href="#small-dialog" class="play-icon popup-with-zoom-anim">登录</a>
   </li>
