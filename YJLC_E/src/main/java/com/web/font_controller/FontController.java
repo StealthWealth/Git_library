@@ -375,6 +375,7 @@ public class FontController {
 	@RequestMapping("/listSPR")
 	public String listSpr(Model model,HttpSession session) {
 		Member member=(Member)session.getAttribute("member");
+		System.out.println(member.getName());
 		int mmid=member.getId();
 		List<Subject_purchase_record> list=fontService.listSPR(mmid);//投资记录所需内容
 		Member_account account = this.fontService.getMember_account(mmid);//头像下面的那一排数字 账户金额等

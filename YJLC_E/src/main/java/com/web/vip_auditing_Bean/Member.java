@@ -38,6 +38,17 @@ public class Member {
 	private String invitedCode; //±»ÑûÇëÂë
 	private String qqNumber; //QQºÅÂë
 	
+	private Member_account member_account;
+	
+	
+	@OneToOne(cascade=CascadeType.ALL)
+	public Member_account getMember_account() {
+		return member_account;
+	}
+	public void setMember_account(Member_account ma) {
+		this.member_account = ma;
+	}
+	
 	@Id
 	@GeneratedValue
 	public int getId() {

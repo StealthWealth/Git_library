@@ -115,8 +115,8 @@ public class AlipayController {
 				
 				Member member=(Member) session.getAttribute("member");
 				System.out.println(member.getId());
-				Member_account mema=this.alipayservlce.getMa(member.getId());//查询账户表
-				session.setAttribute("member", mema); 
+				Member_account mema_acc=this.alipayservlce.getMa(member.getId());//查询账户表
+				session.setAttribute("member_acc", mema_acc); 
 				
 				mdr.setSerial_number(out_trade_no);//流水号
 				mdr.setPay_channel_name("支付宝");//支付渠道名称
@@ -125,7 +125,7 @@ public class AlipayController {
 				mdr.setAmount(Double.valueOf(total_amount));//金额
 				mdr.setStatus(1);//付款状态 1代表支付成功
 				mdr.setUpdate_date(Calendar.getInstance().getTime());//修改时间
-				ma=mema;
+				ma=mema_acc;
 				
 				//给交易表添加交易记录
 				Member_trade_record mtr=new Member_trade_record();//交易记录表
@@ -145,11 +145,11 @@ public class AlipayController {
 				
 				
 				
-				if (mema.getUseable_balance() == 0) {//判断可用余额是否为0
+				if (mema_acc.getUseable_balance() == 0) {//判断可用余额是否为0
 					ma.setUseable_balance(Double.valueOf(total_amount));//修改金额
 					this.alipayservlce.updateMA(ma, mdr,member,mtr);
 				}else {
-					ma.setUseable_balance(Double.valueOf(total_amount)+mema.getUseable_balance());//修改金额
+					ma.setUseable_balance(Double.valueOf(total_amount)+mema_acc.getUseable_balance());//修改金额
 					this.alipayservlce.updateMA(ma, mdr,member,mtr);
 				}
 								
@@ -163,7 +163,7 @@ public class AlipayController {
 			
 			
 			
-			return "a1";//充值成功后返回的页面
+			return "homePage";//充值成功后返回的页面
 	}
 	
 	
